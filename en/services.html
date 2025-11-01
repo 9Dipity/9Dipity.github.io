@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DataCraft Consulting Services - SQL Server optimisation, C#/.NET development, regulatory reporting automation, and system integration for financial institutions.">
+    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/services.html" />
+    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/services.html" />
+    <title>Services - DataCraft Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background: #4a90e2;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        
+        .lang-switcher a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .lang-switcher .active {
+            color: #4a90e2;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #e8f4f8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-content {
+            padding: 5rem 0;
+        }
+        
+        .service-detail {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .service-detail h2 {
+            color: #1a365d;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #4a90e2;
+        }
+        
+        .service-detail p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .service-detail h3 {
+            color: #1a365d;
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-detail ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-detail ul li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .service-detail ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #e8f4f8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4a90e2;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #e8f4f8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: #4a90e2;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e8f4f8;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .service-detail {
+                padding: 2rem 1.5rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-placeholder">DC</div>
+                    DataCraft Consulting
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="lang-switcher">
+                        <a href="services.html" class="active">EN</a>
+                        <span>|</span>
+                        <a href="../lv/services.html">LV</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Specialised technical consulting for data-intensive financial and business environments</p>
+        </div>
+    </section>
+
+    <section class="services-content">
+        <div class="container">
+            
+            <div class="service-detail">
+                <h2>SQL Server Performance Optimisation</h2>
+                <p>
+                    Slow database queries and inefficient data operations can cripple business-critical systems. We specialise in diagnosing and resolving SQL Server performance bottlenecks, turning sluggish databases into high-performance engines that scale with your business.
+                </p>
+                
+                <h3>What We Deliver</h3>
+                <ul>
+                    <li>Comprehensive execution plan analysis to identify query bottlenecks and inefficiencies</li>
+                    <li>Index optimisation strategies including index design, consolidation, and maintenance plans</li>
+                    <li>Stored procedure refactoring to eliminate performance anti-patterns and improve execution speed</li>
+                    <li>Query rewriting for complex reporting and analytical workloads</li>
+                    <li>Database schema optimisation for high-volume transactional systems</li>
+                    <li>Performance monitoring implementation with actionable metrics and alerts</li>
+                    <li>Capacity planning and scaling recommendations based on growth projections</li>
+                </ul>
+                
+                <h3>Typical Outcomes</h3>
+                <ul>
+                    <li>Query execution times reduced by 50-95% through targeted optimisation</li>
+                    <li>Elimination of timeout errors and user-facing performance issues</li>
+                    <li>Reduced server resource consumption, often deferring costly hardware upgrades</li>
+                    <li>Improved system responsiveness during peak load periods</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h2>C#/.NET Backend Development</h2>
+                <p>
+                    Modern backend systems require clean architecture, maintainable code, and robust data processing capabilities. We build scalable .NET solutions that handle complex business logic, integrate seamlessly with existing systems, and stand the test of time.
+                </p>
+                
+                <h3>What We Deliver</h3>
+                <ul>
+                    <li>RESTful API development with modern .NET frameworks (ASP.NET Core, Web API)</li>
+                    <li>Data processing pipelines for high-volume batch operations and real-time streams</li>
+                    <li>Background job processing using Hangfire, Azure Functions, or similar technologies</li>
+                    <li>Entity Framework or Dapper-based data access layers optimised for performance</li>
+                    <li>Authentication and authorisation implementation (OAuth, JWT, Azure AD integration)</li>
+                    <li>Microservices architecture design and implementation where appropriate</li>
+                    <li>Legacy system modernisation and migration to current .NET versions</li>
+                    <li>Unit testing, integration testing, and CI/CD pipeline setup</li>
+                </ul>
+                
+                <h3>Our Approach</h3>
+                <ul>
+                    <li>Clean, maintainable code following SOLID principles and industry best practices</li>
+                    <li>Pragmatic architecture decisions balancing complexity with business needs</li>
+                    <li>Performance-first mindset, especially for data-intensive operations</li>
+                    <li>Comprehensive documentation for future maintainability</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h2>Reporting & Compliance Automation</h2>
+                <p>
+                    Financial institutions face increasingly complex regulatory requirements. Manual reporting processes are error-prone, time-consuming, and don't scale. We automate these workflows, delivering accurate reports faster while reducing operational risk.
+                </p>
+                
+                <h3>What We Deliver</h3>
+                <ul>
+                    <li>SFTR (Securities Financing Transactions Regulation) reporting automation</li>
+                    <li>MiFID II transaction reporting and best execution analysis</li>
+                    <li>Custom regulatory report generation for local and international requirements</li>
+                    <li>Data validation frameworks ensuring report accuracy and completeness</li>
+                    <li>Automated reconciliation processes between systems</li>
+                    <li>Report scheduling and distribution automation</li>
+                    <li>Audit trail generation and compliance documentation</li>
+                    <li>Exception handling and alerting for data quality issues</li>
+                </ul>
+                
+                <h3>Key Benefits</h3>
+                <ul>
+                    <li>Dramatic reduction in manual effort (hours to minutes for complex reports)</li>
+                    <li>Elimination of human error in data aggregation and calculations</li>
+                    <li>Faster time-to-compliance for new regulatory requirements</li>
+                    <li>Complete audit trails for regulatory scrutiny</li>
+                    <li>Scalability as transaction volumes grow</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h2>System Integration</h2>
+                <p>
+                    Modern businesses run on interconnected systems. Data needs to flow seamlessly between trading platforms, risk systems, accounting software, and reporting tools. We design and implement robust integration solutions that connect your technology stack reliably.
+                </p>
+                
+                <h3>What We Deliver</h3>
+                <ul>
+                    <li>ETL (Extract, Transform, Load) pipeline development for data warehousing</li>
+                    <li>API integration between internal systems and third-party services</li>
+                    <li>Real-time data synchronisation for mission-critical workflows</li>
+                    <li>Message queue implementation (RabbitMQ, Azure Service Bus, MSMQ)</li>
+                    <li>File-based integration with validation and error handling</li>
+                    <li>Database replication and synchronisation strategies</li>
+                    <li>Integration monitoring and alerting frameworks</li>
+                    <li>Data mapping and transformation logic for heterogeneous systems</li>
+                </ul>
+                
+                <h3>Our Focus</h3>
+                <ul>
+                    <li>Reliability and fault tolerance in integration processes</li>
+                    <li>Comprehensive error handling and recovery mechanisms</li>
+                    <li>Performance optimisation for high-volume data transfers</li>
+                    <li>Security and data privacy in cross-system communication</li>
+                    <li>Maintainability and clear documentation of integration logic</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Discuss Your Project?</h2>
+            <p>Let's explore how our expertise can solve your technical challenges.</p>
+            <a href="contact.html" class="cta-button">Book Your Free Discovery Call</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DataCraft Consulting</h3>
+                    <p>Expert SQL & C# consulting for financial institutions and data-intensive businesses.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="services.html">Services</a>
+                    <a href="about.html">About</a>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: contact@datacraft.lv</p>
+                    <p>Location: Riga, Latvia</p>
+                    <p><a href="contact.html">Book a Discovery Call</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DataCraft Consulting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

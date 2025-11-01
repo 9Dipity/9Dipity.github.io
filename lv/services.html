@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DataCraft Consulting Pakalpojumi - SQL Server veiktspējas optimizācija, C#/.NET izstrāde un regulējumu automatizācija finanšu iestādēm.">
+    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/services.html" />
+    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/services.html" />
+    <title>Pakalpojumi - DataCraft Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background: #4a90e2;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        
+        .lang-switcher a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .lang-switcher .active {
+            color: #4a90e2;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #e8f4f8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-content {
+            padding: 5rem 0;
+        }
+        
+        .service-detail {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .service-detail h2 {
+            color: #1a365d;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #4a90e2;
+        }
+        
+        .service-detail p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .service-detail h3 {
+            color: #1a365d;
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-detail ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-detail ul li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .service-detail ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #e8f4f8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4a90e2;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #e8f4f8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: #4a90e2;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e8f4f8;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .service-detail {
+                padding: 2rem 1.5rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-placeholder">DC</div>
+                    DataCraft Consulting
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Sākums</a></li>
+                    <li><a href="services.html">Pakalpojumi</a></li>
+                    <li><a href="about.html">Par Mums</a></li>
+                    <li><a href="case-studies.html">Projekti</a></li>
+                    <li><a href="contact.html">Kontakti</a></li>
+                    <li class="lang-switcher">
+                        <a href="../en/services.html">EN</a>
+                        <span>|</span>
+                        <a href="services.html" class="active">LV</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Mūsu Pakalpojumi</h1>
+            <p>Specializēta tehniskā konsultēšana datu intensīvām finanšu un biznesa vidēm</p>
+        </div>
+    </section>
+
+    <section class="services-content">
+        <div class="container">
+            
+            <div class="service-detail">
+                <h2>SQL Server Veiktspējas Optimizācija</h2>
+                <p>
+                    Lēni datu bāzes vaicājumi un neefektīvas datu operācijas var paralizēt uzņēmuma kritiskās sistēmas. Mēs specializējamies SQL Server veiktspējas šaurvietu diagnosticēšanā un novēršanā, pārvēršot lēnas datu bāzes augstas veiktspējas dzinējos, kas mērogojami kopā ar jūsu biznesu.
+                </p>
+                
+                <h3>Ko Mēs Sniedzam</h3>
+                <ul>
+                    <li>Visaptveroša izpildes plānu analīze, lai identificētu vaicājumu šaurvietas un neefektivitāti</li>
+                    <li>Indeksu optimizācijas stratēģijas, ieskaitot indeksu dizainu, konsolidāciju un uzturēšanas plānus</li>
+                    <li>Saglabāto procedūru pārstrukturēšana, lai novērstu veiktspējas antiparadumus un uzlabotu izpildes ātrumu</li>
+                    <li>Vaicājumu pārrakstīšana sarežģītām pārskatu un analītiskām darba slodzēm</li>
+                    <li>Datu bāzes shēmas optimizācija liela apjoma transakciju sistēmām</li>
+                    <li>Veiktspējas monitoringa ieviešana ar rīcībspējīgiem rādītājiem un brīdinājumiem</li>
+                    <li>Kapacitātes plānošana un mērogošanas ieteikumi, pamatojoties uz izaugsmes prognozēm</li>
+                </ul>
+                
+                <h3>Tipiskie Rezultāti</h3>
+                <ul>
+                    <li>Vaicājumu izpildes laiks samazināts par 50-95% ar mērķtiecīgu optimizāciju</li>
+                    <li>Taimauta kļūdu un lietotājiem redzamu veiktspējas problēmu novēršana</li>
+                    <li>Samazināta servera resursu patēriņš, bieži vien atliekot dārgus aparatūras uzlabojumus</li>
+                    <li>Uzlabota sistēmas atsaucība maksimālās slodzes periodos</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h2>C#/.NET Aizmugures Izstrāde</h2>
+                <p>
+                    Mūsdienīgas aizmugures sistēmas prasa tīru arhitektūru, uzturējamu kodu un spēcīgas datu apstrādes iespējas. Mēs veidojam mērogojamus .NET risinājumus, kas apstrādā sarežģītu biznesa loģiku, nemanāmi integrējas ar esošajām sistēmām un iztur laika pārbaudi.
+                </p>
+                
+                <h3>Ko Mēs Sniedzam</h3>
+                <ul>
+                    <li>RESTful API izstrāde ar mūsdienīgiem .NET ietvaru (ASP.NET Core, Web API)</li>
+                    <li>Datu apstrādes konveijerlīnijas liela apjoma pakešu operācijām un reāllaika plūsmām</li>
+                    <li>Fona darbu apstrāde, izmantojot Hangfire, Azure Functions vai līdzīgas tehnoloģijas</li>
+                    <li>Entity Framework vai Dapper balstīti datu piekļuves slāņi, optimizēti veiktspējai</li>
+                    <li>Autentifikācijas un autorizācijas ieviešana (OAuth, JWT, Azure AD integrācija)</li>
+                    <li>Mikroservisu arhitektūras projektēšana un ieviešana, kur nepieciešams</li>
+                    <li>Mantoto sistēmu modernizācija un migrācija uz pašreizējām .NET versijām</li>
+                    <li>Vienību testēšana, integrācijas testēšana un CI/CD konveijerlīniju uzstādīšana</li>
+                </ul>
+                
+                <h3>Mūsu Pieeja</h3>
+                <ul>
+                    <li>Tīrs, uzturējams kods, ievērojot SOLID principus un nozares labāko praksi</li>
+                    <li>Pragmatiskas arhitektūras lēmumi, līdzsvarojot sarežģītību ar biznesa vajadzībām</li>
+                    <li>Veiktspēju prioritizējoša domāšana, īpaši datu intensīvām operācijām</li>
+                    <li>Visaptveroša dokumentācija turpmākajai uzturēšanai</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h2>Pārskatu un Atbilstības Automatizācija</h2>
+                <p>
+                    Finanšu iestādes saskaras ar arvien sarežģītākām regulējuma prasībām. Manuālie pārskatu procesi ir kļūdaini, laikietilpīgi un nav mērogojami. Mēs automatizējam šos darba procesus, sniedzot precīzus pārskatus ātrāk, vienlaikus samazinot operacionālo risku.
+                </p>
+                
+                <h3>Ko Mēs Sniedzam</h3>
+                <ul>
+                    <li>SFTR (Vērtspapīru finansēšanas transakciju regulējuma) pārskatu automatizācija</li>
+                    <li>MiFID II transakciju pārskati un labākās izpildes analīze</li>
+                    <li>Pielāgotu regulatīvo pārskatu ģenerēšana vietējām un starptautiskām prasībām</li>
+                    <li>Datu validācijas ietvari, kas nodrošina pārskatu precizitāti un pilnīgumu</li>
+                    <li>Automatizēti saskaņošanas procesi starp sistēmām</li>
+                    <li>Pārskatu plānošanas un izplatīšanas automatizācija</li>
+                    <li>Auditācijas ceļa ģenerēšana un atbilstības dokumentācija</li>
+                    <li>Izņēmumu apstrāde un brīdināšana par datu kvalitātes problēmām</li>
+                </ul>
+                
+                <h3>Galvenās Priekšrocības</h3>
+                <ul>
+                    <li>Dramatiska manuālā darba samazināšana (no stundām līdz minūtēm sarežģītiem pārskatiem)</li>
+                    <li>Cilvēka kļūdu novēršana datu apkopošanā un aprēķinos</li>
+                    <li>Ātrāks atbilstības laiks jaunām regulējuma prasībām</li>
+                    <li>Pilnīgi auditācijas ceļi regulējošu iestāžu pārbaudei</li>
+                    <li>Mērogojamība, palielinoties transakciju apjomiem</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h2>Sistēmu Integrācija</h2>
+                <p>
+                    Mūsdienu uzņēmumi darbojas ar savstarpēji savienotām sistēmām. Datiem jāplūst nemanāmi starp tirdzniecības platformām, risku sistēmām, grāmatvedības programmatūru un pārskatu rīkiem. Mēs projektējam un ieviešam stabilus integrācijas risinājumus, kas uzticami savieno jūsu tehnoloģiju steku.
+                </p>
+                
+                <h3>Ko Mēs Sniedzam</h3>
+                <ul>
+                    <li>ETL (Ekstrahēšanas, Transformācijas, Ielādēšanas) konveijerlīniju izstrāde datu noliktavām</li>
+                    <li>API integrācija starp iekšējām sistēmām un trešo pušu pakalpojumiem</li>
+                    <li>Reāllaika datu sinhronizācija misijkritiskiem darba procesiem</li>
+                    <li>Ziņojumu rindu ieviešana (RabbitMQ, Azure Service Bus, MSMQ)</li>
+                    <li>Uz failiem balstīta integrācija ar validāciju un kļūdu apstrādi</li>
+                    <li>Datu bāzu replikācijas un sinhronizācijas stratēģijas</li>
+                    <li>Integrācijas monitoringa un brīdināšanas ietvari</li>
+                    <li>Datu kartēšanas un transformācijas loģika neviendabīgām sistēmām</li>
+                </ul>
+                
+                <h3>Mūsu Fokuss</h3>
+                <ul>
+                    <li>Uzticamība un kļūdu tolerance integrācijas procesos</li>
+                    <li>Visaptveroša kļūdu apstrāde un atgūšanas mehānismi</li>
+                    <li>Veiktspējas optimizācija liela apjoma datu pārnesumiem</li>
+                    <li>Drošība un datu privātums starp sistēmu komunikācijā</li>
+                    <li>Uzturējamība un skaidra integrācijas loģikas dokumentācija</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Gatavs Apspriest Savu Projektu?</h2>
+            <p>Apskatīsim, kā mūsu ekspertīze var atrisināt jūsu tehniskās problēmas.</p>
+            <a href="contact.html" class="cta-button">Rezervēt Bezmaksas Konsultāciju</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DataCraft Consulting</h3>
+                    <p>Ekspertu SQL un C# konsultācijas finanšu iestādēm un datu intensīviem uzņēmumiem.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Ātrās Saites</h3>
+                    <a href="services.html">Pakalpojumi</a>
+                    <a href="about.html">Par Mums</a>
+                    <a href="case-studies.html">Projekti</a>
+                    <a href="contact.html">Kontakti</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakti</h3>
+                    <p>E-pasts: contact@datacraft.lv</p>
+                    <p>Atrašanās vieta: Rīga, Latvija</p>
+                    <p><a href="contact.html">Rezervēt Konsultāciju</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DataCraft Consulting. Visas tiesības aizsargātas.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

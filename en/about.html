@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About DataCraft Consulting - Expert technical consulting founded by Andris, ex-banking technology specialist with 10+ years in financial systems.">
+    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/about.html" />
+    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/about.html" />
+    <title>About Us - DataCraft Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background: #4a90e2;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        
+        .lang-switcher a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .lang-switcher .active {
+            color: #4a90e2;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #e8f4f8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            padding: 5rem 0;
+        }
+        
+        .about-section {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+        }
+        
+        .about-section h2 {
+            color: #1a365d;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-section p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .founder-bio {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+        
+        .founder-bio h3 {
+            color: #1a365d;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        
+        .mission-box {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .mission-box h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-box p {
+            font-size: 1.2rem;
+            color: #e8f4f8;
+            line-height: 1.8;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card h3 {
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: #1a365d;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #4a5568;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4a90e2;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #e8f4f8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: #4a90e2;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e8f4f8;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .founder-bio,
+            .mission-box {
+                padding: 2rem 1.5rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-placeholder">DC</div>
+                    DataCraft Consulting
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="lang-switcher">
+                        <a href="about.html" class="active">EN</a>
+                        <span>|</span>
+                        <a href="../lv/about.html">LV</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>About DataCraft Consulting</h1>
+            <p>Boutique technical consulting focused on high-performance data systems</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            
+            <div class="about-section">
+                <h2>Our Story</h2>
+                <p>
+                    DataCraft Consulting was founded to bridge the gap between complex technical challenges and practical business solutions. We specialise in the intersection of database performance, backend development, and financial regulatory compliance—areas where deep expertise makes the difference between systems that struggle and systems that excel.
+                </p>
+                <p>
+                    Operating as a boutique consultancy, we deliver the senior-level expertise typically found at large firms, but with the agility, responsiveness, and personalised attention that only a focused specialist can provide. Our clients benefit from direct access to experienced professionals who understand both the technical intricacies and the business context of their challenges.
+                </p>
+                <p>
+                    We work primarily with financial institutions, fintech companies, and data-intensive businesses where performance, reliability, and regulatory compliance are not optional—they're fundamental to success. Our engagements range from targeted performance optimisation projects to comprehensive system development and integration initiatives.
+                </p>
+            </div>
+
+            <div class="founder-bio">
+                <h3>Meet the Founder: Andris [Surname]</h3>
+                <p>
+                    DataCraft Consulting is led by Andris, a technology specialist with over 10 years of experience in banking and financial services technology. Andris has spent the majority of his career deep in the trenches of mission-critical financial systems, where milliseconds matter and accuracy is non-negotiable.
+                </p>
+                <p>
+                    His background spans regulatory reporting systems, high-volume transaction processing, and complex data integration projects for major financial institutions. This experience has provided a unique perspective on what it takes to build systems that not only work today, but scale and adapt as businesses grow and regulations evolve.
+                </p>
+                <p>
+                    Andris specialises in SQL Server performance optimisation, C#/.NET backend development, and automating complex regulatory workflows. He has personally transformed systems that took 15 minutes to generate reports into sub-two-minute processes, eliminated database bottlenecks that plagued production systems, and automated manual compliance tasks that consumed hundreds of hours annually.
+                </p>
+                <p>
+                    His approach combines deep technical knowledge with pragmatic problem-solving. Rather than over-engineering solutions or chasing the latest trends, Andris focuses on what actually works in production environments—reliable, maintainable, high-performance systems that deliver measurable business value.
+                </p>
+            </div>
+
+            <div class="mission-box">
+                <h2>Our Mission</h2>
+                <p>
+                    To deliver high-performance, reliable data pipelines and backend systems that empower financial institutions and data-intensive businesses to operate efficiently, comply with regulations confidently, and scale without friction.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    We believe that technology should be an enabler, not a bottleneck. Our mission is to optimise the critical systems that businesses depend on, transforming technical challenges into competitive advantages.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3>Results-Focused</h3>
+                        <p>We measure success in tangible outcomes: faster systems, automated workflows, eliminated bottlenecks, and measurable time savings.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🔧</div>
+                        <h3>Pragmatic Engineering</h3>
+                        <p>We favor proven solutions over trendy technologies, and maintainability over complexity. The best solution is the one that works reliably in production.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Partnership Mindset</h3>
+                        <p>We're not just vendors—we're partners invested in your success. Your technical challenges become our challenges to solve.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">📚</div>
+                        <h3>Knowledge Transfer</h3>
+                        <p>We document our work thoroughly and explain our decisions clearly, ensuring your team can maintain and evolve the solutions we deliver.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section" style="margin-top: 4rem;">
+                <h2>Why Boutique?</h2>
+                <p>
+                    Large consultancies bring scale but often lack the depth and focus needed for specialised technical work. We've deliberately structured DataCraft Consulting as a boutique firm to ensure that every client works directly with senior-level expertise, not junior consultants learning on the job.
+                </p>
+                <p>
+                    This approach allows us to be highly selective about the projects we take on, ensuring we only work where we can deliver exceptional value. It also means faster decision-making, more flexible engagement models, and no layers of bureaucracy between you and the person solving your problems.
+                </p>
+                <p>
+                    As we grow, we maintain this commitment to quality over quantity. Expansion will always be measured, ensuring we can continue delivering the level of expertise and attention that defines our service.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>Ready to discuss your technical challenges? We'd love to hear from you.</p>
+            <a href="contact.html" class="cta-button">Book Your Free Discovery Call</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DataCraft Consulting</h3>
+                    <p>Expert SQL & C# consulting for financial institutions and data-intensive businesses.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="services.html">Services</a>
+                    <a href="about.html">About</a>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: contact@datacraft.lv</p>
+                    <p>Location: Riga, Latvia</p>
+                    <p><a href="contact.html">Book a Discovery Call</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DataCraft Consulting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Par DataCraft Consulting - Ekspertu tehniskā konsultācija, ko dibinājis Andris, bijušais banku tehnoloģiju speciālists ar 10+ gadu pieredzi.">
+    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/about.html" />
+    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/about.html" />
+    <title>Par Mums - DataCraft Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background: #4a90e2;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        
+        .lang-switcher a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .lang-switcher .active {
+            color: #4a90e2;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #e8f4f8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            padding: 5rem 0;
+        }
+        
+        .about-section {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+        }
+        
+        .about-section h2 {
+            color: #1a365d;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-section p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .founder-bio {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+        
+        .founder-bio h3 {
+            color: #1a365d;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        
+        .mission-box {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .mission-box h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-box p {
+            font-size: 1.2rem;
+            color: #e8f4f8;
+            line-height: 1.8;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card h3 {
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: #1a365d;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #4a5568;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4a90e2;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #e8f4f8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: #4a90e2;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e8f4f8;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .founder-bio,
+            .mission-box {
+                padding: 2rem 1.5rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-placeholder">DC</div>
+                    DataCraft Consulting
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Sākums</a></li>
+                    <li><a href="services.html">Pakalpojumi</a></li>
+                    <li><a href="about.html">Par Mums</a></li>
+                    <li><a href="case-studies.html">Projekti</a></li>
+                    <li><a href="contact.html">Kontakti</a></li>
+                    <li class="lang-switcher">
+                        <a href="../en/about.html">EN</a>
+                        <span>|</span>
+                        <a href="about.html" class="active">LV</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Par DataCraft Consulting</h1>
+            <p>Butika tehniskā konsultācija, kas koncentrējas uz augstas veiktspējas datu sistēmām</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            
+            <div class="about-section">
+                <h2>Mūsu Stāsts</h2>
+                <p>
+                    DataCraft Consulting tika dibināts, lai pārvarētu plaisu starp sarežģītām tehniskām problēmām un praktiskiem biznesa risinājumiem. Mēs specializējamies datu bāzu veiktspējas, aizmugures izstrādes un finanšu regulatīvās atbilstības krustpunktā—jomās, kurās dziļa ekspertīze veido atšķirību starp sistēmām, kas cīnās, un sistēmām, kas izcili darbojas.
+                </p>
+                <p>
+                    Darbojoties kā butika konsultācija, mēs sniedzam augsta līmeņa ekspertīzi, kas parasti atrodama lielās firmās, bet ar veiklību, atsaucību un personalizētu uzmanību, ko var sniegt tikai fokusēts speciālists. Mūsu klienti gūst labumu no tiešas piekļuves pieredzējušiem profesionāļiem, kas saprot gan tehniskās nianses, gan viņu problēmu biznesa kontekstu.
+                </p>
+                <p>
+                    Mēs galvenokārt strādājam ar finanšu iestādēm, fintech uzņēmumiem un datu intensīviem uzņēmumiem, kur veiktspēja, uzticamība un regulatīvā atbilstība nav izvēle—tās ir fundamentālas panākumiem. Mūsu projekti svārstās no mērķtiecīgiem veiktspējas optimizācijas projektiem līdz visaptverošām sistēmu izstrādes un integrācijas iniciatīvām.
+                </p>
+            </div>
+
+            <div class="founder-bio">
+                <h3>Iepazīsties ar Dibinātāju: Andris [Uzvārds]</h3>
+                <p>
+                    DataCraft Consulting vada Andris, tehnoloģiju speciālists ar vairāk nekā 10 gadu pieredzi banku un finanšu pakalpojumu tehnoloģijās. Andris ir pavadījis lielāko daļu savas karjeras dziļi misijkritisko finanšu sistēmu траншejās, kur milisekundes ir svarīgas un precizitāte nav apspriežama.
+                </p>
+                <p>
+                    Viņa pieredze aptver regulatīvo pārskatu sistēmas, liela apjoma transakciju apstrādi un sarežģītus datu integrācijas projektus lielām finanšu iestādēm. Šī pieredze ir sniegusi unikālu perspektīvu par to, kas nepieciešams, lai veidotu sistēmas, kas ne tikai darbojas šodien, bet arī mērogojami un pielāgojas, uzņēmumiem augot un regulējumiem attīstoties.
+                </p>
+                <p>
+                    Andris specializējas SQL Server veiktspējas optimizācijā, C#/.NET aizmugures izstrādē un sarežģītu regulatīvo darba procesu automatizācijā. Viņš personīgi ir pārveidojis sistēmas, kas ģenerēja pārskatus 15 minūtes, procesus, kas ilgst mazāk par divām minūtēm, novērsis datu bāzu šaurvietas, kas nomāca ražošanas sistēmas, un automatizējis manuālus atbilstības uzdevumus, kas patērēja simtiem stundu gadā.
+                </p>
+                <p>
+                    Viņa pieeja apvieno dziļas tehniskas zināšanas ar pragmatisku problēmu risināšanu. Tā vietā, lai pārinženierētu risinājumus vai dzītos pēc jaunākajām tendencēm, Andris koncentrējas uz to, kas faktiski darbojas ražošanas vidēs—uzticamas, uzturējamas, augstas veiktspējas sistēmas, kas sniedz izmērāmu biznesa vērtību.
+                </p>
+            </div>
+
+            <div class="mission-box">
+                <h2>Mūsu Misija</h2>
+                <p>
+                    Sniegt augstas veiktspējas, uzticamus datu konveijerlīnijas un aizmugures sistēmas, kas dod iespēju finanšu iestādēm un datu intensīviem uzņēmumiem darboties efektīvi, atbilst regulējumiem pārliecinoši un mērogojami bez berzes.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    Mēs ticam, ka tehnoloģijai jābūt iespējotājam, nevis šaurvietai. Mūsu misija ir optimizēt kritiskās sistēmas, no kurām uzņēmumi ir atkarīgi, pārvēršot tehniskās problēmas konkurences priekšrocībās.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>Mūsu Vērtības</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3>Rezultātorientēti</h3>
+                        <p>Mēs mērām panākumus taustāmos rezultātos: ātrākās sistēmās, automatizētos darba procesos, novērstās šaurvietās un izmērāmos laika ietaupījumos.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🔧</div>
+                        <h3>Pragmatiska Inženierija</h3>
+                        <p>Mēs dodam priekšroku pārbaudītiem risinājumiem, nevis modernām tehnoloģijām, un uzturējamībai, nevis sarežģītībai. Labākais risinājums ir tas, kas uzticami darbojas ražošanā.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Partnerības Domāšana</h3>
+                        <p>Mēs neesam tikai piegādātāji—mēs esam partneri, kas ieguldīti jūsu panākumos. Jūsu tehniskās problēmas kļūst par mūsu problēmām, ko risināt.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">📚</div>
+                        <h3>Zināšanu Nodošana</h3>
+                        <p>Mēs dokumentējam savu darbu rūpīgi un skaidri izskaidrojam savus lēmumus, nodrošinot, ka jūsu komanda var uzturēt un attīstīt risinājumus, ko mēs sniedzam.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section" style="margin-top: 4rem;">
+                <h2>Kāpēc Butika?</h2>
+                <p>
+                    Lielas konsultāciju firmas piedāvā mērogu, bet bieži trūkst dziļuma un fokusa, kas nepieciešams specializētam tehniskam darbam. Mēs apzināti esam strukturējuši DataCraft Consulting kā butika firmu, lai nodrošinātu, ka katrs klients strādā tieši ar augsta līmeņa ekspertīzi, nevis ar jaunākiem konsultantiem, kas mācās darbā.
+                </p>
+                <p>
+                    Šī pieeja ļauj mums būt ļoti selektīviem par projektiem, ko uzņemamies, nodrošinot, ka mēs strādājam tikai tur, kur varam sniegt izcilu vērtību. Tas arī nozīmē ātrāku lēmumu pieņemšanu, elastīgākus sadarbības modeļus un nekādus birokrātijas slāņus starp jums un personu, kas risina jūsu problēmas.
+                </p>
+                <p>
+                    Mums augot, mēs saglabājam šo apņemšanos kvalitātei, nevis kvantitātei. Paplašināšanās vienmēr būs mērena, nodrošinot, ka mēs varam turpināt sniegt ekspertīzes līmeni un uzmanību, kas raksturo mūsu pakalpojumu.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Strādāsim Kopā</h2>
+            <p>Gatavs apspriest savas tehniskās problēmas? Mēs labprāt dzirdētu no jums.</p>
+            <a href="contact.html" class="cta-button">Rezervēt Bezmaksas Konsultāciju</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DataCraft Consulting</h3>
+                    <p>Ekspertu SQL un C# konsultācijas finanšu iestādēm un datu intensīviem uzņēmumiem.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Ātrās Saites</h3>
+                    <a href="services.html">Pakalpojumi</a>
+                    <a href="about.html">Par Mums</a>
+                    <a href="case-studies.html">Projekti</a>
+                    <a href="contact.html">Kontakti</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakti</h3>
+                    <p>E-pasts: contact@datacraft.lv</p>
+                    <p>Atrašanās vieta: Rīga, Latvija</p>
+                    <p><a href="contact.html">Rezervēt Konsultāciju</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DataCraft Consulting. Visas tiesības aizsargātas.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

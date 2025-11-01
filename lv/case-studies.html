@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DataCraft Consulting Projekti - Reālas pasaules SQL optimizācijas, regulējumu automatizācijas un sistēmu veiktspējas uzlabojumu piemēri.">
+    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/case-studies.html" />
+    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/case-studies.html" />
+    <title>Projekti - DataCraft Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background: #4a90e2;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        
+        .lang-switcher a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .lang-switcher .active {
+            color: #4a90e2;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #e8f4f8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .blog-tagline {
+            background: #f8f9fa;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .blog-tagline p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            font-style: italic;
+        }
+        
+        .case-studies-content {
+            padding: 5rem 0;
+        }
+        
+        .case-study {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .case-study-header {
+            border-bottom: 3px solid #4a90e2;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .case-study-header h2 {
+            color: #1a365d;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .case-study-meta {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+        
+        .challenge-box,
+        .solution-box,
+        .results-box {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #4a90e2;
+        }
+        
+        .challenge-box h3,
+        .solution-box h3,
+        .results-box h3 {
+            color: #1a365d;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .case-study p {
+            color: #4a5568;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .case-study ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .case-study ul li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #4a5568;
+        }
+        
+        .case-study ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .metric {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #4a90e2;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-label {
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        .tech-stack {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .tech-stack h4 {
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tech-tag {
+            background: #4a90e2;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #e8f4f8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4a90e2;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #e8f4f8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: #4a90e2;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e8f4f8;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .case-study {
+                padding: 2rem 1.5rem;
+            }
+            
+            .metric-value {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-placeholder">DC</div>
+                    DataCraft Consulting
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Sākums</a></li>
+                    <li><a href="services.html">Pakalpojumi</a></li>
+                    <li><a href="about.html">Par Mums</a></li>
+                    <li><a href="case-studies.html">Projekti</a></li>
+                    <li><a href="contact.html">Kontakti</a></li>
+                    <li class="lang-switcher">
+                        <a href="../en/case-studies.html">EN</a>
+                        <span>|</span>
+                        <a href="case-studies.html" class="active">LV</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Projekti un Gadījumu Izpētes</h1>
+            <p>Reālas pasaules veiktspējas optimizācijas un sistēmu pārveidošanas piemēri</p>
+        </div>
+    </section>
+
+    <section class="blog-tagline">
+        <div class="container">
+            <p>Ieskati un optimizācijas datu smagajās sistēmās</p>
+        </div>
+    </section>
+
+    <section class="case-studies-content">
+        <div class="container">
+            
+            <article class="case-study">
+                <div class="case-study-header">
+                    <h2>SFTR Pārskatu Ģenerēšanas Laika Samazināšana no 15 Minūtēm uz Mazāk Nekā 2 Minūtēm</h2>
+                    <p class="case-study-meta">Finanšu Iestāde | Regulatīvie Pārskati | SQL Optimizācija</p>
+                </div>
+
+                <div class="challenge-box">
+                    <h3>Izaicinājums</h3>
+                    <p>
+                        Vidēja lieluma finanšu iestāde cīnījās ar savu Vērtspapīru finansēšanas transakciju regulējuma (SFTR) pārskatu procesu. Viņu ikdienas regulatīvais pārskats, kas apkopoja sarežģītus transakciju datus no vairākām sistēmām, prasīja vairāk nekā 15 minūtes, lai ģenerētu. Tas radīja vairākas kritiskas problēmas:
+                    </p>
+                    <ul>
+                        <li>Pārskatu logs bija šaurs, neatstājot rezerves laiku atkārtotiem mēģinājumiem, ja radās problēmas</li>
+                        <li>Datu bāzes bloķēšana pārskatu ģenerēšanas laikā ietekmēja citas biznesa operācijas</li>
+                        <li>Operāciju komandai bija manuāli jāuzrauga process, patērējot vērtīgu laiku</li>
+                        <li>Jebkādas datu labošanas prasīja pilnu atkārtotu darbību, bieži iespiežoties kritiskās biznesa stundās</li>
+                    </ul>
+                    <p>
+                        SFTR pārskatu sarežģītība—prasot apkopošanu pa transakciju veidiem, darījuma partneriem un nodrošinājuma vērtējumiem—padarīja procesu būtībā resursu intensīvu. Esošās saglabātās procedūras bija attīstījušās organiski laika gaitā, uzkrājot tehnisko parādu, kad tika pievienotas jaunas prasības.
+                    </p>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Mūsu Pieeja</h3>
+                    <p>
+                        Mēs veicām visaptverošu pārskatu konveijerlīnijas analīzi, koncentrējoties uz trim galvenajām jomām: vaicājumu izpildes plāniem, datu bāzes shēmas dizainu un datu piekļuves paraug iem.
+                    </p>
+                    <p>
+                        Izmeklēšana atklāja vairākas kritiskas šaurvietas. Pirmkārt, galvenie apkopošanas vaicājumi veica vairākus tabulu skenējumus pa transakciju tabulām, kas saturēja miljoniem rindu. Otrkārt, pagaidu sagatavošanas tabulas tika pārveidotas no jauna katram pārskata darbināšanas reizei, neskatoties uz to, ka lielākā daļa pamatā esošo datu palika nemainīga. Treškārt, sarežģīta biznesa loģika bija iegulta tieši SQL, izveidojot dziļi ligzdotas apakšvaicājumus, ar kuriem vaicājumu optimizatoram bija grūti efektīvi rīkoties.
+                    </p>
+                    <p>
+                        Mūsu optimizācijas stratēģija ietver:
+                    </p>
+                    <ul>
+                        <li>Pamata apkopošanas loģikas pārprojektēšana, lai izmantotu indeksētos skatus bieži piekļūstamām datu kombinācijām</li>
+                        <li>Inkrementālas apstrādes pieejas ieviešana, pārrēķinot tikai datus, kas mainījušies kopš iepriekšējās darbināšanas reizes</li>
+                        <li>Sarežģītu ligzdotu vaicājumu pārstrukturēšana virkņu labi indeksētu pagaidu tabulu ar stratēģisku filtrēto indeksu izmantošanu</li>
+                        <li>Noteiktu biznesa loģikas aprēķinu pārvietošana materializētos stabiņos ar saglabātām aprēķinātām vērtībām</li>
+                        <li>Transakciju datu shēmas optimizēšana, pievienojot rūpīgi projektētus sastāvdaļu indeksus, kas saskaņoti ar izplatītiem vaicājumu modeļiem</li>
+                        <li>Paralēlas apstrādes ieviešana neatkarīgiem datu segmentiem, kur piemērots</li>
+                    </ul>
+                    <p>
+                        Visa projekta gaitā mēs cieši sadarbojāmies ar iestādes operāciju un atbilstības komandām, lai nodrošinātu, ka optimizētais process saglabā pilnīgu datu precizitāti un atbilst visām regulējuma prasībām. Plaša saskaņošanas testēšana pārbaudīja, ka jaunais process radīja identiskus rezultātus kā sākotnējā ieviešana.
+                    </p>
+                </div>
+
+                <div class="results-box">
+                    <h3>Rezultāti</h3>
+                    <div class="metrics">
+                        <div class="metric">
+                            <div class="metric-value">87%</div>
+                            <div class="metric-label">Apstrādes Laika Samazinājums</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">&lt;2 min</div>
+                            <div class="metric-label">Pārskatu Ģenerēšanas Laiks</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">70%</div>
+                            <div class="metric-label">Zemāka CPU Izmantošana</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Nulle</div>
+                            <div class="metric-label">Ražošanas Ietekmes Problēmas</div>
+                        </div>
+                    </div>
+                    <p>
+                        Optimizētais SFTR pārskatu process tagad tiek pabeigts mazāk nekā 2 minūtēs—87% samazinājums no sākotnējā 15+ minūšu izpildes laika. Šis dramatiskais uzlabojums sniedza tūlītējas operatīvās priekšrocības. Pārskatu komanda ieguva elastību plānošanā ar pietiekamu rezerves laiku atkārtotām darbināšanas reizēm, ja nepieciešams. Datu bāzes resursu patēriņš pārskatu veidošanas laikā samazinājās par 70%, novēršot ietekmi uz vienlaicīgām operācijām. Ātrākais apgrozījums ļāva atbilstības komandai pārskatīt un iesniegt pārskatus agrāk dienā, samazinot regulējumu iesniegšanas risku.
+                    </p>
+                    <p>
+                        Ārpus tūlītējiem laika ietaupījumiem, pārstrukturētā arhitektūra pozicionēja iestādi nākotnes izaugsmei. Modulārais dizains padarīja vienkāršu pievienot jaunas SFTR prasības, attīstoties regulējumiem, un uzlabotā veiktspēja nozīmēja, ka sistēma varēja apstrādāt ievērojami lielākus transakciju apjomus bez degradācijas.
+                    </p>
+                    <p>
+                        Operāciju komanda ziņoja par ievērojamu uzraudzības piepūles samazinājumu, jo uzticamais apakš-divminūšu apstrādes laiks novērsa nepieciešamību pēc pastāvīgas uzraudzības. Atbilstības komanda ieguva pārliecību par automatizētā procesa konsekvenci un precizitāti.
+                    </p>
+                </div>
+
+                <div class="tech-stack">
+                    <h4>Izmantotas Tehnoloģijas</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">SQL Server 2019</span>
+                        <span class="tech-tag">T-SQL</span>
+                        <span class="tech-tag">Indeksēti Skati</span>
+                        <span class="tech-tag">Filtrēti Indeksi</span>
+                        <span class="tech-tag">Vaicājumu Veiktspējas Uzlabošana</span>
+                        <span class="tech-tag">C# Integrācija</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 2rem; font-style: italic; color: #718096;">
+                    Šis gadījuma izpēte demonstrē tipiskus rezultātus no mūsu SQL Server veiktspējas optimizācijas projektiem. Lai gan konkrētas tehnoloģijas un pieejas atšķiras atkarībā no projekta, metodoloģija paliek konsekventa: rūpīga analīze, stratēģiska optimizācija un validācija pret biznesa prasībām.
+                </p>
+            </article>
+
+            <div style="background: #f8f9fa; padding: 3rem; border-radius: 8px; text-align: center; margin-top: 3rem;">
+                <h2 style="color: #1a365d; margin-bottom: 1rem;">Drīzumā Sekos Vairāk Gadījuma Izpētes</h2>
+                <p style="color: #4a5568; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                    Mēs pašlaik dokumentējam papildu projektus datu bāzu optimizācijā, aizmugures izstrādē un sistēmu integrācijā. Drīz atgriezieties, lai iegūtu detalizētākas gadījuma izpētes un tehniskos ieskatus.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ir Līdzīgs Izaicinājums?</h2>
+            <p>Apspriežam, kā mēs varam optimizēt jūsu sistēmas un automatizēt darba procesus.</p>
+            <a href="contact.html" class="cta-button">Rezervēt Bezmaksas Konsultāciju</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DataCraft Consulting</h3>
+                    <p>Ekspertu SQL un C# konsultācijas finanšu iestādēm un datu intensīviem uzņēmumiem.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Ātrās Saites</h3>
+                    <a href="services.html">Pakalpojumi</a>
+                    <a href="about.html">Par Mums</a>
+                    <a href="case-studies.html">Projekti</a>
+                    <a href="contact.html">Kontakti</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakti</h3>
+                    <p>E-pasts: contact@datacraft.lv</p>
+                    <p>Atrašanās vieta: Rīga, Latvija</p>
+                    <p><a href="contact.html">Rezervēt Konsultāciju</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DataCraft Consulting. Visas tiesības aizsargātas.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

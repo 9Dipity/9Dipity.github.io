@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DataCraft Consulting Case Studies - Real-world examples of SQL optimisation, regulatory automation, and system performance improvements.">
+    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/case-studies.html" />
+    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/case-studies.html" />
+    <title>Case Studies - DataCraft Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background: #4a90e2;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        
+        .lang-switcher a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .lang-switcher .active {
+            color: #4a90e2;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #e8f4f8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .blog-tagline {
+            background: #f8f9fa;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .blog-tagline p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            font-style: italic;
+        }
+        
+        .case-studies-content {
+            padding: 5rem 0;
+        }
+        
+        .case-study {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .case-study-header {
+            border-bottom: 3px solid #4a90e2;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .case-study-header h2 {
+            color: #1a365d;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .case-study-meta {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+        
+        .challenge-box,
+        .solution-box,
+        .results-box {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #4a90e2;
+        }
+        
+        .challenge-box h3,
+        .solution-box h3,
+        .results-box h3 {
+            color: #1a365d;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .case-study p {
+            color: #4a5568;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .case-study ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .case-study ul li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #4a5568;
+        }
+        
+        .case-study ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .metric {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #4a90e2;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-label {
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        .tech-stack {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .tech-stack h4 {
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tech-tag {
+            background: #4a90e2;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #e8f4f8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4a90e2;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #e8f4f8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: #4a90e2;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e8f4f8;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .case-study {
+                padding: 2rem 1.5rem;
+            }
+            
+            .metric-value {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-placeholder">DC</div>
+                    DataCraft Consulting
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="lang-switcher">
+                        <a href="case-studies.html" class="active">EN</a>
+                        <span>|</span>
+                        <a href="../lv/case-studies.html">LV</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Case Studies</h1>
+            <p>Real-world examples of performance optimisation and system transformation</p>
+        </div>
+    </section>
+
+    <section class="blog-tagline">
+        <div class="container">
+            <p>Insights & optimisations in data-heavy systems</p>
+        </div>
+    </section>
+
+    <section class="case-studies-content">
+        <div class="container">
+            
+            <article class="case-study">
+                <div class="case-study-header">
+                    <h2>Reducing SFTR Report Generation Time from 15 Minutes to Under 2 Minutes</h2>
+                    <p class="case-study-meta">Financial Institution | Regulatory Reporting | SQL Optimisation</p>
+                </div>
+
+                <div class="challenge-box">
+                    <h3>The Challenge</h3>
+                    <p>
+                        A mid-sized financial institution was struggling with their Securities Financing Transactions Regulation (SFTR) reporting process. Their daily regulatory report, which aggregated complex transaction data from multiple systems, was taking over 15 minutes to generate. This created several critical problems:
+                    </p>
+                    <ul>
+                        <li>The reporting window was tight, leaving no buffer for retries if issues arose</li>
+                        <li>Database locks during report generation impacted other business operations</li>
+                        <li>The operations team had to monitor the process manually, consuming valuable time</li>
+                        <li>Any data corrections required a full re-run, often pushing into critical business hours</li>
+                    </ul>
+                    <p>
+                        The complexity of SFTR reporting—requiring aggregation across transaction types, counterparties, and collateral valuations—made the process inherently resource-intensive. The existing stored procedures had evolved organically over time, accumulating technical debt as new requirements were added.
+                    </p>
+                </div>
+
+                <div class="solution-box">
+                    <h3>Our Approach</h3>
+                    <p>
+                        We conducted a comprehensive analysis of the reporting pipeline, focusing on three key areas: query execution plans, database schema design, and data access patterns.
+                    </p>
+                    <p>
+                        The investigation revealed several critical bottlenecks. First, the main aggregation queries were performing multiple table scans across transaction tables containing millions of rows. Second, temporary staging tables were being rebuilt from scratch for each report run, despite much of the underlying data remaining unchanged. Third, complex business logic was embedded directly in SQL, creating deeply nested subqueries that the query optimiser struggled to handle efficiently.
+                    </p>
+                    <p>
+                        Our optimisation strategy included:
+                    </p>
+                    <ul>
+                        <li>Redesigning the core aggregation logic to leverage indexed views for frequently accessed data combinations</li>
+                        <li>Implementing an incremental processing approach, only recalculating data that had changed since the previous run</li>
+                        <li>Refactoring complex nested queries into a series of well-indexed temporary tables with strategic use of filtered indexes</li>
+                        <li>Moving certain business logic calculations into materialised columns with persisted computed values</li>
+                        <li>Optimising the transaction data schema by adding carefully designed composite indexes aligned with common query patterns</li>
+                        <li>Implementing parallel processing for independent data segments where appropriate</li>
+                    </ul>
+                    <p>
+                        Throughout the project, we worked closely with the institution's operations and compliance teams to ensure the optimised process maintained complete data accuracy and met all regulatory requirements. Extensive reconciliation testing verified that the new process produced identical results to the original implementation.
+                    </p>
+                </div>
+
+                <div class="results-box">
+                    <h3>The Results</h3>
+                    <div class="metrics">
+                        <div class="metric">
+                            <div class="metric-value">87%</div>
+                            <div class="metric-label">Reduction in Processing Time</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">&lt;2 min</div>
+                            <div class="metric-label">Report Generation Time</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">70%</div>
+                            <div class="metric-label">Lower CPU Utilisation</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Zero</div>
+                            <div class="metric-label">Production Impact Issues</div>
+                        </div>
+                    </div>
+                    <p>
+                        The optimised SFTR reporting process now completes in under 2 minutes, an 87% reduction from the original 15+ minute runtime. This dramatic improvement delivered immediate operational benefits. The reporting team gained flexibility in scheduling, with ample buffer time for reruns if needed. Database resource consumption during reporting dropped by 70%, eliminating the impact on concurrent operations. The faster turnaround enabled the compliance team to review and submit reports earlier in the day, reducing regulatory submission risk.
+                    </p>
+                    <p>
+                        Beyond the immediate time savings, the refactored architecture positioned the institution for future growth. The modular design made it straightforward to add new SFTR requirements as regulations evolved, and the improved performance meant the system could handle significantly higher transaction volumes without degradation.
+                    </p>
+                    <p>
+                        The operations team reported a significant reduction in monitoring overhead, as the reliable sub-two-minute processing time eliminated the need for constant supervision. The compliance team gained confidence in the consistency and accuracy of the automated process.
+                    </p>
+                </div>
+
+                <div class="tech-stack">
+                    <h4>Technologies Used</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">SQL Server 2019</span>
+                        <span class="tech-tag">T-SQL</span>
+                        <span class="tech-tag">Indexed Views</span>
+                        <span class="tech-tag">Filtered Indexes</span>
+                        <span class="tech-tag">Query Performance Tuning</span>
+                        <span class="tech-tag">C# Integration</span>
+                    </div>
+                </div>
+
+                <p style="margin-top: 2rem; font-style: italic; color: #718096;">
+                    This case study demonstrates typical results from our SQL Server performance optimisation engagements. While specific technologies and approaches vary by project, the methodology remains consistent: thorough analysis, strategic optimisation, and validation against business requirements.
+                </p>
+            </article>
+
+            <div style="background: #f8f9fa; padding: 3rem; border-radius: 8px; text-align: center; margin-top: 3rem;">
+                <h2 style="color: #1a365d; margin-bottom: 1rem;">More Case Studies Coming Soon</h2>
+                <p style="color: #4a5568; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                    We're currently documenting additional projects across database optimisation, backend development, and system integration. Check back soon for more detailed case studies and technical insights.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Have a Similar Challenge?</h2>
+            <p>Let's discuss how we can optimise your systems and automate your workflows.</p>
+            <a href="contact.html" class="cta-button">Book Your Free Discovery Call</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DataCraft Consulting</h3>
+                    <p>Expert SQL & C# consulting for financial institutions and data-intensive businesses.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="services.html">Services</a>
+                    <a href="about.html">About</a>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: contact@datacraft.lv</p>
+                    <p>Location: Riga, Latvia</p>
+                    <p><a href="contact.html">Book a Discovery Call</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 DataCraft Consulting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
