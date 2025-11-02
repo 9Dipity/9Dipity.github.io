@@ -13,20 +13,20 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #2c3e50;
             background: #ffffff;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         header {
             background: #1a365d;
             color: white;
@@ -36,14 +36,14 @@
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
-        
+
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -53,7 +53,7 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .logo-placeholder {
             width: 40px;
             height: 40px;
@@ -64,24 +64,24 @@
             justify-content: center;
             font-weight: bold;
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
             align-items: center;
         }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #4a90e2;
-        }
-        
+
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .nav-links a:hover {
+                    color: #4a90e2;
+                }
+
         .lang-switcher {
             display: flex;
             gap: 0.5rem;
@@ -89,71 +89,71 @@
             background: rgba(255,255,255,0.1);
             border-radius: 4px;
         }
-        
-        .lang-switcher a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .lang-switcher .active {
-            color: #4a90e2;
-        }
-        
+
+            .lang-switcher a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+            .lang-switcher .active {
+                color: #4a90e2;
+            }
+
         .page-header {
             background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
             color: white;
             padding: 4rem 0;
             text-align: center;
         }
-        
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .page-header p {
-            font-size: 1.2rem;
-            color: #e8f4f8;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
+
+            .page-header h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .page-header p {
+                font-size: 1.2rem;
+                color: #e8f4f8;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
         .about-content {
             padding: 5rem 0;
         }
-        
+
         .about-section {
             max-width: 900px;
             margin: 0 auto 4rem;
         }
-        
-        .about-section h2 {
-            color: #1a365d;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .about-section p {
-            color: #4a5568;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-        
+
+            .about-section h2 {
+                color: #1a365d;
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .about-section p {
+                color: #4a5568;
+                font-size: 1.1rem;
+                line-height: 1.8;
+                margin-bottom: 1.5rem;
+            }
+
         .founder-bio {
             background: #f8f9fa;
             padding: 3rem;
             border-radius: 8px;
             margin: 3rem 0;
         }
-        
-        .founder-bio h3 {
-            color: #1a365d;
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-        }
-        
+
+            .founder-bio h3 {
+                color: #1a365d;
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+
         .mission-box {
             background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
             color: white;
@@ -162,26 +162,26 @@
             margin: 3rem 0;
             text-align: center;
         }
-        
-        .mission-box h2 {
-            color: white;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .mission-box p {
-            font-size: 1.2rem;
-            color: #e8f4f8;
-            line-height: 1.8;
-        }
-        
+
+            .mission-box h2 {
+                color: white;
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .mission-box p {
+                font-size: 1.2rem;
+                color: #e8f4f8;
+                line-height: 1.8;
+            }
+
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-        
+
         .value-card {
             background: white;
             padding: 2rem;
@@ -189,40 +189,40 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             text-align: center;
         }
-        
+
         .value-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-        
+
         .value-card h3 {
             color: #1a365d;
             margin-bottom: 1rem;
         }
-        
+
         .value-card p {
             color: #4a5568;
             line-height: 1.6;
         }
-        
+
         .cta-section {
             background: #f8f9fa;
             padding: 4rem 0;
             text-align: center;
         }
-        
-        .cta-section h2 {
-            color: #1a365d;
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #4a5568;
-        }
-        
+
+            .cta-section h2 {
+                color: #1a365d;
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .cta-section p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                color: #4a5568;
+            }
+
         .cta-button {
             display: inline-block;
             background: #4a90e2;
@@ -234,30 +234,30 @@
             font-size: 1.1rem;
             transition: background 0.3s, transform 0.2s;
         }
-        
-        .cta-button:hover {
-            background: #357abd;
-            transform: translateY(-2px);
-        }
-        
+
+            .cta-button:hover {
+                background: #357abd;
+                transform: translateY(-2px);
+            }
+
         footer {
             background: #1a365d;
             color: white;
             padding: 3rem 0 1.5rem;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
-        
+
         .footer-section h3 {
             margin-bottom: 1rem;
             color: #4a90e2;
         }
-        
+
         .footer-section p,
         .footer-section a {
             color: #e8f4f8;
@@ -265,33 +265,113 @@
             display: block;
             margin-bottom: 0.5rem;
         }
-        
-        .footer-section a:hover {
-            color: #4a90e2;
-        }
-        
+
+            .footer-section a:hover {
+                color: #4a90e2;
+            }
+
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: #e8f4f8;
         }
-        
+
+        /* Mobile Menu Button */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+        }
+
+        /* Menu Overlay */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+            .menu-overlay.active {
+                display: block;
+            }
+
+        .menu-close {
+            display: none;
+        }
+
         @media (max-width: 768px) {
-            .page-header h1 {
+            .hero h1 {
                 font-size: 2rem;
             }
-            
-            .founder-bio,
-            .mission-box {
-                padding: 2rem 1.5rem;
+
+            .hero p {
+                font-size: 1.1rem;
             }
-            
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
             .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: #1a365d;
                 flex-direction: column;
-                gap: 1rem;
+                padding: 5rem 2rem 2rem;
+                gap: 1.5rem;
+                transition: right 0.3s ease;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+                overflow-y: auto;
+                z-index: 1000;
+                margin-top: 0;
+            }
+
+                .nav-links.active {
+                    right: 0;
+                }
+
+                .nav-links li {
+                    width: 100%;
+                }
+
+                .nav-links a {
+                    display: block;
+                    padding: 0.5rem 0;
+                    font-size: 1.1rem;
+                }
+
+            .lang-switcher {
                 width: 100%;
+                justify-content: center;
                 margin-top: 1rem;
+            }
+
+            .menu-close {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 2rem;
+                cursor: pointer;
+                padding: 0.5rem;
+                line-height: 1;
             }
         }
     </style>
@@ -304,19 +384,25 @@
                     <div class="logo-placeholder">DC</div>
                     DataCraft Consulting
                 </a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Sākums</a></li>
-                    <li><a href="services.html">Pakalpojumi</a></li>
-                    <li><a href="about.html">Par Mums</a></li>
-                    <li><a href="case-studies.html">Projekti</a></li>
-                    <li><a href="contact.html">Kontakti</a></li>
+
+                <button class="mobile-menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+                <ul class="nav-links" id="navLinks">
+                    <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li class="lang-switcher">
-                        <a href="../en/about.html">EN</a>
+                        <a href="index.html" class="active">EN</a>
                         <span>|</span>
-                        <a href="about.html" class="active">LV</a>
+                        <a href="../lv/index.html">LV</a>
                     </li>
                 </ul>
             </nav>
+
+            <div class="menu-overlay" id="menuOverlay"></div>
         </div>
     </header>
 
@@ -329,7 +415,7 @@
 
     <section class="about-content">
         <div class="container">
-            
+
             <div class="about-section">
                 <h2>Mūsu Stāsts</h2>
                 <p>
@@ -377,19 +463,19 @@
                         <h3>Rezultātorientēti</h3>
                         <p>Mēs mērām panākumus taustāmos rezultātos: ātrākās sistēmās, automatizētos darba procesos, novērstās šaurvietās un izmērāmos laika ietaupījumos.</p>
                     </div>
-                    
+
                     <div class="value-card">
                         <div class="value-icon">🔧</div>
                         <h3>Pragmatiska Inženierija</h3>
                         <p>Mēs dodam priekšroku pārbaudītiem risinājumiem, nevis modernām tehnoloģijām, un uzturējamībai, nevis sarežģītībai. Labākais risinājums ir tas, kas uzticami darbojas ražošanā.</p>
                     </div>
-                    
+
                     <div class="value-card">
                         <div class="value-icon">🤝</div>
                         <h3>Partnerības Domāšana</h3>
                         <p>Mēs neesam tikai piegādātāji—mēs esam partneri, kas ieguldīti jūsu panākumos. Jūsu tehniskās problēmas kļūst par mūsu problēmām, ko risināt.</p>
                     </div>
-                    
+
                     <div class="value-card">
                         <div class="value-icon">📚</div>
                         <h3>Zināšanu Nodošana</h3>
@@ -429,7 +515,7 @@
                     <h3>DataCraft Consulting</h3>
                     <p>Ekspertu SQL un C# konsultācijas finanšu iestādēm un datu intensīviem uzņēmumiem.</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Ātrās Saites</h3>
                     <a href="services.html">Pakalpojumi</a>
@@ -437,7 +523,7 @@
                     <a href="case-studies.html">Projekti</a>
                     <a href="contact.html">Kontakti</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Kontakti</h3>
                     <p>E-pasts: arturs.irbitis@gmail.com</p>
@@ -445,11 +531,42 @@
                     <p><a href="contact.html">Rezervēt Konsultāciju</a></p>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 DataCraft Consulting. Visas tiesības aizsargātas.</p>
             </div>
         </div>
     </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const navLinks = document.getElementById('navLinks');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    if (!menuToggle || !navLinks) return;
+
+    function openMenu() {
+        navLinks.classList.add('active');
+        if (menuOverlay) menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        if (menuOverlay) menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', openMenu);
+    if (menuClose) menuClose.addEventListener('click', closeMenu);
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+
+    // Close menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+});
+    </script>
 </body>
 </html>

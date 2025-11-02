@@ -13,20 +13,20 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #2c3e50;
             background: #ffffff;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         header {
             background: #1a365d;
             color: white;
@@ -36,14 +36,14 @@
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
-        
+
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -53,7 +53,7 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .logo-placeholder {
             width: 40px;
             height: 40px;
@@ -64,24 +64,24 @@
             justify-content: center;
             font-weight: bold;
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
             align-items: center;
         }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #4a90e2;
-        }
-        
+
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .nav-links a:hover {
+                    color: #4a90e2;
+                }
+
         .lang-switcher {
             display: flex;
             gap: 0.5rem;
@@ -89,40 +89,40 @@
             background: rgba(255,255,255,0.1);
             border-radius: 4px;
         }
-        
-        .lang-switcher a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .lang-switcher .active {
-            color: #4a90e2;
-        }
-        
+
+            .lang-switcher a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+            .lang-switcher .active {
+                color: #4a90e2;
+            }
+
         .page-header {
             background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
             color: white;
             padding: 4rem 0;
             text-align: center;
         }
-        
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .page-header p {
-            font-size: 1.2rem;
-            color: #e8f4f8;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
+
+            .page-header h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .page-header p {
+                font-size: 1.2rem;
+                color: #e8f4f8;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
         .contact-content {
             padding: 5rem 0;
         }
-        
+
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -130,7 +130,7 @@
             max-width: 1100px;
             margin: 0 auto;
         }
-        
+
         .discovery-call-box {
             background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
             color: white;
@@ -138,78 +138,78 @@
             border-radius: 8px;
             box-shadow: 0 4px 16px rgba(0,0,0,0.1);
         }
-        
-        .discovery-call-box h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .discovery-call-box p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #e8f4f8;
-            line-height: 1.7;
-        }
-        
-        .discovery-call-box ul {
-            list-style: none;
-            padding: 0;
-            margin: 2rem 0;
-        }
-        
-        .discovery-call-box ul li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: white;
-        }
-        
-        .discovery-call-box ul li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-        
+
+            .discovery-call-box h2 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                color: white;
+            }
+
+            .discovery-call-box p {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+                color: #e8f4f8;
+                line-height: 1.7;
+            }
+
+            .discovery-call-box ul {
+                list-style: none;
+                padding: 0;
+                margin: 2rem 0;
+            }
+
+                .discovery-call-box ul li {
+                    padding: 0.8rem 0;
+                    padding-left: 2rem;
+                    position: relative;
+                    color: white;
+                }
+
+                    .discovery-call-box ul li:before {
+                        content: "✓";
+                        position: absolute;
+                        left: 0;
+                        font-weight: bold;
+                    }
+
         .contact-info-box {
             background: white;
             padding: 3rem;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        
-        .contact-info-box h2 {
-            color: #1a365d;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-        
+
+            .contact-info-box h2 {
+                color: #1a365d;
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
         .contact-item {
             margin-bottom: 2rem;
         }
-        
-        .contact-item h3 {
-            color: #1a365d;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .contact-item p {
-            color: #4a5568;
-            font-size: 1.1rem;
-        }
-        
-        .contact-item a {
-            color: #4a90e2;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-        
+
+            .contact-item h3 {
+                color: #1a365d;
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .contact-item p {
+                color: #4a5568;
+                font-size: 1.1rem;
+            }
+
+            .contact-item a {
+                color: #4a90e2;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+                .contact-item a:hover {
+                    text-decoration: underline;
+                }
+
         .cta-button {
             display: inline-block;
             background: white;
@@ -222,25 +222,25 @@
             transition: background 0.3s, transform 0.2s;
             margin-top: 1rem;
         }
-        
-        .cta-button:hover {
-            background: #f0f4f8;
-            transform: translateY(-2px);
-        }
-        
+
+            .cta-button:hover {
+                background: #f0f4f8;
+                transform: translateY(-2px);
+            }
+
         .process-section {
             background: #f8f9fa;
             padding: 4rem 0;
             margin-top: 3rem;
         }
-        
-        .process-section h2 {
-            text-align: center;
-            color: #1a365d;
-            font-size: 2rem;
-            margin-bottom: 3rem;
-        }
-        
+
+            .process-section h2 {
+                text-align: center;
+                color: #1a365d;
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -248,7 +248,7 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-        
+
         .process-step {
             background: white;
             padding: 2rem;
@@ -256,7 +256,7 @@
             text-align: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        
+
         .step-number {
             width: 60px;
             height: 60px;
@@ -270,35 +270,35 @@
             font-weight: 700;
             color: white;
         }
-        
+
         .process-step h3 {
             color: #1a365d;
             margin-bottom: 1rem;
         }
-        
+
         .process-step p {
             color: #4a5568;
             line-height: 1.6;
         }
-        
+
         footer {
             background: #1a365d;
             color: white;
             padding: 3rem 0 1.5rem;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
-        
+
         .footer-section h3 {
             margin-bottom: 1rem;
             color: #4a90e2;
         }
-        
+
         .footer-section p,
         .footer-section a {
             color: #e8f4f8;
@@ -306,40 +306,120 @@
             display: block;
             margin-bottom: 0.5rem;
         }
-        
-        .footer-section a:hover {
-            color: #4a90e2;
-        }
-        
+
+            .footer-section a:hover {
+                color: #4a90e2;
+            }
+
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: #e8f4f8;
         }
-        
+
         @media (max-width: 968px) {
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
         }
-        
+
+        /* Mobile Menu Button */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+        }
+
+        /* Menu Overlay */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+            .menu-overlay.active {
+                display: block;
+            }
+
+        .menu-close {
+            display: none;
+        }
+
         @media (max-width: 768px) {
-            .page-header h1 {
+            .hero h1 {
                 font-size: 2rem;
             }
-            
-            .discovery-call-box,
-            .contact-info-box {
-                padding: 2rem 1.5rem;
+
+            .hero p {
+                font-size: 1.1rem;
             }
-            
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
             .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: #1a365d;
                 flex-direction: column;
-                gap: 1rem;
+                padding: 5rem 2rem 2rem;
+                gap: 1.5rem;
+                transition: right 0.3s ease;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+                overflow-y: auto;
+                z-index: 1000;
+                margin-top: 0;
+            }
+
+                .nav-links.active {
+                    right: 0;
+                }
+
+                .nav-links li {
+                    width: 100%;
+                }
+
+                .nav-links a {
+                    display: block;
+                    padding: 0.5rem 0;
+                    font-size: 1.1rem;
+                }
+
+            .lang-switcher {
                 width: 100%;
+                justify-content: center;
                 margin-top: 1rem;
+            }
+
+            .menu-close {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 2rem;
+                cursor: pointer;
+                padding: 0.5rem;
+                line-height: 1;
             }
         }
     </style>
@@ -352,19 +432,25 @@
                     <div class="logo-placeholder">DC</div>
                     DataCraft Consulting
                 </a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Sākums</a></li>
-                    <li><a href="services.html">Pakalpojumi</a></li>
-                    <li><a href="about.html">Par Mums</a></li>
-                    <li><a href="case-studies.html">Projekti</a></li>
-                    <li><a href="contact.html">Kontakti</a></li>
+
+                <button class="mobile-menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+                <ul class="nav-links" id="navLinks">
+                    <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li class="lang-switcher">
-                        <a href="../en/contact.html">EN</a>
+                        <a href="index.html" class="active">EN</a>
                         <span>|</span>
-                        <a href="contact.html" class="active">LV</a>
+                        <a href="../lv/index.html">LV</a>
                     </li>
                 </ul>
             </nav>
+
+            <div class="menu-overlay" id="menuOverlay"></div>
         </div>
     </header>
 
@@ -377,15 +463,15 @@
 
     <section class="contact-content">
         <div class="container">
-            
+
             <div class="contact-grid">
-                
+
                 <div class="discovery-call-box">
                     <h2>Bezmaksas 30-Minūšu Izpētes Saruna</h2>
                     <p>
                         Neesat pārliecināts, vai mēs esam piemēroti jūsu projektam? Sāksim ar nesamezglotu izpētes sarunu. Mēs apspriedīsim jūsu tehniskās problēmas, izpētīsim iespējamās pieejas un noteik sim, vai mūsu ekspertīze atbilst jūsu vajadzībām.
                     </p>
-                    
+
                     <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem;">Ko Sagaidīt</h3>
                     <ul>
                         <li>Diskusija par jūsu pašreizējām tehniskajām problēmām un sāpju punktiem</li>
@@ -393,17 +479,17 @@
                         <li>Godīgs novērtējums par to, vai mēs esam piemēroti jūsu projektam</li>
                         <li>Nākamie soļi, ja mēs nolēmam virzīties uz priekšu kopā</li>
                     </ul>
-                    
+
                     <p style="margin-top: 2rem;">
                         Bez pārdošanas spiediena, tikai taisna tehniskā saruna par jūsu vajadzībām.
                     </p>
-                    
+
                     <a href="mailto:arturs.irbitis@gmail.com?subject=Izpētes Sarunas Pieprasījums" class="cta-button">Sūtīt E-pastu, lai Plānotu Sarunu</a>
                 </div>
 
                 <div class="contact-info-box">
                     <h2>Kontaktinformācija</h2>
-                    
+
                     <div class="contact-item">
                         <h3>E-pasts</h3>
                         <p><a href="mailto:arturs.irbitis@gmail.com">arturs.irbitis@gmail.com</a></p>
@@ -411,7 +497,7 @@
                             Mēs parasti atbildam 24 stundu laikā darba dienās
                         </p>
                     </div>
-                    
+
                     <div class="contact-item">
                         <h3>Atrašanās Vieta</h3>
                         <p>Rīga, Latvija</p>
@@ -419,7 +505,7 @@
                             Apkalpojam klientus visā Latvijā un starptautiski
                         </p>
                     </div>
-                    
+
                     <div class="contact-item">
                         <h3>Valoda</h3>
                         <p>Mēs strādājam angļu un latviešu valodā</p>
@@ -427,7 +513,7 @@
                             <a href="../en/contact.html">View in English →</a>
                         </p>
                     </div>
-                    
+
                     <div class="contact-item" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
                         <h3>Vēlaties Vispirms Nosūtīt Detaļas?</h3>
                         <p style="font-size: 1rem;">
@@ -450,26 +536,26 @@
     <section class="process-section">
         <div class="container">
             <h2>Mūsu Sadarbības Process</h2>
-            
+
             <div class="process-steps">
                 <div class="process-step">
                     <div class="step-number">1</div>
                     <h3>Izpētes Saruna</h3>
                     <p>Bezmaksas 30-minūšu saruna, lai izprastu jūsu vajadzības un noteiktu, vai mēs esam laba izvēle.</p>
                 </div>
-                
+
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <h3>Novērtējums</h3>
                     <p>Ja nepieciešams, mēs veicam dziļāku tehnisko novērtējumu, lai precīzi noteiktu projekta apjomu.</p>
                 </div>
-                
+
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <h3>Priekšlikums</h3>
                     <p>Mēs sniedzam skaidru priekšlikumu, norādot pieeju, grafiku, rezultātus un investīciju.</p>
                 </div>
-                
+
                 <div class="process-step">
                     <div class="step-number">4</div>
                     <h3>Izpilde</h3>
@@ -486,7 +572,7 @@
                     <h3>DataCraft Consulting</h3>
                     <p>Ekspertu SQL un C# konsultācijas finanšu iestādēm un datu intensīviem uzņēmumiem.</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Ātrās Saites</h3>
                     <a href="services.html">Pakalpojumi</a>
@@ -494,7 +580,7 @@
                     <a href="case-studies.html">Projekti</a>
                     <a href="contact.html">Kontakti</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Kontakti</h3>
                     <p>E-pasts: arturs.irbitis@gmail.com</p>
@@ -502,11 +588,42 @@
                     <p><a href="contact.html">Rezervēt Konsultāciju</a></p>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 DataCraft Consulting. Visas tiesības aizsargātas.</p>
             </div>
         </div>
     </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const navLinks = document.getElementById('navLinks');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    if (!menuToggle || !navLinks) return;
+
+    function openMenu() {
+        navLinks.classList.add('active');
+        if (menuOverlay) menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        if (menuOverlay) menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', openMenu);
+    if (menuClose) menuClose.addEventListener('click', closeMenu);
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+
+    // Close menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+});
+    </script>
 </body>
 </html>

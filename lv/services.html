@@ -13,20 +13,20 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #2c3e50;
             background: #ffffff;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         header {
             background: #1a365d;
             color: white;
@@ -36,14 +36,14 @@
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
-        
+
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -53,7 +53,7 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .logo-placeholder {
             width: 40px;
             height: 40px;
@@ -64,24 +64,24 @@
             justify-content: center;
             font-weight: bold;
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
             align-items: center;
         }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #4a90e2;
-        }
-        
+
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .nav-links a:hover {
+                    color: #4a90e2;
+                }
+
         .lang-switcher {
             display: flex;
             gap: 0.5rem;
@@ -89,40 +89,40 @@
             background: rgba(255,255,255,0.1);
             border-radius: 4px;
         }
-        
-        .lang-switcher a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .lang-switcher .active {
-            color: #4a90e2;
-        }
-        
+
+            .lang-switcher a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+            .lang-switcher .active {
+                color: #4a90e2;
+            }
+
         .page-header {
             background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
             color: white;
             padding: 4rem 0;
             text-align: center;
         }
-        
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .page-header p {
-            font-size: 1.2rem;
-            color: #e8f4f8;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
+
+            .page-header h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .page-header p {
+                font-size: 1.2rem;
+                color: #e8f4f8;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
         .services-content {
             padding: 5rem 0;
         }
-        
+
         .service-detail {
             background: white;
             border-radius: 8px;
@@ -130,68 +130,68 @@
             margin-bottom: 3rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        
-        .service-detail h2 {
-            color: #1a365d;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 3px solid #4a90e2;
-        }
-        
-        .service-detail p {
-            color: #4a5568;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-        
-        .service-detail h3 {
-            color: #1a365d;
-            font-size: 1.4rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .service-detail ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .service-detail ul li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: #4a5568;
-            line-height: 1.6;
-        }
-        
-        .service-detail ul li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #4a90e2;
-            font-weight: bold;
-        }
-        
+
+            .service-detail h2 {
+                color: #1a365d;
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+                padding-bottom: 1rem;
+                border-bottom: 3px solid #4a90e2;
+            }
+
+            .service-detail p {
+                color: #4a5568;
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.8;
+            }
+
+            .service-detail h3 {
+                color: #1a365d;
+                font-size: 1.4rem;
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .service-detail ul {
+                list-style: none;
+                padding: 0;
+            }
+
+                .service-detail ul li {
+                    padding: 0.8rem 0;
+                    padding-left: 2rem;
+                    position: relative;
+                    color: #4a5568;
+                    line-height: 1.6;
+                }
+
+                    .service-detail ul li:before {
+                        content: "→";
+                        position: absolute;
+                        left: 0;
+                        color: #4a90e2;
+                        font-weight: bold;
+                    }
+
         .cta-section {
             background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
             color: white;
             padding: 4rem 0;
             text-align: center;
         }
-        
-        .cta-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #e8f4f8;
-        }
-        
+
+            .cta-section h2 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .cta-section p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                color: #e8f4f8;
+            }
+
         .cta-button {
             display: inline-block;
             background: #4a90e2;
@@ -203,30 +203,30 @@
             font-size: 1.1rem;
             transition: background 0.3s, transform 0.2s;
         }
-        
-        .cta-button:hover {
-            background: #357abd;
-            transform: translateY(-2px);
-        }
-        
+
+            .cta-button:hover {
+                background: #357abd;
+                transform: translateY(-2px);
+            }
+
         footer {
             background: #1a365d;
             color: white;
             padding: 3rem 0 1.5rem;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
-        
+
         .footer-section h3 {
             margin-bottom: 1rem;
             color: #4a90e2;
         }
-        
+
         .footer-section p,
         .footer-section a {
             color: #e8f4f8;
@@ -234,32 +234,113 @@
             display: block;
             margin-bottom: 0.5rem;
         }
-        
-        .footer-section a:hover {
-            color: #4a90e2;
-        }
-        
+
+            .footer-section a:hover {
+                color: #4a90e2;
+            }
+
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: #e8f4f8;
         }
-        
+
+        /* Mobile Menu Button */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+        }
+
+        /* Menu Overlay */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+            .menu-overlay.active {
+                display: block;
+            }
+
+        .menu-close {
+            display: none;
+        }
+
         @media (max-width: 768px) {
-            .page-header h1 {
+            .hero h1 {
                 font-size: 2rem;
             }
-            
-            .service-detail {
-                padding: 2rem 1.5rem;
+
+            .hero p {
+                font-size: 1.1rem;
             }
-            
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
             .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: #1a365d;
                 flex-direction: column;
-                gap: 1rem;
+                padding: 5rem 2rem 2rem;
+                gap: 1.5rem;
+                transition: right 0.3s ease;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+                overflow-y: auto;
+                z-index: 1000;
+                margin-top: 0;
+            }
+
+                .nav-links.active {
+                    right: 0;
+                }
+
+                .nav-links li {
+                    width: 100%;
+                }
+
+                .nav-links a {
+                    display: block;
+                    padding: 0.5rem 0;
+                    font-size: 1.1rem;
+                }
+
+            .lang-switcher {
                 width: 100%;
+                justify-content: center;
                 margin-top: 1rem;
+            }
+
+            .menu-close {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 2rem;
+                cursor: pointer;
+                padding: 0.5rem;
+                line-height: 1;
             }
         }
     </style>
@@ -272,19 +353,25 @@
                     <div class="logo-placeholder">DC</div>
                     DataCraft Consulting
                 </a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Sākums</a></li>
-                    <li><a href="services.html">Pakalpojumi</a></li>
-                    <li><a href="about.html">Par Mums</a></li>
-                    <li><a href="case-studies.html">Projekti</a></li>
-                    <li><a href="contact.html">Kontakti</a></li>
+
+                <button class="mobile-menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+                <ul class="nav-links" id="navLinks">
+                    <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li class="lang-switcher">
-                        <a href="../en/services.html">EN</a>
+                        <a href="index.html" class="active">EN</a>
                         <span>|</span>
-                        <a href="services.html" class="active">LV</a>
+                        <a href="../lv/index.html">LV</a>
                     </li>
                 </ul>
             </nav>
+
+            <div class="menu-overlay" id="menuOverlay"></div>
         </div>
     </header>
 
@@ -297,13 +384,13 @@
 
     <section class="services-content">
         <div class="container">
-            
+
             <div class="service-detail">
                 <h2>SQL Server Veiktspējas Optimizācija</h2>
                 <p>
                     Lēni datu bāzes vaicājumi un neefektīvas datu operācijas var paralizēt uzņēmuma kritiskās sistēmas. Mēs specializējamies SQL Server veiktspējas šaurvietu diagnosticēšanā un novēršanā, pārvēršot lēnas datu bāzes augstas veiktspējas dzinējos, kas mērogojami kopā ar jūsu biznesu.
                 </p>
-                
+
                 <h3>Ko Mēs Sniedzam</h3>
                 <ul>
                     <li>Visaptveroša izpildes plānu analīze, lai identificētu vaicājumu šaurvietas un neefektivitāti</li>
@@ -314,7 +401,7 @@
                     <li>Veiktspējas monitoringa ieviešana ar rīcībspējīgiem rādītājiem un brīdinājumiem</li>
                     <li>Kapacitātes plānošana un mērogošanas ieteikumi, pamatojoties uz izaugsmes prognozēm</li>
                 </ul>
-                
+
                 <h3>Tipiskie Rezultāti</h3>
                 <ul>
                     <li>Vaicājumu izpildes laiks samazināts par 50-95% ar mērķtiecīgu optimizāciju</li>
@@ -329,7 +416,7 @@
                 <p>
                     Mūsdienīgas aizmugures sistēmas prasa tīru arhitektūru, uzturējamu kodu un spēcīgas datu apstrādes iespējas. Mēs veidojam mērogojamus .NET risinājumus, kas apstrādā sarežģītu biznesa loģiku, nemanāmi integrējas ar esošajām sistēmām un iztur laika pārbaudi.
                 </p>
-                
+
                 <h3>Ko Mēs Sniedzam</h3>
                 <ul>
                     <li>RESTful API izstrāde ar mūsdienīgiem .NET ietvaru (ASP.NET Core, Web API)</li>
@@ -341,7 +428,7 @@
                     <li>Mantoto sistēmu modernizācija un migrācija uz pašreizējām .NET versijām</li>
                     <li>Vienību testēšana, integrācijas testēšana un CI/CD konveijerlīniju uzstādīšana</li>
                 </ul>
-                
+
                 <h3>Mūsu Pieeja</h3>
                 <ul>
                     <li>Tīrs, uzturējams kods, ievērojot SOLID principus un nozares labāko praksi</li>
@@ -356,7 +443,7 @@
                 <p>
                     Finanšu iestādes saskaras ar arvien sarežģītākām regulējuma prasībām. Manuālie pārskatu procesi ir kļūdaini, laikietilpīgi un nav mērogojami. Mēs automatizējam šos darba procesus, sniedzot precīzus pārskatus ātrāk, vienlaikus samazinot operacionālo risku.
                 </p>
-                
+
                 <h3>Ko Mēs Sniedzam</h3>
                 <ul>
                     <li>SFTR (Vērtspapīru finansēšanas transakciju regulējuma) pārskatu automatizācija</li>
@@ -368,7 +455,7 @@
                     <li>Auditācijas ceļa ģenerēšana un atbilstības dokumentācija</li>
                     <li>Izņēmumu apstrāde un brīdināšana par datu kvalitātes problēmām</li>
                 </ul>
-                
+
                 <h3>Galvenās Priekšrocības</h3>
                 <ul>
                     <li>Dramatiska manuālā darba samazināšana (no stundām līdz minūtēm sarežģītiem pārskatiem)</li>
@@ -384,7 +471,7 @@
                 <p>
                     Mūsdienu uzņēmumi darbojas ar savstarpēji savienotām sistēmām. Datiem jāplūst nemanāmi starp tirdzniecības platformām, risku sistēmām, grāmatvedības programmatūru un pārskatu rīkiem. Mēs projektējam un ieviešam stabilus integrācijas risinājumus, kas uzticami savieno jūsu tehnoloģiju steku.
                 </p>
-                
+
                 <h3>Ko Mēs Sniedzam</h3>
                 <ul>
                     <li>ETL (Ekstrahēšanas, Transformācijas, Ielādēšanas) konveijerlīniju izstrāde datu noliktavām</li>
@@ -396,7 +483,7 @@
                     <li>Integrācijas monitoringa un brīdināšanas ietvari</li>
                     <li>Datu kartēšanas un transformācijas loģika neviendabīgām sistēmām</li>
                 </ul>
-                
+
                 <h3>Mūsu Fokuss</h3>
                 <ul>
                     <li>Uzticamība un kļūdu tolerance integrācijas procesos</li>
@@ -425,7 +512,7 @@
                     <h3>DataCraft Consulting</h3>
                     <p>Ekspertu SQL un C# konsultācijas finanšu iestādēm un datu intensīviem uzņēmumiem.</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Ātrās Saites</h3>
                     <a href="services.html">Pakalpojumi</a>
@@ -433,7 +520,7 @@
                     <a href="case-studies.html">Projekti</a>
                     <a href="contact.html">Kontakti</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Kontakti</h3>
                     <p>E-pasts: arturs.irbitis@gmail.com</p>
@@ -441,11 +528,42 @@
                     <p><a href="contact.html">Rezervēt Konsultāciju</a></p>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 DataCraft Consulting. Visas tiesības aizsargātas.</p>
             </div>
         </div>
     </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const navLinks = document.getElementById('navLinks');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    if (!menuToggle || !navLinks) return;
+
+    function openMenu() {
+        navLinks.classList.add('active');
+        if (menuOverlay) menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        if (menuOverlay) menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', openMenu);
+    if (menuClose) menuClose.addEventListener('click', closeMenu);
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+
+    // Close menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+});
+    </script>
 </body>
 </html>
