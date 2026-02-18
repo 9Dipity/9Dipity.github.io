@@ -3,567 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DataCraft Consulting Services - SQL Server optimisation, C#/.NET development, regulatory reporting automation, and system integration for financial institutions.">
+    <meta name="description" content="DataCraft Consulting Services & Pricing — SQL Server performance audits from €199, C#/.NET development, regulatory automation.">
     <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/services.html" />
     <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/services.html" />
-    <title>Services - DataCraft Consulting</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #ffffff;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: #1a365d;
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-placeholder {
-            width: 40px;
-            height: 40px;
-            background: #4a90e2;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-            .nav-links a {
-                color: white;
-                text-decoration: none;
-                transition: color 0.3s;
-            }
-
-                .nav-links a:hover {
-                    color: #4a90e2;
-                }
-
-        .lang-switcher {
-            display: flex;
-            gap: 0.5rem;
-            padding: 0.3rem 0.8rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-        }
-
-            .lang-switcher a {
-                color: white;
-                text-decoration: none;
-                font-weight: 500;
-            }
-
-            .lang-switcher .active {
-                color: #4a90e2;
-            }
-
-        .page-header {
-            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-            .page-header h1 {
-                font-size: 3rem;
-                margin-bottom: 1rem;
-            }
-
-            .page-header p {
-                font-size: 1.2rem;
-                color: #e8f4f8;
-                max-width: 700px;
-                margin: 0 auto;
-            }
-
-        .services-content {
-            padding: 5rem 0;
-        }
-
-        .service-detail {
-            background: white;
-            border-radius: 8px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-            .service-detail h2 {
-                color: #1a365d;
-                font-size: 2rem;
-                margin-bottom: 1.5rem;
-                padding-bottom: 1rem;
-                border-bottom: 3px solid #4a90e2;
-            }
-
-            .service-detail p {
-                color: #4a5568;
-                font-size: 1.1rem;
-                margin-bottom: 1.5rem;
-                line-height: 1.8;
-            }
-
-            .service-detail h3 {
-                color: #1a365d;
-                font-size: 1.4rem;
-                margin-top: 2rem;
-                margin-bottom: 1rem;
-            }
-
-            .service-detail ul {
-                list-style: none;
-                padding: 0;
-            }
-
-                .service-detail ul li {
-                    padding: 0.8rem 0;
-                    padding-left: 2rem;
-                    position: relative;
-                    color: #4a5568;
-                    line-height: 1.6;
-                }
-
-                    .service-detail ul li:before {
-                        content: "→";
-                        position: absolute;
-                        left: 0;
-                        color: #4a90e2;
-                        font-weight: bold;
-                    }
-
-        .cta-section {
-            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-            .cta-section h2 {
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-            }
-
-            .cta-section p {
-                font-size: 1.2rem;
-                margin-bottom: 2rem;
-                color: #e8f4f8;
-            }
-
-        .cta-button {
-            display: inline-block;
-            background: #4a90e2;
-            color: white;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-            .cta-button:hover {
-                background: #357abd;
-                transform: translateY(-2px);
-            }
-
-        footer {
-            background: #1a365d;
-            color: white;
-            padding: 3rem 0 1.5rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #4a90e2;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #e8f4f8;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-            .footer-section a:hover {
-                color: #4a90e2;
-            }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #e8f4f8;
-        }
-
-        /* Mobile Menu Button */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            line-height: 1;
-        }
-
-        /* Menu Overlay */
-        .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-        }
-
-            .menu-overlay.active {
-                display: block;
-            }
-
-        .menu-close {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 70%;
-                max-width: 300px;
-                background: #1a365d;
-                flex-direction: column;
-                padding: 5rem 2rem 2rem;
-                gap: 1.5rem;
-                transition: right 0.3s ease;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.3);
-                overflow-y: auto;
-                z-index: 1000;
-                margin-top: 0;
-            }
-
-                .nav-links.active {
-                    right: 0;
-                }
-
-                .nav-links li {
-                    width: 100%;
-                }
-
-                .nav-links a {
-                    display: block;
-                    padding: 0.5rem 0;
-                    font-size: 1.1rem;
-                }
-
-            .lang-switcher {
-                width: 100%;
-                justify-content: center;
-                margin-top: 1rem;
-            }
-
-            .menu-close {
-                display: block;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 2rem;
-                cursor: pointer;
-                padding: 0.5rem;
-                line-height: 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../style.css">
+    <title>Services & Pricing — DataCraft Consulting</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <div class="logo-placeholder">DC</div>
-                    DataCraft Consulting
-                </a>
 
-                <button class="mobile-menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="header__logo"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></a>
+    <button class="header__menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+    <nav class="header__nav" id="navLinks">
+      <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services & Pricing</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Insights</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li class="header__lang"><a href="services.html" class="active">EN</a><span style="color:var(--text-muted)">|</span><a href="../lv/services.html">LV</a></li>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
+  </div>
+</header>
 
-                <ul class="nav-links" id="navLinks">
-                    <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li class="lang-switcher">
-                        <a href="index.html" class="active">EN</a>
-                        <span>|</span>
-                        <a href="../lv/index.html">LV</a>
-                    </li>
-                </ul>
-            </nav>
+<section class="page-hero">
+  <div class="container">
+    <span class="label">What I Offer</span>
+    <h1>Services & Pricing</h1>
+    <p>Fixed prices, clear deliverables, no surprises. I specialise in SQL Server, C#/.NET, and regulatory systems for financial institutions.</p>
+  </div>
+</section>
 
-            <div class="menu-overlay" id="menuOverlay"></div>
-        </div>
-    </header>
+<!-- PRICING -->
+<section class="section">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <span class="label">Performance Audits</span>
+      <h2>Find out exactly why your database is slow</h2>
+      <p>You run my diagnostic scripts. I analyse the results. You get a prioritised action plan.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-card__name">Quick Check</div>
+        <div class="pricing-card__price">€199</div>
+        <p class="pricing-card__desc">2–3 business days delivery</p>
+        <ul class="pricing-card__features">
+          <li>Top 5 performance issues identified</li>
+          <li>3-page written report with severity ratings</li>
+          <li>Configuration red flags highlighted</li>
+          <li>High-level fix recommendations</li>
+        </ul>
+        <a href="contact.html" class="btn btn--secondary">Book a Quick Check</a>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-card__name">Standard Audit</div>
+        <div class="pricing-card__price">€499</div>
+        <p class="pricing-card__desc">5 business days delivery</p>
+        <ul class="pricing-card__features">
+          <li>Top 10 issues with detailed fix instructions</li>
+          <li>Full report with working SQL code fixes</li>
+          <li>30-minute video call walkthrough</li>
+          <li>Index analysis & recommendations</li>
+          <li>Wait statistics deep dive</li>
+          <li>Configuration optimisation plan</li>
+        </ul>
+        <a href="contact.html" class="btn btn--primary">Book a Standard Audit</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-card__name">Deep Dive</div>
+        <div class="pricing-card__price">€999+</div>
+        <p class="pricing-card__desc">7–10 business days delivery</p>
+        <ul class="pricing-card__features">
+          <li>Everything in Standard Audit</li>
+          <li>60-minute consultation call</li>
+          <li>Working code fixes, tested & validated</li>
+          <li>Before/after performance comparison</li>
+          <li>2-week email follow-up support</li>
+          <li>Priority scheduling</li>
+        </ul>
+        <a href="contact.html" class="btn btn--secondary">Book a Deep Dive</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="page-header">
-        <div class="container">
-            <h1>Our Services</h1>
-            <p>Specialised technical consulting for data-intensive financial and business environments</p>
-        </div>
-    </section>
+<!-- SERVICE DETAILS -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <span class="label">Consulting Services</span>
+      <h2>Beyond audits — hands-on consulting</h2>
+      <p>For larger projects, I work on hourly or project-based engagements.</p>
+    </div>
 
-    <section class="services-content">
-        <div class="container">
+    <div class="detail-block">
+      <h3>SQL Server Performance Optimisation</h3>
+      <p>I diagnose and fix database bottlenecks that other people can't find. This includes execution plan analysis, index redesign, stored procedure refactoring, and query rewriting for complex reporting workloads. Typical results: 50–95% reduction in query execution times.</p>
+      <ul>
+        <li>Comprehensive execution plan analysis</li>
+        <li>Index strategy design and consolidation</li>
+        <li>Stored procedure refactoring for performance</li>
+        <li>Database schema optimisation for high-volume systems</li>
+        <li>Performance monitoring setup with actionable alerts</li>
+      </ul>
+    </div>
 
-            <div class="service-detail">
-                <h2>SQL Server Performance Optimisation</h2>
-                <p>
-                    Slow database queries and inefficient data operations can cripple business-critical systems. We specialise in diagnosing and resolving SQL Server performance bottlenecks, turning sluggish databases into high-performance engines that scale with your business.
-                </p>
+    <div class="detail-block">
+      <h3>C#/.NET Backend Development</h3>
+      <p>Modern .NET backend systems built for performance and maintainability. I specialise in data processing pipelines, regulatory automation, and legacy system modernisation.</p>
+      <ul>
+        <li>RESTful API development with ASP.NET Core</li>
+        <li>Data processing pipelines for batch and real-time workloads</li>
+        <li>Dapper and Entity Framework data access layers</li>
+        <li>Legacy .NET Framework to modern .NET migration</li>
+        <li>Unit testing, CI/CD pipeline setup (Azure DevOps)</li>
+      </ul>
+    </div>
 
-                <h3>What We Deliver</h3>
-                <ul>
-                    <li>Comprehensive execution plan analysis to identify query bottlenecks and inefficiencies</li>
-                    <li>Index optimisation strategies including index design, consolidation, and maintenance plans</li>
-                    <li>Stored procedure refactoring to eliminate performance anti-patterns and improve execution speed</li>
-                    <li>Query rewriting for complex reporting and analytical workloads</li>
-                    <li>Database schema optimisation for high-volume transactional systems</li>
-                    <li>Performance monitoring implementation with actionable metrics and alerts</li>
-                    <li>Capacity planning and scaling recommendations based on growth projections</li>
-                </ul>
+    <div class="detail-block">
+      <h3>Regulatory Reporting Automation</h3>
+      <p>I've built SFTR, SEC, and MiFID II reporting systems that process thousands of transactions daily with zero compliance violations. I automate what your team currently does manually.</p>
+      <ul>
+        <li>SFTR reporting automation and optimisation</li>
+        <li>SEC / FINRA securities lending report generation</li>
+        <li>MiFID II transaction reporting</li>
+        <li>Data validation frameworks and reconciliation</li>
+        <li>Audit trail generation and compliance documentation</li>
+      </ul>
+    </div>
 
-                <h3>Typical Outcomes</h3>
-                <ul>
-                    <li>Query execution times reduced by 50-95% through targeted optimisation</li>
-                    <li>Elimination of timeout errors and user-facing performance issues</li>
-                    <li>Reduced server resource consumption, often deferring costly hardware upgrades</li>
-                    <li>Improved system responsiveness during peak load periods</li>
-                </ul>
-            </div>
+    <div class="detail-block">
+      <h3>System Integration</h3>
+      <p>Connecting disparate systems reliably — ETL pipelines, message queues, API integrations, and file-based data exchange for mission-critical workflows.</p>
+      <ul>
+        <li>ETL pipeline development for data warehousing</li>
+        <li>API integration between internal and third-party systems</li>
+        <li>Message queue implementation (RabbitMQ, Azure Service Bus)</li>
+        <li>File-based integration with validation and error handling</li>
+        <li>Integration monitoring and alerting frameworks</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-            <div class="service-detail">
-                <h2>C#/.NET Backend Development</h2>
-                <p>
-                    Modern backend systems require clean architecture, maintainable code, and robust data processing capabilities. We build scalable .NET solutions that handle complex business logic, integrate seamlessly with existing systems, and stand the test of time.
-                </p>
+<section class="cta-band">
+  <div class="container">
+    <h2>Not sure which option fits?</h2>
+    <p style="max-width:500px; margin:0 auto 2rem;">Email me with a brief description of your situation. I'll reply within 24 hours with an honest recommendation — even if it's "you don't need me."</p>
+    <a href="contact.html" class="btn btn--primary">Get in Touch</a>
+  </div>
+</section>
 
-                <h3>What We Deliver</h3>
-                <ul>
-                    <li>RESTful API development with modern .NET frameworks (ASP.NET Core, Web API)</li>
-                    <li>Data processing pipelines for high-volume batch operations and real-time streams</li>
-                    <li>Background job processing using Hangfire, Azure Functions, or similar technologies</li>
-                    <li>Entity Framework or Dapper-based data access layers optimised for performance</li>
-                    <li>Authentication and authorisation implementation (OAuth, JWT, Azure AD integration)</li>
-                    <li>Microservices architecture design and implementation where appropriate</li>
-                    <li>Legacy system modernisation and migration to current .NET versions</li>
-                    <li>Unit testing, integration testing, and CI/CD pipeline setup</li>
-                </ul>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div>
+        <p>SQL Server & C# performance consulting. Based in Riga, Latvia. Serving clients internationally.</p>
+      </div>
+      <div><h4>Pages</h4><a href="services.html">Services & Pricing</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div>
+      <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Riga, Latvia</p></div>
+    </div>
+    <div class="footer__bottom">© 2025 DataCraft Consulting. All rights reserved.</div>
+  </div>
+</footer>
 
-                <h3>Our Approach</h3>
-                <ul>
-                    <li>Clean, maintainable code following SOLID principles and industry best practices</li>
-                    <li>Pragmatic architecture decisions balancing complexity with business needs</li>
-                    <li>Performance-first mindset, especially for data-intensive operations</li>
-                    <li>Comprehensive documentation for future maintainability</li>
-                </ul>
-            </div>
-
-            <div class="service-detail">
-                <h2>Reporting & Compliance Automation</h2>
-                <p>
-                    Financial institutions face increasingly complex regulatory requirements. Manual reporting processes are error-prone, time-consuming, and don't scale. We automate these workflows, delivering accurate reports faster while reducing operational risk.
-                </p>
-
-                <h3>What We Deliver</h3>
-                <ul>
-                    <li>SFTR (Securities Financing Transactions Regulation) reporting automation</li>
-                    <li>MiFID II transaction reporting and best execution analysis</li>
-                    <li>Custom regulatory report generation for local and international requirements</li>
-                    <li>Data validation frameworks ensuring report accuracy and completeness</li>
-                    <li>Automated reconciliation processes between systems</li>
-                    <li>Report scheduling and distribution automation</li>
-                    <li>Audit trail generation and compliance documentation</li>
-                    <li>Exception handling and alerting for data quality issues</li>
-                </ul>
-
-                <h3>Key Benefits</h3>
-                <ul>
-                    <li>Dramatic reduction in manual effort (hours to minutes for complex reports)</li>
-                    <li>Elimination of human error in data aggregation and calculations</li>
-                    <li>Faster time-to-compliance for new regulatory requirements</li>
-                    <li>Complete audit trails for regulatory scrutiny</li>
-                    <li>Scalability as transaction volumes grow</li>
-                </ul>
-            </div>
-
-            <div class="service-detail">
-                <h2>System Integration</h2>
-                <p>
-                    Modern businesses run on interconnected systems. Data needs to flow seamlessly between trading platforms, risk systems, accounting software, and reporting tools. We design and implement robust integration solutions that connect your technology stack reliably.
-                </p>
-
-                <h3>What We Deliver</h3>
-                <ul>
-                    <li>ETL (Extract, Transform, Load) pipeline development for data warehousing</li>
-                    <li>API integration between internal systems and third-party services</li>
-                    <li>Real-time data synchronisation for mission-critical workflows</li>
-                    <li>Message queue implementation (RabbitMQ, Azure Service Bus, MSMQ)</li>
-                    <li>File-based integration with validation and error handling</li>
-                    <li>Database replication and synchronisation strategies</li>
-                    <li>Integration monitoring and alerting frameworks</li>
-                    <li>Data mapping and transformation logic for heterogeneous systems</li>
-                </ul>
-
-                <h3>Our Focus</h3>
-                <ul>
-                    <li>Reliability and fault tolerance in integration processes</li>
-                    <li>Comprehensive error handling and recovery mechanisms</li>
-                    <li>Performance optimisation for high-volume data transfers</li>
-                    <li>Security and data privacy in cross-system communication</li>
-                    <li>Maintainability and clear documentation of integration logic</li>
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Discuss Your Project?</h2>
-            <p>Let's explore how our expertise can solve your technical challenges.</p>
-            <a href="contact.html" class="cta-button">Book Your Free Discovery Call</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DataCraft Consulting</h3>
-                    <p>Expert SQL & C# consulting for financial institutions and data-intensive businesses.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="services.html">Services</a>
-                    <a href="about.html">About</a>
-                    <a href="case-studies.html">Case Studies</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: datacraftconsultants@gmail.com</p>
-                    <p>Location: Riga, Latvia</p>
-                    <p><a href="contact.html">Book a Discovery Call</a></p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 DataCraft Consulting. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const menuClose = document.getElementById('menuClose');
-    const navLinks = document.getElementById('navLinks');
-    const menuOverlay = document.getElementById('menuOverlay');
-
-    if (!menuToggle || !navLinks) return;
-
-    function openMenu() {
-        navLinks.classList.add('active');
-        if (menuOverlay) menuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-        navLinks.classList.remove('active');
-        if (menuOverlay) menuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    menuToggle.addEventListener('click', openMenu);
-    if (menuClose) menuClose.addEventListener('click', closeMenu);
-    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
-
-    // Close menu when clicking on a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
+  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut); overlay && overlay.addEventListener('click', shut);
+  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
 });
-    </script>
+</script>
 </body>
 </html>
