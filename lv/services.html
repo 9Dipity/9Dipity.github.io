@@ -3,567 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DataCraft Consulting Pakalpojumi - SQL Server veiktspējas optimizācija, C#/.NET izstrāde un regulējumu automatizācija finanšu iestādēm.">
+    <meta name="description" content="DataCraft Consulting pakalpojumi un cenas — SQL Server veiktspējas auditi no €199, C#/.NET izstrāde, regulatīvā automatizācija.">
     <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/services.html" />
     <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/services.html" />
-    <title>Pakalpojumi - DataCraft Consulting</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #ffffff;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: #1a365d;
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-placeholder {
-            width: 40px;
-            height: 40px;
-            background: #4a90e2;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-            .nav-links a {
-                color: white;
-                text-decoration: none;
-                transition: color 0.3s;
-            }
-
-                .nav-links a:hover {
-                    color: #4a90e2;
-                }
-
-        .lang-switcher {
-            display: flex;
-            gap: 0.5rem;
-            padding: 0.3rem 0.8rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-        }
-
-            .lang-switcher a {
-                color: white;
-                text-decoration: none;
-                font-weight: 500;
-            }
-
-            .lang-switcher .active {
-                color: #4a90e2;
-            }
-
-        .page-header {
-            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-            .page-header h1 {
-                font-size: 3rem;
-                margin-bottom: 1rem;
-            }
-
-            .page-header p {
-                font-size: 1.2rem;
-                color: #e8f4f8;
-                max-width: 700px;
-                margin: 0 auto;
-            }
-
-        .services-content {
-            padding: 5rem 0;
-        }
-
-        .service-detail {
-            background: white;
-            border-radius: 8px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-            .service-detail h2 {
-                color: #1a365d;
-                font-size: 2rem;
-                margin-bottom: 1.5rem;
-                padding-bottom: 1rem;
-                border-bottom: 3px solid #4a90e2;
-            }
-
-            .service-detail p {
-                color: #4a5568;
-                font-size: 1.1rem;
-                margin-bottom: 1.5rem;
-                line-height: 1.8;
-            }
-
-            .service-detail h3 {
-                color: #1a365d;
-                font-size: 1.4rem;
-                margin-top: 2rem;
-                margin-bottom: 1rem;
-            }
-
-            .service-detail ul {
-                list-style: none;
-                padding: 0;
-            }
-
-                .service-detail ul li {
-                    padding: 0.8rem 0;
-                    padding-left: 2rem;
-                    position: relative;
-                    color: #4a5568;
-                    line-height: 1.6;
-                }
-
-                    .service-detail ul li:before {
-                        content: "→";
-                        position: absolute;
-                        left: 0;
-                        color: #4a90e2;
-                        font-weight: bold;
-                    }
-
-        .cta-section {
-            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-            .cta-section h2 {
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-            }
-
-            .cta-section p {
-                font-size: 1.2rem;
-                margin-bottom: 2rem;
-                color: #e8f4f8;
-            }
-
-        .cta-button {
-            display: inline-block;
-            background: #4a90e2;
-            color: white;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-            .cta-button:hover {
-                background: #357abd;
-                transform: translateY(-2px);
-            }
-
-        footer {
-            background: #1a365d;
-            color: white;
-            padding: 3rem 0 1.5rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #4a90e2;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #e8f4f8;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-            .footer-section a:hover {
-                color: #4a90e2;
-            }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #e8f4f8;
-        }
-
-        /* Mobile Menu Button */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            line-height: 1;
-        }
-
-        /* Menu Overlay */
-        .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-        }
-
-            .menu-overlay.active {
-                display: block;
-            }
-
-        .menu-close {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 70%;
-                max-width: 300px;
-                background: #1a365d;
-                flex-direction: column;
-                padding: 5rem 2rem 2rem;
-                gap: 1.5rem;
-                transition: right 0.3s ease;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.3);
-                overflow-y: auto;
-                z-index: 1000;
-                margin-top: 0;
-            }
-
-                .nav-links.active {
-                    right: 0;
-                }
-
-                .nav-links li {
-                    width: 100%;
-                }
-
-                .nav-links a {
-                    display: block;
-                    padding: 0.5rem 0;
-                    font-size: 1.1rem;
-                }
-
-            .lang-switcher {
-                width: 100%;
-                justify-content: center;
-                margin-top: 1rem;
-            }
-
-            .menu-close {
-                display: block;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 2rem;
-                cursor: pointer;
-                padding: 0.5rem;
-                line-height: 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../style.css">
+    <title>Pakalpojumi un cenas — DataCraft Consulting</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <div class="logo-placeholder">DC</div>
-                    DataCraft Consulting
-                </a>
 
-                <button class="mobile-menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="header__logo"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></a>
+    <button class="header__menu-btn" id="menuToggle" aria-label="Atvērt izvēlni">☰</button>
+    <nav class="header__nav" id="navLinks">
+      <button class="menu-close" id="menuClose" aria-label="Aizvērt izvēlni">×</button>
+      <li><a href="index.html">Sākums</a></li>
+      <li><a href="services.html" class="active">Pakalpojumi</a></li>
+      <li><a href="case-studies.html">Pieredze</a></li>
+      <li><a href="about.html">Par mani</a></li>
+      <li><a href="blog.html">Raksti</a></li>
+      <li><a href="contact.html">Kontakti</a></li>
+      <li class="header__lang"><a href="../en/services.html">EN</a><span style="color:var(--text-muted)">|</span><a href="services.html" class="active">LV</a></li>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
+  </div>
+</header>
 
-                <ul class="nav-links" id="navLinks">
-                    <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li class="lang-switcher">
-                        <a href="index.html" class="active">EN</a>
-                        <span>|</span>
-                        <a href="../lv/index.html">LV</a>
-                    </li>
-                </ul>
-            </nav>
+<section class="page-hero">
+  <div class="container">
+    <span class="label">Ko es piedāvāju</span>
+    <h1>Pakalpojumi un cenas</h1>
+    <p>Fiksētas cenas, skaidri rezultāti, bez pārsteigumiem. Specializējos SQL Server, C#/.NET un regulatīvajās sistēmās finanšu iestādēm.</p>
+  </div>
+</section>
 
-            <div class="menu-overlay" id="menuOverlay"></div>
-        </div>
-    </header>
+<section class="section">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <span class="label">Veiktspējas auditi</span>
+      <h2>Uzziniet precīzi, kāpēc jūsu datu bāze ir lēna</h2>
+      <p>Jūs palaižat manus diagnostikas skriptus. Es analizēju rezultātus. Jūs saņemat rīcības plānu.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-card__name">Ātrā pārbaude</div>
+        <div class="pricing-card__price">€199</div>
+        <p class="pricing-card__desc">2–3 darba dienu piegāde</p>
+        <ul class="pricing-card__features">
+          <li>Top 5 veiktspējas problēmas identificētas</li>
+          <li>3 lappušu rakstiska atskaite ar smaguma novērtējumiem</li>
+          <li>Konfigurācijas brīdinājumi izcelti</li>
+          <li>Augsta līmeņa labojumu ieteikumi</li>
+        </ul>
+        <a href="contact.html" class="btn btn--secondary">Pasūtīt</a>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-card__name">Standarta audits</div>
+        <div class="pricing-card__price">€499</div>
+        <p class="pricing-card__desc">5 darba dienu piegāde</p>
+        <ul class="pricing-card__features">
+          <li>Top 10 problēmas ar detalizētām labošanas instrukcijām</li>
+          <li>Pilna atskaite ar gataviem SQL koda labojumiem</li>
+          <li>30 minūšu video zvans</li>
+          <li>Indeksu analīze un ieteikumi</li>
+          <li>Gaidīšanas statistikas padziļināta analīze</li>
+          <li>Konfigurācijas optimizācijas plāns</li>
+        </ul>
+        <a href="contact.html" class="btn btn--primary">Pasūtīt</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-card__name">Padziļinātā analīze</div>
+        <div class="pricing-card__price">€999+</div>
+        <p class="pricing-card__desc">7–10 darba dienu piegāde</p>
+        <ul class="pricing-card__features">
+          <li>Viss, kas iekļauts Standarta auditā</li>
+          <li>60 minūšu konsultācijas zvans</li>
+          <li>Gatavi koda labojumi, pārbaudīti un validēti</li>
+          <li>Pirms/pēc veiktspējas salīdzinājums</li>
+          <li>2 nedēļu e-pasta atbalsts</li>
+          <li>Prioritāra ieplānošana</li>
+        </ul>
+        <a href="contact.html" class="btn btn--secondary">Pasūtīt</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="page-header">
-        <div class="container">
-            <h1>Mūsu Pakalpojumi</h1>
-            <p>Specializēta tehniskā konsultēšana datu intensīvām finanšu un biznesa vidēm</p>
-        </div>
-    </section>
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <span class="label">Konsultāciju pakalpojumi</span>
+      <h2>Ārpus auditiem — praktiskas konsultācijas</h2>
+      <p>Lielākiem projektiem strādāju ar stundu vai projekta bāzes līgumiem.</p>
+    </div>
 
-    <section class="services-content">
-        <div class="container">
+    <div class="detail-block">
+      <h3>SQL Server veiktspējas optimizācija</h3>
+      <p>Diagnosticēju un novēršu datu bāzu vājās vietas, kuras citi neatrod. Tas ietver izpildes plānu analīzi, indeksu pārprojektēšanu, glabāto procedūru refaktorēšanu un vaicājumu pārrakstīšanu sarežģītām atskaišu darba slodzēm.</p>
+      <ul>
+        <li>Visaptveroša izpildes plānu analīze</li>
+        <li>Indeksu stratēģijas izstrāde un konsolidācija</li>
+        <li>Glabāto procedūru refaktorēšana veiktspējai</li>
+        <li>Datu bāzes shēmas optimizācija augsta apjoma sistēmām</li>
+        <li>Veiktspējas monitoringa uzstādīšana</li>
+      </ul>
+    </div>
 
-            <div class="service-detail">
-                <h2>SQL Server Veiktspējas Optimizācija</h2>
-                <p>
-                    Lēni datu bāzes vaicājumi un neefektīvas datu operācijas var paralizēt uzņēmuma kritiskās sistēmas. Mēs specializējamies SQL Server veiktspējas šaurvietu diagnosticēšanā un novēršanā, pārvēršot lēnas datu bāzes augstas veiktspējas dzinējos, kas mērogojami kopā ar jūsu biznesu.
-                </p>
+    <div class="detail-block">
+      <h3>C#/.NET aizmugursistēmu izstrāde</h3>
+      <p>Modernas .NET aizmugursistēmas, veidotas veiktspējai un uzturēšanas vienkāršībai. Specializējos datu apstrādes cauruļvados, regulatīvajā automatizācijā un mantoto sistēmu modernizācijā.</p>
+      <ul>
+        <li>RESTful API izstrāde ar ASP.NET Core</li>
+        <li>Datu apstrādes cauruļvadi pakešu un reāllaika darba slodzēm</li>
+        <li>Dapper un Entity Framework datu piekļuves slāņi</li>
+        <li>Mantoto .NET Framework migrācija uz moderno .NET</li>
+        <li>Vienību testēšana, CI/CD cauruļvadu uzstādīšana</li>
+      </ul>
+    </div>
 
-                <h3>Ko Mēs Sniedzam</h3>
-                <ul>
-                    <li>Visaptveroša izpildes plānu analīze, lai identificētu vaicājumu šaurvietas un neefektivitāti</li>
-                    <li>Indeksu optimizācijas stratēģijas, ieskaitot indeksu dizainu, konsolidāciju un uzturēšanas plānus</li>
-                    <li>Saglabāto procedūru pārstrukturēšana, lai novērstu veiktspējas antiparadumus un uzlabotu izpildes ātrumu</li>
-                    <li>Vaicājumu pārrakstīšana sarežģītām pārskatu un analītiskām darba slodzēm</li>
-                    <li>Datu bāzes shēmas optimizācija liela apjoma transakciju sistēmām</li>
-                    <li>Veiktspējas monitoringa ieviešana ar rīcībspējīgiem rādītājiem un brīdinājumiem</li>
-                    <li>Kapacitātes plānošana un mērogošanas ieteikumi, pamatojoties uz izaugsmes prognozēm</li>
-                </ul>
+    <div class="detail-block">
+      <h3>Regulatīvo atskaišu automatizācija</h3>
+      <p>Esmu izveidojis SFTR, SEC un MiFID II atskaišu sistēmas, kas apstrādā tūkstošiem darījumu dienā ar nulli atbilstības pārkāpumu. Automatizēju to, ko jūsu komanda patlaban dara manuāli.</p>
+      <ul>
+        <li>SFTR atskaišu automatizācija un optimizācija</li>
+        <li>SEC / FINRA vērtspapīru aizdevumu atskaišu ģenerēšana</li>
+        <li>MiFID II darījumu atskaitīšana</li>
+        <li>Datu validācijas ietvari un saskaņošana</li>
+        <li>Revīzijas izsekošanas un atbilstības dokumentācija</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-                <h3>Tipiskie Rezultāti</h3>
-                <ul>
-                    <li>Vaicājumu izpildes laiks samazināts par 50-95% ar mērķtiecīgu optimizāciju</li>
-                    <li>Taimauta kļūdu un lietotājiem redzamu veiktspējas problēmu novēršana</li>
-                    <li>Samazināta servera resursu patēriņš, bieži vien atliekot dārgus aparatūras uzlabojumus</li>
-                    <li>Uzlabota sistēmas atsaucība maksimālās slodzes periodos</li>
-                </ul>
-            </div>
+<section class="cta-band">
+  <div class="container">
+    <h2>Neesat drošs, kurš variants piemērotākais?</h2>
+    <p style="max-width:500px; margin:0 auto 2rem;">Rakstiet man ar īsu situācijas aprakstu. Atbildēšu 24 stundu laikā ar godīgu ieteikumu — pat ja tas ir "jums manis nevajag."</p>
+    <a href="contact.html" class="btn btn--primary">Sazināties</a>
+  </div>
+</section>
 
-            <div class="service-detail">
-                <h2>C#/.NET Aizmugures Izstrāde</h2>
-                <p>
-                    Mūsdienīgas aizmugures sistēmas prasa tīru arhitektūru, uzturējamu kodu un spēcīgas datu apstrādes iespējas. Mēs veidojam mērogojamus .NET risinājumus, kas apstrādā sarežģītu biznesa loģiku, nemanāmi integrējas ar esošajām sistēmām un iztur laika pārbaudi.
-                </p>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>SQL Server un C# veiktspējas konsultācijas. Rīga, Latvija.</p></div>
+      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mani</a><a href="blog.html">Raksti</a><a href="contact.html">Kontakti</a></div>
+      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
+    </div>
+    <div class="footer__bottom">© 2025 DataCraft Consulting. Visas tiesības aizsargātas.</div>
+  </div>
+</footer>
 
-                <h3>Ko Mēs Sniedzam</h3>
-                <ul>
-                    <li>RESTful API izstrāde ar mūsdienīgiem .NET ietvaru (ASP.NET Core, Web API)</li>
-                    <li>Datu apstrādes konveijerlīnijas liela apjoma pakešu operācijām un reāllaika plūsmām</li>
-                    <li>Fona darbu apstrāde, izmantojot Hangfire, Azure Functions vai līdzīgas tehnoloģijas</li>
-                    <li>Entity Framework vai Dapper balstīti datu piekļuves slāņi, optimizēti veiktspējai</li>
-                    <li>Autentifikācijas un autorizācijas ieviešana (OAuth, JWT, Azure AD integrācija)</li>
-                    <li>Mikroservisu arhitektūras projektēšana un ieviešana, kur nepieciešams</li>
-                    <li>Mantoto sistēmu modernizācija un migrācija uz pašreizējām .NET versijām</li>
-                    <li>Vienību testēšana, integrācijas testēšana un CI/CD konveijerlīniju uzstādīšana</li>
-                </ul>
-
-                <h3>Mūsu Pieeja</h3>
-                <ul>
-                    <li>Tīrs, uzturējams kods, ievērojot SOLID principus un nozares labāko praksi</li>
-                    <li>Pragmatiskas arhitektūras lēmumi, līdzsvarojot sarežģītību ar biznesa vajadzībām</li>
-                    <li>Veiktspēju prioritizējoša domāšana, īpaši datu intensīvām operācijām</li>
-                    <li>Visaptveroša dokumentācija turpmākajai uzturēšanai</li>
-                </ul>
-            </div>
-
-            <div class="service-detail">
-                <h2>Pārskatu un Atbilstības Automatizācija</h2>
-                <p>
-                    Finanšu iestādes saskaras ar arvien sarežģītākām regulējuma prasībām. Manuālie pārskatu procesi ir kļūdaini, laikietilpīgi un nav mērogojami. Mēs automatizējam šos darba procesus, sniedzot precīzus pārskatus ātrāk, vienlaikus samazinot operacionālo risku.
-                </p>
-
-                <h3>Ko Mēs Sniedzam</h3>
-                <ul>
-                    <li>SFTR (Vērtspapīru finansēšanas transakciju regulējuma) pārskatu automatizācija</li>
-                    <li>MiFID II transakciju pārskati un labākās izpildes analīze</li>
-                    <li>Pielāgotu regulatīvo pārskatu ģenerēšana vietējām un starptautiskām prasībām</li>
-                    <li>Datu validācijas ietvari, kas nodrošina pārskatu precizitāti un pilnīgumu</li>
-                    <li>Automatizēti saskaņošanas procesi starp sistēmām</li>
-                    <li>Pārskatu plānošanas un izplatīšanas automatizācija</li>
-                    <li>Auditācijas ceļa ģenerēšana un atbilstības dokumentācija</li>
-                    <li>Izņēmumu apstrāde un brīdināšana par datu kvalitātes problēmām</li>
-                </ul>
-
-                <h3>Galvenās Priekšrocības</h3>
-                <ul>
-                    <li>Dramatiska manuālā darba samazināšana (no stundām līdz minūtēm sarežģītiem pārskatiem)</li>
-                    <li>Cilvēka kļūdu novēršana datu apkopošanā un aprēķinos</li>
-                    <li>Ātrāks atbilstības laiks jaunām regulējuma prasībām</li>
-                    <li>Pilnīgi auditācijas ceļi regulējošu iestāžu pārbaudei</li>
-                    <li>Mērogojamība, palielinoties transakciju apjomiem</li>
-                </ul>
-            </div>
-
-            <div class="service-detail">
-                <h2>Sistēmu Integrācija</h2>
-                <p>
-                    Mūsdienu uzņēmumi darbojas ar savstarpēji savienotām sistēmām. Datiem jāplūst nemanāmi starp tirdzniecības platformām, risku sistēmām, grāmatvedības programmatūru un pārskatu rīkiem. Mēs projektējam un ieviešam stabilus integrācijas risinājumus, kas uzticami savieno jūsu tehnoloģiju steku.
-                </p>
-
-                <h3>Ko Mēs Sniedzam</h3>
-                <ul>
-                    <li>ETL (Ekstrahēšanas, Transformācijas, Ielādēšanas) konveijerlīniju izstrāde datu noliktavām</li>
-                    <li>API integrācija starp iekšējām sistēmām un trešo pušu pakalpojumiem</li>
-                    <li>Reāllaika datu sinhronizācija misijkritiskiem darba procesiem</li>
-                    <li>Ziņojumu rindu ieviešana (RabbitMQ, Azure Service Bus, MSMQ)</li>
-                    <li>Uz failiem balstīta integrācija ar validāciju un kļūdu apstrādi</li>
-                    <li>Datu bāzu replikācijas un sinhronizācijas stratēģijas</li>
-                    <li>Integrācijas monitoringa un brīdināšanas ietvari</li>
-                    <li>Datu kartēšanas un transformācijas loģika neviendabīgām sistēmām</li>
-                </ul>
-
-                <h3>Mūsu Fokuss</h3>
-                <ul>
-                    <li>Uzticamība un kļūdu tolerance integrācijas procesos</li>
-                    <li>Visaptveroša kļūdu apstrāde un atgūšanas mehānismi</li>
-                    <li>Veiktspējas optimizācija liela apjoma datu pārnesumiem</li>
-                    <li>Drošība un datu privātums starp sistēmu komunikācijā</li>
-                    <li>Uzturējamība un skaidra integrācijas loģikas dokumentācija</li>
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2>Gatavs Apspriest Savu Projektu?</h2>
-            <p>Apskatīsim, kā mūsu ekspertīze var atrisināt jūsu tehniskās problēmas.</p>
-            <a href="contact.html" class="cta-button">Rezervēt Bezmaksas Konsultāciju</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DataCraft Consulting</h3>
-                    <p>Ekspertu SQL un C# konsultācijas finanšu iestādēm un datu intensīviem uzņēmumiem.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Ātrās Saites</h3>
-                    <a href="services.html">Pakalpojumi</a>
-                    <a href="about.html">Par Mums</a>
-                    <a href="case-studies.html">Projekti</a>
-                    <a href="contact.html">Kontakti</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Kontakti</h3>
-                    <p>E-pasts: datacraftconsultants@gmail.com</p>
-                    <p>Atrašanās vieta: Rīga, Latvija</p>
-                    <p><a href="contact.html">Rezervēt Konsultāciju</a></p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 DataCraft Consulting. Visas tiesības aizsargātas.</p>
-            </div>
-        </div>
-    </footer>
-    <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const menuClose = document.getElementById('menuClose');
-    const navLinks = document.getElementById('navLinks');
-    const menuOverlay = document.getElementById('menuOverlay');
-
-    if (!menuToggle || !navLinks) return;
-
-    function openMenu() {
-        navLinks.classList.add('active');
-        if (menuOverlay) menuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-        navLinks.classList.remove('active');
-        if (menuOverlay) menuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    menuToggle.addEventListener('click', openMenu);
-    if (menuClose) menuClose.addEventListener('click', closeMenu);
-    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
-
-    // Close menu when clicking on a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
+  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut); overlay && overlay.addEventListener('click', shut);
+  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
 });
-    </script>
+</script>
 </body>
 </html>
