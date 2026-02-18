@@ -618,13 +618,13 @@ a:hover { color: var(--accent-hover); }
 }
 
 .founder__photo {
-  width: 100%;
-  max-width: 320px;
-  aspect-ratio: 1 / 1;
+  width: 240px;
+  height: 240px;
   object-fit: cover;
   object-position: center top;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
+  display: block;
 }
 
 .founder__bio h2 { margin-bottom: 1.5rem; }
