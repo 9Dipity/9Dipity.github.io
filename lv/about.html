@@ -3,570 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Par DataCraft Consulting - Ekspertu tehniskā konsultācija, ko dibinājis Andris, bijušais banku tehnoloģiju speciālists ar 10+ gadu pieredzi.">
+    <meta name="description" content="Par Arturu Irbīti — 10 gadu pieredze banku tehnoloģijās, SQL Server speciālists, DataCraft Consulting dibinātājs Rīgā, Latvijā.">
     <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/about.html" />
     <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/about.html" />
-    <title>Par Mums - DataCraft Consulting</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #ffffff;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: #1a365d;
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-placeholder {
-            width: 40px;
-            height: 40px;
-            background: #4a90e2;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-            .nav-links a {
-                color: white;
-                text-decoration: none;
-                transition: color 0.3s;
-            }
-
-                .nav-links a:hover {
-                    color: #4a90e2;
-                }
-
-        .lang-switcher {
-            display: flex;
-            gap: 0.5rem;
-            padding: 0.3rem 0.8rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-        }
-
-            .lang-switcher a {
-                color: white;
-                text-decoration: none;
-                font-weight: 500;
-            }
-
-            .lang-switcher .active {
-                color: #4a90e2;
-            }
-
-        .page-header {
-            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-            .page-header h1 {
-                font-size: 3rem;
-                margin-bottom: 1rem;
-            }
-
-            .page-header p {
-                font-size: 1.2rem;
-                color: #e8f4f8;
-                max-width: 700px;
-                margin: 0 auto;
-            }
-
-        .about-content {
-            padding: 5rem 0;
-        }
-
-        .about-section {
-            max-width: 900px;
-            margin: 0 auto 4rem;
-        }
-
-            .about-section h2 {
-                color: #1a365d;
-                font-size: 2rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .about-section p {
-                color: #4a5568;
-                font-size: 1.1rem;
-                line-height: 1.8;
-                margin-bottom: 1.5rem;
-            }
-
-        .founder-bio {
-            background: #f8f9fa;
-            padding: 3rem;
-            border-radius: 8px;
-            margin: 3rem 0;
-        }
-
-            .founder-bio h3 {
-                color: #1a365d;
-                font-size: 1.6rem;
-                margin-bottom: 1rem;
-            }
-
-        .mission-box {
-            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 8px;
-            margin: 3rem 0;
-            text-align: center;
-        }
-
-            .mission-box h2 {
-                color: white;
-                font-size: 2rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .mission-box p {
-                font-size: 1.2rem;
-                color: #e8f4f8;
-                line-height: 1.8;
-            }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .value-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .value-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .value-card h3 {
-            color: #1a365d;
-            margin-bottom: 1rem;
-        }
-
-        .value-card p {
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        .cta-section {
-            background: #f8f9fa;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-            .cta-section h2 {
-                color: #1a365d;
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-            }
-
-            .cta-section p {
-                font-size: 1.2rem;
-                margin-bottom: 2rem;
-                color: #4a5568;
-            }
-
-        .cta-button {
-            display: inline-block;
-            background: #4a90e2;
-            color: white;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-            .cta-button:hover {
-                background: #357abd;
-                transform: translateY(-2px);
-            }
-
-        footer {
-            background: #1a365d;
-            color: white;
-            padding: 3rem 0 1.5rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #4a90e2;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #e8f4f8;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-            .footer-section a:hover {
-                color: #4a90e2;
-            }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #e8f4f8;
-        }
-
-        /* Mobile Menu Button */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            line-height: 1;
-        }
-
-        /* Menu Overlay */
-        .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-        }
-
-            .menu-overlay.active {
-                display: block;
-            }
-
-        .menu-close {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 70%;
-                max-width: 300px;
-                background: #1a365d;
-                flex-direction: column;
-                padding: 5rem 2rem 2rem;
-                gap: 1.5rem;
-                transition: right 0.3s ease;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.3);
-                overflow-y: auto;
-                z-index: 1000;
-                margin-top: 0;
-            }
-
-                .nav-links.active {
-                    right: 0;
-                }
-
-                .nav-links li {
-                    width: 100%;
-                }
-
-                .nav-links a {
-                    display: block;
-                    padding: 0.5rem 0;
-                    font-size: 1.1rem;
-                }
-
-            .lang-switcher {
-                width: 100%;
-                justify-content: center;
-                margin-top: 1rem;
-            }
-
-            .menu-close {
-                display: block;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 2rem;
-                cursor: pointer;
-                padding: 0.5rem;
-                line-height: 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../style.css">
+    <title>Par mani — DataCraft Consulting</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <div class="logo-placeholder">DC</div>
-                    DataCraft Consulting
-                </a>
 
-                <button class="mobile-menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="header__logo"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></a>
+    <button class="header__menu-btn" id="menuToggle" aria-label="Atvērt izvēlni">☰</button>
+    <nav class="header__nav" id="navLinks">
+      <button class="menu-close" id="menuClose" aria-label="Aizvērt izvēlni">×</button>
+      <li><a href="index.html">Sākums</a></li>
+      <li><a href="services.html">Pakalpojumi</a></li>
+      <li><a href="case-studies.html">Pieredze</a></li>
+      <li><a href="about.html" class="active">Par mani</a></li>
+      <li><a href="blog.html">Raksti</a></li>
+      <li><a href="contact.html">Kontakti</a></li>
+      <li class="header__lang"><a href="../en/about.html">EN</a><span style="color:var(--text-muted)">|</span><a href="about.html" class="active">LV</a></li>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
+  </div>
+</header>
 
-                <ul class="nav-links" id="navLinks">
-                    <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li class="lang-switcher">
-                        <a href="index.html" class="active">EN</a>
-                        <span>|</span>
-                        <a href="../lv/index.html">LV</a>
-                    </li>
-                </ul>
-            </nav>
+<section class="page-hero">
+  <div class="container">
+    <span class="label">Par mani</span>
+    <h1>Es labo lēnas datu bāzes ikdienā.</h1>
+    <p>10 gadi banku sistēmās. Tagad palīdzu arī uzņēmumiem ārpus bankas.</p>
+  </div>
+</section>
 
-            <div class="menu-overlay" id="menuOverlay"></div>
-        </div>
-    </header>
+<section class="section">
+  <div class="container">
+    <div class="founder-section">
+      <div>
+        <div class="founder__photo-placeholder">AI</div>
+        <p style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin-top:0.75rem;">Arturs Irbītis<br>Rīga, Latvija</p>
+      </div>
+      <div class="founder__bio">
+        <h2>Mans stāsts</h2>
+        <p>Es esmu Arturs Irbītis, vecākais programmatūras izstrādātājs, kas dzīvo Rīgā, Latvijā. Pēdējos 10 gadus esmu veidojis un optimizējis datu bāzu sistēmas vienai no lielākajām bankām Ziemeļeiropā.</p>
+        <p>Mans ikdienas darbs ietver tūkstošiem finanšu darījumu apstrādi ar stingriem regulatīviem termiņiem — sistēmas, kur katra milisekunde ir svarīga un dīkstāve nav pieļaujama. Esmu izveidojis pilnīgas SEC un SFTR atskaišu sistēmas no nulles, optimizējis vaicājumus, kas samazināja apstrādi no 15 minūtēm līdz mazāk par 2 minūtēm, un uzrakstījis 881 automatizētu testu, lai nodrošinātu, ka nekas nesalūzt.</p>
 
-    <section class="page-header">
-        <div class="container">
-            <h1>Par DataCraft Consulting</h1>
-            <p>Butika tehniskā konsultācija, kas koncentrējas uz augstas veiktspējas datu sistēmām</p>
-        </div>
-    </section>
+        <blockquote>"Šīs nav grūti risināmas problēmas — ja zini, kur meklēt. Tas ir tas, ko es daru."</blockquote>
 
-    <section class="about-content">
-        <div class="container">
+        <p>Es dibināju DataCraft Consulting, jo turpināju redzēt vienas un tās pašas problēmas ārpus banku sektora: uzņēmumi, kas izmanto SQL Server datu bāzes, kuras tika iestatītas pirms gadiem un nekad nav bijušas pienācīgi noskaņotas. Vaicājumi, kas aizņem minūtes, kad tiem vajadzētu aizņemt sekundes. Indeksi, kurus izveidoja kāds, kurš aizgāja pirms trim darbavietām.</p>
+        <p>Es galvenokārt strādāju ar C# un SQL Server. Mans tehnoloģiju arsenāls ietver .NET 6+, Dapper, Akka.NET, Azure DevOps un daudz T-SQL. Esmu pragmatisks tehnoloģiju izvēlē — izmantoju to, kas uzticami strādā produkcijā, nevis to, kas trendojas.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="about-section">
-                <h2>Mūsu Stāsts</h2>
-                <p>
-                    DataCraft Consulting tika dibināts, lai pārvarētu plaisu starp sarežģītām tehniskām problēmām un praktiskiem biznesa risinājumiem. Mēs specializējamies datu bāzu veiktspējas, aizmugures izstrādes un finanšu regulatīvās atbilstības krustpunktā—jomās, kurās dziļa ekspertīze veido atšķirību starp sistēmām, kas cīnās, un sistēmām, kas izcili darbojas.
-                </p>
-                <p>
-                    Darbojoties kā butika konsultācija, mēs sniedzam augsta līmeņa ekspertīzi, kas parasti atrodama lielās firmās, bet ar veiklību, atsaucību un personalizētu uzmanību, ko var sniegt tikai fokusēts speciālists. Mūsu klienti gūst labumu no tiešas piekļuves pieredzējušiem profesionāļiem, kas saprot gan tehniskās nianses, gan viņu problēmu biznesa kontekstu.
-                </p>
-                <p>
-                    Mēs galvenokārt strādājam ar finanšu iestādēm, fintech uzņēmumiem un datu intensīviem uzņēmumiem, kur veiktspēja, uzticamība un regulatīvā atbilstība nav izvēle—tās ir fundamentālas panākumiem. Mūsu projekti svārstās no mērķtiecīgiem veiktspējas optimizācijas projektiem līdz visaptverošām sistēmu izstrādes un integrācijas iniciatīvām.
-                </p>
-            </div>
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <span class="label">Manas vērtības</span>
+      <h2>Kā es strādāju</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-card__icon">🎯</div>
+        <h3>Rezultāti, ne teorija</h3>
+        <p>Mēru panākumus taustāmos rezultātos: ātrāki vaicājumi, mazāk kļūdu, samazināts manuālais darbs. Ja nevaru parādīt izmērāmu uzlabojumu, pateikšu to uzreiz.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__icon">🔧</div>
+        <h3>Pragmatiska inženierija</h3>
+        <p>Dodu priekšroku pārbaudītiem risinājumiem, nevis trendīgām tehnoloģijām. Labākais risinājums ir tas, kas uzticami strādā produkcijā plkst. 2 naktī, kad neviens neskatās.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__icon">📝</div>
+        <h3>Godīga komunikācija</h3>
+        <p>Ja jūsu problēma neprasa manu palīdzību, es to pateikšu. Ja neesmu īstā persona projektam, norādīšu pareizo virzienu. Nekāda pārdošana.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__icon">📚</div>
+        <h3>Zināšanu nodošana</h3>
+        <p>Es dokumentēju visu un skaidri izskaidroju savu domāšanu. Mērķis ir padarīt jūsu komandu spējīgāku, nevis radīt atkarību no manis.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="founder-bio">
-                <h3>Iepazīsties ar Dibinātāju: Artūrs Irbītis</h3>
-                <p>
-                    DataCraft Consulting vada Artūrs, tehnoloģiju speciālists ar vairāk nekā 10 gadu pieredzi banku un finanšu pakalpojumu tehnoloģijās. Artūrs ir pavadījis lielāko daļu savas karjeras dziļi misijkritisko finanšu sistēmu траншejās, kur milisekundes ir svarīgas un precizitāte nav apspriežama.
-                </p>
-                <p>
-                    Viņa pieredze aptver regulatīvo pārskatu sistēmas, liela apjoma transakciju apstrādi un sarežģītus datu integrācijas projektus lielām finanšu iestādēm. Šī pieredze ir sniegusi unikālu perspektīvu par to, kas nepieciešams, lai veidotu sistēmas, kas ne tikai darbojas šodien, bet arī mērogojami un pielāgojas, uzņēmumiem augot un regulējumiem attīstoties.
-                </p>
-                <p>
-                    Artūrs specializējas SQL Server veiktspējas optimizācijā, C#/.NET aizmugures izstrādē un sarežģītu regulatīvo darba procesu automatizācijā. Viņš personīgi ir pārveidojis sistēmas, kas ģenerēja pārskatus 15 minūtes, procesus, kas ilgst mazāk par divām minūtēm, novērsis datu bāzu šaurvietas, kas nomāca ražošanas sistēmas, un automatizējis manuālus atbilstības uzdevumus, kas patērēja simtiem stundu gadā.
-                </p>
-                <p>
-                    Viņa pieeja apvieno dziļas tehniskas zināšanas ar pragmatisku problēmu risināšanu. Tā vietā, lai pārinženierētu risinājumus vai dzītos pēc jaunākajām tendencēm, Artūrs koncentrējas uz to, kas faktiski darbojas ražošanas vidēs—uzticamas, uzturējamas, augstas veiktspējas sistēmas, kas sniedz izmērāmu biznesa vērtību.
-                </p>
-            </div>
+<section class="section">
+  <div class="container container--narrow">
+    <div class="section__header">
+      <span class="label">Tehniskā pieredze</span>
+      <h2>Ar ko strādāju ikdienā</h2>
+    </div>
+    <div class="tags" style="gap:0.75rem;">
+      <span class="tag">SQL Server 2019</span><span class="tag">T-SQL</span><span class="tag">C# / .NET 6+</span><span class="tag">Dapper ORM</span><span class="tag">Akka.NET</span><span class="tag">xUnit</span><span class="tag">Azure DevOps</span><span class="tag">Docker</span><span class="tag">SFTR</span><span class="tag">SEC / FINRA</span><span class="tag">MiFID II</span><span class="tag">RabbitMQ</span><span class="tag">Git</span><span class="tag">Hangfire</span><span class="tag">Python</span>
+    </div>
+  </div>
+</section>
 
-            <div class="mission-box">
-                <h2>Mūsu Misija</h2>
-                <p>
-                    Sniegt augstas veiktspējas, uzticamus datu konveijerlīnijas un aizmugures sistēmas, kas dod iespēju finanšu iestādēm un datu intensīviem uzņēmumiem darboties efektīvi, atbilst regulējumiem pārliecinoši un mērogojami bez berzes.
-                </p>
-                <p style="margin-top: 1.5rem;">
-                    Mēs ticam, ka tehnoloģijai jābūt iespējotājam, nevis šaurvietai. Mūsu misija ir optimizēt kritiskās sistēmas, no kurām uzņēmumi ir atkarīgi, pārvēršot tehniskās problēmas konkurences priekšrocībās.
-                </p>
-            </div>
+<section class="cta-band">
+  <div class="container">
+    <h2>Vēlaties sadarboties?</h2>
+    <p style="max-width:500px; margin:0 auto 2rem;">Vienmēr labprāt parunāju par datu bāzēm. Pat ja neesat drošs, ka vajadzīga palīdzība, droši rakstiet.</p>
+    <a href="contact.html" class="btn btn--primary">Sazināties</a>
+  </div>
+</section>
 
-            <div class="about-section">
-                <h2>Mūsu Vērtības</h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">🎯</div>
-                        <h3>Rezultātorientēti</h3>
-                        <p>Mēs mērām panākumus taustāmos rezultātos: ātrākās sistēmās, automatizētos darba procesos, novērstās šaurvietās un izmērāmos laika ietaupījumos.</p>
-                    </div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>SQL Server un C# veiktspējas konsultācijas. Rīga, Latvija.</p></div>
+      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mani</a><a href="blog.html">Raksti</a><a href="contact.html">Kontakti</a></div>
+      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
+    </div>
+    <div class="footer__bottom">© 2025 DataCraft Consulting. Visas tiesības aizsargātas.</div>
+  </div>
+</footer>
 
-                    <div class="value-card">
-                        <div class="value-icon">🔧</div>
-                        <h3>Pragmatiska Inženierija</h3>
-                        <p>Mēs dodam priekšroku pārbaudītiem risinājumiem, nevis modernām tehnoloģijām, un uzturējamībai, nevis sarežģītībai. Labākais risinājums ir tas, kas uzticami darbojas ražošanā.</p>
-                    </div>
-
-                    <div class="value-card">
-                        <div class="value-icon">🤝</div>
-                        <h3>Partnerības Domāšana</h3>
-                        <p>Mēs neesam tikai piegādātāji—mēs esam partneri, kas ieguldīti jūsu panākumos. Jūsu tehniskās problēmas kļūst par mūsu problēmām, ko risināt.</p>
-                    </div>
-
-                    <div class="value-card">
-                        <div class="value-icon">📚</div>
-                        <h3>Zināšanu Nodošana</h3>
-                        <p>Mēs dokumentējam savu darbu rūpīgi un skaidri izskaidrojam savus lēmumus, nodrošinot, ka jūsu komanda var uzturēt un attīstīt risinājumus, ko mēs sniedzam.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-section" style="margin-top: 4rem;">
-                <h2>Kāpēc Butika?</h2>
-                <p>
-                    Lielas konsultāciju firmas piedāvā mērogu, bet bieži trūkst dziļuma un fokusa, kas nepieciešams specializētam tehniskam darbam. Mēs apzināti esam strukturējuši DataCraft Consulting kā butika firmu, lai nodrošinātu, ka katrs klients strādā tieši ar augsta līmeņa ekspertīzi, nevis ar jaunākiem konsultantiem, kas mācās darbā.
-                </p>
-                <p>
-                    Šī pieeja ļauj mums būt ļoti selektīviem par projektiem, ko uzņemamies, nodrošinot, ka mēs strādājam tikai tur, kur varam sniegt izcilu vērtību. Tas arī nozīmē ātrāku lēmumu pieņemšanu, elastīgākus sadarbības modeļus un nekādus birokrātijas slāņus starp jums un personu, kas risina jūsu problēmas.
-                </p>
-                <p>
-                    Mums augot, mēs saglabājam šo apņemšanos kvalitātei, nevis kvantitātei. Paplašināšanās vienmēr būs mērena, nodrošinot, ka mēs varam turpināt sniegt ekspertīzes līmeni un uzmanību, kas raksturo mūsu pakalpojumu.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2>Strādāsim Kopā</h2>
-            <p>Gatavs apspriest savas tehniskās problēmas? Mēs labprāt dzirdētu no jums.</p>
-            <a href="contact.html" class="cta-button">Rezervēt Bezmaksas Konsultāciju</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DataCraft Consulting</h3>
-                    <p>Ekspertu SQL un C# konsultācijas finanšu iestādēm un datu intensīviem uzņēmumiem.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Ātrās Saites</h3>
-                    <a href="services.html">Pakalpojumi</a>
-                    <a href="about.html">Par Mums</a>
-                    <a href="case-studies.html">Projekti</a>
-                    <a href="contact.html">Kontakti</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Kontakti</h3>
-                    <p>E-pasts: datacraftconsultants@gmail.com</p>
-                    <p>Atrašanās vieta: Rīga, Latvija</p>
-                    <p><a href="contact.html">Rezervēt Konsultāciju</a></p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 DataCraft Consulting. Visas tiesības aizsargātas.</p>
-            </div>
-        </div>
-    </footer>
-    <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const menuClose = document.getElementById('menuClose');
-    const navLinks = document.getElementById('navLinks');
-    const menuOverlay = document.getElementById('menuOverlay');
-
-    if (!menuToggle || !navLinks) return;
-
-    function openMenu() {
-        navLinks.classList.add('active');
-        if (menuOverlay) menuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-        navLinks.classList.remove('active');
-        if (menuOverlay) menuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    menuToggle.addEventListener('click', openMenu);
-    if (menuClose) menuClose.addEventListener('click', closeMenu);
-    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
-
-    // Close menu when clicking on a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
+  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut); overlay && overlay.addEventListener('click', shut);
+  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
 });
-    </script>
+</script>
 </body>
 </html>
