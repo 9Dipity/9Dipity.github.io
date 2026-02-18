@@ -3,803 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DataCraft Consulting Projekti - Reālas pasaules SQL optimizācijas, regulējumu automatizācijas un sistēmu veiktspējas uzlabojumu piemēri, ieskaitot SFTR un SEC pārskatus.">
+    <meta name="description" content="DataCraft Consulting pieredze — reāli SQL Server optimizācijas un regulatīvās automatizācijas rezultāti no banku un finanšu sistēmām.">
     <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/case-studies.html" />
     <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/case-studies.html" />
-    <title>Projekti - DataCraft Consulting</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #ffffff;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: #1a365d;
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-placeholder {
-            width: 40px;
-            height: 40px;
-            background: #4a90e2;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-            .nav-links a {
-                color: white;
-                text-decoration: none;
-                transition: color 0.3s;
-            }
-
-                .nav-links a:hover {
-                    color: #4a90e2;
-                }
-
-        .lang-switcher {
-            display: flex;
-            gap: 0.5rem;
-            padding: 0.3rem 0.8rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-        }
-
-            .lang-switcher a {
-                color: white;
-                text-decoration: none;
-                font-weight: 500;
-            }
-
-            .lang-switcher .active {
-                color: #4a90e2;
-            }
-
-        .page-header {
-            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-            .page-header h1 {
-                font-size: 3rem;
-                margin-bottom: 1rem;
-            }
-
-            .page-header p {
-                font-size: 1.2rem;
-                color: #e8f4f8;
-                max-width: 700px;
-                margin: 0 auto;
-            }
-
-        .blog-tagline {
-            background: #f8f9fa;
-            padding: 2rem 0;
-            text-align: center;
-            border-bottom: 2px solid #e2e8f0;
-        }
-
-            .blog-tagline p {
-                font-size: 1.1rem;
-                color: #4a5568;
-                font-style: italic;
-            }
-
-        .case-studies-content {
-            padding: 5rem 0;
-        }
-
-        .case-study {
-            background: white;
-            border-radius: 8px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .case-study-header {
-            border-bottom: 3px solid #4a90e2;
-            padding-bottom: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-            .case-study-header h2 {
-                color: #1a365d;
-                font-size: 2rem;
-                margin-bottom: 0.5rem;
-            }
-
-        .case-study-meta {
-            color: #718096;
-            font-size: 0.95rem;
-        }
-
-        .challenge-box,
-        .solution-box,
-        .results-box {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            border-left: 4px solid #4a90e2;
-        }
-
-            .challenge-box h3,
-            .solution-box h3,
-            .results-box h3 {
-                color: #1a365d;
-                font-size: 1.4rem;
-                margin-bottom: 1rem;
-            }
-
-        .case-study p {
-            color: #4a5568;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .case-study ul {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-
-            .case-study ul li {
-                padding: 0.5rem 0;
-                padding-left: 2rem;
-                position: relative;
-                color: #4a5568;
-            }
-
-                .case-study ul li:before {
-                    content: "✓";
-                    position: absolute;
-                    left: 0;
-                    color: #4a90e2;
-                    font-weight: bold;
-                }
-
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .metric {
-            text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 8px;
-            border: 2px solid #4a90e2;
-        }
-
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a365d;
-            margin-bottom: 0.5rem;
-        }
-
-        .metric-label {
-            color: #4a5568;
-            font-size: 0.95rem;
-        }
-
-        .tech-stack {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-
-            .tech-stack h4 {
-                color: #1a365d;
-                margin-bottom: 1rem;
-            }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            background: #4a90e2;
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-            .cta-section h2 {
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-            }
-
-            .cta-section p {
-                font-size: 1.2rem;
-                margin-bottom: 2rem;
-                color: #e8f4f8;
-            }
-
-        .cta-button {
-            display: inline-block;
-            background: #4a90e2;
-            color: white;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-            .cta-button:hover {
-                background: #357abd;
-                transform: translateY(-2px);
-            }
-
-        footer {
-            background: #1a365d;
-            color: white;
-            padding: 3rem 0 1.5rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #4a90e2;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #e8f4f8;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-            .footer-section a:hover {
-                color: #4a90e2;
-            }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #e8f4f8;
-        }
-        /* Mobile Menu Button */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            line-height: 1;
-        }
-
-        /* Menu Overlay */
-        .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-        }
-
-            .menu-overlay.active {
-                display: block;
-            }
-
-        .menu-close {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 70%;
-                max-width: 300px;
-                background: #1a365d;
-                flex-direction: column;
-                padding: 5rem 2rem 2rem;
-                gap: 1.5rem;
-                transition: right 0.3s ease;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.3);
-                overflow-y: auto;
-                z-index: 1000;
-                margin-top: 0;
-            }
-
-                .nav-links.active {
-                    right: 0;
-                }
-
-                .nav-links li {
-                    width: 100%;
-                }
-
-                .nav-links a {
-                    display: block;
-                    padding: 0.5rem 0;
-                    font-size: 1.1rem;
-                }
-
-            .lang-switcher {
-                width: 100%;
-                justify-content: center;
-                margin-top: 1rem;
-            }
-
-            .menu-close {
-                display: block;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-                background: none;
-                border: none;
-                color: white;
-                font-size: 2rem;
-                cursor: pointer;
-                padding: 0.5rem;
-                line-height: 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="../style.css">
+    <title>Pieredze — DataCraft Consulting</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <div class="logo-placeholder">DC</div>
-                    DataCraft Consulting
-                </a>
 
-                <button class="mobile-menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="header__logo"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></a>
+    <button class="header__menu-btn" id="menuToggle" aria-label="Atvērt izvēlni">☰</button>
+    <nav class="header__nav" id="navLinks">
+      <button class="menu-close" id="menuClose" aria-label="Aizvērt izvēlni">×</button>
+      <li><a href="index.html">Sākums</a></li>
+      <li><a href="services.html">Pakalpojumi</a></li>
+      <li><a href="case-studies.html" class="active">Pieredze</a></li>
+      <li><a href="about.html">Par mani</a></li>
+      <li><a href="blog.html">Raksti</a></li>
+      <li><a href="contact.html">Kontakti</a></li>
+      <li class="header__lang"><a href="../en/case-studies.html">EN</a><span style="color:var(--text-muted)">|</span><a href="case-studies.html" class="active">LV</a></li>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
+  </div>
+</header>
 
-                <ul class="nav-links" id="navLinks">
-                    <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li class="lang-switcher">
-                        <a href="index.html" class="active">EN</a>
-                        <span>|</span>
-                        <a href="../lv/index.html">LV</a>
-                    </li>
-                </ul>
-            </nav>
+<section class="page-hero">
+  <div class="container">
+    <span class="label">Reāli rezultāti</span>
+    <h1>Pieredze</h1>
+    <p>Šie ir reāli projekti, pie kuriem esmu strādājis. Nosaukumi ir anonimizēti, bet skaitļi un tehniskie detaļas ir patiesi.</p>
+  </div>
+</section>
 
-            <div class="menu-overlay" id="menuOverlay"></div>
-        </div>
-    </header>
+<section class="section">
+  <div class="container">
 
-    <section class="page-header">
-        <div class="container">
-            <h1>Projekti un Gadījumu Izpētes</h1>
-            <p>Reālas pasaules veiktspējas optimizācijas un sistēmu pārveidošanas piemēri</p>
-        </div>
-    </section>
+    <article class="case-study-card">
+      <div class="case-study-card__meta">Finanšu iestāde · Regulatīvā atbilstība · C#/.NET un SQL Server</div>
+      <h3>Automatizētas SEC vērtspapīru aizdevumu atskaišu sistēmas izveide no nulles</h3>
+      <p>Lielai finanšu iestādei bija jāatbilst jaunajām FINRA vērtspapīru aizdevumu atskaišu prasībām. Viņiem bija esošā SFTR sistēma, bet nekas SEC vajadzībām. Termiņš bija stingrs, biznesa loģika sarežģīta (20+ atskaišu scenāriji), un kļūdu pielaušanas iespēja bija nulle — T+1 termiņi ar iespējamiem sodiem par neatbilstību.</p>
 
-    <section class="blog-tagline">
-        <div class="container">
-            <p>Ieskati un optimizācijas datu smagajās sistēmās</p>
-        </div>
-    </section>
+      <div class="detail-block" style="margin-top:1.5rem;">
+        <h3>Ko es izveidoju</h3>
+        <p>Projektēju un ieviesi pilnīgu sistēmu — datu bāzes shēmu, C# apstrādes dzinēju, JSON failu ģenerēšanu, SFTP pārraidi un 881 testu automatizētu testu komplektu.</p>
+        <ul>
+          <li>Normalizēta datu bāzes shēma ar dedicētām SEC tabulām, sasaistīta ar esošajiem SFTR datiem</li>
+          <li>Notikumu vadīts C# apstrādes dzinējs, kas apstrādā 20+ atšķirīgus atskaišu scenārijus</li>
+          <li>MD5 jaucējfunkciju salīdzināšana faktisko datu izmaiņu noteikšanai</li>
+          <li>BZip2 saspiesta JSON failu ģenerēšana ar SFTP automātisko pārraidi</li>
+          <li>881 automatizēti xUnit testi ar paralēlu izpildi un CI/CD Azure DevOps</li>
+        </ul>
+      </div>
 
-    <section class="case-studies-content">
-        <div class="container">
+      <div class="metrics-row">
+        <div class="metric"><div class="metric__value">100%</div><div class="metric__label">Savlaicīga atbilstība</div></div>
+        <div class="metric"><div class="metric__value">~40 st</div><div class="metric__label">Manuāla darba novērsts nedēļā</div></div>
+        <div class="metric"><div class="metric__value">&lt;5 min</div><div class="metric__label">Pakešu apstrādes laiks</div></div>
+        <div class="metric"><div class="metric__value">10 000</div><div class="metric__label">Darījumi dienā</div></div>
+      </div>
 
-            <!-- PROJEKTS 1: SEC PĀRSKATU SISTĒMA -->
-            <article class="case-study">
-                <div class="case-study-header">
-                    <h2>Automatizētas SEC Vērtspapīru Aizdevumu Pārskatu Sistēmas Izveide no Nulles</h2>
-                    <p class="case-study-meta">Finanšu Iestāde | Regulējumu Atbilstība | C#/.NET un SQL Server</p>
-                </div>
+      <div class="tags">
+        <span class="tag">C# .NET 6.0</span><span class="tag">SQL Server 2019</span><span class="tag">Dapper ORM</span><span class="tag">xUnit</span><span class="tag">Azure DevOps</span><span class="tag">SFTP</span>
+      </div>
+    </article>
 
-                <div class="challenge-box">
-                    <h3>Izaicinājums</h3>
-                    <p>
-                        Finanšu iestādei bija jāatbilst jaunajām SEC (Securities and Exchange Commission) vērtspapīru aizdevumu pārskatu prasībām, ko noteica FINRA (Financial Industry Regulatory Authority). Iestāde jau apstrādāja Securities Financing Transactions Regulation (SFTR) pārskatus, bet saskārās ar vairākiem kritiskiem izaicinājumiem:
-                    </p>
-                    <ul>
-                        <li>Nav esošas sistēmas SEC specifiskajiem pārskatu darba procesiem</li>
-                        <li>Sarežģītas regulējumu prasības ar vairākiem pārskatu tipiem (Jauns, Modificēts, Izbeigts, Atcelts, Koriģēts, Iepriekšējais, Dzēsts)</li>
-                        <li>Stingri atbilstības termiņi, kas prasa pārskatu iesniegšanu T+1 laikā (nākamā darba diena līdz 01:00)</li>
-                        <li>Nepieciešamība apstrādāt gan pašreizējās, gan vēsturiskās transakcijas atšķirīgi, pamatojoties uz FINRA sākuma datumiem</li>
-                        <li>Sarežģīta biznesa loģika, kas prasa 20+ dažādus ziņošanas scenārijus, pamatojoties uz transakciju dzīves ciklu un stāvokļa izmaiņām</li>
-                        <li>Integrācija ar esošo SFTR apstrādi, netraucējot pašreizējās operācijas</li>
-                        <li>Failu ģenerēšana un automatizēta pārsūtīšana uz FINRA caur SFTP JSON formātā ar BZip2 saspiešanu</li>
-                        <li>Lieli datu apjomi, kas prasa efektīvu pakešu apstrādi (5,000-10,000 transakcijas dienā)</li>
-                    </ul>
-                    <p>
-                        Iestādei bija esoša SFTR pārskatu infrastruktūra, bet bija nepieciešama pilnīgi jauna paralēla sistēma SEC pārskatiem, kas varētu izmantot kopīgos datus, vienlaikus saglabājot neatkarību.
-                    </p>
-                </div>
+    <article class="case-study-card">
+      <div class="case-study-card__meta">Finanšu iestāde · Regulatīvā atskaitīšana · SQL optimizācija</div>
+      <h3>SFTR atskaites ģenerēšanas samazināšana no 15 minūtēm līdz mazāk par 2 minūtēm</h3>
+      <p>Kad es pirmo reizi apskatīju SFTR atskaišu procedūru, es uzreiz varēju redzēt problēmu izpildes plānā. Galvenais agregācijas vaicājums veica 47 tabulu skenēšanas pāri tabulām ar miljoniem rindu. Glabātā procedūra bija organiski augusi 4 gadu laikā — katra jauna regulācija nozīmēja vēl vienu pievienotu apakšvaicājumu.</p>
 
-                <div class="solution-box">
-                    <h3>Mūsu Pieeja</h3>
-                    <p>
-                        Mēs projektējām un ieviešām visaptverošu SEC pārskatu automatizācijas sistēmu, integrētu ar esošo SFTR infrastruktūru. Risinājums tika veidots pakāpeniski vairāku mēnešu laikā ar fokusu uz uzticamību, atbilstību un uzturējamību.
-                    </p>
+      <div class="detail-block" style="margin-top:1.5rem;">
+        <h3>Ko es izdarīju</h3>
+        <ul>
+          <li>Aizvietoju 12 korelētos apakšvaicājumus ar indeksētiem skatiem bieži piekļūtām datu kombinācijām</li>
+          <li>Ieviesi inkrementālu apstrādi — pārrēķinu tikai tos datus, kas mainījušies kopš iepriekšējā izpildes</li>
+          <li>Pārveidoju ligzdotos vaicājumus uz labi indeksētām pagaidu tabulām ar filtrētiem indeksiem</li>
+          <li>Pārcēlu biznesa loģikas aprēķinus uz saglabātām aprēķinātām kolonnām</li>
+          <li>Ieviesi paralēlu apstrādi neatkarīgiem datu segmentiem</li>
+        </ul>
+      </div>
 
-                    <h4 style="color: #1a365d; margin-top: 2rem; margin-bottom: 1rem;">1. Fāze: Datu Bāzes Arhitektūra un Datu Modelis</h4>
-                    <ul>
-                        <li>Projektēta normalizēta datu bāzes shēma ar izolētām SEC tabulām (SECTradeData, SECEventProcess, SECEventReport)</li>
-                        <li>Izveidotas attiecību saites ar esošajiem SFTR bagātināšanas datiem, lai izvairītos no dublikācijas</li>
-                        <li>Ieviesta temporālā izsekošana transakciju dzīves cikla stāvokļiem</li>
-                        <li>Izveidotas saglabātās procedūras, izmantojot tabulu parametrus efektīvai pakešu apstrādei</li>
-                        <li>Izveidota pareiza indeksēšanas stratēģija augstas apjoma vaicājumu veiktspējai</li>
-                    </ul>
+      <div class="metrics-row">
+        <div class="metric"><div class="metric__value">87%</div><div class="metric__label">Apstrādes laika samazinājums</div></div>
+        <div class="metric"><div class="metric__value">&lt;2 min</div><div class="metric__label">Atskaites ģenerēšana</div></div>
+        <div class="metric"><div class="metric__value">70%</div><div class="metric__label">Zemāka CPU noslodze</div></div>
+        <div class="metric"><div class="metric__value">Nulle</div><div class="metric__label">Produkcijas problēmas</div></div>
+      </div>
 
-                    <h4 style="color: #1a365d; margin-top: 2rem; margin-bottom: 1rem;">2. Fāze: Pamata Apstrādes Dzinējs</h4>
-                    <ul>
-                        <li>Izstrādāts C# objektu modelis, kas kartēts uz datu bāzes shēmu, izmantojot Dapper ORM</li>
-                        <li>Ieviesta notikumu vadīta arhitektūra vērtspapīru aizdevumu transakciju apstrādei</li>
-                        <li>Izveidots visaptverošs pārskatu loģikas dzinējs, kas apstrādā 20+ atšķirīgus scenārijus</li>
-                        <li>Izveidota MD5 hash salīdzināšana faktisko datu izmaiņu atklāšanai pret lieku atjauninājumu</li>
-                        <li>Integrēta nodrošinājuma un maržas apstrādes loģika</li>
-                    </ul>
+      <div class="tags">
+        <span class="tag">SQL Server 2019</span><span class="tag">T-SQL</span><span class="tag">Indeksēti skati</span><span class="tag">Filtrēti indeksi</span><span class="tag">Vaicājumu optimizācija</span>
+      </div>
+    </article>
 
-                    <h4 style="color: #1a365d; margin-top: 2rem; margin-bottom: 1rem;">3. Fāze: Inteliģenta Pārskatu Tipu Noteikšana</h4>
-                    <ul>
-                        <li>Izstrādāts sofistikēts lēmumu dzinējs, kas kartē SFTR darbību tipus uz FINRA pārskatu tipiem</li>
-                        <li>Ieviestas biznesa likumu ignorēšanas, pamatojoties uz transakciju raksturlielumiem</li>
-                        <li>Izveidots validācijas ietvars, kas nodrošina pārskatu precizitāti pirms iesniegšanas</li>
-                    </ul>
+  </div>
+</section>
 
-                    <h4 style="color: #1a365d; margin-top: 2rem; margin-bottom: 1rem;">4. Fāze: JSON Failu Ģenerēšana un Pārsūtīšana</h4>
-                    <ul>
-                        <li>Izveidots visaptverošs datu kartēšanas serviss, kas pārveido datu bāzes ierakstus FINRA JSON formātā</li>
-                        <li>Ieviestas vairāki pārskatu tipu modeļi (SECNewEvent, SECPreExistingEvent, SECTerminationEvent u.c.)</li>
-                        <li>Izveidots failu ģenerēšanas serviss ar pareizajām FINRA nosaukumu konvencijām</li>
-                        <li>Integrēta BZip2 saspiešana failu izmēra optimizācijai</li>
-                        <li>Izstrādāts SFTP pārsūtīšanas serviss ar kļūdu apstrādi un atkārtošanas loģiku</li>
-                    </ul>
+<section class="cta-band">
+  <div class="container">
+    <h2>Ir līdzīgs izaicinājums?</h2>
+    <p style="max-width:500px; margin:0 auto 2rem;">Labprāt apskatīšu. Sāciet ar Ātro pārbaudi par €199 — ja neko nozīmīgu neatrodu, godīgi pateikšu.</p>
+    <a href="contact.html" class="btn btn--primary">Pasūtīt auditu</a>
+  </div>
+</section>
 
-                    <h4 style="color: #1a365d; margin-top: 2rem; margin-bottom: 1rem;">5. Fāze: Pakešu Apstrāde un Plānošana</h4>
-                    <ul>
-                        <li>Projektēts apstrādes grafiks, kas saskaņots ar tirdzniecības stundām: 13:30 un 16:30 paketes, plus 23:00 galīgā pārbaude</li>
-                        <li>Izveidota statusa izsekošana caur vairākiem stāvokļiem (Gaida rindā, Fails nosūtīts, Apstiprināts, Noraidīts)</li>
-                        <li>Izveidota visaptveroša reģistrēšana un uzraudzība atbilstības auditam</li>
-                    </ul>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>SQL Server un C# veiktspējas konsultācijas. Rīga, Latvija.</p></div>
+      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mani</a><a href="blog.html">Raksti</a><a href="contact.html">Kontakti</a></div>
+      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
+    </div>
+    <div class="footer__bottom">© 2025 DataCraft Consulting. Visas tiesības aizsargātas.</div>
+  </div>
+</footer>
 
-                    <h4 style="color: #1a365d; margin-top: 2rem; margin-bottom: 1rem;">6. Fāze: Testēšana un Kvalitātes Nodrošināšana</h4>
-                    <ul>
-                        <li>Izstrādāta plaša vienību testu komplekts, izmantojot xUnit ietvaru (881 automatizēti testi)</li>
-                        <li>Izveidoti integrācijas testi, kas validē pilna cikla darba procesus</li>
-                        <li>Izveidotas testu datu rūpnīcas reproducējamiem scenārijiem</li>
-                        <li>Ieviesta paralēla testu izpilde ātrākai atsauksmei</li>
-                        <li>Izveidota CI/CD konveijerlīnija ar automatizētu testēšanu Azure DevOps</li>
-                    </ul>
-                </div>
-
-                <div class="results-box">
-                    <h3>Rezultāti</h3>
-                    <div class="metrics">
-                        <div class="metric">
-                            <div class="metric-value">100%</div>
-                            <div class="metric-label">Savlaicīga Atbilstība</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">~40 h</div>
-                            <div class="metric-label">Manuālais Darbs Novērsts Nedēļā</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">&lt;5 min</div>
-                            <div class="metric-label">Vidējais Pakešu Apstrādes Laiks</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">10,000</div>
-                            <div class="metric-label">Dienā Apstrādātas Transakcijas</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">99.9%</div>
-                            <div class="metric-label">Sistēmas Darbspēja</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">Nulle</div>
-                            <div class="metric-label">Atbilstības Pārkāpumi</div>
-                        </div>
-                    </div>
-
-                    <h4 style="color: #1a365d; margin-top: 2rem; margin-bottom: 1rem;">Veiksmīga Regulējumu Atbilstība</h4>
-                    <ul>
-                        <li>100% savlaicīga iesniegšanas likme, atbilstot T+1 regulējumu termiņiem</li>
-                        <li>Nulles atbilstības pārkāpumi kopš ieviešanas</li>
-                        <li>Pilnīgs auditācijas ceļš regulatoru pārbaudei</li>
-                        <li>Automatizēta visu nepieciešamo pārskatu tipu ģenerēšana</li>
-                    </ul>
-
-                    <h4 style="color: #1a365d; margin-top: 2rem; margin-bottom: 1rem;">Operacionālā Efektivitāte</h4>
-                    <ul>
-                        <li>Samazināta manuālā apstrāde no ~40 stundām nedēļā uz nulli</li>
-                        <li>Novērstas cilvēku kļūdas pārskatu ģenerēšanā un datu kartēšanā</li>
-                        <li>Automatizēta failu pārsūtīšana aizstāja manuālas SFTP augšupielādes</li>
-                        <li>Reāllaika statusa izsekošana nodrošina redzamību apstrādes konveijerlīnijā</li>
-                    </ul>
-
-                    <h4 style="color: #1a365d; margin-top: 2rem; margin-bottom: 1rem;">Biznesa Vērtība</h4>
-                    <ul>
-                        <li>Izvairījās no regulējumu sodiem (potenciāli miljoniem naudas sodu)</li>
-                        <li>Novērsta nepieciešamība pēc papildu manuālās apstrādes personāla</li>
-                        <li>Samazināts operacionālais risks caur automatizāciju</li>
-                        <li>Pozicionēta iestāde nākotnes regulējumu izmaiņām ar elastīgu arhitektūru</li>
-                    </ul>
-                </div>
-
-                <div class="tech-stack">
-                    <h4>Izmantotas Tehnoloģijas</h4>
-                    <div class="tech-tags">
-                        <span class="tech-tag">C# .NET 6.0</span>
-                        <span class="tech-tag">SQL Server 2019</span>
-                        <span class="tech-tag">Dapper ORM</span>
-                        <span class="tech-tag">xUnit Testēšana</span>
-                        <span class="tech-tag">Azure Cloud</span>
-                        <span class="tech-tag">BZip2 Saspiešana</span>
-                        <span class="tech-tag">SFTP</span>
-                        <span class="tech-tag">JSON</span>
-                        <span class="tech-tag">Hangfire</span>
-                        <span class="tech-tag">Azure DevOps</span>
-                    </div>
-                </div>
-
-                <p style="margin-top: 2rem; font-style: italic; color: #718096;">
-                    Šis gadījuma izpēte demonstrē regulējumu atbilstības sistēmu ieviešanas sarežģītību finanšu pakalpojumos, prasot ne tikai tehnisko ekspertīzi, bet arī dziļu izpratni par finanšu regulējumu prasībām, domēna zināšanām, integrācijas modeļiem, veiktspējas inženieriju un testēšanas stingrību.
-                </p>
-            </article>
-
-            <!-- PROJEKTS 2: SFTR PĀRSKATU OPTIMIZĀCIJA -->
-            <article class="case-study">
-                <div class="case-study-header">
-                    <h2>SFTR Pārskatu Ģenerēšanas Laika Samazināšana no 15 Minūtēm uz Mazāk Nekā 2 Minūtēm</h2>
-                    <p class="case-study-meta">Finanšu Iestāde | Regulatīvie Pārskati | SQL Optimizācija</p>
-                </div>
-
-                <div class="challenge-box">
-                    <h3>Izaicinājums</h3>
-                    <p>
-                        Vidēja lieluma finanšu iestāde cīnījās ar savu Vērtspapīru finansēšanas transakciju regulējuma (SFTR) pārskatu procesu. Viņu ikdienas regulatīvais pārskats, kas apkopoja sarežģītus transakciju datus no vairākām sistēmām, prasīja vairāk nekā 15 minūtes, lai ģenerētu. Tas radīja vairākas kritiskas problēmas:
-                    </p>
-                    <ul>
-                        <li>Pārskatu logs bija šaurs, neatstājot rezerves laiku atkārtotiem mēģinājumiem, ja radās problēmas</li>
-                        <li>Datu bāzes bloķēšana pārskatu ģenerēšanas laikā ietekmēja citas biznesa operācijas</li>
-                        <li>Operāciju komandai bija manuāli jāuzrauga process, patērējot vērtīgu laiku</li>
-                        <li>Jebkādas datu labošanas prasīja pilnu atkārtotu darbību, bieži iespiežoties kritiskās biznesa stundās</li>
-                    </ul>
-                    <p>
-                        SFTR pārskatu sarežģītība—prasot apkopošanu pa transakciju veidiem, darījuma partneriem un nodrošinājuma vērtējumiem—padarīja procesu būtībā resursu intensīvu. Esošās saglabātās procedūras bija attīstījušās organiski laika gaitā, uzkrājot tehnisko parādu, kad tika pievienotas jaunas prasības.
-                    </p>
-                </div>
-
-                <div class="solution-box">
-                    <h3>Mūsu Pieeja</h3>
-                    <p>
-                        Mēs veicām visaptverošu pārskatu konveijerlīnijas analīzi, koncentrējoties uz trim galvenajām jomām: vaicājumu izpildes plāniem, datu bāzes shēmas dizainu un datu piekļuves paraugiem.
-                    </p>
-                    <p>
-                        Izmeklēšana atklāja vairākas kritiskas šaurvietas. Pirmkārt, galvenie apkopošanas vaicājumi veica vairākus tabulu skenējumus pa transakciju tabulām, kas saturēja miljoniem rindu. Otrkārt, pagaidu sagatavošanas tabulas tika pārveidotas no jauna katram pārskata darbināšanas reizei, neskatoties uz to, ka lielākā daļa pamatā esošo datu palika nemainīga. Treškārt, sarežģīta biznesa loģika bija iegulta tieši SQL, izveidojot dziļi ligzdotas apakšvaicājumus, ar kuriem vaicājumu optimizatoram bija grūti efektīvi rīkoties.
-                    </p>
-                    <p>
-                        Mūsu optimizācijas stratēģija ietver:
-                    </p>
-                    <ul>
-                        <li>Pamata apkopošanas loģikas pārprojektēšana, lai izmantotu indeksētos skatus bieži piekļūstamām datu kombinācijām</li>
-                        <li>Inkrementālas apstrādes pieejas ieviešana, pārrēķinot tikai datus, kas mainījušies kopš iepriekšējās darbināšanas reizes</li>
-                        <li>Sarežģītu ligzdotu vaicājumu pārstrukturēšana virkņu labi indeksētu pagaidu tabulu ar stratēģisku filtrēto indeksu izmantošanu</li>
-                        <li>Noteiktu biznesa loģikas aprēķinu pārvietošana materializētos stabiņos ar saglabātām aprēķinātām vērtībām</li>
-                        <li>Transakciju datu shēmas optimizēšana, pievienojot rūpīgi projektētus sastāvdaļu indeksus, kas saskaņoti ar izplatītiem vaicājumu modeļiem</li>
-                        <li>Paralēlas apstrādes ieviešana neatkarīgiem datu segmentiem, kur piemērots</li>
-                    </ul>
-                    <p>
-                        Visa projekta gaitā mēs cieši sadarbojāmies ar iestādes operāciju un atbilstības komandām, lai nodrošinātu, ka optimizētais process saglabā pilnīgu datu precizitāti un atbilst visām regulējuma prasībām. Plaša saskaņošanas testēšana pārbaudīja, ka jaunais process radīja identiskus rezultātus kā sākotnējā ieviešana.
-                    </p>
-                </div>
-
-                <div class="results-box">
-                    <h3>Rezultāti</h3>
-                    <div class="metrics">
-                        <div class="metric">
-                            <div class="metric-value">87%</div>
-                            <div class="metric-label">Apstrādes Laika Samazinājums</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">&lt;2 min</div>
-                            <div class="metric-label">Pārskatu Ģenerēšanas Laiks</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">70%</div>
-                            <div class="metric-label">Zemāka CPU Izmantošana</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">Nulle</div>
-                            <div class="metric-label">Ražošanas Ietekmes Problēmas</div>
-                        </div>
-                    </div>
-                    <p>
-                        Optimizētais SFTR pārskatu process tagad tiek pabeigts mazāk nekā 2 minūtēs—87% samazinājums no sākotnējā 15+ minūšu izpildes laika. Šis dramatiskais uzlabojums sniedza tūlītējas operatīvās priekšrocības. Pārskatu komanda ieguva elastību plānošanā ar pietiekamu rezerves laiku atkārtotām darbināšanas reizēm, ja nepieciešams. Datu bāzes resursu patēriņš pārskatu veidošanas laikā samazinājās par 70%, novēršot ietekmi uz vienlaicīgām operācijām. Ātrākais apgrozījums ļāva atbilstības komandai pārskatīt un iesniegt pārskatus agrāk dienā, samazinot regulējumu iesniegšanas risku.
-                    </p>
-                    <p>
-                        Ārpus tūlītējiem laika ietaupījumiem, pārstrukturētā arhitektūra pozicionēja iestādi nākotnes izaugsmei. Modulārais dizains padarīja vienkāršu pievienot jaunas SFTR prasības, attīstoties regulējumiem, un uzlabotā veiktspēja nozīmēja, ka sistēma varēja apstrādāt ievērojami lielākus transakciju apjomus bez degradācijas.
-                    </p>
-                    <p>
-                        Operāciju komanda ziņoja par ievērojamu uzraudzības piepūles samazinājumu, jo uzticamais apakš-divminūšu apstrādes laiks novērsa nepieciešamību pēc pastāvīgas uzraudzības. Atbilstības komanda ieguva pārliecību par automatizētā procesa konsekvenci un precizitāti.
-                    </p>
-                </div>
-
-                <div class="tech-stack">
-                    <h4>Izmantotas Tehnoloģijas</h4>
-                    <div class="tech-tags">
-                        <span class="tech-tag">SQL Server 2019</span>
-                        <span class="tech-tag">T-SQL</span>
-                        <span class="tech-tag">Indeksēti Skati</span>
-                        <span class="tech-tag">Filtrēti Indeksi</span>
-                        <span class="tech-tag">Vaicājumu Veiktspējas Uzlabošana</span>
-                        <span class="tech-tag">C# Integrācija</span>
-                    </div>
-                </div>
-
-                <p style="margin-top: 2rem; font-style: italic; color: #718096;">
-                    Šis gadījuma izpēte demonstrē tipiskus rezultātus no mūsu SQL Server veiktspējas optimizācijas projektiem. Lai gan konkrētas tehnoloģijas un pieejas atšķiras atkarībā no projekta, metodoloģija paliek konsekventa: rūpīga analīze, stratēģiska optimizācija un validācija pret biznesa prasībām.
-                </p>
-            </article>
-
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ir Līdzīgs Izaicinājums?</h2>
-            <p>Apspriežam, kā mēs varam optimizēt jūsu sistēmas un automatizēt darba procesus.</p>
-            <a href="contact.html" class="cta-button">Rezervēt Bezmaksas Konsultāciju</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DataCraft Consulting</h3>
-                    <p>Ekspertu SQL un C# konsultācijas finanšu iestādēm un datu intensīviem uzņēmumiem.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Ātrās Saites</h3>
-                    <a href="services.html">Pakalpojumi</a>
-                    <a href="about.html">Par Mums</a>
-                    <a href="case-studies.html">Projekti</a>
-                    <a href="contact.html">Kontakti</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Kontakti</h3>
-                    <p>E-pasts: datacraftconsultants@gmail.com</p>
-                    <p>Atrašanās vieta: Rīga, Latvija</p>
-                    <p><a href="contact.html">Rezervēt Konsultāciju</a></p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 DataCraft Consulting. Visas tiesības aizsargātas.</p>
-            </div>
-        </div>
-    </footer>
-    <script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const menuClose = document.getElementById('menuClose');
-    const navLinks = document.getElementById('navLinks');
-    const menuOverlay = document.getElementById('menuOverlay');
-
-    if (!menuToggle || !navLinks) return;
-
-    function openMenu() {
-        navLinks.classList.add('active');
-        if (menuOverlay) menuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-        navLinks.classList.remove('active');
-        if (menuOverlay) menuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    menuToggle.addEventListener('click', openMenu);
-    if (menuClose) menuClose.addEventListener('click', closeMenu);
-    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
-
-    // Close menu when clicking on a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
+  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut); overlay && overlay.addEventListener('click', shut);
+  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
 });
-    </script>
+</script>
 </body>
 </html>
