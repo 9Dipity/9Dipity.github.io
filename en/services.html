@@ -90,6 +90,63 @@
   </div>
 </section>
 
+<!-- DATABASE DESIGN -->
+<section class="section section--alt" style="border-top: 3px solid var(--primary, #2563eb);">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <span class="label">New Service</span>
+      <h2>Database Design & Setup</h2>
+      <p>Need a new SQL Server database built from scratch? I design schemas that don't need to be rewritten in six months.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-card__name">Starter Schema</div>
+        <div class="pricing-card__price">€399</div>
+        <p class="pricing-card__desc">For small apps & MVPs</p>
+        <ul class="pricing-card__features">
+          <li>Up to 15 tables, fully normalised</li>
+          <li>Complete DDL scripts ready to deploy</li>
+          <li>Indexes, constraints & foreign keys</li>
+          <li>ER diagram with documentation</li>
+          <li>Delivered in 3–5 business days</li>
+        </ul>
+        <a href="contact.html" class="btn btn--secondary">Get Started</a>
+      </div>
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-card__name">Business Database</div>
+        <div class="pricing-card__price">€899</div>
+        <p class="pricing-card__desc">For growing applications</p>
+        <ul class="pricing-card__features">
+          <li>Up to 40 tables with complex relationships</li>
+          <li>Stored procedures for core business logic</li>
+          <li>Security roles & permission structure</li>
+          <li>Data migration scripts from existing source</li>
+          <li>30-minute walkthrough call</li>
+          <li>Delivered in 5–10 business days</li>
+        </ul>
+        <a href="contact.html" class="btn btn--primary">Get Started</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-card__name">Enterprise Architecture</div>
+        <div class="pricing-card__price">€1,999+</div>
+        <p class="pricing-card__desc">For complex, high-volume systems</p>
+        <ul class="pricing-card__features">
+          <li>40+ tables, multi-schema design</li>
+          <li>Full stored procedure & view layer</li>
+          <li>Partitioning & archival strategy</li>
+          <li>Backup, recovery & maintenance plan</li>
+          <li>Performance-tested with sample data</li>
+          <li>60-minute consultation + 2-week support</li>
+        </ul>
+        <a href="contact.html" class="btn btn--secondary">Get Started</a>
+      </div>
+    </div>
+    <div style="max-width:700px; margin:2rem auto 0; text-align:center; color: var(--text-muted, #64748b); font-size:0.95rem; line-height:1.6;">
+      <p><strong>Who is this for?</strong> Software houses building products for their clients. Startups launching their first data-driven product. Companies migrating from spreadsheets or Access to a proper database. Agencies that won a project but don't have a database architect on staff.</p>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICE DETAILS -->
 <section class="section section--alt">
   <div class="container">
@@ -146,6 +203,19 @@
         <li>Integration monitoring and alerting frameworks</li>
       </ul>
     </div>
+
+    <div class="detail-block">
+      <h3>Database Design & Architecture</h3>
+      <p>I design SQL Server databases that are built right from day one — properly normalised, indexed for your real query patterns, and documented so your team can maintain them without me. I've designed schemas for systems handling 10,000+ daily transactions under regulatory scrutiny, where a bad design isn't just slow — it's a compliance risk.</p>
+      <ul>
+        <li>Schema design with proper normalisation (3NF/BCNF, with practical denormalisation where needed)</li>
+        <li>ER diagrams, data dictionaries, and full technical documentation</li>
+        <li>Index strategy designed around your actual query patterns</li>
+        <li>Security model: roles, permissions, row-level security</li>
+        <li>Migration scripts from existing data sources (Excel, Access, CSV, other databases)</li>
+        <li>Backup, maintenance, and disaster recovery planning</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -165,20 +235,14 @@
         <p>SQL Server & C# performance consulting. Based in Riga, Latvia. Serving clients internationally.</p>
       </div>
       <div><h4>Pages</h4><a href="services.html">Services & Pricing</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div>
-      <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Riga, Latvia</p></div>
+      <div><h4>Contact</h4><a href="/cdn-cgi/l/email-protection#0763667366647566617364686974726b736669737447606a666e6b2964686a"><span class="__cf_email__" data-cfemail="7e1a1f0a1f1d0c1f180a1d11100d0b120a1f100a0d3e19131f1712501d1113">[email&#160;protected]</span></a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Riga, Latvia</p></div>
     </div>
     <div class="footer__bottom">© 2025 DataCraft Consulting. All rights reserved.</div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
   function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
-  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
-  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut); overlay && overlay.addEventListener('click', shut);
-  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
-});
-</script>
-</body>
-</html>
+  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=
