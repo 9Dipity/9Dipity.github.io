@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jūsu SQL Server ir lēnāks, nekā tam vajadzētu būt. Es to pierādīšu. Veiktspējas auditi no €199. Arturs Irbītis — 10 gadu pieredze banku sistēmās, Rīga, Latvija.">
+    <meta name="description" content="DataCraft Consulting — datubāžu izstrāde, pielāgots programmatūras risinājums un tīmekļa vietnes maziem uzņēmumiem. Bankām piemērota kvalitāte, MVU cenām. Rīga, Latvija.">
+    <meta name="keywords" content="datubāze, SQL Server, pielāgota programmatūra, tīmekļa dizains, mazais uzņēmums, IT konsultācijas, Rīga, Latvija">
     <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/" />
     <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/" />
     <link rel="alternate" hreflang="x-default" href="https://datacraft.lv/en/" />
     <link rel="stylesheet" href="/style.css">
-    <title>DataCraft Consulting — SQL un C# veiktspējas konsultācijas</title>
+    <title>DataCraft Consulting — Datubāze · Programmatūra · Tīmeklis</title>
 </head>
 <body>
 
 <header class="header">
   <div class="container header__inner">
-    <a href="index.html" class="header__logo"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></a>
+    <a href="index.html" class="header__logo">
+      <div class="header__logo-mark">DC</div>
+      <span class="header__logo-text">DataCraft</span>
+    </a>
     <button class="header__menu-btn" id="menuToggle" aria-label="Atvērt izvēlni">☰</button>
     <nav class="header__nav" id="navLinks">
       <button class="menu-close" id="menuClose" aria-label="Aizvērt izvēlni">×</button>
@@ -24,7 +28,11 @@
       <li><a href="about.html">Par mani</a></li>
       <li><a href="blog.html">Raksti</a></li>
       <li><a href="contact.html">Kontakti</a></li>
-      <li class="header__lang"><a href="../en/index.html">EN</a><span style="color:var(--text-muted)">|</span><a href="index.html" class="active">LV</a></li>
+      <li class="header__lang">
+        <a href="../en/index.html">EN</a>
+        <span style="color:var(--text-muted)">|</span>
+        <a href="index.html" class="active">LV</a>
+      </li>
     </nav>
     <div class="menu-overlay" id="menuOverlay"></div>
   </div>
@@ -32,12 +40,12 @@
 
 <section class="hero">
   <div class="container">
-    <span class="label hero__label">SQL Server un C# veiktspējas konsultācijas</span>
-    <h1>Jūsu SQL Server ir lēnāks, nekā tam vajadzētu būt. <em>Es to pierādīšu.</em></h1>
-    <p class="hero__subtitle">Es esmu Arturs — datu bāzu speciālists ar 10 gadu pieredzi banku sistēmās. Es atrodu vājās vietas, kuras citi neievēro, un parādu, kā tās novērst.</p>
+    <span class="label hero__label">Datubāze · Programmatūra · Tīmeklis</span>
+    <h1>Tehnoloģijas, kas strādā tā, it kā tās būtu <em>veidotas pareizi.</em></h1>
+    <p class="hero__subtitle">Es esmu Arturs — 10 gadus esmu veidojis sistēmas, kas apstrādā miljonus finanšu darījumu stingrās regulatoriskās prasībās. Tagad šo pašu precizitāti pielietoju, lai palīdzētu maziem un vidējiem uzņēmumiem sakārtot tehnoloģijas — bez lieluzņēmumu cenām.</p>
     <div class="hero__ctas">
-      <a href="services.html" class="btn btn--primary">Veiktspējas audits — no €199</a>
-      <a href="case-studies.html" class="btn btn--secondary">Mani darbi →</a>
+      <a href="services.html" class="btn btn--primary">Skatīt pakalpojumus un cenas</a>
+      <a href="case-studies.html" class="btn btn--secondary">Mūsu darbi →</a>
     </div>
   </div>
 </section>
@@ -45,119 +53,232 @@
 <section class="proof-bar">
   <div class="container">
     <div class="proof-bar__grid">
-      <div class="proof-bar__item"><strong>15 min → 1:47</strong><span>Atskaites ģenerēšanas laiks</span></div>
-      <div class="proof-bar__item"><strong>881</strong><span>Automatizēti testi</span></div>
-      <div class="proof-bar__item"><strong>10 000</strong><span>Darījumi dienā</span></div>
-      <div class="proof-bar__item"><strong>Nulle</strong><span>Atbilstības pārkāpumi</span></div>
+      <div class="proof-bar__item">
+        <strong>10+ gadi</strong>
+        <span>Pieredze banku sistēmās</span>
+      </div>
+      <div class="proof-bar__item">
+        <strong>15 min → 1:47</strong>
+        <span>Vaicājuma laiks samazināts</span>
+      </div>
+      <div class="proof-bar__item">
+        <strong>881</strong>
+        <span>Automatizēti testi</span>
+      </div>
+      <div class="proof-bar__item">
+        <strong>Nulle</strong>
+        <span>Atbilstības pārkāpumi</span>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ČETRI PAKALPOJUMU PĪLĀRI -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="label">Ko mēs darām</span>
+      <h2>Četri veidi, kā palīdzēt jūsu uzņēmumam</h2>
+      <p>No datubāzes sakārtošanas līdz pilnīgas digitālās klātbūtnes izveidei — viss zem viena jumta.</p>
+    </div>
+    <div class="pillar-grid">
+      <a href="services.html#database" class="pillar-card">
+        <div class="pillar-card__icon">🗄️</div>
+        <h3>Datubāze un dati</h3>
+        <p>SQL Server projektēšana, veiktspējas auditi, datu migrācija un arhitektūra. Dati kārtībā un ātri — no pirmās dienas.</p>
+        <div class="pillar-card__price">No €199</div>
+      </a>
+      <a href="services.html#software" class="pillar-card">
+        <div class="pillar-card__icon">💻</div>
+        <h3>Pielāgota programmatūra</h3>
+        <p>Uzskaites sistēmas, rezervācijas, administratīvie paneļi, procesu automatizācija. Programmatūra, kas atbilst tieši jūsu biznesa vajadzībām.</p>
+        <div class="pillar-card__price">Aprēķins pēc projekta apjoma</div>
+      </a>
+      <a href="services.html#web" class="pillar-card">
+        <div class="pillar-card__icon">🌐</div>
+        <h3>Tīmekļa dizains</h3>
+        <p>Profesionālas mājas lapas un e-komercijas risinājumi. Tīri, ātri, mobilajām ierīcēm piemēroti. Jūsu digitālā vitrīna — izdarīta pareizi.</p>
+        <div class="pillar-card__price">Uzņēmumu mājas lapas no €599</div>
+      </a>
+      <a href="services.html#package" class="pillar-card pillar-card--featured">
+        <div class="pillar-card__icon">📦</div>
+        <h3>Pilnais pakalpojums</h3>
+        <p>Datubāze + programmatūra + mājas lapa — izstrādātas kopā kā vienota sistēma. Pilnīgs tehnoloģiskais pamats jūsu uzņēmumam.</p>
+        <div class="pillar-card__price">Aprēķins pēc sarunu ar klientu</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- AR KO MĒS STRĀDĀJAM -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header section__header--center">
+      <span class="label">Ar ko mēs strādājam</span>
+      <h2>Uzņēmumiem, kas nopietni domā par izaugsmi</h2>
+      <p>Bankas kvalitātes tehnoloģijas nav tikai bankām. Šāda veida uzņēmumiem mēs parasti palīdzam.</p>
+    </div>
+    <div class="industry-grid">
+      <div class="industry-card">
+        <span class="industry-card__icon">🛍️</span>
+        <h4>Mazumtirdzniecība un e-komercija</h4>
+      </div>
+      <div class="industry-card">
+        <span class="industry-card__icon">🍽️</span>
+        <h4>Viesmīlība un ēdināšana</h4>
+      </div>
+      <div class="industry-card">
+        <span class="industry-card__icon">🏥</span>
+        <h4>Veselības aprūpe un klīnikas</h4>
+      </div>
+      <div class="industry-card">
+        <span class="industry-card__icon">⚖️</span>
+        <h4>Profesionālie pakalpojumi</h4>
+      </div>
+      <div class="industry-card">
+        <span class="industry-card__icon">📦</span>
+        <h4>Imports un izplatīšana</h4>
+      </div>
+      <div class="industry-card">
+        <span class="industry-card__icon">🏗️</span>
+        <h4>Būvniecība un amatniecība</h4>
+      </div>
+    </div>
+
+    <div style="max-width:720px; margin: 2.5rem auto 0; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);">
+      <p style="margin:0; color: var(--text-secondary); font-size: 0.95rem; line-height:1.8;">
+        <strong style="color:var(--text-primary);">Tipiskais klients:</strong> Jūs vadāt īstu uzņēmumu — veikalu ar fizisko atrašanās vietu un interneta veikalu, klīniku ar vairākām nodaļām, uzņēmumu, kas žonglo ar izklājlapām. Jūs esat izaudzis no Excel un salāpītiem rīkiem, bet neesat gatavs maksāt €50 000 par lieluzņēmumu programmatūru, kas lielākoties neder. Tieši šo plaisu mēs aizpildām.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PILNĀ PAKALPOJUMA IZCELŠANA -->
+<section class="section">
+  <div class="container">
+    <div class="package-highlight">
+      <span class="package-highlight__badge">Galvenais piedāvājums</span>
+      <h2 style="max-width: 600px; margin-bottom: 1rem;">Pilnais pakalpojums — jūsu tehnoloģiskais pamats, izveidots vienreiz un pareizi.</h2>
+      <p style="max-width: 640px; color: var(--text-secondary);">Vairums uzņēmumu beidzas ar mājas lapu no vienas aģentūras, datubāzi no kāda cita, un programmatūru, kas nerunā ne ar vienu no tiem. Mēs projektējam visas trīs daļas kopā, lai jūsu inventārs, mājas lapa un iekšējie rīki darbotos kā vienota sistēma — nevis trīs atsevišķas problēmas.</p>
+      <div class="package-features-grid">
+        <div class="package-feature">SQL Server datubāze, projektēta jūsu biznesam</div>
+        <div class="package-feature">Tīmekļa pārvaldības programmatūra (inventārs, rezervācijas, klienti)</div>
+        <div class="package-feature">Profesionāla publiskā mājas lapa vai e-veikals</div>
+        <div class="package-feature">Viss integrēts — viens patiesības avots</div>
+        <div class="package-feature">Pilna dokumentācija un darbinieku apmācība</div>
+        <div class="package-feature">3 mēneši atbalsta iekļauti</div>
+      </div>
+      <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+        <a href="services.html#package" class="btn btn--primary">Skatīt pilnā pakalpojuma detaļas</a>
+        <a href="contact.html" class="btn btn--secondary">Uzsākt sarunu →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJEKTU PIEMĒRI -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <span class="label">Atsevišķi darbi</span>
+      <h2>Reāli rezultāti no reāliem projektiem</h2>
+      <p>No banku atbilstības sistēmām līdz mazumtirdzniecības inventāra pārvaldībai — lūk, ko esam izveidojuši.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+
+      <a href="case-studies.html#retail" class="blog-card" style="text-decoration:none; color:inherit;">
+        <div class="blog-card__date">
+          <span class="case-study-card__category category--retail">Mazumtirdzniecība</span>
+        </div>
+        <h3>Inventāra sinhronizācija Rīgas modes boutique — fiziskais veikals + WooCommerce</h3>
+        <p>Excel bāzēta krājumu pārvaldība izraisīja pārdošanu bez krājumiem. Izveidojām vienotu SQL datubāzi, sinhronizācijas API un tīmekļa pārvaldības portālu.</p>
+        <div class="metrics-row" style="margin-top:1rem; flex-wrap:wrap; gap:1rem;">
+          <div class="metric"><div class="metric__value">0</div><div class="metric__label">Pārdošana bez krājumiem</div></div>
+          <div class="metric"><div class="metric__value">3 st.</div><div class="metric__label">Nedēļas administrācija ietaupīta</div></div>
+        </div>
+      </a>
+
+      <a href="case-studies.html#clinic" class="blog-card" style="text-decoration:none; color:inherit;">
+        <div class="blog-card__date">
+          <span class="case-study-card__category category--health">Veselības aprūpe</span>
+        </div>
+        <h3>Pacientu pārvaldības sistēma 3 nodaļu zobārstniecības klīnikai</h3>
+        <p>Papīra kartītes, Outlook kalendārs, Excel rēķini. Digitalizējām visas trīs nodaļas ar kopīgu pacientu datubāzi un rezervācijas sistēmu.</p>
+        <div class="metrics-row" style="margin-top:1rem; flex-wrap:wrap; gap:1rem;">
+          <div class="metric"><div class="metric__value">100%</div><div class="metric__label">Digitālie ieraksti</div></div>
+          <div class="metric"><div class="metric__value">40%</div><div class="metric__label">Mazāk administrācijas laika</div></div>
+        </div>
+      </a>
+
+      <a href="case-studies.html#sec" class="blog-card" style="text-decoration:none; color:inherit;">
+        <div class="blog-card__date">
+          <span class="case-study-card__category category--banking">Banku sektors</span>
+        </div>
+        <h3>SEC vērtspapīru aizdošanas atskaitīšanās — 10 000 darījumu dienā, nulle pārkāpumu</h3>
+        <p>Izveidots no nulles: C# apstrādes dzinējs, 881 automatizēti testi, BZip2/SFTP pārsūtīšana. T+1 atbilstība apjomā.</p>
+        <div class="metrics-row" style="margin-top:1rem; flex-wrap:wrap; gap:1rem;">
+          <div class="metric"><div class="metric__value">~40 st.</div><div class="metric__label">Manuālais darbs/ned. samazināts</div></div>
+          <div class="metric"><div class="metric__value">Nulle</div><div class="metric__label">Atbilstības kļūdas</div></div>
+        </div>
+      </a>
+
+    </div>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="case-studies.html" class="btn btn--secondary">Skatīt visus projektus →</a>
+    </div>
+  </div>
+</section>
+
+<!-- KĀ TAS STRĀDĀ -->
 <section class="section">
   <div class="container">
     <div class="section__header">
       <span class="label">Kā tas strādā</span>
-      <h2>Trīs soļi līdz ātrākai datu bāzei</h2>
-      <p>Bez traucējumiem. Bez riska. Tikai atbildes.</p>
+      <h2>Vienkāršs process, bez pārsteigumiem</h2>
+      <p>Neatkarīgi no tā, vai jums vajadzīgs ātrs audits vai pilnīga sistēmas izveide — process ir vienāds.</p>
     </div>
     <div class="steps">
       <div class="step">
-        <h3>Palaidiet manus diagnostikas skriptus</h3>
-        <p>5 minūtes, tikai lasīšana, pilnīgi droši produkcijā. Jūs tos palaižat vai arī es pieslēdzos attālināti.</p>
+        <h3>Pastāstiet, kas jums vajadzīgs</h3>
+        <p>30 minūšu zvans vai īss e-pasts. Es saprotu jūsu situāciju un sniedzu godīgu vērtējumu — tostarp, ja man jūs nevajadzat.</p>
       </div>
       <div class="step">
-        <h3>Es analizēju rezultātus</h3>
-        <p>Izpildes plāni, indeksu izmantošana, gaidīšanas statistika un konfigurācija. 2–5 dienas atkarībā no paketes.</p>
+        <h3>Es izstrādāju apjomu un cenu</h3>
+        <p>Fiksēta cena, skaidri sagaidāmie rezultāti. Pirms darbu uzsākšanas jūs zināt tieši, ko saņemsiet. Bez stundu norēķinu pārsteigumiem.</p>
       </div>
       <div class="step">
-        <h3>Jūs saņemat prioritizētu rīcības plānu</h3>
-        <p>Rakstiska atskaite ar konkrētiem labojumiem, paredzamo ietekmi un darba apjoma novērtējumiem. Nekādi neskaidri padomi — reāls SQL.</p>
+        <h3>Es veidu — jūs pieder</h3>
+        <p>Es piegādāju strādājošu programmatūru ar pilnu dokumentāciju. Jums pieder kods, datubāze — viss. Bez piesaistes piegādātājam.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- JAUNĀKIE RAKSTI -->
 <section class="section section--alt">
   <div class="container">
-    <div class="section__header section__header--center">
-      <span class="label">Cenas</span>
-      <h2>Caurspīdīgas. Fiksētas. Bez pārsteigumiem.</h2>
-      <p>Izvēlieties paketi, nosūtiet datus, saņemiet rezultātus.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="pricing-card__name">Ātrā pārbaude</div>
-        <div class="pricing-card__price">€199</div>
-        <p class="pricing-card__desc">Ātra novērtēšana konkrētai problēmai</p>
-        <ul class="pricing-card__features">
-          <li>Top 5 veiktspējas problēmas identificētas</li>
-          <li>3 lappušu rakstiska atskaite</li>
-          <li>Piegāde 2–3 darba dienās</li>
-          <li>Smaguma novērtējumi (kritisks / brīdinājums / info)</li>
-        </ul>
-        <a href="contact.html" class="btn btn--secondary">Sākt</a>
-      </div>
-      <div class="pricing-card pricing-card--featured">
-        <div class="pricing-card__name">Standarta audits</div>
-        <div class="pricing-card__price">€499</div>
-        <p class="pricing-card__desc">Visaptveroša veselības pārbaude ar ekspertu vadību</p>
-        <ul class="pricing-card__features">
-          <li>Top 10 problēmas ar detalizētām labošanas instrukcijām</li>
-          <li>Pilna atskaite ar SQL koda labojumiem</li>
-          <li>30 minūšu video zvans rezultātu izskaidrošanai</li>
-          <li>Konfigurācijas pārskats un indeksu ieteikumi</li>
-          <li>Piegāde 5 darba dienās</li>
-        </ul>
-        <a href="contact.html" class="btn btn--primary">Sākt</a>
-      </div>
-      <div class="pricing-card">
-        <div class="pricing-card__name">Padziļinātā analīze</div>
-        <div class="pricing-card__price">€999+</div>
-        <p class="pricing-card__desc">Praktiska optimizācija sarežģītām sistēmām</p>
-        <ul class="pricing-card__features">
-          <li>Viss, kas iekļauts Standarta auditā</li>
-          <li>60 minūšu konsultācijas zvans</li>
-          <li>Gatavi koda labojumi, pārbaudīti un validēti</li>
-          <li>2 nedēļu atbalsts pēc piegādes</li>
-          <li>Piegāde 7–10 darba dienās</li>
-        </ul>
-        <a href="contact.html" class="btn btn--secondary">Sākt</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
     <div class="section__header">
-      <span class="label">Ko es piedāvāju</span>
-      <h2>Specializētas konsultācijas datu ietilpīgām sistēmām</h2>
+      <span class="label">Jaunākie raksti</span>
+      <h2>No bloga</h2>
     </div>
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card__icon">⚡</div>
-        <h3>SQL Server veiktspēja</h3>
-        <p>Izpildes plānu analīze, indeksu optimizācija, glabāto procedūru pārstrukturēšana un vaicājumu pārrakstīšana. Esmu konsekventi samazinājis vaicājumu laikus par 50–95%.</p>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-card__date">Drīzumā</div>
+        <h3>Kāpēc jūsu mazais uzņēmums darbojas uz laika bumbu (tā sauc Excel)</h3>
+        <p>Kādā brīdī katrs augošs uzņēmums izaug no izklājlapām. Lūk, kā uzzināt, kad tas brīdis ir — un ko darīt.</p>
+        <a href="blog.html" class="read-more">Lasīt vairāk →</a>
       </div>
-      <div class="card">
-        <div class="card__icon">⟨/⟩</div>
-        <h3>C#/.NET izstrāde</h3>
-        <p>Mērogojami API, datu apstrādes cauruļvadi un mantoto sistēmu modernizācija. Tīra arhitektūra ar .NET 6+ un Dapper/EF Core.</p>
+      <div class="blog-card">
+        <div class="blog-card__date">Drīzumā</div>
+        <h3>Kā samazināju bankas atskaites ģenerēšanu no 15 minūtēm uz 2 minūtēm</h3>
+        <p>Pilns tehnisks izklāsts par SFTR atskaišu konveijera optimizāciju — izpildes plāni, indeksēti skati un reāli pirms/pēc rādītāji.</p>
+        <a href="blog.html" class="read-more">Lasīt vairāk →</a>
       </div>
-      <div class="card">
-        <div class="card__icon">📋</div>
-        <h3>Regulatīvā automatizācija</h3>
-        <p>SFTR, MiFID II un SEC atskaišu sistēmas, kas apstrādā tūkstošiem darījumu dienā. No manuālām izklājlapām līdz pilnībā automatizētiem procesiem.</p>
-      </div>
-      <div class="card">
-        <div class="card__icon">🔗</div>
-        <h3>Sistēmu integrācija</h3>
-        <p>ETL cauruļvadi, ziņojumu rindas, API integrācijas un failu apmaiņa. Lai jūsu sistēmas uzticami sadarbojas savā starpā.</p>
-      </div>
-      <div class="card">
-        <div class="card__icon">🏗️</div>
-        <h3>Datu bāzu projektēšana</h3>
-        <p>Jaunas SQL Server datu bāzes, kas uzbūvētas pareizi no pirmās dienas. Shēmu dizains, indeksēšanas stratēģija, drošība un migrācija. No €399.</p>
+      <div class="blog-card">
+        <div class="blog-card__date">Drīzumā</div>
+        <h3>Ko pareiza datubāze patiesībā izmaksā mazajam uzņēmumam (un ko tā ietaupa)</h3>
+        <p>Reālie skaitļi aiz pārejas no izklājlapām uz pareizi projektētu SQL datubāzi — ietaupītais laiks, izvairītās kļūdas un atbalstītā izaugsme.</p>
+        <a href="blog.html" class="read-more">Lasīt vairāk →</a>
       </div>
     </div>
   </div>
@@ -165,25 +286,56 @@
 
 <section class="cta-band">
   <div class="container">
-    <h2>Gatavi padarīt datu bāzi ātrāku?</h2>
-    <p style="max-width:560px; margin-left:auto; margin-right:auto;">Pasūtiet Ātro pārbaudi par €199, un es precīzi pateikšu, kas palēnina jūsu sistēmu — un kā to labot.</p>
-    <a href="contact.html" class="btn btn--primary">Sazināties</a>
+    <h2>Runāsim par jūsu projektu.</h2>
+    <p style="max-width:560px; margin-left:auto; margin-right:auto;">Neatkarīgi no tā, vai tas ir ātrs audits, jauna datubāze vai pilnīga digitālā pārmaiņa — sazinieties, un 24 stundu laikā sniegšu godīgu viedokli.</p>
+    <a href="contact.html" class="btn btn--primary">Sazināties — bezmaksas konsultācija</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>SQL Server un C# veiktspējas konsultācijas finanšu iestādēm un datu ietilpīgiem uzņēmumiem. Rīga, Latvija.</p></div>
-      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mani</a><a href="blog.html">Raksti</a><a href="contact.html">Kontakti</a></div>
-      <div><h4>Kontakti</h4><a href="/cdn-cgi/l/email-protection#b7d3d6c3d6d4c5d6d1c3d4d8d9c4c2dbc3d6d9c3c4f7d0dad6dedb99d4d8da"><span class="__cf_email__" data-cfemail="c0a4a1b4a1a3b2a1a6b4a3afaeb3b5acb4a1aeb4b380a7ada1a9aceea3afad">[email&#160;protected]</span></a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
+      <div class="footer__brand">
+        <div class="header__logo" style="margin-bottom:1rem;">
+          <div class="header__logo-mark">DC</div>
+          <span class="header__logo-text">DataCraft</span>
+        </div>
+        <p>Datubāžu izstrāde, pielāgota programmatūra un tīmekļa vietnes maziem un vidējiem uzņēmumiem. Bankas kvalitātes inženierija uzņēmumiem, kas nav bankas. Bāzēts Rīgā, Latvijā.</p>
+      </div>
+      <div>
+        <h4>Lapas</h4>
+        <a href="services.html">Pakalpojumi</a>
+        <a href="case-studies.html">Pieredze</a>
+        <a href="about.html">Par mani</a>
+        <a href="blog.html">Raksti</a>
+        <a href="contact.html">Kontakti</a>
+      </div>
+      <div>
+        <h4>Kontakti</h4>
+        <a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a>
+        <a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a>
+        <p style="margin-top:0.5rem; font-size:0.85rem;">Rīga, Latvija · Apkalpojam klientus starptautiski</p>
+      </div>
     </div>
-    <div class="footer__bottom">© 2025 DataCraft Consulting. Visas tiesības aizsargātas.</div>
+    <div class="footer__bottom">
+      © 2025 DataCraft Consulting. Visas tiesības aizsargātas.
+    </div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  const toggle = document.getElementById('menuToggle');
+  const close = document.getElementById('menuClose');
+  const nav = document.getElementById('navLinks');
+  const overlay = document.getElementById('menuOverlay');
   function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
-  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=
+  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
+  toggle && toggle.addEventListener('click', open);
+  close && close.addEventListener('click', shut);
+  overlay && overlay.addEventListener('click', shut);
+  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
+});
+</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DataCraft Consulting case studies — real-world SQL Server optimisation and regulatory automation results from banking and financial systems.">
+    <meta name="description" content="DataCraft Consulting case studies — real results from retail, healthcare, distribution, and banking projects. SQL Server, custom software, web development.">
     <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/case-studies.html" />
     <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/case-studies.html" />
     <link rel="stylesheet" href="/style.css">
@@ -18,7 +18,7 @@
     <nav class="header__nav" id="navLinks">
       <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services & Pricing</a></li>
+      <li><a href="services.html">Services &amp; Pricing</a></li>
       <li><a href="case-studies.html" class="active">Case Studies</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="blog.html">Insights</a></li>
@@ -33,16 +33,133 @@
   <div class="container">
     <span class="label">Real Results</span>
     <h1>Case Studies</h1>
-    <p>These are real projects I've worked on. Names are anonymised, but the numbers and technical details are genuine.</p>
+    <p>From retail inventory systems to banking compliance — real projects, real outcomes. Names are anonymised, but the numbers and technical details are genuine.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
 
-    <!-- CASE STUDY 1: SEC -->
-    <article class="case-study-card">
-      <div class="case-study-card__meta">Financial Institution · Regulatory Compliance · C#/.NET & SQL Server</div>
+    <!-- ===== CASE STUDY: RETAIL BOUTIQUE ===== -->
+    <article class="case-study-card" id="retail">
+      <span class="case-study-card__category category--retail">Retail · Full Package</span>
+      <div class="case-study-card__meta" style="margin-top:0.5rem;">Fashion Boutique · Riga · Physical store + WooCommerce e-commerce</div>
+      <h3>Inventory sync and management portal for a Riga fashion boutique</h3>
+      <p>A women's clothing boutique with a physical store in Riga and a WooCommerce online shop was managing stock entirely in Excel. Staff updated the spreadsheet manually after each sale — but with two people doing this independently, the spreadsheet was constantly out of date. The result: orders for items that weren't in stock, angry customers, and hours every week spent reconciling discrepancies.</p>
+      <p>They'd looked at off-the-shelf inventory solutions, but none handled their specific combination of in-store and online sales well, and the monthly SaaS fees added up to more than they wanted to spend.</p>
+
+      <div class="detail-block" style="margin-top:1.5rem;">
+        <h3>What we built</h3>
+        <p>We delivered a Full Package: a purpose-built SQL Server database, a web-based stock management portal, and integration with their existing WooCommerce store.</p>
+        <ul>
+          <li>SQL Server database: products, variants (size, colour), stock levels, supplier records, sales history, customer records</li>
+          <li>Web-based management portal (runs in browser, works on tablets at the counter) for stock intake, stock counts, and manual adjustments</li>
+          <li>WooCommerce sync: stock levels update automatically when an online sale occurs; the portal reflects it within 60 seconds</li>
+          <li>Low-stock alerts: email notification when any variant drops below a configurable threshold</li>
+          <li>Supplier purchase orders: create POs in the portal, receive stock against them, automatic stock uplift on receipt</li>
+          <li>Daily sales report: emailed automatically each morning with top sellers, margin by category, and stock health</li>
+          <li>Their existing website left untouched — we connected to WooCommerce via its REST API</li>
+        </ul>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric"><div class="metric__value">0</div><div class="metric__label">Online oversells/month</div></div>
+        <div class="metric"><div class="metric__value">3 hrs</div><div class="metric__label">Weekly admin saved</div></div>
+        <div class="metric"><div class="metric__value">23%</div><div class="metric__label">Margin improvement (better pricing visibility)</div></div>
+        <div class="metric"><div class="metric__value">6 wks</div><div class="metric__label">Delivery time</div></div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">C# .NET</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">WooCommerce API</span>
+        <span class="tag">ASP.NET Core</span>
+        <span class="tag">Dapper</span>
+        <span class="tag">Full Package</span>
+      </div>
+    </article>
+
+    <!-- ===== CASE STUDY: DENTAL CLINIC ===== -->
+    <article class="case-study-card" id="clinic">
+      <span class="case-study-card__category category--health">Healthcare · Custom Software</span>
+      <div class="case-study-card__meta" style="margin-top:0.5rem;">Dental Clinic · 3 Locations · Riga region</div>
+      <h3>Patient management system for a 3-location dental clinic</h3>
+      <p>A growing dental clinic had expanded to three locations over five years — but their administration hadn't kept up. Patient records were on paper at each clinic. Appointments were managed in a shared Outlook calendar that all three receptionists edited simultaneously (with predictable double-booking results). Billing was done in Excel, invoiced manually, and reconciled at month-end.</p>
+      <p>They'd been quoted €40,000+ for enterprise dental management software. The quote also included features they'd never use and a per-seat monthly licence that would cost more each year as they hired. They needed something that fit their actual workflow — not a generic platform designed for dental chains with 50+ locations.</p>
+
+      <div class="detail-block" style="margin-top:1.5rem;">
+        <h3>What we built</h3>
+        <p>A web-based patient management system shared across all three locations in real time, with role-based access for reception staff, dentists, and management.</p>
+        <ul>
+          <li>Central SQL Server database: patients, appointments, treatments, invoices, and staff across all three locations</li>
+          <li>Patient records module: medical history, contact details, treatment notes, photo attachments, GDPR-compliant data handling</li>
+          <li>Appointment scheduler: calendar view per dentist per location, conflict detection, SMS/email reminders to patients</li>
+          <li>Billing module: treatment-linked invoices, payment recording, outstanding balance tracking, monthly revenue reports</li>
+          <li>Staff portal with role-based access: receptionists see scheduling and billing; dentists see patient records; management sees everything</li>
+          <li>Runs in a browser — works on the existing computers at each clinic, no software installation</li>
+          <li>Data migration: historical patient records entered by staff during a 2-week transition period using an import tool we provided</li>
+        </ul>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric"><div class="metric__value">100%</div><div class="metric__label">Digital patient records</div></div>
+        <div class="metric"><div class="metric__value">Zero</div><div class="metric__label">Double bookings since launch</div></div>
+        <div class="metric"><div class="metric__value">40%</div><div class="metric__label">Less admin time per receptionist</div></div>
+        <div class="metric"><div class="metric__value">€40k</div><div class="metric__label">Enterprise software cost avoided</div></div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">C# .NET</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">ASP.NET Core</span>
+        <span class="tag">Multi-location</span>
+        <span class="tag">GDPR</span>
+        <span class="tag">Custom Software</span>
+      </div>
+    </article>
+
+    <!-- ===== CASE STUDY: IMPORT/DISTRIBUTION ===== -->
+    <article class="case-study-card" id="distribution">
+      <span class="case-study-card__category category--logistics">Distribution · Custom Software</span>
+      <div class="case-study-card__meta" style="margin-top:0.5rem;">Import &amp; Distribution Company · Baltic region</div>
+      <h3>Supplier pricing automation for a Baltic import company</h3>
+      <p>A company importing goods from 14 European suppliers was drowning in price lists. Every supplier sent updated prices differently — some in Excel, some as PDFs, some as CSV files, some embedded in emails. A staff member spent 3+ days every month downloading, reformatting, comparing, and manually entering prices into their sales system. Mistakes were common. Margin decisions were being made on data that was sometimes weeks old.</p>
+
+      <div class="detail-block" style="margin-top:1.5rem;">
+        <h3>What we built</h3>
+        <p>An automated supplier price management platform that ingests price lists in any format, normalises them, and serves up clean margin data to the sales team.</p>
+        <ul>
+          <li>SQL Server database: suppliers, product catalogue, price history, exchange rates, margin rules</li>
+          <li>Price import engine (C#): handles Excel (.xlsx/.xls), CSV, and structured PDFs — each supplier's format configured once, then automated</li>
+          <li>Normalisation layer: maps each supplier's column names and units to a standard product catalogue (handles different SKUs, product names, packaging sizes)</li>
+          <li>Price comparison dashboard: shows current price vs. previous price, by supplier and product — highlights changes above a configurable threshold</li>
+          <li>Margin calculator: applies exchange rates, import costs, and margin targets to produce suggested retail prices</li>
+          <li>Alert system: emails the purchasing manager when a supplier changes prices by more than 5% on any product</li>
+          <li>Historical price charts: shows price trend per product per supplier over 24 months</li>
+        </ul>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric"><div class="metric__value">3 days → 4 hrs</div><div class="metric__label">Monthly pricing process</div></div>
+        <div class="metric"><div class="metric__value">Real-time</div><div class="metric__label">Price visibility across all suppliers</div></div>
+        <div class="metric"><div class="metric__value">14</div><div class="metric__label">Suppliers automated</div></div>
+        <div class="metric"><div class="metric__value">Better</div><div class="metric__label">Negotiation leverage with 24-month history</div></div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">C# .NET</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">Excel/CSV/PDF parsing</span>
+        <span class="tag">Data pipeline</span>
+        <span class="tag">Dapper</span>
+        <span class="tag">Custom Software</span>
+      </div>
+    </article>
+
+    <!-- ===== CASE STUDY: SEC (BANKING) ===== -->
+    <article class="case-study-card" id="sec">
+      <span class="case-study-card__category category--banking">Banking · Regulatory Compliance</span>
+      <div class="case-study-card__meta" style="margin-top:0.5rem;">Financial Institution · C#/.NET &amp; SQL Server</div>
       <h3>Building an automated SEC securities lending reporting system from scratch</h3>
       <p>A major financial institution needed to comply with new FINRA securities lending reporting requirements. They had an existing SFTR system but nothing for SEC. The deadline was tight, the business logic was complex (20+ reporting scenarios), and there was zero room for error — T+1 deadlines with potential fines for non-compliance.</p>
 
@@ -80,15 +197,15 @@
       </div>
     </article>
 
-    <!-- CASE STUDY 2: SFTR -->
-    <article class="case-study-card">
-      <div class="case-study-card__meta">Financial Institution · Regulatory Reporting · SQL Optimisation</div>
+    <!-- ===== CASE STUDY: SFTR OPTIMISATION ===== -->
+    <article class="case-study-card" id="sftr">
+      <span class="case-study-card__category category--banking">Banking · SQL Optimisation</span>
+      <div class="case-study-card__meta" style="margin-top:0.5rem;">Financial Institution · Regulatory Reporting · SQL Server</div>
       <h3>Reducing SFTR report generation from 15 minutes to under 2 minutes</h3>
-      <p>When I first looked at the SFTR reporting procedure, I could see the problem immediately in the execution plan. The main aggregation query was performing 47 table scans across tables with millions of rows. The stored procedure had grown organically over 4 years — every new regulation meant another subquery bolted on. Nobody had ever looked at the full picture.</p>
+      <p>The main aggregation query was performing 47 table scans across tables with millions of rows. The stored procedure had grown organically over 4 years — every new regulation meant another subquery bolted on. Nobody had ever looked at the full picture.</p>
 
       <div class="detail-block" style="margin-top:1.5rem;">
         <h3>What I did</h3>
-        <p>I conducted a comprehensive analysis of the reporting pipeline, focusing on execution plans, schema design, and data access patterns. The optimisation strategy included:</p>
         <ul>
           <li>Replaced 12 correlated subqueries with indexed views for frequently accessed data combinations</li>
           <li>Implemented incremental processing — only recalculating data that changed since the previous run</li>
@@ -113,31 +230,7 @@
         <span class="tag">Indexed Views</span>
         <span class="tag">Filtered Indexes</span>
         <span class="tag">Query Tuning</span>
-        <span class="tag">C# Integration</span>
       </div>
-    </article>
-
-    <!-- CASE STUDY 3: TYPICAL AUDIT -->
-    <article class="case-study-card">
-      <div class="case-study-card__meta">What a Typical Audit Looks Like</div>
-      <h3>A real performance audit walkthrough</h3>
-      <p>Here's what happens when you book a Standard Audit. This is a composite example based on common patterns I see across clients:</p>
-
-      <div class="detail-block" style="margin-top:1.5rem;">
-        <h3>The process</h3>
-        <ul>
-          <li>Client runs my diagnostic scripts (takes 5 minutes, read-only, safe for production)</li>
-          <li>I receive the output files and begin analysis within 24 hours</li>
-          <li>I review wait statistics — in this example, PAGEIOLATCH waits are dominating, pointing to I/O bottleneck</li>
-          <li>Execution plan analysis reveals a frequently-run query doing a clustered index scan on a 50M-row table instead of a seek</li>
-          <li>The missing index DMV shows 3 indexes that would have a high estimated impact — but I validate them against actual workload patterns before recommending</li>
-          <li>Configuration review flags MAXDOP at default (0) on a 16-core server, and cost threshold at the default 5</li>
-          <li>I write the report with specific T-SQL CREATE INDEX statements, the MAXDOP and cost threshold values to set, and estimated impact for each change</li>
-          <li>On the 30-minute call, I walk through the findings and answer questions about implementation order and risk</li>
-        </ul>
-      </div>
-
-      <p style="color:var(--text-muted); font-style:italic; margin-top:1rem;">Typical outcome: 2–4 immediate wins that can be implemented the same day, plus 3–5 medium-term improvements that require scheduled maintenance windows.</p>
     </article>
 
   </div>
@@ -146,16 +239,19 @@
 <section class="cta-band">
   <div class="container">
     <h2>Have a similar challenge?</h2>
-    <p style="max-width:500px; margin:0 auto 2rem;">I'd be happy to take a look. Start with a Quick Check for €199 — if I can't find anything meaningful, I'll tell you honestly.</p>
-    <a href="contact.html" class="btn btn--primary">Book an Audit</a>
+    <p style="max-width:500px; margin:0 auto 2rem;">Whether it's a database problem, a custom software project, or a full digital overhaul — reach out and I'll tell you honestly what I'd do in your situation.</p>
+    <a href="contact.html" class="btn btn--primary">Get in Touch</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>SQL Server & C# performance consulting. Based in Riga, Latvia.</p></div>
-      <div><h4>Pages</h4><a href="services.html">Services & Pricing</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div>
+      <div class="footer__brand">
+        <div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div>
+        <p>Database design, custom software, and web development for small and medium businesses. Based in Riga, Latvia.</p>
+      </div>
+      <div><h4>Pages</h4><a href="services.html">Services &amp; Pricing</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div>
       <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Riga, Latvia</p></div>
     </div>
     <div class="footer__bottom">© 2025 DataCraft Consulting. All rights reserved.</div>

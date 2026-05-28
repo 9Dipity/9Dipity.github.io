@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DataCraft Consulting pieredze — reāli SQL Server optimizācijas un regulatīvās automatizācijas rezultāti no banku un finanšu sistēmām.">
+    <meta name="description" content="DataCraft Consulting pieredzes stāsti — reāli rezultāti mazumtirdzniecībā, veselības aprūpē, izplatīšanā un banku sektorā. SQL Server, pielāgota programmatūra, tīmekļa izstrāde.">
     <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/case-studies.html" />
     <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/case-studies.html" />
     <link rel="stylesheet" href="/style.css">
-    <title>Pieredze — DataCraft Consulting</title>
+    <title>Pieredzes stāsti — DataCraft Consulting</title>
 </head>
 <body>
 
@@ -32,68 +32,198 @@
 <section class="page-hero">
   <div class="container">
     <span class="label">Reāli rezultāti</span>
-    <h1>Pieredze</h1>
-    <p>Šie ir reāli projekti, pie kuriem esmu strādājis. Nosaukumi ir anonimizēti, bet skaitļi un tehniskie detaļas ir patiesi.</p>
+    <h1>Pieredzes stāsti</h1>
+    <p>No mazumtirdzniecības inventāra sistēmām līdz banku atbilstības platformām — reāli projekti, reāli rezultāti. Nosaukumi ir anonimizēti, bet skaitļi un tehniskie dati ir īsti.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
 
-    <article class="case-study-card">
-      <div class="case-study-card__meta">Finanšu iestāde · Regulatīvā atbilstība · C#/.NET un SQL Server</div>
-      <h3>Automatizētas SEC vērtspapīru aizdevumu atskaišu sistēmas izveide no nulles</h3>
-      <p>Lielai finanšu iestādei bija jāatbilst jaunajām FINRA vērtspapīru aizdevumu atskaišu prasībām. Viņiem bija esošā SFTR sistēma, bet nekas SEC vajadzībām. Termiņš bija stingrs, biznesa loģika sarežģīta (20+ atskaišu scenāriji), un kļūdu pielaušanas iespēja bija nulle — T+1 termiņi ar iespējamiem sodiem par neatbilstību.</p>
+    <!-- ===== MAZUMTIRDZNIECĪBA ===== -->
+    <article class="case-study-card" id="retail">
+      <span class="case-study-card__category category--retail">Mazumtirdzniecība · Pilnais pakalpojums</span>
+      <div class="case-study-card__meta" style="margin-top:0.5rem;">Modes boutique · Rīga · Fiziskais veikals + WooCommerce e-komercija</div>
+      <h3>Inventāra sinhronizācija un pārvaldības portāls Rīgas modes boutique</h3>
+      <p>Sieviešu apģērbu boutique ar fizisku veikalu Rīgā un WooCommerce interneta veikalu vadīja krājumus pilnībā programmā Excel. Personāls manuāli atjaunināja izklājlapu pēc katras pārdošanas — bet ar diviem darbiniekiem, kas to darīja neatkarīgi, izklājlapa pastāvīgi bija novecojusi. Rezultāts: pasūtījumi precēm, kuru nebija noliktavā, neapmierināti klienti un stundas katru nedēļu, saskaņojot neatbilstības.</p>
+      <p>Viņi bija skatījušies gatavus inventāra risinājumus, bet neviens labi neatbilda viņu konkrētajai fiziskās un interneta pārdošanas kombinācijai, un ikmēneša SaaS maksas uzkrājās vairāk, nekā viņi vēlējās maksāt.</p>
+
+      <div class="detail-block" style="margin-top:1.5rem;">
+        <h3>Ko mēs izveidojām</h3>
+        <p>Piegādājām pilno pakalpojumu: speciāli izstrādātu SQL Server datubāzi, tīmekļa bāzētu krājumu pārvaldības portālu un integrāciju ar viņu esošo WooCommerce veikalu.</p>
+        <ul>
+          <li>SQL Server datubāze: preces, varianti (izmērs, krāsa), krājumu līmeņi, piegādātāju ieraksti, pārdošanas vēsture, klientu ieraksti</li>
+          <li>Tīmekļa bāzēts pārvaldības portāls (darbojas pārlūkā, strādā ar planšetdatoriem pie letes) krājumu uzņemšanai, skaitīšanai un manuālām korekcijām</li>
+          <li>WooCommerce sinhronizācija: krājumu līmeņi atjauninās automātiski, kad notiek pārdošana interneta veikalā; portāls to atspoguļo 60 sekunžu laikā</li>
+          <li>Brīdinājumi par zemiem krājumiem: e-pasta paziņojums, kad kāds variants nokrītas zem konfigurējama sliekšņa</li>
+          <li>Piegādātāju pirkuma pasūtījumi: izveidojiet PP portālā, pieņemiet krājumus pret tiem, automātiska krājumu palielināšana pie saņemšanas</li>
+          <li>Ikdienas pārdošanas atskaite: nosūtīta automātiski katru rītu ar labākajiem pārdevējiem, peļņu pēc kategorijas un krājumu stāvokli</li>
+        </ul>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric"><div class="metric__value">0</div><div class="metric__label">Pārdošana bez krājumiem/mēnesī</div></div>
+        <div class="metric"><div class="metric__value">3 st.</div><div class="metric__label">Ietaupīts nedēļas administrators</div></div>
+        <div class="metric"><div class="metric__value">23%</div><div class="metric__label">Peļņas uzlabojums (labāka cenu pārredzamība)</div></div>
+        <div class="metric"><div class="metric__value">6 ned.</div><div class="metric__label">Piegādes laiks</div></div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">C# .NET</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">WooCommerce API</span>
+        <span class="tag">ASP.NET Core</span>
+        <span class="tag">Dapper</span>
+        <span class="tag">Pilnais pakalpojums</span>
+      </div>
+    </article>
+
+    <!-- ===== ZOBĀRSTNIECĪBA ===== -->
+    <article class="case-study-card" id="clinic">
+      <span class="case-study-card__category category--health">Veselības aprūpe · Pielāgota programmatūra</span>
+      <div class="case-study-card__meta" style="margin-top:0.5rem;">Zobārstniecības klīnika · 3 nodaļas · Rīgas reģions</div>
+      <h3>Pacientu pārvaldības sistēma 3 nodaļu zobārstniecības klīnikai</h3>
+      <p>Augoša zobārstniecības klīnika piecu gadu laikā bija paplašinājusies līdz trim nodaļām — bet viņu administrācija nebija tur sekojusi. Pacientu kartītes bija papīra formā katrā klīnikā. Tikšanās tika pārvaldītas koplietotā Outlook kalendārā, kuru vienlaikus rediģēja visi trīs reģistratori (ar paredzamiem dubultas rezervācijas rezultātiem). Rēķini tika veidoti Excel, izrakstīti manuāli un saskaņoti mēneša beigās.</p>
+      <p>Viņiem bija piedāvāts €40 000+ par uzņēmumu zobārstniecības pārvaldības programmatūru. Piedāvājums arī ietvēra funkcijas, ko viņi nekad neizmantos, un abonementa maksu uz vienu vietu, kas katru gadu izmaksātu vairāk. Viņiem vajadzēja kaut ko, kas atbilstu viņu faktiskajai darbplūsmai.</p>
+
+      <div class="detail-block" style="margin-top:1.5rem;">
+        <h3>Ko mēs izveidojām</h3>
+        <p>Tīmekļa bāzēta pacientu pārvaldības sistēma, koplietota visās trijās nodaļās reāllaikā, ar uz lomu balstītu piekļuvi reģistratoriem, ārstiem un vadībai.</p>
+        <ul>
+          <li>Centrālā SQL Server datubāze: pacienti, tikšanās, ārstēšana, rēķini un personāls visās trijās nodaļās</li>
+          <li>Pacientu ierakstu modulis: medicīniskā vēsture, kontaktinformācija, ārstēšanas piezīmes, fotoattēlu pielikumi, GDPR atbilstoša datu apstrāde</li>
+          <li>Tikšanās plānotājs: kalendāra skats pēc ārsta un nodaļas, konfliktu noteikšana, SMS/e-pasta atgādinājumi pacientiem</li>
+          <li>Rēķinu modulis: ar ārstēšanu saistīti rēķini, maksājumu reģistrēšana, neapmaksāto atlikumu izsekošana, mēneša ieņēmumu atskaites</li>
+          <li>Personāla portāls ar uz lomu balstītu piekļuvi: reģistratori redz plānošanu un rēķinus; ārsti redz pacientu ierakstus; vadība redz visu</li>
+          <li>Darbojas pārlūkā — strādā uz esošajiem datoriem katrā klīnikā, nav nepieciešama programmatūras instalēšana</li>
+        </ul>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric"><div class="metric__value">100%</div><div class="metric__label">Digitālie pacientu ieraksti</div></div>
+        <div class="metric"><div class="metric__value">Nulle</div><div class="metric__label">Dubultas rezervācijas kopš palaišanas</div></div>
+        <div class="metric"><div class="metric__value">40%</div><div class="metric__label">Mazāk administrācijas laika uz reģistratoru</div></div>
+        <div class="metric"><div class="metric__value">€40k</div><div class="metric__label">Uzņēmumu programmatūras izmaksas novērstas</div></div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">C# .NET</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">ASP.NET Core</span>
+        <span class="tag">Vairākas nodaļas</span>
+        <span class="tag">GDPR</span>
+        <span class="tag">Pielāgota programmatūra</span>
+      </div>
+    </article>
+
+    <!-- ===== IMPORTS/IZPLATĪŠANA ===== -->
+    <article class="case-study-card" id="distribution">
+      <span class="case-study-card__category category--logistics">Izplatīšana · Pielāgota programmatūra</span>
+      <div class="case-study-card__meta" style="margin-top:0.5rem;">Importa un izplatīšanas uzņēmums · Baltijas reģions</div>
+      <h3>Piegādātāju cenu automatizācija Baltijas importa uzņēmumam</h3>
+      <p>Uzņēmums, kas importē preces no 14 Eiropas piegādātājiem, slīka cenu sarakstos. Katrs piegādātājs sūtīja atjauninātās cenas savādāk — daži Excel formātā, daži kā PDF, daži kā CSV, daži e-pasta vēstulēs. Darbinieks pavadīja 3+ dienas katru mēnesi, lejupielādējot, formatējot, salīdzinot un manuāli ievadot cenas pārdošanas sistēmā. Kļūdas bija izplatītas. Peļņas lēmumi tika pieņemti, pamatojoties uz datiem, kas dažreiz bija vairākas nedēļas veci.</p>
+
+      <div class="detail-block" style="margin-top:1.5rem;">
+        <h3>Ko mēs izveidojām</h3>
+        <p>Automatizēta piegādātāju cenu pārvaldības platforma, kas uzņem cenu sarakstus jebkurā formātā, normalizē tos un sniedz tīrus peļņas datus pārdošanas komandai.</p>
+        <ul>
+          <li>SQL Server datubāze: piegādātāji, preču katalogs, cenu vēsture, valūtas kursi, peļņas noteikumi</li>
+          <li>Cenu importa dzinējs (C#): apstrādā Excel (.xlsx/.xls), CSV un strukturētus PDF — katra piegādātāja formāts konfigurēts vienreiz, pēc tam automatizēts</li>
+          <li>Normalizācijas kārta: kartē katra piegādātāja kolonnu nosaukumus un vienības uz standarta preču katalogu</li>
+          <li>Cenu salīdzinājuma panelis: rāda pašreizējo cenu pret iepriekšējo, pēc piegādātāja un preces — izceļ izmaiņas virs konfigurējama sliekšņa</li>
+          <li>Peļņas kalkulators: piemēro valūtas kursus, importa izmaksas un peļņas mērķus, lai iegūtu ieteicamās mazumtirdzniecības cenas</li>
+          <li>Brīdinājumu sistēma: sūta e-pastu iepirkumu vadītājam, kad piegādātājs maina cenas par vairāk nekā 5% jebkurai precei</li>
+          <li>Vēsturiskas cenu diagrammas: rāda cenu tendenci par preci pēc piegādātāja 24 mēnešu periodā</li>
+        </ul>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric"><div class="metric__value">3 d. → 4 st.</div><div class="metric__label">Mēneša cenu noteikšanas process</div></div>
+        <div class="metric"><div class="metric__value">Reāllaiks</div><div class="metric__label">Cenu pārredzamība visiem piegādātājiem</div></div>
+        <div class="metric"><div class="metric__value">14</div><div class="metric__label">Automatizēti piegādātāji</div></div>
+        <div class="metric"><div class="metric__value">Labāks</div><div class="metric__label">Sarunu potenciāls ar 24 mēn. vēsturi</div></div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">C# .NET</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">Excel/CSV/PDF parsēšana</span>
+        <span class="tag">Datu konveijers</span>
+        <span class="tag">Pielāgota programmatūra</span>
+      </div>
+    </article>
+
+    <!-- ===== SEC (BANKU SEKTORS) ===== -->
+    <article class="case-study-card" id="sec">
+      <span class="case-study-card__category category--banking">Banku sektors · Regulatoriskā atbilstība</span>
+      <div class="case-study-card__meta" style="margin-top:0.5rem;">Finanšu iestāde · C#/.NET un SQL Server</div>
+      <h3>Automatizētas SEC vērtspapīru aizdošanas atskaitīšanās sistēmas izveide no nulles</h3>
+      <p>Lielai finanšu iestādei bija jāatbilst jaunajām FINRA vērtspapīru aizdošanas atskaitīšanās prasībām. Viņiem bija esoša SFTR sistēma, bet nekas SEC vajadzībām. Termiņš bija stingrs, biznesa loģika sarežģīta (20+ atskaitīšanas scenāriji), un nebija vietas kļūdām — T+1 termiņi ar iespējamiem sodiem par neatbilstību.</p>
 
       <div class="detail-block" style="margin-top:1.5rem;">
         <h3>Ko es izveidoju</h3>
-        <p>Projektēju un ieviesi pilnīgu sistēmu — datu bāzes shēmu, C# apstrādes dzinēju, JSON failu ģenerēšanu, SFTP pārraidi un 881 testu automatizētu testu komplektu.</p>
         <ul>
-          <li>Normalizēta datu bāzes shēma ar dedicētām SEC tabulām, sasaistīta ar esošajiem SFTR datiem</li>
-          <li>Notikumu vadīts C# apstrādes dzinējs, kas apstrādā 20+ atšķirīgus atskaišu scenārijus</li>
-          <li>MD5 jaucējfunkciju salīdzināšana faktisko datu izmaiņu noteikšanai</li>
-          <li>BZip2 saspiesta JSON failu ģenerēšana ar SFTP automātisko pārraidi</li>
+          <li>Normalizēta datubāzes shēma ar speciālām SEC tabulām, saistītām ar esošajiem SFTR datiem</li>
+          <li>Notikumu vadīts C# apstrādes dzinējs, kas apstrādā 20+ atskaitīšanas scenārijus</li>
+          <li>MD5 jaukšanas salīdzinājums faktisko datu izmaiņu noteikšanai pret liekajiem atjauninājumiem</li>
+          <li>Inteliģents atskaites tipa noteikšanas dzinējs, kas pārvērš SFTR darbības FINRA atskaites tipos</li>
+          <li>BZip2 saspiests JSON failu ģenerators ar SFTP automātisko pārraidi</li>
+          <li>Pakešapstrādes grafiks, saskaņots ar tirdzniecības stundām (13:30, 16:30, 23:00)</li>
           <li>881 automatizēti xUnit testi ar paralēlu izpildi un CI/CD Azure DevOps</li>
         </ul>
       </div>
 
       <div class="metrics-row">
-        <div class="metric"><div class="metric__value">100%</div><div class="metric__label">Savlaicīga atbilstība</div></div>
-        <div class="metric"><div class="metric__value">~40 st</div><div class="metric__label">Manuāla darba novērsts nedēļā</div></div>
-        <div class="metric"><div class="metric__value">&lt;5 min</div><div class="metric__label">Pakešu apstrādes laiks</div></div>
+        <div class="metric"><div class="metric__value">100%</div><div class="metric__label">Laicīga atbilstība</div></div>
+        <div class="metric"><div class="metric__value">~40 st.</div><div class="metric__label">Manuālais darbs/nedēļā novērsts</div></div>
+        <div class="metric"><div class="metric__value">&lt;5 min</div><div class="metric__label">Pakešapstrādes laiks</div></div>
         <div class="metric"><div class="metric__value">10 000</div><div class="metric__label">Darījumi dienā</div></div>
+        <div class="metric"><div class="metric__value">Nulle</div><div class="metric__label">Atbilstības pārkāpumi</div></div>
       </div>
 
       <div class="tags">
-        <span class="tag">C# .NET 6.0</span><span class="tag">SQL Server 2019</span><span class="tag">Dapper ORM</span><span class="tag">xUnit</span><span class="tag">Azure DevOps</span><span class="tag">SFTP</span>
+        <span class="tag">C# .NET 6.0</span>
+        <span class="tag">SQL Server 2019</span>
+        <span class="tag">Dapper ORM</span>
+        <span class="tag">xUnit</span>
+        <span class="tag">Azure DevOps</span>
+        <span class="tag">Hangfire</span>
+        <span class="tag">SFTP</span>
       </div>
     </article>
 
-    <article class="case-study-card">
-      <div class="case-study-card__meta">Finanšu iestāde · Regulatīvā atskaitīšana · SQL optimizācija</div>
-      <h3>SFTR atskaites ģenerēšanas samazināšana no 15 minūtēm līdz mazāk par 2 minūtēm</h3>
-      <p>Kad es pirmo reizi apskatīju SFTR atskaišu procedūru, es uzreiz varēju redzēt problēmu izpildes plānā. Galvenais agregācijas vaicājums veica 47 tabulu skenēšanas pāri tabulām ar miljoniem rindu. Glabātā procedūra bija organiski augusi 4 gadu laikā — katra jauna regulācija nozīmēja vēl vienu pievienotu apakšvaicājumu.</p>
+    <!-- ===== SFTR OPTIMIZĀCIJA ===== -->
+    <article class="case-study-card" id="sftr">
+      <span class="case-study-card__category category--banking">Banku sektors · SQL optimizācija</span>
+      <div class="case-study-card__meta" style="margin-top:0.5rem;">Finanšu iestāde · Regulatoriskā atskaitīšanās · SQL Server</div>
+      <h3>SFTR atskaites ģenerēšanas samazināšana no 15 minūtēm uz mazāk nekā 2 minūtēm</h3>
+      <p>Galvenais agregācijas vaicājums veica 47 tabulas skenēšanu tabulās ar miljoniem rindu. Saglabātā procedūra bija augusi organiski 4 gadus — katri jauni regulējumi nozīmēja vēl vienu pievienotu apakšvaicājumu. Neviens nebija apskatījis pilno ainu.</p>
 
       <div class="detail-block" style="margin-top:1.5rem;">
-        <h3>Ko es izdarīju</h3>
+        <h3>Ko es darīju</h3>
         <ul>
-          <li>Aizvietoju 12 korelētos apakšvaicājumus ar indeksētiem skatiem bieži piekļūtām datu kombinācijām</li>
-          <li>Ieviesi inkrementālu apstrādi — pārrēķinu tikai tos datus, kas mainījušies kopš iepriekšējā izpildes</li>
-          <li>Pārveidoju ligzdotos vaicājumus uz labi indeksētām pagaidu tabulām ar filtrētiem indeksiem</li>
-          <li>Pārcēlu biznesa loģikas aprēķinus uz saglabātām aprēķinātām kolonnām</li>
-          <li>Ieviesi paralēlu apstrādi neatkarīgiem datu segmentiem</li>
+          <li>Aizstāju 12 korelētus apakšvaicājumus ar indeksētiem skatiem biežāk izmantotajām datu kombinācijām</li>
+          <li>Ieviesa pakāpenisku apstrādi — pārrēķina tikai datus, kas mainījušies kopš iepriekšējās palaišanas</li>
+          <li>Pārstrādāja ligzdotus vaicājumus labi indeksētās pagaidu tabulās ar filtrētiem indeksiem</li>
+          <li>Pārvietoja biznesa loģikas aprēķinus uz pastāvīgām aprēķinātām kolonnām</li>
+          <li>Pievienoja rūpīgi izstrādātus kompozītos indeksus, kas saskaņoti ar faktiskajiem vaicājumu modeļiem</li>
+          <li>Ieviesu paralēlu apstrādi neatkarīgiem datu segmentiem</li>
         </ul>
       </div>
 
       <div class="metrics-row">
-        <div class="metric"><div class="metric__value">87%</div><div class="metric__label">Apstrādes laika samazinājums</div></div>
+        <div class="metric"><div class="metric__value">87%</div><div class="metric__label">Apstrādes laiks samazināts</div></div>
         <div class="metric"><div class="metric__value">&lt;2 min</div><div class="metric__label">Atskaites ģenerēšana</div></div>
-        <div class="metric"><div class="metric__value">70%</div><div class="metric__label">Zemāka CPU noslodze</div></div>
-        <div class="metric"><div class="metric__value">Nulle</div><div class="metric__label">Produkcijas problēmas</div></div>
+        <div class="metric"><div class="metric__value">70%</div><div class="metric__label">Zemāka CPU izmantošana</div></div>
+        <div class="metric"><div class="metric__value">Nulle</div><div class="metric__label">Ražošanas problēmas</div></div>
       </div>
 
       <div class="tags">
-        <span class="tag">SQL Server 2019</span><span class="tag">T-SQL</span><span class="tag">Indeksēti skati</span><span class="tag">Filtrēti indeksi</span><span class="tag">Vaicājumu optimizācija</span>
+        <span class="tag">SQL Server 2019</span>
+        <span class="tag">T-SQL</span>
+        <span class="tag">Indeksēti skati</span>
+        <span class="tag">Filtrēti indeksi</span>
+        <span class="tag">Vaicājumu optimizācija</span>
       </div>
     </article>
 
@@ -103,15 +233,18 @@
 <section class="cta-band">
   <div class="container">
     <h2>Ir līdzīgs izaicinājums?</h2>
-    <p style="max-width:500px; margin:0 auto 2rem;">Labprāt apskatīšu. Sāciet ar Ātro pārbaudi par €199 — ja neko nozīmīgu neatrodu, godīgi pateikšu.</p>
-    <a href="contact.html" class="btn btn--primary">Pasūtīt auditu</a>
+    <p style="max-width:500px; margin:0 auto 2rem;">Neatkarīgi no tā, vai tā ir datubāzes problēma, pielāgota programmatūras projekts vai pilnīga digitālā pārmaiņa — sazinieties, un godīgi pateikšu, ko darītu jūsu situācijā.</p>
+    <a href="contact.html" class="btn btn--primary">Sazināties</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>SQL Server un C# veiktspējas konsultācijas. Rīga, Latvija.</p></div>
+      <div class="footer__brand">
+        <div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div>
+        <p>Datubāžu izstrāde, pielāgota programmatūra un tīmekļa vietnes maziem un vidējiem uzņēmumiem. Bāzēts Rīgā, Latvijā.</p>
+      </div>
       <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mani</a><a href="blog.html">Raksti</a><a href="contact.html">Kontakti</a></div>
       <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
     </div>
