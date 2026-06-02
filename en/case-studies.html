@@ -164,8 +164,8 @@
       <p>A major financial institution needed to comply with new FINRA securities lending reporting requirements. They had an existing SFTR system but nothing for SEC. The deadline was tight, the business logic was complex (20+ reporting scenarios), and there was zero room for error — T+1 deadlines with potential fines for non-compliance.</p>
 
       <div class="detail-block" style="margin-top:1.5rem;">
-        <h3>What I built</h3>
-        <p>I designed and implemented the complete system over several months — database schema, C# processing engine, JSON file generation, SFTP transmission, and an 881-test automated test suite.</p>
+        <h3>What we built</h3>
+        <p>We designed and implemented the complete system over several months — database schema, C# processing engine, JSON file generation, SFTP transmission, and an 881-test automated test suite.</p>
         <ul>
           <li>Normalised database schema with dedicated SEC tables, linked to existing SFTR data to avoid duplication</li>
           <li>Event-driven C# processing engine handling 20+ distinct reporting scenarios</li>
@@ -205,7 +205,7 @@
       <p>The main aggregation query was performing 47 table scans across tables with millions of rows. The stored procedure had grown organically over 4 years — every new regulation meant another subquery bolted on. Nobody had ever looked at the full picture.</p>
 
       <div class="detail-block" style="margin-top:1.5rem;">
-        <h3>What I did</h3>
+        <h3>What we did</h3>
         <ul>
           <li>Replaced 12 correlated subqueries with indexed views for frequently accessed data combinations</li>
           <li>Implemented incremental processing — only recalculating data that changed since the previous run</li>
@@ -239,7 +239,7 @@
 <section class="cta-band">
   <div class="container">
     <h2>Have a similar challenge?</h2>
-    <p style="max-width:500px; margin:0 auto 2rem;">Whether it's a database problem, a custom software project, or a full digital overhaul — reach out and I'll tell you honestly what I'd do in your situation.</p>
+    <p style="max-width:500px; margin:0 auto 2rem;">Whether it's a database problem, a custom software project, or a full digital overhaul — reach out and we'll tell you honestly what we'd do in your situation.</p>
     <a href="contact.html" class="btn btn--primary">Get in Touch</a>
   </div>
 </section>
