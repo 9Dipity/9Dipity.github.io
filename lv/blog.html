@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DataCraft Consulting raksti — tehniski raksti par SQL Server veiktspēju, C#/.NET izstrādi un regulatīvo atskaišu automatizāciju.">
-    <link rel="stylesheet" href="/style.css">
-    <title>Raksti — DataCraft Consulting</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DataCraft Consulting ieskati — raksti par SQL Server veiktspēju, C#/.NET izstrādi un uzticamu sistēmu veidošanu finanšu pakalpojumos.">
+  <link rel="stylesheet" href="/style.css">
+  <title>Ieskati — DataCraft Consulting</title>
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
 
 <header class="header">
   <div class="container header__inner">
@@ -19,7 +21,7 @@
       <li><a href="services.html">Pakalpojumi</a></li>
       <li><a href="case-studies.html">Pieredze</a></li>
       <li><a href="about.html">Par mums</a></li>
-      <li><a href="blog.html" class="active">Raksti</a></li>
+      <li><a href="blog.html" class="active">Ieskati</a></li>
       <li><a href="contact.html">Kontakti</a></li>
       <li class="header__lang"><a href="../en/blog.html">EN</a><span style="color:var(--text-muted)">|</span><a href="blog.html" class="active">LV</a></li>
     </nav>
@@ -30,7 +32,7 @@
 <section class="page-hero">
   <div class="container">
     <span class="label">Blogs</span>
-    <h1>Raksti un optimizācijas</h1>
+    <h1>Ieskati un optimizācijas</h1>
     <p>Tehniski raksti par SQL Server veiktspēju, C#/.NET izstrādi un uzticamu sistēmu veidošanu finanšu pakalpojumos.</p>
   </div>
 </section>
@@ -39,41 +41,79 @@
   <div class="container">
     <div class="blog-grid">
 
-      <article class="blog-card">
-        <div class="blog-card__date">Drīzumā — 2026. gada februāris</div>
-        <h3>Kā es samazināju bankas atskaiti no 15 minūtēm līdz mazāk par 2 minūtēm</h3>
-        <p>Pilns tehniskais sadalījums par SFTR atskaišu cauruļvada optimizāciju — 47 tabulu skenēšanas, 12 korelēti apakšvaicājumi un indeksētie skati, kas visu atrisināja.</p>
-        <div class="tags" style="margin-top:1rem;"><span class="tag">SQL Server</span><span class="tag">Veiktspēja</span><span class="tag">SFTR</span></div>
+      <article class="blog-card reveal">
+        <div class="blog-card__date">Gaidāms februārī 2026</div>
+        <h3>Es samazināju bankas atskaiti no 15 minūtēm līdz mazāk nekā 2 minūtēm. Lūk, precīzi kā.</h3>
+        <p>Pilns tehniskais SFTR atskaišu konveijera optimizācijas apraksts — 47 tabulu skenēšana, 12 korelētie apakšvaicājumi un indeksētie skati, kas visu salaboja.</p>
+        <div class="tags" style="margin-top:1rem;">
+          <span class="tag">SQL Server</span>
+          <span class="tag">Veiktspēja</span>
+          <span class="tag">SFTR</span>
+        </div>
       </article>
 
-      <article class="blog-card">
-        <div class="blog-card__date">Drīzumā — 2026. gada februāris</div>
-        <h3>5 SQL Server noklusētie iestatījumi, kas klusi iznīcina jūsu veiktspēju</h3>
-        <p>Jūsu SQL Server ir bijis nepareizi konfigurēts kopš instalēšanas dienas. MAXDOP, izmaksu slieksnis, atmiņas iestatījumi — šie noklusējumi maksā reālu naudu.</p>
-        <div class="tags" style="margin-top:1rem;"><span class="tag">SQL Server</span><span class="tag">Konfigurācija</span><span class="tag">Ātrie uzlabojumi</span></div>
+      <article class="blog-card reveal">
+        <div class="blog-card__date">Gaidāms februārī 2026</div>
+        <h3>5 SQL Server noklusējuma iestatījumi, kas klusi iznīcina jūsu veiktspēju</h3>
+        <p>Jūsu SQL Server ir nepareizi konfigurēts kopš instalēšanas dienas. MAXDOP, izmaksu slieksnis, atmiņas iestatījumi — šie noklusējumi maksā jums reālu naudu.</p>
+        <div class="tags" style="margin-top:1rem;">
+          <span class="tag">SQL Server</span>
+          <span class="tag">Konfigurācija</span>
+          <span class="tag">Ātrie uzlabojumi</span>
+        </div>
       </article>
 
-      <article class="blog-card">
-        <div class="blog-card__date">Drīzumā — 2026. gada marts</div>
-        <h3>Beidziet pievienot indeksus katru reizi, kad vaicājums ir lēns</h3>
-        <p>Indekss-visam pieeja rada rakstīšanas izmaksas, mulsina vaicājumu optimizētāju un slēpj reālās problēmas jūsu darba slodzē.</p>
-        <div class="tags" style="margin-top:1rem;"><span class="tag">SQL Server</span><span class="tag">Indeksēšana</span><span class="tag">Mīti</span></div>
+      <article class="blog-card reveal">
+        <div class="blog-card__date">Gaidāms martā 2026</div>
+        <h3>Pārtrauciet pievienot indeksus katru reizi, kad vaicājums ir lēns. Lūk, kāpēc tas pasliktina situāciju.</h3>
+        <p>Pieeja "indekss visam" rada rakstīšanas pieskaitāmās izmaksas, mulsina vaicājumu optimizētāju un slēpj reālās problēmas jūsu darba slodzē.</p>
+        <div class="tags" style="margin-top:1rem;">
+          <span class="tag">SQL Server</span>
+          <span class="tag">Indeksēšana</span>
+          <span class="tag">Mīti</span>
+        </div>
       </article>
 
-      <article class="blog-card">
-        <div class="blog-card__date">Drīzumā — 2026. gada marts</div>
-        <h3>SEC atbilstības atskaišu izveide no nulles 90 dienās</h3>
-        <p>10 000 ikdienas darījumi, nulle kļūdu, T+1 termiņi. Kā es izveidoju pilnīgu FINRA atskaišu sistēmu — arhitektūras lēmumi, testēšanas stratēģija un mācības.</p>
-        <div class="tags" style="margin-top:1rem;"><span class="tag">C# .NET</span><span class="tag">SEC</span><span class="tag">Arhitektūra</span></div>
+      <article class="blog-card reveal">
+        <div class="blog-card__date">Gaidāms martā 2026</div>
+        <h3>SEC atbilstības atskaišu veidošana no nulles 90 dienās</h3>
+        <p>10 000 ikdienas darījumu, nulles kļūdas, T+1 termiņi. Kā es veidoju pilnu FINRA atskaišu sistēmu — arhitektūras lēmumi, testēšanas stratēģija un gūtās atziņas.</p>
+        <div class="tags" style="margin-top:1rem;">
+          <span class="tag">C# .NET</span>
+          <span class="tag">SEC</span>
+          <span class="tag">Arhitektūra</span>
+        </div>
+      </article>
+
+      <article class="blog-card reveal">
+        <div class="blog-card__date">Gaidāms martā 2026</div>
+        <h3>Jūsu izstrādātāji nevar lasīt izpildes plānus. Tas maksā jums reālu naudu.</h3>
+        <p>5 minūšu avarijas kurss SQL Server izpildes plānu lasīšanā — viena vērtīgākā atkļūdošanas prasme jebkuram aizmugursistēmas izstrādātājam.</p>
+        <div class="tags" style="margin-top:1rem;">
+          <span class="tag">SQL Server</span>
+          <span class="tag">Apmācība</span>
+          <span class="tag">Izpildes plāni</span>
+        </div>
+      </article>
+
+      <article class="blog-card reveal">
+        <div class="blog-card__date">Gaidāms aprīlī 2026</div>
+        <h3>Regulatoriskās atskaites ir kluss datubāzu iznīcinātājs</h3>
+        <p>Ko atbilstības komandas nesaprot par veiktspēju — un ko DBA nesaprot par regulatoriskajiem termiņiem. Plaisa tiek aizpildīta.</p>
+        <div class="tags" style="margin-top:1rem;">
+          <span class="tag">SFTR</span>
+          <span class="tag">MiFID II</span>
+          <span class="tag">Veiktspēja</span>
+        </div>
       </article>
 
     </div>
 
-    <div style="text-align:center; margin-top:4rem; padding:3rem; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg);">
-      <span class="label">Sekojiet līdzi</span>
+    <div style="text-align:center; margin-top:4rem; padding:3rem; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg);" class="reveal">
+      <span class="label">Sekojiet jaunumiem</span>
       <h3 style="margin-bottom:0.75rem;">Jauni raksti drīzumā</h3>
-      <p style="max-width:480px; margin:0 auto 1.5rem;">Sekojiet man LinkedIn, lai saņemtu iknedēļas SQL Server padomus un veiktspējas ieskatus. Garāki raksti parādīsies šeit, kad tiks publicēti.</p>
-      <a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" class="btn btn--primary">Sekot LinkedIn</a>
+      <p style="max-width:480px; margin:0 auto 1.5rem;">Sekojiet LinkedIn iknedēļas SQL Server padomiem un veiktspējas ieskatiem. Garāki raksti parādīsies šeit, tiklīdz tiek publicēti.</p>
+      <a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank" class="btn btn--primary">Sekot LinkedIn</a>
     </div>
   </div>
 </section>
@@ -82,15 +122,29 @@
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>SQL Server un C# veiktspējas konsultācijas. Rīga, Latvija.</p></div>
-      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mums</a><a href="blog.html">Raksti</a><a href="contact.html">Kontakti</a></div>
-      <div><h4>Kontakti</h4><a href="/cdn-cgi/l/email-protection#c6a2a7b2a7a5b4a7a0b2a5a9a8b5b3aab2a7a8b2b586a1aba7afaae8a5a9ab"><span class="__cf_email__" data-cfemail="b5d1d4c1d4d6c7d4d3c1d6dadbc6c0d9c1d4dbc1c6f5d2d8d4dcd99bd6dad8">[email&#160;protected]</span></a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
+      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mums</a><a href="blog.html">Ieskati</a><a href="contact.html">Kontakti</a></div>
+      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
     </div>
     <div class="footer__bottom">© 2025 DataCraft Consulting. Visas tiesības aizsargātas.</div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
-  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
-  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=
+<script>
+(function() {
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => { bar.style.transform = `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`; }, { passive: true });
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose');
+  const nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  const open = () => { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+  const shut = () => { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow = ''; };
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut);
+  overlay && overlay.addEventListener('click', shut);
+  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
+  const ro = new IntersectionObserver((e) => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in-view'); ro.unobserve(x.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => ro.observe(el));
+})();
+</script>
+</body>
+</html>

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DataCraft Consulting case studies — real results from retail, healthcare, distribution, and banking projects. SQL Server, custom software, web development.">
-    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/case-studies.html" />
-    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/case-studies.html" />
-    <link rel="stylesheet" href="/style.css">
-    <title>Case Studies — DataCraft Consulting</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DataCraft Consulting case studies — retail, healthcare, distribution, and banking. Real projects, real outcomes.">
+  <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/case-studies.html" />
+  <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/case-studies.html" />
+  <link rel="stylesheet" href="/style.css">
+  <title>Case Studies — DataCraft Consulting</title>
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
 
 <header class="header">
   <div class="container header__inner">
@@ -18,10 +20,9 @@
     <nav class="header__nav" id="navLinks">
       <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services &amp; Pricing</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="case-studies.html" class="active">Case Studies</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="blog.html">Insights</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li class="header__lang"><a href="case-studies.html" class="active">EN</a><span style="color:var(--text-muted)">|</span><a href="../lv/case-studies.html">LV</a></li>
     </nav>
@@ -33,40 +34,38 @@
   <div class="container">
     <span class="label">Real Results</span>
     <h1>Case Studies</h1>
-    <p>From retail inventory systems to banking compliance — real projects, real outcomes. Names are anonymised, but the numbers and technical details are genuine.</p>
+    <p>From retail inventory to banking compliance — real projects, genuine outcomes. Client names anonymised, but numbers and technical details are accurate.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
 
-    <!-- ===== CASE STUDY: RETAIL BOUTIQUE ===== -->
-    <article class="case-study-card" id="retail">
-      <span class="case-study-card__category category--retail">Retail · Full Package</span>
-      <div class="case-study-card__meta" style="margin-top:0.5rem;">Fashion Boutique · Riga · Physical store + WooCommerce e-commerce</div>
+    <!-- ===== RETAIL BOUTIQUE ===== -->
+    <article class="case-study-card reveal" id="retail">
+      <span class="case-study-card__category category--retail">Retail · Full System</span>
+      <div class="case-study-card__meta" style="margin-top:0.5rem;">Fashion Boutique · Riga · Physical store + WooCommerce</div>
       <h3>Inventory sync and management portal for a Riga fashion boutique</h3>
-      <p>A women's clothing boutique with a physical store in Riga and a WooCommerce online shop was managing stock entirely in Excel. Staff updated the spreadsheet manually after each sale — but with two people doing this independently, the spreadsheet was constantly out of date. The result: orders for items that weren't in stock, angry customers, and hours every week spent reconciling discrepancies.</p>
-      <p>They'd looked at off-the-shelf inventory solutions, but none handled their specific combination of in-store and online sales well, and the monthly SaaS fees added up to more than they wanted to spend.</p>
+      <p>A women's clothing boutique managing stock entirely in Excel — staff updated it manually after each sale, independently, which meant it was constantly wrong. The result: online orders for items that weren't in stock, angry customers, and hours every week reconciling discrepancies. They'd looked at off-the-shelf solutions but none handled their specific combination well, and the monthly SaaS fees added up.</p>
 
       <div class="detail-block" style="margin-top:1.5rem;">
         <h3>What we built</h3>
-        <p>We delivered a Full Package: a purpose-built SQL Server database, a web-based stock management portal, and integration with their existing WooCommerce store.</p>
+        <p>A Full System: a purpose-built SQL Server database, web-based stock management portal, and integration with their existing WooCommerce store.</p>
         <ul>
-          <li>SQL Server database: products, variants (size, colour), stock levels, supplier records, sales history, customer records</li>
-          <li>Web-based management portal (runs in browser, works on tablets at the counter) for stock intake, stock counts, and manual adjustments</li>
-          <li>WooCommerce sync: stock levels update automatically when an online sale occurs; the portal reflects it within 60 seconds</li>
-          <li>Low-stock alerts: email notification when any variant drops below a configurable threshold</li>
+          <li>SQL Server database: products, variants (size/colour), stock levels, supplier records, sales history, customer records</li>
+          <li>Web-based management portal (browser-based, works on tablets at the counter) for stock intake, counts, and adjustments</li>
+          <li>WooCommerce sync: stock updates automatically within 60 seconds of an online sale</li>
+          <li>Low-stock alerts emailed when any variant drops below a configurable threshold</li>
           <li>Supplier purchase orders: create POs in the portal, receive stock against them, automatic stock uplift on receipt</li>
-          <li>Daily sales report: emailed automatically each morning with top sellers, margin by category, and stock health</li>
-          <li>Their existing website left untouched — we connected to WooCommerce via its REST API</li>
+          <li>Daily sales report emailed automatically each morning: top sellers, margin by category, stock health</li>
         </ul>
       </div>
 
-      <div class="metrics-row">
-        <div class="metric"><div class="metric__value">0</div><div class="metric__label">Online oversells/month</div></div>
-        <div class="metric"><div class="metric__value">3 hrs</div><div class="metric__label">Weekly admin saved</div></div>
-        <div class="metric"><div class="metric__value">23%</div><div class="metric__label">Margin improvement (better pricing visibility)</div></div>
-        <div class="metric"><div class="metric__value">6 wks</div><div class="metric__label">Delivery time</div></div>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-metric__value">0</span><span class="cs-metric__label">Oversells/month</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">3 hrs</span><span class="cs-metric__label">Weekly admin saved</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">23%</span><span class="cs-metric__label">Margin improvement</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">6 wks</span><span class="cs-metric__label">Delivery time</span></div>
       </div>
 
       <div class="tags">
@@ -75,37 +74,35 @@
         <span class="tag">WooCommerce API</span>
         <span class="tag">ASP.NET Core</span>
         <span class="tag">Dapper</span>
-        <span class="tag">Full Package</span>
+        <span class="tag">Full System</span>
       </div>
     </article>
 
-    <!-- ===== CASE STUDY: DENTAL CLINIC ===== -->
-    <article class="case-study-card" id="clinic">
+    <!-- ===== DENTAL CLINIC ===== -->
+    <article class="case-study-card reveal" id="clinic">
       <span class="case-study-card__category category--health">Healthcare · Custom Software</span>
       <div class="case-study-card__meta" style="margin-top:0.5rem;">Dental Clinic · 3 Locations · Riga region</div>
       <h3>Patient management system for a 3-location dental clinic</h3>
-      <p>A growing dental clinic had expanded to three locations over five years — but their administration hadn't kept up. Patient records were on paper at each clinic. Appointments were managed in a shared Outlook calendar that all three receptionists edited simultaneously (with predictable double-booking results). Billing was done in Excel, invoiced manually, and reconciled at month-end.</p>
-      <p>They'd been quoted €40,000+ for enterprise dental management software. The quote also included features they'd never use and a per-seat monthly licence that would cost more each year as they hired. They needed something that fit their actual workflow — not a generic platform designed for dental chains with 50+ locations.</p>
+      <p>Patient records on paper at each clinic. Appointments in a shared Outlook calendar that three receptionists edited simultaneously — double-bookings were a recurring problem. Billing in Excel, invoiced manually, reconciled at month-end. They'd been quoted €40,000+ for enterprise dental software, plus a per-seat monthly licence that would grow every year. They needed something that fit their actual workflow, not a platform designed for 50-location chains.</p>
 
       <div class="detail-block" style="margin-top:1.5rem;">
         <h3>What we built</h3>
-        <p>A web-based patient management system shared across all three locations in real time, with role-based access for reception staff, dentists, and management.</p>
+        <p>A web-based patient management system shared across all three locations in real time, with role-based access for reception, dentists, and management.</p>
         <ul>
           <li>Central SQL Server database: patients, appointments, treatments, invoices, and staff across all three locations</li>
-          <li>Patient records module: medical history, contact details, treatment notes, photo attachments, GDPR-compliant data handling</li>
-          <li>Appointment scheduler: calendar view per dentist per location, conflict detection, SMS/email reminders to patients</li>
+          <li>Patient records module: medical history, contact details, treatment notes, photo attachments, GDPR-compliant</li>
+          <li>Appointment scheduler: calendar view per dentist per location, conflict detection, SMS/email reminders</li>
           <li>Billing module: treatment-linked invoices, payment recording, outstanding balance tracking, monthly revenue reports</li>
-          <li>Staff portal with role-based access: receptionists see scheduling and billing; dentists see patient records; management sees everything</li>
-          <li>Runs in a browser — works on the existing computers at each clinic, no software installation</li>
-          <li>Data migration: historical patient records entered by staff during a 2-week transition period using an import tool we provided</li>
+          <li>Role-based access: receptionists see scheduling and billing; dentists see patient records; management sees everything</li>
+          <li>Runs in a browser — no software installation, works on existing computers at each clinic</li>
         </ul>
       </div>
 
-      <div class="metrics-row">
-        <div class="metric"><div class="metric__value">100%</div><div class="metric__label">Digital patient records</div></div>
-        <div class="metric"><div class="metric__value">Zero</div><div class="metric__label">Double bookings since launch</div></div>
-        <div class="metric"><div class="metric__value">40%</div><div class="metric__label">Less admin time per receptionist</div></div>
-        <div class="metric"><div class="metric__value">€40k</div><div class="metric__label">Enterprise software cost avoided</div></div>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-metric__value">100%</span><span class="cs-metric__label">Digital records</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">Zero</span><span class="cs-metric__label">Double bookings</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">40%</span><span class="cs-metric__label">Less admin time</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">€40k</span><span class="cs-metric__label">Enterprise cost avoided</span></div>
       </div>
 
       <div class="tags">
@@ -118,32 +115,31 @@
       </div>
     </article>
 
-    <!-- ===== CASE STUDY: IMPORT/DISTRIBUTION ===== -->
-    <article class="case-study-card" id="distribution">
+    <!-- ===== IMPORT/DISTRIBUTION ===== -->
+    <article class="case-study-card reveal" id="distribution">
       <span class="case-study-card__category category--logistics">Distribution · Custom Software</span>
       <div class="case-study-card__meta" style="margin-top:0.5rem;">Import &amp; Distribution Company · Baltic region</div>
       <h3>Supplier pricing automation for a Baltic import company</h3>
-      <p>A company importing goods from 14 European suppliers was drowning in price lists. Every supplier sent updated prices differently — some in Excel, some as PDFs, some as CSV files, some embedded in emails. A staff member spent 3+ days every month downloading, reformatting, comparing, and manually entering prices into their sales system. Mistakes were common. Margin decisions were being made on data that was sometimes weeks old.</p>
+      <p>A company importing goods from 14 European suppliers was drowning in price lists — each sent differently: Excel, PDF, CSV, embedded in emails. A staff member spent 3+ days every month downloading, reformatting, comparing, and manually entering prices. Mistakes were common. Margin decisions were made on data that was weeks old.</p>
 
       <div class="detail-block" style="margin-top:1.5rem;">
         <h3>What we built</h3>
-        <p>An automated supplier price management platform that ingests price lists in any format, normalises them, and serves up clean margin data to the sales team.</p>
+        <p>An automated supplier price management platform that ingests price lists in any format, normalises them, and delivers clean margin data to the sales team.</p>
         <ul>
           <li>SQL Server database: suppliers, product catalogue, price history, exchange rates, margin rules</li>
           <li>Price import engine (C#): handles Excel (.xlsx/.xls), CSV, and structured PDFs — each supplier's format configured once, then automated</li>
-          <li>Normalisation layer: maps each supplier's column names and units to a standard product catalogue (handles different SKUs, product names, packaging sizes)</li>
-          <li>Price comparison dashboard: shows current price vs. previous price, by supplier and product — highlights changes above a configurable threshold</li>
+          <li>Normalisation layer: maps each supplier's column names to a standard product catalogue across different SKUs and packaging sizes</li>
+          <li>Price comparison dashboard: current price vs. previous price per supplier — highlights changes above configurable thresholds</li>
           <li>Margin calculator: applies exchange rates, import costs, and margin targets to produce suggested retail prices</li>
-          <li>Alert system: emails the purchasing manager when a supplier changes prices by more than 5% on any product</li>
-          <li>Historical price charts: shows price trend per product per supplier over 24 months</li>
+          <li>Historical price charts: 24-month trend per product per supplier</li>
         </ul>
       </div>
 
-      <div class="metrics-row">
-        <div class="metric"><div class="metric__value">3 days → 4 hrs</div><div class="metric__label">Monthly pricing process</div></div>
-        <div class="metric"><div class="metric__value">Real-time</div><div class="metric__label">Price visibility across all suppliers</div></div>
-        <div class="metric"><div class="metric__value">14</div><div class="metric__label">Suppliers automated</div></div>
-        <div class="metric"><div class="metric__value">Better</div><div class="metric__label">Negotiation leverage with 24-month history</div></div>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-metric__value">3d→4h</span><span class="cs-metric__label">Monthly pricing work</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">Real-time</span><span class="cs-metric__label">Price visibility</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">14</span><span class="cs-metric__label">Suppliers automated</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">24 mo</span><span class="cs-metric__label">Price history</span></div>
       </div>
 
       <div class="tags">
@@ -152,22 +148,21 @@
         <span class="tag">Excel/CSV/PDF parsing</span>
         <span class="tag">Data pipeline</span>
         <span class="tag">Dapper</span>
-        <span class="tag">Custom Software</span>
       </div>
     </article>
 
-    <!-- ===== CASE STUDY: SEC (BANKING) ===== -->
-    <article class="case-study-card" id="sec">
+    <!-- ===== SEC BANKING ===== -->
+    <article class="case-study-card reveal" id="sec">
       <span class="case-study-card__category category--banking">Banking · Regulatory Compliance</span>
       <div class="case-study-card__meta" style="margin-top:0.5rem;">Financial Institution · C#/.NET &amp; SQL Server</div>
       <h3>Building an automated SEC securities lending reporting system from scratch</h3>
-      <p>A major financial institution needed to comply with new FINRA securities lending reporting requirements. They had an existing SFTR system but nothing for SEC. The deadline was tight, the business logic was complex (20+ reporting scenarios), and there was zero room for error — T+1 deadlines with potential fines for non-compliance.</p>
+      <p>A major financial institution needed to comply with new FINRA securities lending reporting requirements. An existing SFTR system was in place, but nothing for SEC. The deadline was tight, the business logic was complex (20+ reporting scenarios), and there was zero room for error — T+1 deadlines with potential fines for non-compliance.</p>
 
       <div class="detail-block" style="margin-top:1.5rem;">
         <h3>What we built</h3>
-        <p>We designed and implemented the complete system over several months — database schema, C# processing engine, JSON file generation, SFTP transmission, and an 881-test automated test suite.</p>
+        <p>The complete system: database schema, C# processing engine, JSON file generation, SFTP transmission, and an 881-test automated test suite.</p>
         <ul>
-          <li>Normalised database schema with dedicated SEC tables, linked to existing SFTR data to avoid duplication</li>
+          <li>Normalised database schema with dedicated SEC tables linked to existing SFTR data to avoid duplication</li>
           <li>Event-driven C# processing engine handling 20+ distinct reporting scenarios</li>
           <li>MD5 hash comparison for detecting actual data changes vs. redundant updates</li>
           <li>Intelligent report type determination engine mapping SFTR actions to FINRA report types</li>
@@ -177,12 +172,11 @@
         </ul>
       </div>
 
-      <div class="metrics-row">
-        <div class="metric"><div class="metric__value">100%</div><div class="metric__label">On-time compliance</div></div>
-        <div class="metric"><div class="metric__value">~40 hrs</div><div class="metric__label">Manual work eliminated weekly</div></div>
-        <div class="metric"><div class="metric__value">&lt;5 min</div><div class="metric__label">Batch processing time</div></div>
-        <div class="metric"><div class="metric__value">10,000</div><div class="metric__label">Daily transactions</div></div>
-        <div class="metric"><div class="metric__value">Zero</div><div class="metric__label">Compliance violations</div></div>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-metric__value">100%</span><span class="cs-metric__label">On-time compliance</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">~40 hrs</span><span class="cs-metric__label">Manual work/week cut</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">&lt;5 min</span><span class="cs-metric__label">Batch processing</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">Zero</span><span class="cs-metric__label">Violations</span></div>
       </div>
 
       <div class="tags">
@@ -197,8 +191,8 @@
       </div>
     </article>
 
-    <!-- ===== CASE STUDY: SFTR OPTIMISATION ===== -->
-    <article class="case-study-card" id="sftr">
+    <!-- ===== SFTR OPTIMISATION ===== -->
+    <article class="case-study-card reveal" id="sftr">
       <span class="case-study-card__category category--banking">Banking · SQL Optimisation</span>
       <div class="case-study-card__meta" style="margin-top:0.5rem;">Financial Institution · Regulatory Reporting · SQL Server</div>
       <h3>Reducing SFTR report generation from 15 minutes to under 2 minutes</h3>
@@ -214,14 +208,14 @@
           <li>Added carefully designed composite indexes aligned with actual query patterns</li>
           <li>Implemented parallel processing for independent data segments</li>
         </ul>
-        <p>The entire refactoring was done with zero production disruption. Extensive reconciliation testing verified that the new process produced identical results to the original.</p>
+        <p style="margin:1rem 0 0;">The entire refactoring was done with zero production disruption. Extensive reconciliation testing verified identical results to the original process.</p>
       </div>
 
-      <div class="metrics-row">
-        <div class="metric"><div class="metric__value">87%</div><div class="metric__label">Processing time reduced</div></div>
-        <div class="metric"><div class="metric__value">&lt;2 min</div><div class="metric__label">Report generation</div></div>
-        <div class="metric"><div class="metric__value">70%</div><div class="metric__label">Lower CPU usage</div></div>
-        <div class="metric"><div class="metric__value">Zero</div><div class="metric__label">Production issues</div></div>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-metric__value">87%</span><span class="cs-metric__label">Processing time reduced</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">&lt;2 min</span><span class="cs-metric__label">Report generation</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">70%</span><span class="cs-metric__label">Lower CPU usage</span></div>
+        <div class="cs-metric"><span class="cs-metric__value">Zero</span><span class="cs-metric__label">Production issues</span></div>
       </div>
 
       <div class="tags">
@@ -240,32 +234,39 @@
   <div class="container">
     <h2>Have a similar challenge?</h2>
     <p style="max-width:500px; margin:0 auto 2rem;">Whether it's a database problem, a custom software project, or a full digital overhaul — reach out and we'll tell you honestly what we'd do in your situation.</p>
-    <a href="contact.html" class="btn btn--primary">Get in Touch</a>
+    <a href="contact.html" class="btn btn--primary">Get in Touch →</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div class="footer__brand">
-        <div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div>
-        <p>Database design, custom software, and web development for small and medium businesses. Based in Riga, Latvia.</p>
-      </div>
-      <div><h4>Pages</h4><a href="services.html">Services &amp; Pricing</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div>
-      <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Riga, Latvia</p></div>
+      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>Database design, custom software, and web development for small and medium businesses. Based in Riga, Latvia.</p></div>
+      <div><h4>Pages</h4><a href="services.html">Services</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.85rem;">Riga, Latvia</p></div>
     </div>
     <div class="footer__bottom">© 2025 DataCraft Consulting. All rights reserved.</div>
   </div>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
-  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
-  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
-  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut); overlay && overlay.addEventListener('click', shut);
+(function() {
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    bar.style.transform = `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`;
+  }, { passive: true });
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose');
+  const nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  const open = () => { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+  const shut = () => { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow = ''; };
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut);
+  overlay && overlay.addEventListener('click', shut);
   nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
-});
+  const ro = new IntersectionObserver((e) => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in-view'); ro.unobserve(x.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => ro.observe(el));
+})();
 </script>
 </body>
 </html>

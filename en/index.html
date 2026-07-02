@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DataCraft Consulting — database design, custom software, and web development for small businesses. Banking-grade engineering, SMB-friendly prices. Riga, Latvia.">
-    <meta name="keywords" content="database consulting, custom software development, web design, SQL Server, small business IT, Latvia, Riga">
-    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/" />
-    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/" />
-    <link rel="alternate" hreflang="x-default" href="https://datacraft.lv/en/" />
-    <link rel="stylesheet" href="/style.css">
-    <title>DataCraft Consulting — Database · Software · Web</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DataCraft Consulting — database design, custom software, and web development for small businesses. Banking-grade engineering, SMB-friendly. Riga, Latvia.">
+  <meta name="keywords" content="database consulting, custom software, web design, SQL Server, small business IT, Latvia, Riga">
+  <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/" />
+  <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/" />
+  <link rel="alternate" hreflang="x-default" href="https://datacraft.lv/en/" />
+  <link rel="stylesheet" href="/style.css">
+  <title>DataCraft — Database · Software · Web</title>
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
 
 <header class="header">
   <div class="container header__inner">
@@ -23,10 +25,9 @@
     <nav class="header__nav" id="navLinks">
       <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
       <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="services.html">Services & Pricing</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="blog.html">Insights</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li class="header__lang">
         <a href="index.html" class="active">EN</a>
@@ -38,257 +39,238 @@
   </div>
 </header>
 
-<section class="hero">
+<!-- ===== HERO ===== -->
+<section class="hero hero--split">
+  <div class="hero__grid-bg"></div>
+  <div class="hero__glow"></div>
   <div class="container">
-    <span class="label hero__label">Database · Software · Web</span>
-    <h1>Technology that works like it was <em>built properly.</em></h1>
-    <p class="hero__subtitle">DataCraft was built by engineers with 10+ years inside one of the largest banking systems in the Nordics — processing millions of transactions under strict regulatory deadlines. We bring that same discipline to small and medium businesses that deserve proper technology, without the enterprise price tag.</p>
-    <div class="hero__ctas">
-      <a href="services.html" class="btn btn--primary">See Services & Pricing</a>
-      <a href="case-studies.html" class="btn btn--secondary">See Our Work →</a>
+    <div class="hero__inner">
+
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          Available for new projects
+        </div>
+        <h1>We build systems<br>that <em>actually work.</em></h1>
+        <p class="hero__subtitle">
+          10+ years inside one of the Nordics' largest banking infrastructures — processing millions of transactions under strict regulatory deadlines. We bring that same discipline to businesses that deserve proper technology.
+        </p>
+        <div class="hero__ctas">
+          <a href="services.html" class="btn btn--primary">Explore Services</a>
+          <a href="case-studies.html" class="btn btn--secondary">See Our Work →</a>
+        </div>
+      </div>
+
+      <div class="hero__terminal">
+        <div class="terminal">
+          <div class="terminal__bar">
+            <div class="terminal__dots">
+              <span class="terminal__dot terminal__dot--r"></span>
+              <span class="terminal__dot terminal__dot--y"></span>
+              <span class="terminal__dot terminal__dot--g"></span>
+            </div>
+            <span class="terminal__fname">sftr_optimization.sql</span>
+          </div>
+          <div class="terminal__body" id="terminalBody">
+            <span class="terminal__cursor" id="termCursor"></span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="proof-bar">
+<!-- ===== STATS ===== -->
+<div class="stat-band">
   <div class="container">
-    <div class="proof-bar__grid">
-      <div class="proof-bar__item">
-        <strong>10+ years</strong>
-        <span>Banking systems experience</span>
+    <div class="stat-grid reveal-stagger" id="statGrid">
+      <div class="stat">
+        <span class="stat__value" data-target="10" data-suffix="+ yrs">0</span>
+        <span class="stat__label">Banking systems experience</span>
       </div>
-      <div class="proof-bar__item">
-        <strong>15 min → 1:47</strong>
-        <span>Query time reduced</span>
+      <div class="stat">
+        <span class="stat__value" data-target="87" data-suffix="%">0</span>
+        <span class="stat__label">Query time reduced (SFTR)</span>
       </div>
-      <div class="proof-bar__item">
-        <strong>881</strong>
-        <span>Automated tests written</span>
+      <div class="stat">
+        <span class="stat__value" data-target="881">0</span>
+        <span class="stat__label">Automated tests written</span>
       </div>
-      <div class="proof-bar__item">
-        <strong>Zero</strong>
-        <span>Compliance violations</span>
+      <div class="stat">
+        <span class="stat__value" data-target="0" data-prefix="Zero">–</span>
+        <span class="stat__label">Compliance violations</span>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- FOUR SERVICE PILLARS -->
+<!-- ===== SERVICES ===== -->
 <section class="section">
   <div class="container">
-    <div class="section__header">
+    <div class="section__header reveal">
       <span class="label">What We Do</span>
-      <h2>Four ways we help your business</h2>
-      <p>From fixing your database to building your entire digital presence — we do it all under one roof.</p>
+      <h2>Three ways we help your business</h2>
+      <p>Database, software, and web — all under one roof, all designed to work together.</p>
     </div>
-    <div class="pillar-grid">
+    <div class="pillar-grid reveal-stagger">
       <a href="services.html#database" class="pillar-card">
         <div class="pillar-card__icon">🗄️</div>
         <h3>Database & Data</h3>
-        <p>SQL Server design, performance audits, data migration, and architecture. Your data structured and fast, from day one.</p>
-        <div class="pillar-card__price">From €199</div>
+        <p>SQL Server design, performance audits, data migration, and architecture. Your data structured and fast — from day one, not eventually.</p>
+        <div class="pillar-card__price">Audits from €199</div>
       </a>
       <a href="services.html#software" class="pillar-card">
-        <div class="pillar-card__icon">💻</div>
+        <div class="pillar-card__icon">⚙️</div>
         <h3>Custom Software</h3>
-        <p>Inventory systems, booking tools, admin dashboards, process automation. Software that does exactly what your business needs.</p>
-        <div class="pillar-card__price">Scoped &amp; priced per project</div>
+        <p>Inventory systems, booking tools, CRM dashboards, process automation. Built in C#/.NET to do exactly what your business needs — not what a template assumes.</p>
+        <div class="pillar-card__price">Scoped & fixed-price per project</div>
       </a>
       <a href="services.html#web" class="pillar-card">
         <div class="pillar-card__icon">🌐</div>
-        <h3>Web Design</h3>
-        <p>Professional websites and e-commerce. Clean, fast, mobile-first. Your digital storefront done properly.</p>
+        <h3>Web Design & Dev</h3>
+        <p>Professional websites and e-commerce. Clean code, fast performance, mobile-first. Can connect directly to your database — not just a pretty brochure.</p>
         <div class="pillar-card__price">Business sites from €599</div>
       </a>
-      <a href="services.html#package" class="pillar-card pillar-card--featured">
-        <div class="pillar-card__icon">📦</div>
-        <h3>Full Package</h3>
-        <p>Database + software + website, built together as one coherent system. The complete technology foundation for your business.</p>
-        <div class="pillar-card__price">Scoped &amp; quoted after discovery</div>
-      </a>
+    </div>
+
+    <div class="package-highlight reveal" style="margin-top: 2rem;">
+      <span class="package-highlight__badge">The Full System</span>
+      <h2 style="max-width: 620px; margin-bottom: 1rem;">Database + software + website — designed as one integrated system.</h2>
+      <p style="max-width: 660px; color: var(--text-secondary); margin-bottom: 0;">Most businesses end up with a website from one agency, a database from a freelancer, and software that doesn't talk to either. We design all three together so your inventory, website, and internal tools work as one — not three separate problems with three separate owners.</p>
+      <div class="package-features-grid" style="margin-top: 1.75rem;">
+        <div class="package-feature">SQL Server database for your processes</div>
+        <div class="package-feature">Web-based management software</div>
+        <div class="package-feature">Public website or e-commerce store</div>
+        <div class="package-feature">Full integration — one source of truth</div>
+        <div class="package-feature">Staff training & documentation</div>
+        <div class="package-feature">3 months post-launch support</div>
+      </div>
+      <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="contact.html" class="btn btn--primary">Start the Conversation</a>
+        <a href="case-studies.html" class="btn btn--secondary">See a Full System Example →</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- WHO WE WORK WITH -->
+<!-- ===== INSIGHT BAND ===== -->
+<div class="insight-band">
+  <div class="container">
+    <blockquote>
+      "Most database and software problems aren't hard to fix —<br>
+      <em>if you know where to look.</em>"
+    </blockquote>
+    <cite>— Arturs Irbitis, Founder · 10+ years, Nordic banking infrastructure</cite>
+  </div>
+</div>
+
+<!-- ===== WHO WE WORK WITH ===== -->
 <section class="section section--alt">
   <div class="container">
-    <div class="section__header section__header--center">
+    <div class="section__header section__header--center reveal">
       <span class="label">Who We Work With</span>
-      <h2>Built for businesses that are serious about growing</h2>
-      <p>You don't need to be a bank to deserve proper technology. These are the kinds of businesses we typically help.</p>
+      <h2>For businesses serious about growing</h2>
+      <p>You don't need to be a bank to deserve proper technology.</p>
     </div>
-    <div class="industry-grid">
-      <div class="industry-card">
-        <span class="industry-card__icon">🛍️</span>
-        <h4>Retail &amp; E-commerce</h4>
-      </div>
-      <div class="industry-card">
-        <span class="industry-card__icon">🍽️</span>
-        <h4>Hospitality &amp; Food</h4>
-      </div>
-      <div class="industry-card">
-        <span class="industry-card__icon">🏥</span>
-        <h4>Healthcare &amp; Clinics</h4>
-      </div>
-      <div class="industry-card">
-        <span class="industry-card__icon">⚖️</span>
-        <h4>Professional Services</h4>
-      </div>
-      <div class="industry-card">
-        <span class="industry-card__icon">📦</span>
-        <h4>Import &amp; Distribution</h4>
-      </div>
-      <div class="industry-card">
-        <span class="industry-card__icon">🏗️</span>
-        <h4>Construction &amp; Trades</h4>
-      </div>
+    <div class="industry-grid reveal-stagger">
+      <div class="industry-card"><span class="industry-card__icon">🛍️</span><h4>Retail &amp; E-commerce</h4></div>
+      <div class="industry-card"><span class="industry-card__icon">🍽️</span><h4>Hospitality &amp; Food</h4></div>
+      <div class="industry-card"><span class="industry-card__icon">🏥</span><h4>Healthcare &amp; Clinics</h4></div>
+      <div class="industry-card"><span class="industry-card__icon">⚖️</span><h4>Professional Services</h4></div>
+      <div class="industry-card"><span class="industry-card__icon">📦</span><h4>Import &amp; Distribution</h4></div>
+      <div class="industry-card"><span class="industry-card__icon">🏗️</span><h4>Construction &amp; Trades</h4></div>
     </div>
 
-    <div style="max-width:720px; margin: 2.5rem auto 0; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);">
-      <p style="margin:0; color: var(--text-secondary); font-size: 0.95rem; line-height:1.8;">
-        <strong style="color:var(--text-primary);">The typical client:</strong> You run a real business — a shop with a physical location and an online store, a clinic with several locations, a service company juggling spreadsheets. You've outgrown Excel and cobbled-together tools, but you're not ready to pay €50k for enterprise software that mostly doesn't fit anyway. That's exactly the gap we fill.
+    <div class="reveal" style="max-width: 720px; margin: 2.5rem auto 0; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);">
+      <p style="margin:0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">
+        <strong style="color:var(--text-primary);">The typical client:</strong> You run a real business — a shop, a clinic, a service company juggling spreadsheets. You've outgrown Excel and cobbled-together tools, but you're not ready to pay €40k for enterprise software that mostly doesn't fit anyway. That's exactly the gap we fill.
       </p>
     </div>
   </div>
 </section>
 
-<!-- FULL PACKAGE HIGHLIGHT -->
+<!-- ===== CASE STUDIES ===== -->
 <section class="section">
   <div class="container">
-    <div class="package-highlight">
-      <span class="package-highlight__badge">Flagship Offering</span>
-      <h2 style="max-width: 600px; margin-bottom: 1rem;">The Full Package — your complete tech foundation, built once, built right.</h2>
-      <p style="max-width: 640px; color: var(--text-secondary);">Most businesses end up with a website from one agency, a database from someone else, and software that doesn't talk to either. We design all three together, so your inventory, website, and internal tools work as one system — not three separate problems.</p>
-      <div class="package-features-grid">
-        <div class="package-feature">SQL Server database designed for your business</div>
-        <div class="package-feature">Web-based management software (inventory, bookings, CRM)</div>
-        <div class="package-feature">Professional public website or e-commerce store</div>
-        <div class="package-feature">Everything integrated — no data silos</div>
-        <div class="package-feature">Full documentation &amp; staff training</div>
-        <div class="package-feature">3 months of support included</div>
-      </div>
-      <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-        <a href="services.html#package" class="btn btn--primary">See Full Package Details</a>
-        <a href="contact.html" class="btn btn--secondary">Start the conversation →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CASE STUDY PREVIEWS -->
-<section class="section section--alt">
-  <div class="container">
-    <div class="section__header">
+    <div class="section__header reveal">
       <span class="label">Selected Work</span>
-      <h2>Real results from real projects</h2>
-      <p>From banking compliance systems to retail inventory management — here's what we've built.</p>
+      <h2>Real results, real projects</h2>
+      <p>From banking compliance to retail inventory management.</p>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;" class="reveal-stagger">
 
       <a href="case-studies.html#retail" class="blog-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-card__date">
-          <span class="case-study-card__category category--retail">Retail</span>
-        </div>
-        <h3>Inventory sync for a Riga fashion boutique — physical store + WooCommerce</h3>
-        <p>Excel-based stock management was causing overselling online. We built a unified SQL database, a sync API, and a web management portal.</p>
-        <div class="metrics-row" style="margin-top:1rem; flex-wrap:wrap; gap:1rem;">
-          <div class="metric"><div class="metric__value">0</div><div class="metric__label">Oversells/month</div></div>
-          <div class="metric"><div class="metric__value">3 hrs</div><div class="metric__label">Weekly admin saved</div></div>
+        <div class="blog-card__date"><span class="case-study-card__category category--retail">Retail · Full System</span></div>
+        <h3>Inventory sync for a Riga fashion boutique</h3>
+        <p>Excel-based stock management causing online oversells. Built a unified SQL database, sync API, and web management portal.</p>
+        <div class="cs-metrics" style="margin-top: 1rem;">
+          <div class="cs-metric"><span class="cs-metric__value">0</span><span class="cs-metric__label">Oversells/month</span></div>
+          <div class="cs-metric"><span class="cs-metric__value">23%</span><span class="cs-metric__label">Margin improvement</span></div>
         </div>
       </a>
 
       <a href="case-studies.html#clinic" class="blog-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-card__date">
-          <span class="case-study-card__category category--health">Healthcare</span>
-        </div>
-        <h3>Patient management system for a 3-location dental clinic</h3>
-        <p>Paper records, Outlook calendar, Excel billing. We digitised all three locations with a shared patient database and booking system.</p>
-        <div class="metrics-row" style="margin-top:1rem; flex-wrap:wrap; gap:1rem;">
-          <div class="metric"><div class="metric__value">100%</div><div class="metric__label">Digital records</div></div>
-          <div class="metric"><div class="metric__value">40%</div><div class="metric__label">Less admin time</div></div>
+        <div class="blog-card__date"><span class="case-study-card__category category--health">Healthcare · Custom Software</span></div>
+        <h3>Patient management for a 3-location dental clinic</h3>
+        <p>Paper records, Outlook bookings, Excel billing. Digitalised all three locations with shared patient DB and booking system.</p>
+        <div class="cs-metrics" style="margin-top: 1rem;">
+          <div class="cs-metric"><span class="cs-metric__value">€40k</span><span class="cs-metric__label">Enterprise cost avoided</span></div>
+          <div class="cs-metric"><span class="cs-metric__value">40%</span><span class="cs-metric__label">Less admin time</span></div>
         </div>
       </a>
 
       <a href="case-studies.html#sec" class="blog-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-card__date">
-          <span class="case-study-card__category category--banking">Banking</span>
-        </div>
-        <h3>SEC securities lending reporting — 10,000 transactions/day, zero violations</h3>
+        <div class="blog-card__date"><span class="case-study-card__category category--banking">Banking · Compliance</span></div>
+        <h3>SEC securities lending reporting — 10,000 tx/day</h3>
         <p>Built from scratch: C# processing engine, 881 automated tests, BZip2/SFTP transmission. T+1 compliance at scale.</p>
-        <div class="metrics-row" style="margin-top:1rem; flex-wrap:wrap; gap:1rem;">
-          <div class="metric"><div class="metric__value">~40 hrs</div><div class="metric__label">Manual work/week cut</div></div>
-          <div class="metric"><div class="metric__value">Zero</div><div class="metric__label">Compliance failures</div></div>
+        <div class="cs-metrics" style="margin-top: 1rem;">
+          <div class="cs-metric"><span class="cs-metric__value">~40 hrs</span><span class="cs-metric__label">Manual work cut</span></div>
+          <div class="cs-metric"><span class="cs-metric__value">Zero</span><span class="cs-metric__label">Violations</span></div>
         </div>
       </a>
 
     </div>
-    <div style="text-align:center; margin-top:2rem;">
+
+    <div style="text-align:center; margin-top:2rem;" class="reveal">
       <a href="case-studies.html" class="btn btn--secondary">View All Case Studies →</a>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section">
+<!-- ===== PROCESS ===== -->
+<section class="section section--alt">
   <div class="container">
-    <div class="section__header">
+    <div class="section__header reveal">
       <span class="label">How It Works</span>
       <h2>Simple process, no surprises</h2>
-      <p>Whether you need a quick database fix or a complete system build, the process is the same.</p>
+      <p>Whether you need a quick audit or a complete system build — the process is the same.</p>
     </div>
-    <div class="steps">
+    <div class="steps reveal-stagger">
       <div class="step">
         <h3>Tell us what you need</h3>
         <p>A 30-minute call or a short email. We'll understand your situation and give you an honest assessment — including if you don't actually need us.</p>
       </div>
       <div class="step">
         <h3>We scope it and price it</h3>
-        <p>Fixed price, clear deliverables. You know exactly what you're getting before any work starts. No hourly billing surprises.</p>
+        <p>Fixed price, clear deliverables. You know exactly what you're getting before any work starts. No hourly billing surprises, no open-ended engagements.</p>
       </div>
       <div class="step">
         <h3>We build it, you own it</h3>
-        <p>We deliver working software with full documentation. You own the code, the database, everything. No vendor lock-in.</p>
+        <p>Working software with full documentation. You own the code, the database, everything. No lock-in — take it to another developer any time.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LATEST INSIGHTS -->
-<section class="section section--alt">
-  <div class="container">
-    <div class="section__header">
-      <span class="label">Latest Insights</span>
-      <h2>From the blog</h2>
-    </div>
-    <div class="blog-grid">
-      <div class="blog-card">
-        <div class="blog-card__date">Coming Soon</div>
-        <h3>Why your small business is running on a ticking time bomb (it's called Excel)</h3>
-        <p>At some point, every growing business outgrows its spreadsheets. Here's how to know when that point is — and what to do about it.</p>
-        <a href="blog.html" class="read-more">Read more →</a>
-      </div>
-      <div class="blog-card">
-        <div class="blog-card__date">Coming Soon</div>
-        <h3>How I cut a bank's report from 15 minutes to under 2 minutes</h3>
-        <p>The full technical breakdown of optimising an SFTR reporting pipeline — execution plans, indexed views, and real before/after metrics.</p>
-        <a href="blog.html" class="read-more">Read more →</a>
-      </div>
-      <div class="blog-card">
-        <div class="blog-card__date">Coming Soon</div>
-        <h3>What a proper database actually costs a small business (and what it saves)</h3>
-        <p>The real numbers behind moving from spreadsheets to a properly designed SQL database — time saved, errors avoided, and growth enabled.</p>
-        <a href="blog.html" class="read-more">Read more →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ===== CTA ===== -->
 <section class="cta-band">
   <div class="container">
+    <span class="label" style="justify-content:center; display:flex; margin-bottom:1rem;">Free first conversation</span>
     <h2>Let's talk about your project.</h2>
-    <p style="max-width:560px; margin-left:auto; margin-right:auto;">Whether it's a quick audit, a new database, or a complete digital overhaul — reach out and we'll give you an honest take within 24 hours.</p>
-    <a href="contact.html" class="btn btn--primary">Get in Touch — Free Consultation</a>
+    <p style="max-width:540px; margin-left:auto; margin-right:auto;">Whether it's a quick audit, a new database, or a complete digital overhaul — reach out and we'll give you an honest take within 24 hours.</p>
+    <a href="contact.html" class="btn btn--primary">Get in Touch →</a>
   </div>
 </section>
 
@@ -300,20 +282,19 @@
           <div class="header__logo-mark">DC</div>
           <span class="header__logo-text">DataCraft</span>
         </div>
-        <p>DataCraft Consulting — database design, custom software, and web development for small and medium businesses. Enterprise-grade engineering, SMB-friendly approach. Based in Riga, Latvia.</p>
+        <p>Database design, custom software, and web development for small and medium businesses. Enterprise-grade engineering, SMB-friendly approach. Based in Riga, Latvia.</p>
       </div>
       <div>
         <h4>Pages</h4>
-        <a href="services.html">Services &amp; Pricing</a>
+        <a href="services.html">Services</a>
         <a href="case-studies.html">Case Studies</a>
         <a href="about.html">About</a>
-        <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
       </div>
       <div>
         <h4>Contact</h4>
         <a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a>
-        <a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a>
         <p style="margin-top:0.5rem; font-size:0.85rem;">Riga, Latvia · Serving clients internationally</p>
       </div>
     </div>
@@ -324,18 +305,109 @@
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
+  /* ---- Progress bar ---- */
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    bar.style.transform = `scaleX(${pct})`;
+  }, { passive: true });
+
+  /* ---- Mobile nav ---- */
   const toggle = document.getElementById('menuToggle');
-  const close = document.getElementById('menuClose');
-  const nav = document.getElementById('navLinks');
+  const close  = document.getElementById('menuClose');
+  const nav    = document.getElementById('navLinks');
   const overlay = document.getElementById('menuOverlay');
-  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
-  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
+  const open = () => { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+  const shut = () => { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow = ''; };
   toggle && toggle.addEventListener('click', open);
-  close && close.addEventListener('click', shut);
+  close  && close.addEventListener('click', shut);
   overlay && overlay.addEventListener('click', shut);
   nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
-});
+
+  /* ---- Scroll reveal ---- */
+  const ro = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); ro.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => ro.observe(el));
+
+  /* ---- Counter animation ---- */
+  const statGrid = document.getElementById('statGrid');
+  const counters = statGrid ? statGrid.querySelectorAll('.stat__value[data-target]') : [];
+  let counted = false;
+
+  const runCounters = () => {
+    if (counted) return;
+    counted = true;
+    counters.forEach(el => {
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const prefix = el.dataset.prefix || '';
+      if (prefix) { el.textContent = prefix; return; }
+      const duration = 1200;
+      const steps = 50;
+      const step = target / steps;
+      let current = 0;
+      const tick = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = Math.round(current) + suffix;
+        if (current >= target) clearInterval(tick);
+      }, duration / steps);
+    });
+  };
+
+  const co = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) runCounters(); });
+  }, { threshold: 0.3 });
+  if (statGrid) co.observe(statGrid);
+
+  /* ---- Terminal animation ---- */
+  const body = document.getElementById('terminalBody');
+  const cursor = document.getElementById('termCursor');
+  if (!body) return;
+
+  const lines = [
+    { text: '-- ⚡ Real project: SFTR reporting pipeline', cls: 't-comment' },
+    { text: '-- Problem: report taking 14:32 min  ✗', cls: 't-err' },
+    { text: '', cls: '' },
+    { text: 'SELECT t.*, p.pos_size, r.rate', cls: 't-code' },
+    { text: 'FROM sftr_trades t', cls: 't-kw' },
+    { text: '  LEFT JOIN (SELECT * FROM positions) p', cls: 't-code' },
+    { text: '  LEFT JOIN (SELECT * FROM rates) r', cls: 't-code' },
+    { text: '-- ⚠  47 full table scans detected', cls: 't-warn' },
+    { text: '', cls: '' },
+    { text: '-- Applying: indexed views, filtered indexes,', cls: 't-comment' },
+    { text: '--            incremental processing...', cls: 't-comment' },
+    { text: '', cls: '' },
+    { text: 'CREATE INDEX IX_trades_date_filtered', cls: 't-kw' },
+    { text: '  ON sftr_trades (trade_date, status)', cls: 't-code' },
+    { text: '  WHERE status = \'ACTIVE\';', cls: 't-code' },
+    { text: '', cls: '' },
+    { text: '-- ✓ Execution time: 1:47 min  (87% faster)', cls: 't-ok' },
+    { text: '-- ✓ CPU usage down 70%', cls: 't-ok' },
+    { text: '-- ✓ Zero production disruption', cls: 't-ok' },
+  ];
+
+  let i = 0;
+  body.innerHTML = '';
+  body.appendChild(cursor);
+
+  const showNext = () => {
+    if (i >= lines.length) {
+      cursor.style.display = 'none';
+      return;
+    }
+    const { text, cls } = lines[i++];
+    const el = document.createElement('span');
+    el.className = 't-line' + (cls ? ' ' + cls : '');
+    el.textContent = text || ' ';
+    body.insertBefore(el, cursor);
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('vis')));
+    setTimeout(showNext, text === '' ? 200 : 140 + Math.random() * 60);
+  };
+
+  setTimeout(showNext, 1000);
+})();
 </script>
 </body>
 </html>

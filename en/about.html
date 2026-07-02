@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About DataCraft Consulting — a technology company built by engineers with 10+ years inside Nordic banking systems. Based in Riga, Latvia.">
-    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/about.html" />
-    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/about.html" />
-    <link rel="stylesheet" href="/style.css">
-    <title>About — DataCraft Consulting</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About DataCraft Consulting — a technology company built by engineers with 10+ years inside Nordic banking systems. Based in Riga, Latvia.">
+  <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/about.html" />
+  <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/about.html" />
+  <link rel="stylesheet" href="/style.css">
+  <title>About — DataCraft Consulting</title>
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
 
 <header class="header">
   <div class="container header__inner">
@@ -18,10 +20,9 @@
     <nav class="header__nav" id="navLinks">
       <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services & Pricing</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="about.html" class="active">About</a></li>
-      <li><a href="blog.html">Insights</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li class="header__lang"><a href="about.html" class="active">EN</a><span style="color:var(--text-muted)">|</span><a href="../lv/about.html">LV</a></li>
     </nav>
@@ -32,39 +33,45 @@
 <section class="page-hero">
   <div class="container">
     <span class="label">About DataCraft</span>
-    <h1>Built by engineers. Focused on results.</h1>
-    <p>10+ years inside Nordic banking infrastructure. Now bringing that same discipline to businesses that deserve it.</p>
+    <h1>Built by engineers.<br>Focused on results.</h1>
+    <p>10+ years inside Nordic banking infrastructure. Now bringing that discipline to businesses that deserve it.</p>
   </div>
 </section>
 
+<!-- ===== FOUNDER ===== -->
 <section class="section">
   <div class="container">
-    <div class="founder-section">
+    <div class="founder-section reveal">
       <div>
         <img src="/arturs.jpg" alt="Arturs Irbitis — Founder, DataCraft Consulting" class="founder__photo">
-        <p style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin-top:0.75rem;">Arturs Irbitis<br>Founder · DataCraft Consulting<br>Riga, Latvia</p>
+        <p style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin-top:0.75rem;">
+          Arturs Irbitis<br>
+          Founder · DataCraft Consulting<br>
+          Riga, Latvia
+        </p>
       </div>
       <div class="founder__bio">
         <h2>Our background</h2>
         <p>DataCraft was founded by Arturs Irbitis, a senior software developer with over a decade building and optimising database systems for one of the largest banks in the Nordics — a financial institution processing millions of transactions daily under strict regulatory deadlines.</p>
-        <p>That work meant building complete SEC and SFTR reporting systems from scratch, optimising queries that reduced processing times from 15 minutes to under 2 minutes, and maintaining automated test suites of hundreds of tests to ensure zero compliance failures. It is the kind of environment where every millisecond matters and downtime is simply not an option.</p>
+        <p>That work meant building complete SEC and SFTR reporting systems from scratch, optimising queries that cut processing times from 15 minutes to under 2 minutes, and maintaining automated test suites of hundreds of tests to ensure zero compliance failures. The kind of environment where every millisecond matters and downtime is simply not an option.</p>
 
         <blockquote>"Most database and software problems aren't hard to fix — if you know where to look. That's what DataCraft brings to the table."</blockquote>
 
-        <p>DataCraft was created because the same problems that plague enterprise systems appear everywhere: databases set up years ago and never properly tuned, queries running for minutes that should take seconds, indexes created by someone who left three jobs ago, and configuration still sitting at factory defaults. Small and medium businesses rarely have the in-house expertise to address these, and enterprise consultancies are too expensive to bother with them.</p>
-        <p>Our technical focus is C# and SQL Server. The stack includes .NET 6+, Dapper, Akka.NET, Azure DevOps, and extensive T-SQL. We are pragmatic about technology — we use what works reliably in production, not what is trending on Hacker News.</p>
+        <p>DataCraft exists because the same problems that plague enterprise systems appear everywhere: databases set up years ago and never properly tuned, queries running for minutes that should take seconds, and configuration still sitting at factory defaults. Small businesses rarely have the in-house expertise to address these — and enterprise consultancies are too expensive to bother with them.</p>
+        <p>Our technical focus is C# and SQL Server. We're pragmatic about technology — we use what works reliably in production, not what's trending on Hacker News.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===== VALUES ===== -->
 <section class="section section--alt">
   <div class="container">
-    <div class="section__header">
+    <div class="section__header reveal">
       <span class="label">How We Work</span>
       <h2>What DataCraft stands for</h2>
     </div>
-    <div class="values-grid">
+    <div class="values-grid reveal-stagger">
       <div class="value-card">
         <div class="value-card__icon">🎯</div>
         <h3>Results over theory</h3>
@@ -73,7 +80,7 @@
       <div class="value-card">
         <div class="value-card__icon">🔧</div>
         <h3>Pragmatic engineering</h3>
-        <p>We favour proven solutions over trendy technologies. The best solution is the one that works reliably in production at 2 AM when nobody's watching — not the one that looks good in a pitch deck.</p>
+        <p>We favour proven solutions over trendy technologies. The best solution is the one that works reliably at 2 AM when nobody's watching — not the one that looks impressive in a pitch deck.</p>
       </div>
       <div class="value-card">
         <div class="value-card__icon">📝</div>
@@ -83,37 +90,65 @@
       <div class="value-card">
         <div class="value-card__icon">📚</div>
         <h3>Knowledge transfer</h3>
-        <p>We document everything and explain our reasoning clearly. The goal is to make your team more capable, not to create a long-term dependency on DataCraft.</p>
+        <p>We document everything and explain our reasoning. The goal is to make your team more capable, not to create a long-term dependency on DataCraft. You own everything we build.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===== TECH STACK ===== -->
 <section class="section">
   <div class="container container--narrow">
-    <div class="section__header">
-      <span class="label">Our Technical Stack</span>
+    <div class="section__header reveal">
+      <span class="label">Technical Stack</span>
       <h2>What we work with daily</h2>
+      <p>Hover over any tag to highlight it — these are the tools we use in production, not just on side projects.</p>
     </div>
-    <div class="tags" style="gap:0.75rem;">
-      <span class="tag">SQL Server 2019</span>
-      <span class="tag">T-SQL</span>
-      <span class="tag">C# / .NET 6+</span>
-      <span class="tag">Dapper ORM</span>
-      <span class="tag">Akka.NET</span>
-      <span class="tag">xUnit Testing</span>
-      <span class="tag">Azure DevOps</span>
-      <span class="tag">Docker</span>
-      <span class="tag">YAML Pipelines</span>
-      <span class="tag">SFTR Reporting</span>
-      <span class="tag">SEC / FINRA</span>
-      <span class="tag">MiFID II</span>
-      <span class="tag">SSRS</span>
-      <span class="tag">RabbitMQ</span>
-      <span class="tag">JSON / XML Parsing</span>
-      <span class="tag">Git</span>
-      <span class="tag">Hangfire</span>
-      <span class="tag">Python</span>
+    <div class="stack-grid reveal-stagger">
+      <span class="stack-tag">SQL Server 2019+</span>
+      <span class="stack-tag">T-SQL</span>
+      <span class="stack-tag">C# / .NET 6+</span>
+      <span class="stack-tag">ASP.NET Core</span>
+      <span class="stack-tag">Dapper ORM</span>
+      <span class="stack-tag">Entity Framework Core</span>
+      <span class="stack-tag">Akka.NET</span>
+      <span class="stack-tag">xUnit Testing</span>
+      <span class="stack-tag">Hangfire</span>
+      <span class="stack-tag">Azure DevOps</span>
+      <span class="stack-tag">YAML Pipelines</span>
+      <span class="stack-tag">Docker</span>
+      <span class="stack-tag">Git</span>
+      <span class="stack-tag">RabbitMQ</span>
+      <span class="stack-tag">SFTP / BZip2</span>
+      <span class="stack-tag">SFTR Reporting</span>
+      <span class="stack-tag">SEC / FINRA</span>
+      <span class="stack-tag">MiFID II</span>
+      <span class="stack-tag">WooCommerce API</span>
+      <span class="stack-tag">Stripe</span>
+      <span class="stack-tag">JSON / XML</span>
+      <span class="stack-tag">Python</span>
+      <span class="stack-tag">HTML / CSS / JS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT WE DON'T DO ===== -->
+<section class="section section--alt">
+  <div class="container container--narrow">
+    <div class="section__header reveal">
+      <span class="label">Transparency</span>
+      <h2>What we don't do</h2>
+      <p>We'd rather be clear about our scope than overpromise and underdeliver.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Not the right fit for every project</h3>
+      <ul>
+        <li><strong>Mobile app development</strong> — native iOS/Android is outside our scope</li>
+        <li><strong>Large team augmentation</strong> — we work best as a focused specialist, not as a staffing resource</li>
+        <li><strong>Ongoing managed IT infrastructure</strong> — servers, networks, cloud ops are not our area</li>
+        <li><strong>Technology for its own sake</strong> — if your problem doesn't need a database, we won't tell you it does</li>
+      </ul>
+      <p style="margin:0; margin-top:1rem; color:var(--text-muted); font-size:0.9rem;">If your project falls outside our scope, we'll tell you honestly — and usually point you to someone better suited for it.</p>
     </div>
   </div>
 </section>
@@ -122,7 +157,7 @@
   <div class="container">
     <h2>Want to work with us?</h2>
     <p style="max-width:500px; margin:0 auto 2rem;">We're always happy to talk technology. Even if you're not sure you have a problem worth solving — reach out and we'll give you an honest answer.</p>
-    <a href="contact.html" class="btn btn--primary">Get in Touch</a>
+    <a href="contact.html" class="btn btn--primary">Get in Touch →</a>
   </div>
 </section>
 
@@ -130,21 +165,31 @@
   <div class="container">
     <div class="footer__grid">
       <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>Database, software & web consulting for SMBs. Based in Riga, Latvia.</p></div>
-      <div><h4>Pages</h4><a href="services.html">Services & Pricing</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div>
-      <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Riga, Latvia</p></div>
+      <div><h4>Pages</h4><a href="services.html">Services</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.85rem;">Riga, Latvia</p></div>
     </div>
     <div class="footer__bottom">© 2025 DataCraft Consulting. All rights reserved.</div>
   </div>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
-  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
-  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
-  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut); overlay && overlay.addEventListener('click', shut);
+(function() {
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    bar.style.transform = `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`;
+  }, { passive: true });
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose');
+  const nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  const open = () => { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+  const shut = () => { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow = ''; };
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut);
+  overlay && overlay.addEventListener('click', shut);
   nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
-});
+  const ro = new IntersectionObserver((e) => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in-view'); ro.unobserve(x.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => ro.observe(el));
+})();
 </script>
 </body>
 </html>

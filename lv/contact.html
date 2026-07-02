@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sazinieties ar DataCraft Consulting — pasūtiet SQL Server veiktspējas auditu vai ieplānojiet bezmaksas konsultāciju. E-pasts: datacraftconsultants@gmail.com">
-    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/contact.html" />
-    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/contact.html" />
-    <link rel="stylesheet" href="/style.css">
-    <title>Kontakti — DataCraft Consulting</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sazināties ar DataCraft Consulting — pasūtīt datubāzes auditu vai uzsākt projekta sarunu. E-pasts: datacraftconsultants@gmail.com">
+  <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/contact.html" />
+  <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/contact.html" />
+  <link rel="stylesheet" href="/style.css">
+  <title>Kontakti — DataCraft Consulting</title>
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
 
 <header class="header">
   <div class="container header__inner">
@@ -21,7 +23,6 @@
       <li><a href="services.html">Pakalpojumi</a></li>
       <li><a href="case-studies.html">Pieredze</a></li>
       <li><a href="about.html">Par mums</a></li>
-      <li><a href="blog.html">Raksti</a></li>
       <li><a href="contact.html" class="active">Kontakti</a></li>
       <li class="header__lang"><a href="../en/contact.html">EN</a><span style="color:var(--text-muted)">|</span><a href="contact.html" class="active">LV</a></li>
     </nav>
@@ -31,31 +32,66 @@
 
 <section class="page-hero">
   <div class="container">
-    <span class="label">Sazināsimies</span>
-    <h1>Kontakti</h1>
-    <p>Vai esat gatavs pasūtīt auditu vai vienkārši vēlaties uzdot jautājumu — atbildēsim 24 stundu laikā.</p>
+    <span class="label">Runāsim</span>
+    <h1>Sazinieties.</h1>
+    <p>Vai esat gatavs pasūtīt auditu, uzsākt projektu vai vienkārši uzdot jautājumu — atbildam 24 stundu laikā darba dienās.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <div class="contact-grid">
+
       <div class="contact-card contact-card--cta">
-        <span class="label">Ātrais starts</span>
-        <h2 style="margin-bottom:1rem;">Pasūtīt veiktspējas auditu</h2>
-        <p>Ātrākais veids, kā sākt: rakstiet mums ar īsu aprakstu par jūsu SQL Server vidi un to, kas jūs uztrauc. Atbildēsim ar pareizo paketes ieteikumu un nākamajiem soļiem.</p>
-        <ul class="pricing-card__features" style="margin:1.5rem 0;">
-          <li>Ātrā pārbaude — €199 (2–3 dienas)</li>
-          <li>Standarta audits — €499 (5 dienas)</li>
-          <li>Padziļinātā analīze — €999+ (7–10 dienas)</li>
-        </ul>
-        <a href="mailto:datacraftconsultants@gmail.com?subject=Veiktsp%C4%93jas%20audita%20piepras%C4%ABjums" class="btn btn--primary" style="margin-top:1rem;">Rakstīt e-pastu</a>
-        <p style="font-size:0.8rem; color:var(--text-muted); margin-top:1rem;">Bez pārdošanas spiediena. Vienkārši tehniska saruna.</p>
+        <span class="label">Nosūtiet ziņu</span>
+        <h2 style="margin-bottom: 1.5rem;">Pastāstiet par projektu</h2>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Jūsu vārds</label>
+              <input type="text" id="name" name="name" placeholder="Jānis Bērziņš" required>
+            </div>
+            <div class="form-field">
+              <label for="company">Uzņēmums (neobligāti)</label>
+              <input type="text" id="company" name="company" placeholder="SIA Piemērs">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">E-pasta adrese</label>
+            <input type="email" id="email" name="email" placeholder="jusu@epasts.lv" required>
+          </div>
+          <div class="form-field">
+            <label for="service">Ko jūs meklējat?</label>
+            <select id="service" name="service">
+              <option value="">— Izvēlieties pakalpojumu —</option>
+              <option value="audits">Datubāzes veiktspējas audits</option>
+              <option value="datubaze">Datubāzes projektēšana / arhitektūra</option>
+              <option value="programmatūra">Pielāgota programmatūra</option>
+              <option value="timeklis">Tīmekļa dizains un izstrāde</option>
+              <option value="pilna-sistema">Pilnā sistēma (datubāze + programmatūra + tīmeklis)</option>
+              <option value="nezinu">Vēl neesmu pārliecināts</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">Īss apraksts</label>
+            <textarea id="message" name="message" placeholder="Pastāstiet, ar ko saskaraties. Jo vairāk konteksta, jo ātrāk varēsim sniegt noderīgu atbildi." required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center;">
+            Nosūtīt ziņu →
+          </button>
+          <p style="font-size:0.78rem; color:var(--text-muted); text-align:center; margin:0;">
+            Nav pārdošanas spiediena. Tikai godīga tehniska saruna.
+          </p>
+        </form>
+        <div id="formSuccess" style="display:none; padding:2rem; text-align:center; background:var(--accent-dim); border:1px solid var(--border-accent); border-radius:var(--radius-lg); margin-top:1rem;">
+          <p style="font-size:1.1rem; color:var(--accent); font-weight:600; margin:0 0 0.5rem;">Ziņa nosūtīta ✓</p>
+          <p style="margin:0; color:var(--text-secondary); font-size:0.9rem;">Atbildēsim 24 stundu laikā darba dienās.</p>
+        </div>
       </div>
 
       <div class="contact-card">
         <span class="label">Kontaktinformācija</span>
-        <h2 style="margin-bottom:2rem;">Citi veidi, kā sazināties</h2>
+        <h2 style="margin-bottom: 2rem;">Citi saziņas veidi</h2>
 
         <div class="contact-item">
           <h3>E-pasts</h3>
@@ -65,20 +101,25 @@
 
         <div class="contact-item">
           <h3>LinkedIn</h3>
-          <p><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">DataCraft Consulting →</a></p>
-          <p>Sekojiet līdzi SQL Server padomiem un gadījumu izpētēm.</p>
+          <p><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank" rel="noopener">DataCraft Consulting →</a></p>
+          <p>Sekojiet SQL Server padomiem, piemēriem un jaunumiem.</p>
         </div>
 
         <div class="contact-item">
           <h3>Atrašanās vieta</h3>
           <p style="color:var(--text-secondary);">Rīga, Latvija</p>
-          <p>Apkalpoju klientus Baltijā, Ziemeļvalstīs un starptautiski.</p>
+          <p>Apkalpojam klientus Baltijā, Ziemeļvalstīs un starptautiski. Visi projekti tiek īstenoti attālināti.</p>
         </div>
 
         <div class="contact-item">
           <h3>Valodas</h3>
           <p style="color:var(--text-secondary);">Latviešu un angļu</p>
-          <p><a href="../en/contact.html">View in English →</a></p>
+          <a href="../en/contact.html">View in English →</a>
+        </div>
+
+        <div style="padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border); margin-top: 0.5rem;">
+          <h3 style="font-family:var(--font-body); font-weight:700; font-size:0.95rem; margin-bottom:0.5rem;">Vēlaties rakstīt tieši?</h3>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Iekļaujiet: savu organizāciju, problēmu, ar ko saskaraties, pašreizējās tehnoloģijas un termiņu. Atgriezīsimies ar godīgu novērtējumu 24 stundu laikā.</p>
         </div>
       </div>
     </div>
@@ -87,30 +128,30 @@
 
 <section class="section section--alt">
   <div class="container">
-    <div class="section__header section__header--center">
+    <div class="section__header section__header--center reveal">
       <span class="label">Process</span>
-      <h2>Kā sadarbība notiek</h2>
+      <h2>Kā sākas sadarbība</h2>
     </div>
-    <div class="process-steps">
+    <div class="process-steps reveal-stagger">
       <div class="process-step">
         <div class="process-step__num">1</div>
         <h3>Sazinieties</h3>
-        <p>Rakstiet mums ar savu situāciju. Atbildēsim 24 stundu laikā ar ieteikumu.</p>
+        <p>Nosūtiet ziņu vai e-pastu. Atbildēsim 24 stundu laikā ar ieteikumu vai papildu jautājumiem.</p>
       </div>
       <div class="process-step">
         <div class="process-step__num">2</div>
-        <h3>Novērtējums</h3>
-        <p>Auditiem: jūs palaižat manus skriptus. Projektiem: īss tvēruma zvans.</p>
+        <h3>Apjoma noteikšana</h3>
+        <p>Auditiem: jūs palaidīsiet mūsu skriptus. Projektiem: īss zvans, lai pareizi izprastu situāciju.</p>
       </div>
       <div class="process-step">
         <div class="process-step__num">3</div>
-        <h3>Piegāde</h3>
-        <p>Jūs saņemat atskaiti vai rezultātus norunātajā termiņā.</p>
+        <h3>Fiksēta cena</h3>
+        <p>Skaidrs apjoms, fiksēta cena, saskaņots termiņš pirms darba sākšanas. Nav pārsteigumu beigās.</p>
       </div>
       <div class="process-step">
         <div class="process-step__num">4</div>
-        <h3>Sekojošais atbalsts</h3>
-        <p>Zvans, lai izskaidrotu atklājumus. Pieejams pastāvīgs atbalsts.</p>
+        <h3>Piegāde</h3>
+        <p>Saņemsiet strādājošu programmatūru vai detalizētu atskaiti, ar zvanu, lai pārrunātu atklājumus un nākamos soļus.</p>
       </div>
     </div>
   </div>
@@ -119,22 +160,53 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>Datubāžu, programmatūras un tīmekļa konsultācijas MVU. Rīga, Latvija.</p></div>
-      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mums</a><a href="blog.html">Raksti</a><a href="contact.html">Kontakti</a></div>
-      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
+      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>Datubāžu izstrāde, pielāgota programmatūra un tīmekļa vietnes maziem un vidējiem uzņēmumiem. Rīga, Latvija.</p></div>
+      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mums</a><a href="contact.html">Kontakti</a></div>
+      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
     </div>
     <div class="footer__bottom">© 2025 DataCraft Consulting. Visas tiesības aizsargātas.</div>
   </div>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
-  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
-  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
-  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut); overlay && overlay.addEventListener('click', shut);
+(function() {
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => { bar.style.transform = `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`; }, { passive: true });
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose');
+  const nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  const open = () => { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+  const shut = () => { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow = ''; };
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut);
+  overlay && overlay.addEventListener('click', shut);
   nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
-});
+  const ro = new IntersectionObserver((e) => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in-view'); ro.unobserve(x.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => ro.observe(el));
+
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name    = form.querySelector('#name').value;
+      const company = form.querySelector('#company').value;
+      const email   = form.querySelector('#email').value;
+      const service = form.querySelector('#service').value;
+      const message = form.querySelector('#message').value;
+      const subject = encodeURIComponent('DataCraft Pieprasījums' + (service ? ' — ' + service : ''));
+      const body = encodeURIComponent(
+        'Vārds: ' + name + (company ? '\nUzņēmums: ' + company : '') +
+        '\nE-pasts: ' + email +
+        '\nPakalpojums: ' + (service || 'Nav norādīts') +
+        '\n\nZiņa:\n' + message
+      );
+      window.location.href = 'mailto:datacraftconsultants@gmail.com?subject=' + subject + '&body=' + body;
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
+  }
+})();
 </script>
 </body>
 </html>

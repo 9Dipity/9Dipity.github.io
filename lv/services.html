@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DataCraft Consulting pakalpojumi un cenas — datubāžu projektēšana, pielāgota programmatūra, tīmekļa dizains un pilnais pakalpojumu komplekts maziem uzņēmumiem.">
-    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/services.html" />
-    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/services.html" />
-    <link rel="stylesheet" href="/style.css">
-    <title>Pakalpojumi un cenas — DataCraft Consulting</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DataCraft Consulting pakalpojumi — SQL Server datubāžu projektēšana un auditi, pielāgota programmatūra, tīmekļa dizains. Fiksētas cenas, skaidri rezultāti.">
+  <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/services.html" />
+  <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/services.html" />
+  <link rel="stylesheet" href="/style.css">
+  <title>Pakalpojumi — DataCraft Consulting</title>
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
 
 <header class="header">
   <div class="container header__inner">
@@ -21,7 +23,6 @@
       <li><a href="services.html" class="active">Pakalpojumi</a></li>
       <li><a href="case-studies.html">Pieredze</a></li>
       <li><a href="about.html">Par mums</a></li>
-      <li><a href="blog.html">Raksti</a></li>
       <li><a href="contact.html">Kontakti</a></li>
       <li class="header__lang"><a href="../en/services.html">EN</a><span style="color:var(--text-muted)">|</span><a href="services.html" class="active">LV</a></li>
     </nav>
@@ -32,67 +33,52 @@
 <section class="page-hero">
   <div class="container">
     <span class="label">Ko mēs piedāvājam</span>
-    <h1>Pakalpojumi un cenas</h1>
-    <p>Fiksētas cenas, skaidri rezultāti, bez pārsteigumiem. Četras pakalpojumu jomas — izvēlieties, kas jums vajadzīgs, vai ņemiet visu vienā paketē.</p>
+    <h1>Pakalpojumi</h1>
+    <p>Trīs pakalpojumu jomas, veidotas, lai darbotos kopā — vai arī atsevišķi, atkarībā no vajadzībām.</p>
   </div>
 </section>
 
-<!-- PĀRSKATS -->
-<section class="section" style="padding-bottom:0;">
+<section class="section--sm">
   <div class="container">
-    <div class="pillar-grid">
-      <a href="#database" class="pillar-card">
-        <div class="pillar-card__icon">🗄️</div>
-        <h3>Datubāze un dati</h3>
-        <p>Auditi, projektēšana, migrācija, veiktspējas optimizācija.</p>
-        <div class="pillar-card__price">No €199</div>
-      </a>
-      <a href="#software" class="pillar-card">
-        <div class="pillar-card__icon">💻</div>
-        <h3>Pielāgota programmatūra</h3>
-        <p>Inventārs, rezervācijas, CRM, paneļi, automatizācija.</p>
-        <div class="pillar-card__price">No €1 200</div>
-      </a>
-      <a href="#web" class="pillar-card">
-        <div class="pillar-card__icon">🌐</div>
-        <h3>Tīmekļa dizains</h3>
-        <p>Uzņēmumu mājas lapas, e-komercija, pārveidojumi.</p>
-        <div class="pillar-card__price">No €599</div>
-      </a>
-      <a href="#package" class="pillar-card pillar-card--featured">
-        <div class="pillar-card__icon">📦</div>
-        <h3>Pilnais pakalpojums</h3>
-        <p>Visi trīs, integrēti. Pilnīgs tehnoloģiskais pamats.</p>
-        <div class="pillar-card__price">No €3 500</div>
-      </a>
-    </div>
+    <nav class="anchor-nav">
+      <a href="#database">🗄️ Datubāze un dati</a>
+      <a href="#software">⚙️ Pielāgota programmatūra</a>
+      <a href="#web">🌐 Tīmekļa dizains</a>
+    </nav>
   </div>
 </section>
 
-<!-- ===== PĪLĀRS 1: DATUBĀZE ===== -->
+<!-- ===== DATUBĀZE ===== -->
 <section class="section" id="database">
   <div class="container">
-    <div class="service-section-head">
+    <div class="service-section-head reveal">
       <div class="service-section-head__icon">🗄️</div>
       <div>
-        <span class="label" style="margin-bottom:0.25rem;">1. pīlārs</span>
-        <h2>Datubāze un dati</h2>
-        <p>SQL Server — projektēts pareizi, darbojas ātri, pareizi uzturēts.</p>
+        <span class="label" style="margin-bottom:0.25rem;">Datubāze un dati</span>
+        <h2>SQL Server — projektēts pareizi, darbojas ātri.</h2>
+        <p>Veiktspējas auditi, datubāzes arhitektūra, datu migrācija un optimizācija.</p>
       </div>
     </div>
 
-    <div class="section__header section__header--center" style="margin-top:2rem;">
-      <span class="label">Veiktspējas auditi</span>
-      <h3 style="font-family:var(--font-body); font-weight:700; font-size:1.3rem;">Noskaidrojiet, kāpēc jūsu datubāze ir lēna</h3>
+    <p style="max-width:700px; color:var(--text-secondary); margin-bottom:3rem; font-size:1rem; line-height:1.8;" class="reveal">
+      Lielākā daļa datubāžu problēmu nav noslēpumainas. Tās ir vaicājumi, kas veidoti, neskatoties uz izpildes plāniem, indeksi, kas izveidoti vienreiz un nekad nav pārskatīti, un konfigurācija, kas palikusi rūpnīcas iestatījumos. Esam 10+ gadus diagnosticējuši un labojuši tieši šīs problēmas banku kvalitātes vidē. Tās pašas problēmas parādās visur — un labojumi parasti ir ātrāki, nekā cilvēki sagaida.
+    </p>
+
+    <!-- Auditi -->
+    <div class="section__header section__header--center reveal">
+      <span class="label">Veiktspējas auditi — fiksēta cena, fiksēts termiņš</span>
+      <h3 style="font-family:var(--font-body); font-weight:700; font-size:1.4rem;">Noskaidrojiet tieši, kāpēc jūsu datubāze ir lēna.</h3>
+      <p>Jūs nodrošināt lasīšanas piekļuvi, mēs palaidīsim diagnostikas skriptus, jūs saņemsiet atskaiti. Bez traucējumiem jūsu vidē.</p>
     </div>
-    <div class="pricing-grid">
+
+    <div class="pricing-grid reveal-stagger">
       <div class="pricing-card">
         <div class="pricing-card__name">Ātrā pārbaude</div>
         <div class="pricing-card__price">€199</div>
-        <p class="pricing-card__desc">2–3 darba dienas</p>
+        <p class="pricing-card__desc">Piegāde 2–3 darba dienās</p>
         <ul class="pricing-card__features">
           <li>5 galvenās veiktspējas problēmas identificētas</li>
-          <li>3 lappušu rakstisks ziņojums ar nopietnības vērtējumu</li>
+          <li>3 lappušu atskaite ar nopietnības vērtējumu</li>
           <li>Konfigurācijas brīdinājumi</li>
           <li>Augsta līmeņa labojumu ieteikumi</li>
         </ul>
@@ -101,11 +87,11 @@
       <div class="pricing-card pricing-card--featured">
         <div class="pricing-card__name">Standarta audits</div>
         <div class="pricing-card__price">€499</div>
-        <p class="pricing-card__desc">5 darba dienas</p>
+        <p class="pricing-card__desc">Piegāde 5 darba dienās</p>
         <ul class="pricing-card__features">
           <li>10 problēmas ar detalizētiem labojumu norādījumiem</li>
-          <li>Pilns ziņojums ar strādājošiem SQL koda labojumiem</li>
-          <li>30 minūšu video zvans</li>
+          <li>Pilna atskaite ar strādājošiem SQL labojumiem</li>
+          <li>30 minūšu pārskata zvans</li>
           <li>Indeksu analīze un ieteikumi</li>
           <li>Gaidīšanas statistikas dziļā izpēte</li>
           <li>Konfigurācijas optimizācijas plāns</li>
@@ -115,218 +101,189 @@
       <div class="pricing-card">
         <div class="pricing-card__name">Dziļā izpēte</div>
         <div class="pricing-card__price">€999+</div>
-        <p class="pricing-card__desc">7–10 darba dienas</p>
+        <p class="pricing-card__desc">Piegāde 7–10 darba dienās</p>
         <ul class="pricing-card__features">
           <li>Viss no standarta audita</li>
           <li>60 minūšu konsultācija</li>
-          <li>Strādājoši koda labojumi, testēti un validēti</li>
+          <li>Strādājoši labojumi, testēti un validēti</li>
           <li>Pirms/pēc veiktspējas salīdzinājums</li>
-          <li>2 nedēļu e-pasta atbalsts</li>
+          <li>2 nedēļu sekojošais atbalsts</li>
         </ul>
         <a href="contact.html" class="btn btn--secondary">Pasūtīt</a>
       </div>
     </div>
 
-    <div class="section__header section__header--center" style="margin-top:3rem;">
-      <span class="label">Datubāzes projektēšana un uzstādīšana</span>
-      <h3 style="font-family:var(--font-body); font-weight:700; font-size:1.3rem;">Jaunas datubāzes, veidotas pareizi no pirmās dienas</h3>
-      <p>Shēmas dizains, indeksēšanas stratēģija, drošība un pilna dokumentācija.</p>
+    <div class="section-divider reveal"><span>Papildus auditiem</span></div>
+
+    <div class="detail-block reveal">
+      <h3>Datubāzes projektēšana, migrācija un arhitektūra</h3>
+      <p>Jaunas datubāzes, projektētas pareizi no paša sākuma — normalizēta shēma, indeksēšanas stratēģija, drošības lomas un pilna dokumentācija. Senie dati migrēti tīri. Esošas shēmas pārveidotas, netraucējot produkciju.</p>
+      <ul>
+        <li>Jaunu datubāžu projektēšana: shēma, indeksi, ierobežojumi, saglabātās procedūras, ER dokumentācija</li>
+        <li>Datu migrācija no Excel, senām sistēmām vai citām datubāzēm</li>
+        <li>Esošu datubāžu shēmas pārveidošana, kas organiski augušas ar laiku</li>
+        <li>Sadalīšana, arhivēšanas stratēģijas un rezerves kopiju plāni augstas slodzes sistēmām</li>
+        <li>Veiktspējas testēšana ar reālistiskiem datu apjomiem pirms piegādes</li>
+      </ul>
     </div>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="pricing-card__name">Sākuma shēma</div>
-        <div class="pricing-card__price">€399</div>
-        <p class="pricing-card__desc">Mazas lietotnes un MVP</p>
-        <ul class="pricing-card__features">
-          <li>Līdz 15 tabulām, pilnībā normalizētas</li>
-          <li>Pilni DDL skripti gatavi izvietošanai</li>
-          <li>Indeksi, ierobežojumi un ārējās atslēgas</li>
-          <li>ER diagramma ar dokumentāciju</li>
-          <li>3–5 darba dienas</li>
-        </ul>
-        <a href="contact.html" class="btn btn--secondary">Sākt</a>
-      </div>
-      <div class="pricing-card pricing-card--featured">
-        <div class="pricing-card__name">Biznesa datubāze</div>
-        <div class="pricing-card__price">€899</div>
-        <p class="pricing-card__desc">Augošām lietotnēm</p>
-        <ul class="pricing-card__features">
-          <li>Līdz 40 tabulām ar sarežģītām attiecībām</li>
-          <li>Saglabātas procedūras pamatbiznesa loģikai</li>
-          <li>Drošības lomas un atļauju struktūra</li>
-          <li>Datu migrācija no esošā avota</li>
-          <li>30 minūšu paskaidrojošs zvans</li>
-          <li>5–10 darba dienas</li>
-        </ul>
-        <a href="contact.html" class="btn btn--primary">Sākt</a>
-      </div>
-      <div class="pricing-card">
-        <div class="pricing-card__name">Uzņēmuma arhitektūra</div>
-        <div class="pricing-card__price">€1 999+</div>
-        <p class="pricing-card__desc">Sarežģītas, augstas slodzes sistēmas</p>
-        <ul class="pricing-card__features">
-          <li>40+ tabulas, daudzshēmu dizains</li>
-          <li>Pilna saglabāto procedūru un skatu kārta</li>
-          <li>Sadalīšanas un arhivēšanas stratēģija</li>
-          <li>Rezerves kopiju, atjaunošanas un uzturēšanas plāns</li>
-          <li>Testēts ar datu paraugiem</li>
-          <li>60 min. konsultācija + 2 ned. atbalsts</li>
-        </ul>
-        <a href="contact.html" class="btn btn--secondary">Sākt</a>
-      </div>
+
+    <div class="detail-block reveal">
+      <h3>Regulatoriskais darbs un sarežģītas SQL optimizācijas</h3>
+      <p>Lielākiem projektiem: vaicājumu optimizācija, regulatoriskās atskaites (SFTR, MiFID II, SEC), ETL konveijeri un sistēmu integrācijas. Esam veidojuši pilnīgas atbilstības atskaišu sistēmas no nulles — un zinām, ko nozīmē "nulles tolerance kļūdām" praksē.</p>
+      <ul>
+        <li>Izpildes plānu analīze un indeksu pārveidošana (50–95% uzlabojums tipiskais)</li>
+        <li>SFTR / MiFID II / SEC / FINRA atskaišu automatizācija</li>
+        <li>ETL konveijeru izstrāde un datu noliktavas projektēšana</li>
+        <li>Seno SQL sistēmu migrācija uz mūsdienu .NET + Dapper/EF Core</li>
+        <li>Automatizēti testu komplekti atskaišu loģikai</li>
+      </ul>
+    </div>
+
+    <div style="text-align:center; margin: 2rem 0;" class="reveal">
+      <a href="contact.html" class="btn btn--primary">Apspriest jūsu datubāzi →</a>
     </div>
   </div>
 </section>
 
-<!-- ===== PĪLĀRS 2: PIELĀGOTA PROGRAMMATŪRA ===== -->
+<!-- ===== PIELĀGOTA PROGRAMMATŪRA ===== -->
 <section class="section section--alt" id="software">
   <div class="container">
-    <div class="service-section-head">
-      <div class="service-section-head__icon">💻</div>
+    <div class="service-section-head reveal">
+      <div class="service-section-head__icon">⚙️</div>
       <div>
-        <span class="label" style="margin-bottom:0.25rem;">2. pīlārs</span>
-        <h2>Pielāgota programmatūras izstrāde</h2>
-        <p>Rīki, kas veidoti tā, kā jūsu bizness patiesībā strādā — nevis kā standarta programmatūra pieņem, ka tas strādā.</p>
+        <span class="label" style="margin-bottom:0.25rem;">Pielāgota programmatūra</span>
+        <h2>Rīki, kas veidoti tā, kā jūsu bizness tiešām strādā.</h2>
+        <p>Nevis tā, kā standarta programmatūra pieņem, ka tas strādā.</p>
       </div>
     </div>
 
-    <p style="max-width:700px; color:var(--text-secondary); margin-bottom:2.5rem; font-size:1rem; line-height:1.8;">Gatavā programmatūra ir vai nu pārāk stingra, vai pārāk dārga, vai dara 90% no tā, kas vajadzīgs, kamēr izlaiž tos 10%, kas ir svarīgākie. Pielāgota programmatūra uz pareizas datubāzes nozīmē, ka jūsu rīki atbilst jūsu biznesam un aug kopā ar to.</p>
+    <p style="max-width:700px; color:var(--text-secondary); margin-bottom:3rem; font-size:1rem; line-height:1.8;" class="reveal">
+      Gatavā programmatūra ir vai nu pārāk stingra, vai pārāk dārga, vai dara 90% no vajadzīgā, izlaižot tos 10%, kas ir svarīgākie. Ja nepieciešams kaut kas, kas atbilst jūsu konkrētajam darba procesam — nevis tuvs variants — pielāgota programmatūra ir atbilde. Veidota uz pareizas datubāzes, tā nozīmē, ka jūsu rīki aug kopā ar uzņēmumu, nevis to ierobežo.
+    </p>
 
-    <div class="detail-block">
-      <h3>Katrs projekts tiek aprēķināts individuāli</h3>
-      <p>Pielāgotai programmatūrai nevar būt kataloga cena — pareizais risinājums ir pilnībā atkarīgs no tā, ko jūsu bizness patiesībā dara, cik lietotāju jums ir, kādas sistēmas jau pastāv un kur atrodas patiesā sarežģītība. Rezervāciju sistēma vienas personas studijai ir pilnīgi atšķirīgs projekts no inventāra sistēmas, kas sinhronizē trīs atrašanās vietas un interneta veikalu.</p>
-      <p>Ko es daru: jūs aprakstāt savu situāciju, es uzdodu pareizos jautājumus un atgriežos ar skaidru apjomu un fiksētu cenu pirms darba uzsākšanas. Nav stundu norēķinu, nav atvērtu iesaistīšanos, nav pārsteigumu beigās.</p>
-      <p style="margin-bottom:0;"><strong style="color:var(--text-primary);">Ko sagaidīt:</strong> Mēs atbildēsim 24 stundu laikā vai nu ar apjoma piedāvājumu, vai īsu zvanu, lai iegūtu nepieciešamo informāciju. Lielākā daļa projektu tiek aprēķināta 2–3 darba dienu laikā pēc pirmā kontakta.</p>
-    </div>
-
-    <div style="text-align:center; margin: 2rem 0;">
-      <a href="contact.html" class="btn btn--primary">Pastāstiet par savu projektu</a>
-    </div>
-
-    <div class="detail-block" style="margin-top:2rem;">
+    <div class="detail-block reveal">
       <h3>Ko mēs parasti veidojam</h3>
       <ul>
         <li><strong>Inventāra un krājumu pārvaldība</strong> — vienota fiziskajam un interneta veikalam, ar reāllaika sinhronizāciju</li>
         <li><strong>Rezervāciju un tikšanās sistēmas</strong> — klīnikām, pakalpojumu uzņēmumiem, studijām un viesmīlības nozarei</li>
         <li><strong>Klientu datubāzes (CRM-lite)</strong> — pirkumu vēsture, lojalitātes programmas, saziņas žurnāli</li>
-        <li><strong>Pasūtījumu pārvaldība</strong> — no piedāvājuma līdz izpildei, ar piegādātāju izsekošanu</li>
+        <li><strong>Pasūtījumu pārvaldība</strong> — no piedāvājuma līdz izpildei ar piegādātāju izsekošanu</li>
         <li><strong>Cenu un peļņas rīki</strong> — piegādātāju cenu importa automatizācija, peļņas kalkulatori</li>
         <li><strong>Iekšējie pārskata paneļi</strong> — tiešraides KPI, pārdošana pēc vietas/kanāla, darbinieku veiktspēja</li>
-        <li><strong>Procesu automatizācija</strong> — atkārtotu manuālu darbību novēršana no jūsu operācijām</li>
+        <li><strong>Procesu automatizācija</strong> — atkārtotu manuālu darbību novēršana</li>
+        <li><strong>Atbilstības un atskaišu dzinēji</strong> — automatizēta datu apstrāde ar pilnu revīzijas pierādi</li>
       </ul>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Tehnoloģijas — stabils, uzturams, jūsējais</h3>
+      <p>Visa pielāgotā programmatūra tiek veidota ar C#/.NET, SQL Server un tīru tīmekļa priekšējo daļu. Pareiza atkarību ievade, testi kā procesa daļa — ne kā papildinājums pēc fakta. Jūs saņemat pirmkodu. Ja vēlaties nodot to citam izstrādātājam, tas ir iespējams.</p>
+      <ul>
+        <li>C# / ASP.NET Core aizmugursistēma ar REST API</li>
+        <li>SQL Server ar Dapper vai EF Core</li>
+        <li>Mūsdienīga HTML/CSS/JS priekšējā daļa (bez apjomīgiem ietvāriem)</li>
+        <li>Vienības testi — rakstīti līdztekus kodam</li>
+        <li>Docker gatavs, Azure DevOps CI/CD pieejams</li>
+      </ul>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Kā tiek aprēķināta cena</h3>
+      <p>Pielāgotai programmatūrai nevar būt kataloga cena. Pareizais risinājums ir pilnībā atkarīgs no tā, ko jūsu bizness dara, cik lietotāju ir, kādas sistēmas jau pastāv un kur atrodas sarežģītība. Rezervāciju sistēma vienas personas studijai ir pilnīgi atšķirīgs projekts no inventāra programmatūras, kas sinhronizē trīs atrašanās vietas un interneta veikalu.</p>
+      <p style="margin-bottom:0;"><strong style="color:var(--text-primary);">Ko sagaidīt:</strong> aprakstiet situāciju, mēs uzdosim pareizos jautājumus un atgriezīsimies ar skaidru apjoma dokumentu un fiksētu cenu pirms darba uzsākšanas. Nav stundu norēķinu. Nav atvērtu iesaistīšanās. Lielākā daļa projektu tiek aprēķināta 2–3 darba dienu laikā pēc pirmā kontakta.</p>
+    </div>
+
+    <div style="text-align:center; margin: 2rem 0;" class="reveal">
+      <a href="contact.html" class="btn btn--primary">Pastāstiet, kas vajadzīgs →</a>
     </div>
   </div>
 </section>
 
-<!-- ===== PĪLĀRS 3: TĪMEKĻA DIZAINS ===== -->
+<!-- ===== TĪMEKĻA DIZAINS ===== -->
 <section class="section" id="web">
   <div class="container">
-    <div class="service-section-head">
+    <div class="service-section-head reveal">
       <div class="service-section-head__icon">🌐</div>
       <div>
-        <span class="label" style="margin-bottom:0.25rem;">3. pīlārs</span>
-        <h2>Tīmekļa dizains un izstrāde</h2>
-        <p>Profesionālas mājas lapas, kas ielādējas ātri, izskatās labi un patiešām pārvērš apmeklētājus klientos.</p>
+        <span class="label" style="margin-bottom:0.25rem;">Tīmekļa dizains un izstrāde</span>
+        <h2>Profesionālas mājas lapas, kas tiešām konvertē.</h2>
+        <p>Tīras, ātras, mobilajām ierīcēm piemērotas — un savienotas ar jūsu datiem, kad tas nepieciešams.</p>
       </div>
     </div>
 
-    <div class="detail-block">
-      <h3>Ko mēs veidojam</h3>
+    <p style="max-width:700px; color:var(--text-secondary); margin-bottom:3rem; font-size:1rem; line-height:1.8;" class="reveal">
+      Lielākā daļa mazo uzņēmumu mājas lapu ir veidotas uz lētām veidnēm, ielādējas lēni un pēdējo reizi tika atjauninātas pirms trim gadiem. Mājas lapa, ko skatāt šobrīd, ir mūsu darba piemērs — bez lapas veidošanas rīkiem, bez apjomīgām WordPress veidnēm, tikai tīrs kods, kas ielādējas ātri un izskatās labi.
+    </p>
+
+    <div class="grid-2col reveal-stagger">
+      <div class="card">
+        <div class="card__icon">🎨</div>
+        <h3>Dizaina vadītas lapas</h3>
+        <p>Uzņēmumu mājas lapas (5–8 lapas), portfolio un nosēšanās lapas. Tīras, ātras, divvalodu (LV/EN) pēc noklusējuma. Veidotas, lai labi pārstāvētu jūsu uzņēmumu.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">🛒</div>
+        <h3>E-komercija un dinamiskās lapas</h3>
+        <p>Preču katalogi, maksājumu integrācija (Stripe), pasūtījumu pārvaldība. Var savienoties tieši ar inventāra datubāzi, lai krājumu līmeņi vienmēr būtu precīzi.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">🔗</div>
+        <h3>Datubāzei pieslēgtas lapas</h3>
+        <p>Šeit mēs izceļamies. Mājas lapa var ielādēt tiešraides datus — preču inventāru, rezervāciju laika nišas, cenas — tieši no SQL Server datubāzes. Nav manuālu atjauninājumu vajadzīgs.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">🔄</div>
+        <h3>Pārveidojumi un atjaunošanas</h3>
+        <p>Esošā mājas lapa ir lēna, novecojusi vai mobilajās ierīcēs nedarbojas? Pārveidojam to pareizi — saglabājot saturu, likvidējot bloat.</p>
+      </div>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Cena</h3>
+      <p>Vienkārša uzņēmuma mājas lapa — 5–6 lapas, kontaktforma, divvalodu — sākas no <strong style="color:var(--text-primary); font-size:1.3rem;">€599</strong>. Pārējais atkarīgs no lapu skaita, e-komercijas prasībām, datubāzes integrācijas un tā, cik daudz satura jūs nodrošināt pret to, ko mēs rakstam.</p>
+      <p style="margin-bottom:0; color:var(--text-muted); font-size:0.9rem;">
+        Ja mājas lapa ir daļa no pilnā sistēmas projekta (datubāze + programmatūra + tīmeklis), tā tiek aprēķināta kopā — nevis atsevišķi. Sazinieties, un sniegšu fiksētu piedāvājumu, parasti dienas vai divu laikā.
+      </p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Kas atšķir mūsu tīmekļa darbu</h3>
+      <p>Mēs esam inženieri, kas dizainē. Tas nozīmē, ka mājas lapa var savienoties ar īstu datubāzi — preču katalogs tiek sinhronizēts ar inventāru, rezervācijas forma raksta tikšanās sistēmā, atskaites velk tiešraides datus. Tā ir atšķirība starp skaistu brošūru un strādājošu biznesa rīku.</p>
       <ul>
-        <li><strong>Uzņēmumu mājas lapas</strong> — tīras, ātras, mobilajām ierīcēm piemērotas. Veidotas, lai labi pārstāvētu jūsu uzņēmumu. Divvalodu (LV/EN) pēc noklusējuma.</li>
-        <li><strong>E-komercijas veikali</strong> — preču katalogi, maksājumu integrācija (Stripe, bankas pārskaitījums), pasūtījumu pārvaldība. Var savienoties tieši ar jūsu inventāra datubāzi, lai krājumu līmeņi vienmēr būtu precīzi.</li>
-        <li><strong>Rezervāciju un pieprasījumu sistēmas</strong> — tiešsaistes tikšanās rezervācija vai piedāvājumu pieprasījumi, kas tieši ienāk jūsu pārvaldības programmatūrā.</li>
-        <li><strong>Pārveidojumi</strong> — ja jūsu esošā mājas lapa ir lēna, novecojusi vai vienkārši nedarbojas mobilajās ierīcēs, to varam pārveidot pareizi, nezaudējot esošo saturu.</li>
+        <li>Tīrs HTML/CSS/JS — bez apjomīgiem lapas veidošanas rīkiem vai WordPress veidnēm</li>
+        <li>Var savienoties tieši ar SQL Server datubāzi</li>
+        <li>Divvalodu pēc noklusējuma (latviešu + angļu)</li>
+        <li>VDAR atbilstoša sīkdatņu apstrāde</li>
+        <li>Hostinga padomi un DNS iestatīšana iekļauta</li>
+        <li>Ātra ielāde — bez nevajadzīga JavaScript</li>
       </ul>
     </div>
 
-    <div class="detail-block">
-      <h3>Cena</h3>
-      <p>Vienkārša uzņēmuma mājas lapa (5–6 lapas, kontaktforma, divvalodu) sākas no <strong style="color:var(--text-primary);">€599</strong>. Pārējais atkarīgs no tā, cik lapu nepieciešams, vai vajadzīga e-komercija, vai mājas lapa jāsavieno ar datubāzi un cik daudz satura jūs nodrošināt pret to, ko mēs rakstam. Sazinieties, un es sniegšu fiksētu piedāvājumu — parasti vienas vai divu dienu laikā.</p>
-      <p style="margin-bottom:0; color:var(--text-muted); font-size:0.9rem;">Piezīme: ja mājas lapa ir daļa no Pilnā pakalpojuma projekta, tā tiek aprēķināta kopā ar programmatūru un datubāzi — nevis atsevišķi.</p>
-    </div>
-
-    <div style="text-align:center; margin: 2rem 0;">
-      <a href="contact.html" class="btn btn--primary">Saņemt piedāvājumu</a>
+    <div style="text-align:center; margin: 2rem 0;" class="reveal">
+      <a href="contact.html" class="btn btn--primary">Saņemt piedāvājumu →</a>
     </div>
   </div>
 </section>
 
-<!-- ===== PĪLĀRS 4: PILNAIS PAKALPOJUMS ===== -->
-<section class="section section--alt" id="package">
+<!-- ===== PROCESS ===== -->
+<section class="section section--alt">
   <div class="container">
-    <div class="service-section-head">
-      <div class="service-section-head__icon">📦</div>
-      <div>
-        <span class="label" style="margin-bottom:0.25rem;">4. pīlārs · Galvenais piedāvājums</span>
-        <h2>Pilnais pakalpojums</h2>
-        <p>Datubāze + programmatūra + mājas lapa — projektētas un veidotas kā viena integrēta sistēma.</p>
+    <div class="section__header section__header--center reveal">
+      <span class="label">Process</span>
+      <h2>Fiksēta cena. Skaidrs apjoms. Bez pārsteigumiem.</h2>
+    </div>
+    <div class="steps reveal-stagger">
+      <div class="step">
+        <h3>Aprakstiet situāciju</h3>
+        <p>E-pasts vai zvans. Pastāstiet, ko saskaras. Uzdosim pareizos jautājumus — un godīgi pateikšu, ja neesam piemērotākais.</p>
       </div>
-    </div>
-
-    <div class="package-highlight" style="margin-top:1.5rem;">
-      <span class="package-highlight__badge">Populārākais MVU vidū</span>
-      <h3 style="font-family:var(--font-body); font-weight:700; font-size:1.4rem; margin-bottom:1rem; max-width:640px;">Pārtrauciet pirkt trīs atsevišķas lietas, kas nerunā viena ar otru.</h3>
-      <p style="color:var(--text-secondary); max-width:680px; margin-bottom:0;">Vairums uzņēmumu beidzas ar mājas lapu no vienas aģentūras, datubāzi no brīvmākslinieka un programmatūru, kas bija "pietiekami tuvu". Mēs projektējam visas trīs daļas kopā no paša sākuma.</p>
-      <div class="package-features-grid">
-        <div class="package-feature">Datubāzes arhitektūra jūsu biznesa procesiem</div>
-        <div class="package-feature">Tīmekļa pārvaldības programmatūra (inventārs, rezervācijas, CRM)</div>
-        <div class="package-feature">Publiskā mājas lapa vai e-komercijas veikals</div>
-        <div class="package-feature">Viss integrēts — viens patiesības avots</div>
-        <div class="package-feature">Darbinieku apmācība un pilna dokumentācija</div>
-        <div class="package-feature">3 mēneši palaišanas atbalsta</div>
-        <div class="package-feature">Kods pieder jums — nav piesaistes piegādātājam</div>
-        <div class="package-feature">Divvalodu (LV/EN) pēc noklusējuma</div>
+      <div class="step">
+        <h3>Aprēķinām un piedāvājam</h3>
+        <p>Skaidrs apjoma dokuments ar fiksētu cenu pirms darba uzsākšanas. Auditiem: vienkārši. Projektiem: atgriežamies 2–3 darba dienu laikā.</p>
       </div>
-    </div>
-
-    <div class="detail-block" style="margin-top:2rem;">
-      <h3>Kā tiek veidota cena</h3>
-      <p>Pilnā pakalpojuma projekti tiek aprēķināti un piedāvāti individuāli — pirms saprotam, kas šai sistēmai patiesībā jādara, nav jēgas norādīt fiksētu cenu. Apjoma saruna ir tā, kur notiek vērtība: tur noskaidrojam, ko veidot, kādā secībā un kas jums patiešām nepieciešams pret to, kas teorētiski skan labi.</p>
-      <p>Lai orientētos: vienkāršs projekts vienas atrašanās vietas uzņēmumam (viens pārvaldības rīks + publiskā mājas lapa + datubāze, kas tos savieno) parasti izmaksā vairākus tūkstošus. Daudzvietu sistēma ar vairākiem integrētiem moduļiem un e-komerciju ir būtiski lielāks projekts. Abiem tiek noteikta fiksēta cena pirms darba uzsākšanas.</p>
-      <p style="margin-bottom:0;"><strong style="color:var(--text-primary);">Process:</strong> aprakstiet savu uzņēmumu un ko mēģināt atrisināt. Mēs uzdosim dažus mērķtiecīgus jautājumus, tad atgriezīsimies ar skaidru apjoma dokumentu un fiksētu cenu — parasti nedēļas laikā pēc pirmā kontakta. Nav pienākuma turpināt.</p>
-    </div>
-
-    <div style="text-align:center; margin: 2rem 0;">
-      <a href="contact.html" class="btn btn--primary">Uzsākt sarunu</a>
-    </div>
-  </div>
-</section>
-
-<!-- PASTĀVĪGS ATBALSTS -->
-<section class="section">
-  <div class="container">
-    <div class="section__header">
-      <span class="label">Pastāvīgs atbalsts</span>
-      <h2>Mēneša abonements — mēs paliekam kā jūsu IT komanda</h2>
-      <p>Uzņēmumiem, kas vēlas pastāvīgu tehnisko atbalstu bez pilna laika izstrādātāja nolīgšanas.</p>
-    </div>
-    <div class="pricing-grid" style="max-width:800px; margin:0 auto;">
-      <div class="pricing-card">
-        <div class="pricing-card__name">Uzturēšana</div>
-        <div class="pricing-card__price">€199<span style="font-size:0.9rem; color:var(--text-muted)">/mēn.</span></div>
-        <p class="pricing-card__desc">Sistēmas darbības nodrošinājums</p>
-        <ul class="pricing-card__features">
-          <li>Kļūdu labošana un nelieli atjauninājumi</li>
-          <li>Datubāzes rezerves kopijas un uzraudzība</li>
-          <li>Drošības ielāpi</li>
-          <li>2 iekļautas darba stundas/mēnesī</li>
-        </ul>
-        <a href="contact.html" class="btn btn--secondary">Jautāt</a>
-      </div>
-      <div class="pricing-card pricing-card--featured">
-        <div class="pricing-card__name">Izaugsmes abonements</div>
-        <div class="pricing-card__price">€499<span style="font-size:0.9rem; color:var(--text-muted)">/mēn.</span></div>
-        <p class="pricing-card__desc">Pastāvīga izstrāde un atbalsts</p>
-        <ul class="pricing-card__features">
-          <li>Viss no uzturēšanas paketes</li>
-          <li>Jaunas funkcijas un uzlabojumi katru mēnesi</li>
-          <li>Veiktspējas uzraudzība</li>
-          <li>Prioritāra atbilde (nākamā darba diena)</li>
-          <li>6 iekļautas darba stundas/mēnesī</li>
-          <li>Ikmēneša zvans plānošanai</li>
-        </ul>
-        <a href="contact.html" class="btn btn--primary">Jautāt</a>
+      <div class="step">
+        <h3>Piegādājam — jums pieder</h3>
+        <p>Strādājoša programmatūra ar dokumentāciju. Pirmkods ir jūsējais. Nav piesaistes — nav pastāvīgu licences maksājumu, ja nevēlaties atbalstu.</p>
       </div>
     </div>
   </div>
@@ -334,34 +291,39 @@
 
 <section class="cta-band">
   <div class="container">
-    <h2>Nav pārliecības, kurš variants der?</h2>
-    <p style="max-width:500px; margin:0 auto 2rem;">Rakstiet mums ar īsu situācijas aprakstu. Atbildēsim 24 stundu laikā ar godīgu ieteikumu — pat ja tas ir "jums mūsu nevajag."</p>
-    <a href="contact.html" class="btn btn--primary">Sazināties</a>
+    <h2>Nav skaidrs, kurš pakalpojums der?</h2>
+    <p style="max-width:500px; margin:0 auto 2rem;">Rakstiet ar īsu situācijas aprakstu. Atbildēsim 24 stundu laikā ar godīgu ieteikumu — pat ja tas ir "jums mūsu nevajag."</p>
+    <a href="contact.html" class="btn btn--primary">Sazināties →</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div class="footer__brand">
-        <div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div>
-        <p>Datubāžu izstrāde, pielāgota programmatūra un tīmekļa vietnes maziem un vidējiem uzņēmumiem. Bāzēts Rīgā, Latvijā.</p>
-      </div>
-      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mums</a><a href="blog.html">Raksti</a><a href="contact.html">Kontakti</a></div>
-      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
+      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>Datubāžu izstrāde, pielāgota programmatūra un tīmekļa vietnes maziem un vidējiem uzņēmumiem. Rīga, Latvija.</p></div>
+      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mums</a><a href="contact.html">Kontakti</a></div>
+      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
     </div>
     <div class="footer__bottom">© 2025 DataCraft Consulting. Visas tiesības aizsargātas.</div>
   </div>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
-  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
-  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
-  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut); overlay && overlay.addEventListener('click', shut);
+(function() {
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => { bar.style.transform = `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`; }, { passive: true });
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose');
+  const nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  const open = () => { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+  const shut = () => { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow = ''; };
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut);
+  overlay && overlay.addEventListener('click', shut);
   nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
-});
+  const ro = new IntersectionObserver((e) => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in-view'); ro.unobserve(x.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => ro.observe(el));
+})();
 </script>
 </body>
 </html>

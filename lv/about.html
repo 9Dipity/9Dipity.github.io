@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Par DataCraft Consulting — tehnoloģiju uzņēmums, ko izveidojuši inženieri ar 10+ gadiem Ziemeļvalstu banku sistēmās. Rīga, Latvija.">
-    <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/about.html" />
-    <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/about.html" />
-    <link rel="stylesheet" href="/style.css">
-    <title>Par mums — DataCraft Consulting</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Par DataCraft Consulting — tehnoloģiju uzņēmums, dibināts inženieriem ar 10+ gadu pieredzi Ziemeļvalstu banku sistēmās. Rīga, Latvija.">
+  <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/about.html" />
+  <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/about.html" />
+  <link rel="stylesheet" href="/style.css">
+  <title>Par mums — DataCraft Consulting</title>
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
 
 <header class="header">
   <div class="container header__inner">
@@ -21,7 +23,6 @@
       <li><a href="services.html">Pakalpojumi</a></li>
       <li><a href="case-studies.html">Pieredze</a></li>
       <li><a href="about.html" class="active">Par mums</a></li>
-      <li><a href="blog.html">Raksti</a></li>
       <li><a href="contact.html">Kontakti</a></li>
       <li class="header__lang"><a href="../en/about.html">EN</a><span style="color:var(--text-muted)">|</span><a href="about.html" class="active">LV</a></li>
     </nav>
@@ -32,27 +33,31 @@
 <section class="page-hero">
   <div class="container">
     <span class="label">Par DataCraft</span>
-    <h1>Veidots inženieros. Fokusēts uz rezultātiem.</h1>
-    <p>10+ gadi Ziemeļvalstu banku infrastruktūrā. Tagad šo pašu disciplīnu piedāvājam uzņēmumiem, kas to ir pelnījuši.</p>
+    <h1>Veidots inženieriem.<br>Fokusēts uz rezultātiem.</h1>
+    <p>10+ gadu pieredze Ziemeļvalstu banku infrastruktūrā. Tagad šo disciplīnu piedāvājam uzņēmumiem, kas to pelna.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="founder-section">
+    <div class="founder-section reveal">
       <div>
-        <img src="/arturs.jpg" alt="Arturs Irbītis — DataCraft Consulting dibinātājs" class="founder__photo">
-        <p style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin-top:0.75rem;">Arturs Irbītis<br>Dibinātājs · DataCraft Consulting<br>Rīga, Latvija</p>
+        <img src="/arturs.jpg" alt="Arturs Irbītis — dibinātājs, DataCraft Consulting" class="founder__photo">
+        <p style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin-top:0.75rem;">
+          Arturs Irbītis<br>
+          Dibinātājs · DataCraft Consulting<br>
+          Rīga, Latvija
+        </p>
       </div>
       <div class="founder__bio">
-        <h2>Mūsu pieredze</h2>
-        <p>DataCraft dibināja Arturs Irbītis — vecākais programmatūras izstrādātājs ar vairāk nekā desmit gadu pieredzi, veidojot un optimizējot datu bāzu sistēmas vienai no lielākajām bankām Ziemeļeiropā, kas ikdienā apstrādā miljonus darījumu ar stingriem regulatīviem termiņiem.</p>
-        <p>Šis darbs nozīmēja pilnīgu SEC un SFTR atskaišu sistēmu izveidi no nulles, vaicājumu optimizāciju, kas samazināja apstrādes laiku no 15 minūtēm līdz mazāk par 2 minūtēm, un simtiem automatizētu testu, kas nodrošina nulles atbilstības pārkāpumus. Tā ir vide, kur katra milisekunde ir svarīga un dīkstāve vienkārši nav pieļaujama.</p>
+        <h2>Mūsu vēsture</h2>
+        <p>DataCraft dibināja Arturs Irbītis — vecākais programmatūras izstrādātājs ar vairāk nekā desmit gadu pieredzi, veidojot un optimizējot datubāzu sistēmas vienam no lielākajiem Ziemeļvalstu bankām, kas ikdienā apstrādā miljoniem darījumu, ievērojot stingrus regulatoriskos termiņus.</p>
+        <p>Šis darbs nozīmēja pilnīgu SEC un SFTR atskaišu sistēmu izveidi no nulles, vaicājumu optimizāciju, kas apstrādes laiku samazināja no 15 minūtēm līdz mazāk nekā 2 minūtēm, un simtiem automatizētu testu uzturēšanu, lai nodrošinātu nulles atbilstības kļūdas. Vidē, kur katra milisekunde ir svarīga un dīkstāve vienkārši nav pieļaujama.</p>
 
-        <blockquote>"Lielākā daļa datu bāzu un programmatūras problēmu nav grūti risināmas — ja zini, kur meklēt. Tieši to DataCraft piedāvā."</blockquote>
+        <blockquote>"Lielāko daļu datubāzu un programmatūras problēmu nav grūti novērst — ja zina, kur skatīties. To DataCraft sniedz."</blockquote>
 
-        <p>DataCraft tika izveidots, jo vienas un tās pašas problēmas, kas nomoka lieluzņēmumus, parādās visur: datu bāzes, kas iestatītas gadus atpakaļ un nekad nav pienācīgi noskaņotas, vaicājumi, kas aizņem minūtes, kad tiem vajadzētu aizņemt sekundes, indeksi, ko izveidoja kāds, kas aizgāja pirms trim darbavietām. Mazie un vidējie uzņēmumi reti ir speciālisti šo jautājumu risināšanā, un lieluzņēmumu konsultanti pārāk dārgi, lai ar tiem nodarbotos.</p>
-        <p>Mūsu tehniskais fokuss ir C# un SQL Server. Tehnoloģiju arsenāls ietver .NET 6+, Dapper, Akka.NET, Azure DevOps un plašu T-SQL pieredzi. Esam pragmatiski tehnoloģiju izvēlē — izmantojam to, kas uzticami strādā produkcijā, nevis to, kas ir trendīgi.</p>
+        <p>DataCraft pastāv, jo tās pašas problēmas, kas skar uzņēmumu sistēmas, parādās visur: datubāzes, kas izveidotas gadus atpakaļ un nekad nav pareizi noskaņotas, vaicājumi, kas darbojas minūtes ilgi, lai gan tiem vajadzētu darboties sekundes, un konfigurācija, kas joprojām ir rūpnīcas iestatījumos. Mazajiem uzņēmumiem reti ir iekšējā ekspertīze šo problēmu risināšanai — un uzņēmumu konsultācijas ir pārāk dārgas, lai ar tām apgrūtinātos.</p>
+        <p>Mūsu tehniskais fokuss ir C# un SQL Server. Esam pragmatiski attiecībā uz tehnoloģijām — izmantojam to, kas ražošanas vidē darbojas uzticami, nevis to, kas šobrīd ir populārs Hacker News.</p>
       </div>
     </div>
   </div>
@@ -60,30 +65,30 @@
 
 <section class="section section--alt">
   <div class="container">
-    <div class="section__header">
+    <div class="section__header reveal">
       <span class="label">Kā mēs strādājam</span>
-      <h2>DataCraft vērtības</h2>
+      <h2>Mūsu principi</h2>
     </div>
-    <div class="values-grid">
+    <div class="values-grid reveal-stagger">
       <div class="value-card">
         <div class="value-card__icon">🎯</div>
-        <h3>Rezultāti, ne teorija</h3>
-        <p>Mēram panākumus taustāmos rezultātos: ātrāki vaicājumi, mazāk kļūdu, samazināts manuālais darbs. Ja nevaram parādīt izmērāmu uzlabojumu, pateikam to uzreiz, pirms darbs sākas.</p>
+        <h3>Rezultāti pār teoriju</h3>
+        <p>Panākumus mēram ar taustāmiem rezultātiem: ātrāki vaicājumi, mazāk kļūdu, samazināts manuālais darbs. Ja nevaram parādīt izmērāmu uzlabojumu, pateikšim to iepriekš, pirms darbs sākas.</p>
       </div>
       <div class="value-card">
         <div class="value-card__icon">🔧</div>
         <h3>Pragmatiska inženierija</h3>
-        <p>Dodam priekšroku pārbaudītiem risinājumiem, nevis trendīgām tehnoloģijām. Labākais risinājums ir tas, kas uzticami strādā produkcijā plkst. 2 naktī, kad neviens neskatās.</p>
+        <p>Dodam priekšroku pārbaudītiem risinājumiem, nevis populārām tehnoloģijām. Labākais risinājums ir tas, kas uzticami darbojas plkst. 2 naktī, kad neviens neskatās — ne tas, kas izskatās iespaidīgi prezentācijā.</p>
       </div>
       <div class="value-card">
         <div class="value-card__icon">📝</div>
         <h3>Godīga komunikācija</h3>
-        <p>Ja jūsu problēma mūsu palīdzību neprasa, pateikam to. Ja neesam piemēroti projektam, norādām pareizo virzienu. Nekāda uzspiešana, nekāda slēpta apjoma palielināšana.</p>
+        <p>Ja jūsu problēma mūs neprasa, pateikšim to. Ja neesam piemērotākais projektam, norādīsim pareizo virzienu. Nav papildu pārdošanas, nav slēpta apjoma paplašināšanas.</p>
       </div>
       <div class="value-card">
         <div class="value-card__icon">📚</div>
         <h3>Zināšanu nodošana</h3>
-        <p>Dokumentējam visu un skaidri izskaidrojam savu domāšanu. Mērķis ir padarīt jūsu komandu spējīgāku, nevis radīt ilgtermiņa atkarību no DataCraft.</p>
+        <p>Dokumentējam visu un skaidrojam savu domāšanu. Mērķis ir padarīt jūsu komandu spējīgāku, nevis radīt ilgtermiņa atkarību no DataCraft. Viss, ko veidojam — ir jūsējais.</p>
       </div>
     </div>
   </div>
@@ -91,43 +96,94 @@
 
 <section class="section">
   <div class="container container--narrow">
-    <div class="section__header">
-      <span class="label">Mūsu tehniskais arsenāls</span>
+    <div class="section__header reveal">
+      <span class="label">Tehnoloģiju steks</span>
       <h2>Ar ko strādājam ikdienā</h2>
+      <p>Virziet kursoru uz jebkuru tagu — šie ir rīki, ko izmantojam ražošanas vidē, nevis tikai blakus projektos.</p>
     </div>
-    <div class="tags" style="gap:0.75rem;">
-      <span class="tag">SQL Server 2019</span><span class="tag">T-SQL</span><span class="tag">C# / .NET 6+</span><span class="tag">Dapper ORM</span><span class="tag">Akka.NET</span><span class="tag">xUnit</span><span class="tag">Azure DevOps</span><span class="tag">Docker</span><span class="tag">SFTR</span><span class="tag">SEC / FINRA</span><span class="tag">MiFID II</span><span class="tag">RabbitMQ</span><span class="tag">Git</span><span class="tag">Hangfire</span><span class="tag">Python</span>
+    <div class="stack-grid reveal-stagger">
+      <span class="stack-tag">SQL Server 2019+</span>
+      <span class="stack-tag">T-SQL</span>
+      <span class="stack-tag">C# / .NET 6+</span>
+      <span class="stack-tag">ASP.NET Core</span>
+      <span class="stack-tag">Dapper ORM</span>
+      <span class="stack-tag">Entity Framework Core</span>
+      <span class="stack-tag">Akka.NET</span>
+      <span class="stack-tag">xUnit Testing</span>
+      <span class="stack-tag">Hangfire</span>
+      <span class="stack-tag">Azure DevOps</span>
+      <span class="stack-tag">YAML Pipelines</span>
+      <span class="stack-tag">Docker</span>
+      <span class="stack-tag">Git</span>
+      <span class="stack-tag">RabbitMQ</span>
+      <span class="stack-tag">SFTP / BZip2</span>
+      <span class="stack-tag">SFTR Reporting</span>
+      <span class="stack-tag">SEC / FINRA</span>
+      <span class="stack-tag">MiFID II</span>
+      <span class="stack-tag">WooCommerce API</span>
+      <span class="stack-tag">Stripe</span>
+      <span class="stack-tag">JSON / XML</span>
+      <span class="stack-tag">Python</span>
+      <span class="stack-tag">HTML / CSS / JS</span>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container container--narrow">
+    <div class="section__header reveal">
+      <span class="label">Atklātība</span>
+      <h2>Ko mēs nedarām</h2>
+      <p>Mēs labāk esam skaidri par savu darbības jomu, nekā pārsola un nepildām.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Ne katram projektam piemēroti</h3>
+      <ul>
+        <li><strong>Mobilā lietotņu izstrāde</strong> — natīvā iOS/Android ir ārpus mūsu darbības jomas</li>
+        <li><strong>Liela komandas papildināšana</strong> — vislabāk strādājam kā fokusēts speciālists, nevis kā personāla resurss</li>
+        <li><strong>Pastāvīga IT infrastruktūras pārvaldība</strong> — serveri, tīkli, mākoņa operācijas nav mūsu joma</li>
+        <li><strong>Tehnoloģija tās pašas dēļ</strong> — ja jūsu problēmai nav vajadzīga datubāze, mēs to nepateikšim</li>
+      </ul>
+      <p style="margin:0; margin-top:1rem; color:var(--text-muted); font-size:0.9rem;">Ja jūsu projekts ir ārpus mūsu darbības jomas, pateikšim to godīgi — un parasti norādīsim uz kādu piemērotāku.</p>
     </div>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="container">
-    <h2>Vēlaties sadarboties?</h2>
-    <p style="max-width:500px; margin:0 auto 2rem;">Vienmēr labprāt runājam par tehnoloģijām. Pat ja neesat drošs, ka vajadzīga palīdzība — rakstiet, un sniegsmiem godīgu atbildi.</p>
-    <a href="contact.html" class="btn btn--primary">Sazināties</a>
+    <h2>Vēlaties strādāt kopā?</h2>
+    <p style="max-width:500px; margin:0 auto 2rem;">Vienmēr labprāt runājam par tehnoloģijām. Pat ja neesat pārliecināts, vai jums ir problēma, kas ir vērta risināšanai — sazinieties, un sniegšim godīgu atbildi.</p>
+    <a href="contact.html" class="btn btn--primary">Sazināties →</a>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>Datubāžu, programmatūras un tīmekļa konsultācijas MVU. Rīga, Latvija.</p></div>
-      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mums</a><a href="blog.html">Raksti</a><a href="contact.html">Kontakti</a></div>
-      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
+      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>Datubāžu izstrāde, pielāgota programmatūra un tīmekļa vietnes maziem un vidējiem uzņēmumiem. Rīga, Latvija.</p></div>
+      <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mums</a><a href="contact.html">Kontakti</a></div>
+      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
     </div>
     <div class="footer__bottom">© 2025 DataCraft Consulting. Visas tiesības aizsargātas.</div>
   </div>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
-  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
-  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=''; }
-  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut); overlay && overlay.addEventListener('click', shut);
+(function() {
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => { bar.style.transform = `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`; }, { passive: true });
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose');
+  const nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  const open = () => { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+  const shut = () => { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow = ''; };
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut);
+  overlay && overlay.addEventListener('click', shut);
   nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
-});
+  const ro = new IntersectionObserver((e) => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in-view'); ro.unobserve(x.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => ro.observe(el));
+})();
 </script>
 </body>
 </html>
