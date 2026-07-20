@@ -1,0 +1,96 @@
+@inject ITranslationService Translator
+@inject IClinicDataStore Store
+@implements IDisposable
+
+<h2>@Translator.T("admin.upcoming.title")</h2>
+
+@{
+    var groups = UpcomingGroups();
+}
+@if (groups.Count == 0)
+{
+    <p class="empty-note">@Translator.T("admin.upcoming.empty")</p>
+}
+else
+{
+    @foreach (var group in groups)
+    {
+        <h3 style="margin-top:1.5rem;">@group.Key.ToString("yyyy-MM-dd (ddd)")</h3>
+        <div class="table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>@Translator.T("admin.column.time")</th>
+                        <th>@Translator.T("admin.column.specialist")</th>
+                        <th>@Translator.T("admin.column.patient")</th>
+                        <th>@Translator.T("admin.column.service")</th>
+                        <th>@Translator.T("admin.column.status")</th>
+                        <th>@Translator.T("admin.column.actions")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in group)
+                    {
+                        var specialist = Store.Specialists.FirstOrDefault(s => s.Id == booking.SpecialistId);
+                        var service = Store.Services.FirstOrDefault(s => s.Id == booking.ServiceId);
+                        <tr>
+                            <td>@booking.Start.ToString("HH:mm")</td>
+                            <td>
+                                @if (specialist is not null)
+                                {
+                                    <span class="specialist-chip"><span class="color-dot" style="background:@specialist.Color"></span>@specialist.Name</span>
+                                }
+                            </td>
+                            <td>@booking.PatientName</td>
+                            <td>@(service is not null ? Translator.T(service.NameKey) : "")</td>
+                            <td><span class="status-badge status-@booking.Status">@Translator.T(StatusKey(booking.Status))</span></td>
+                            <td>
+                                <div style="display:flex;gap:0.4rem;">
+                                    <button class="btn btn-ghost btn-sm" @onclick="() => Complete(booking.Id)">@Translator.T("admin.markCompleted")</button>
+                                    <button class="btn btn-ghost btn-sm" @onclick="() => NoShow(booking.Id)">@Translator.T("admin.markNoShow")</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnChanged;
+        Store.Changed += OnChanged;
+    }
+
+    private void OnChanged() => InvokeAsync(StateHasChanged);
+
+    private List<IGrouping<DateOnly, Booking>> UpcomingGroups()
+    {
+        var now = DateTime.Now;
+        return Store.Bookings
+            .Where(b => b.Start >= now && b.Status != BookingStatus.Cancelled)
+            .OrderBy(b => b.Start)
+            .GroupBy(b => DateOnly.FromDateTime(b.Start))
+            .ToList();
+    }
+
+    private void Complete(Guid id) => Store.UpdateBookingStatus(id, BookingStatus.Completed);
+    private void NoShow(Guid id) => Store.UpdateBookingStatus(id, BookingStatus.NoShow);
+
+    private static string StatusKey(BookingStatus status) => status switch
+    {
+        BookingStatus.Booked => "status.booked",
+        BookingStatus.Completed => "status.completed",
+        BookingStatus.NoShow => "status.noshow",
+        _ => "status.cancelled"
+    };
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnChanged;
+        Store.Changed -= OnChanged;
+    }
+}

@@ -1,0 +1,56 @@
+@inherits LayoutComponentBase
+@implements IDisposable
+@inject ILocalizer Localizer
+
+<div class="app-shell">
+    <header class="app-header">
+        <div class="app-header__brand">
+            <span class="app-header__mark">NF</span>
+            <div class="app-header__titles">
+                <span class="app-header__name">@Localizer.T("nav.brand")</span>
+                <span class="app-header__subtitle">@Localizer.T("nav.brandSubtitle")</span>
+            </div>
+        </div>
+
+        <nav class="app-header__nav">
+            <NavLink href="" Match="NavLinkMatch.All" class="app-header__link">@Localizer.T("nav.dashboard")</NavLink>
+            <NavLink href="price-lists" class="app-header__link">@Localizer.T("nav.priceLists")</NavLink>
+        </nav>
+
+        <div class="lang-toggle" role="group" aria-label="Language">
+            <button type="button" class="lang-toggle__btn @(Localizer.CurrentLanguage == Language.Lv ? "is-active" : "")"
+                    @onclick="() => Localizer.SetLanguage(Language.Lv)">
+                @Localizer.T("lang.lv")
+            </button>
+            <button type="button" class="lang-toggle__btn @(Localizer.CurrentLanguage == Language.En ? "is-active" : "")"
+                    @onclick="() => Localizer.SetLanguage(Language.En)">
+                @Localizer.T("lang.en")
+            </button>
+        </div>
+    </header>
+
+    <main class="app-main">
+        @Body
+    </main>
+
+    <footer class="app-footer">
+        <p>@Localizer.T("footer.disclaimer")</p>
+    </footer>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Localizer.LanguageChanged += OnLanguageChanged;
+    }
+
+    private void OnLanguageChanged()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        Localizer.LanguageChanged -= OnLanguageChanged;
+    }
+}

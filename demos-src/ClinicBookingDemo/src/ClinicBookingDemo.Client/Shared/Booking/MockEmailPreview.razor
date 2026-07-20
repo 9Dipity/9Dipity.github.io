@@ -1,0 +1,41 @@
+@inject ITranslationService Translator
+@implements IDisposable
+
+<div class="email-preview">
+    <div class="email-preview-chrome">
+        <div><strong>@Translator.T("email.from")</strong></div>
+        <div>@Translator.T("email.subject")</div>
+    </div>
+    <div class="email-preview-body">
+        <h3>@string.Format(Translator.T("email.greeting"), PatientName)</h3>
+        <p>@Translator.T("email.body")</p>
+        <div class="email-details">
+            <div class="summary-row"><span class="k">@Translator.T("booking.summary.service")</span><span class="v">@ServiceName</span></div>
+            <div class="summary-row"><span class="k">@Translator.T("booking.summary.specialist")</span><span class="v">@SpecialistName</span></div>
+            <div class="summary-row"><span class="k">@Translator.T("booking.summary.datetime")</span><span class="v">@Start.ToString("yyyy-MM-dd HH:mm")</span></div>
+            <div class="summary-row"><span class="k">@Translator.T("booking.summary.duration")</span><span class="v">@DurationMinutes @Translator.T("common.minutesShort")</span></div>
+        </div>
+        <p>@Translator.T("email.footer")</p>
+        <p class="email-signature">@Translator.T("email.signature")</p>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string PatientName { get; set; } = string.Empty;
+    [Parameter] public string ServiceName { get; set; } = string.Empty;
+    [Parameter] public string SpecialistName { get; set; } = string.Empty;
+    [Parameter] public DateTime Start { get; set; }
+    [Parameter] public int DurationMinutes { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnChanged;
+    }
+
+    private void OnChanged() => InvokeAsync(StateHasChanged);
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnChanged;
+    }
+}

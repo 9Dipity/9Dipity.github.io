@@ -1,0 +1,25 @@
+@inject ITranslationService Translator
+@implements IDisposable
+
+<footer class="site-footer">
+    <div class="site-footer-links">
+        <a href="admin">@Translator.T("nav.adminLink")</a>
+    </div>
+    <div class="demo-disclaimer">
+        @Translator.T("footer.disclaimer")
+    </div>
+</footer>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnLanguageChanged;
+    }
+
+    private void OnLanguageChanged() => InvokeAsync(StateHasChanged);
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnLanguageChanged;
+    }
+}

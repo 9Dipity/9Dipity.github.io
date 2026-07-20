@@ -1,0 +1,738 @@
+/* ---------------------------------------------------------------------
+   Nordic Fashion House — Inventory Ops Console
+   A retail-ops dashboard aesthetic: dark charcoal chrome, light warm-grey
+   canvas, one confident signal-orange accent. Data-dense but calm.
+--------------------------------------------------------------------- */
+
+:root {
+    --ink: #14161a;
+    --ink-soft: #2a2d34;
+    --canvas: #f4f5f7;
+    --card: #ffffff;
+    --border: #e3e5ea;
+    --text: #1b1d22;
+    --text-muted: #6b7078;
+    --accent: #ff6a3d;
+    --accent-dark: #e2531f;
+    --accent-soft: #ffe3d6;
+    --good: #1f9d55;
+    --good-soft: #e3f7ea;
+    --warn: #d97a06;
+    --warn-soft: #fdf0da;
+    --bad: #d0342c;
+    --bad-soft: #fbe4e2;
+    --radius: 12px;
+    --shadow: 0 1px 2px rgba(20, 22, 26, 0.06), 0 8px 24px rgba(20, 22, 26, 0.06);
+    font-family: "Segoe UI", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--canvas);
+    color: var(--text);
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: var(--accent-dark);
+}
+
+button {
+    font-family: inherit;
+}
+
+code {
+    color: #c02d76;
+}
+
+/* ---------------- Blazor built-in helper classes (kept for framework compat) ---------------- */
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid var(--good);
+}
+
+.invalid {
+    outline: 1px solid var(--bad);
+}
+
+.validation-message {
+    color: var(--bad);
+}
+
+.blazor-error-boundary {
+    background: var(--bad-soft);
+    padding: 1rem 1rem 1rem 1.25rem;
+    color: var(--bad);
+    border-radius: 8px;
+}
+
+.blazor-error-boundary::after {
+    content: "An error has occurred.";
+}
+
+/* ---------------- App shell ---------------- */
+
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    background: var(--ink);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.85rem 1.75rem;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+.app-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-right: auto;
+}
+
+.app-header__mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: var(--accent);
+    color: #17130f;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+}
+
+.app-header__titles {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.app-header__name {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.app-header__subtitle {
+    font-size: 0.72rem;
+    color: #b8bcc6;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.app-header__nav {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.app-header__link {
+    color: #cdd0d8;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.app-header__link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.app-header__link.active {
+    background: var(--accent);
+    color: #1a1206;
+}
+
+.lang-toggle {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 3px;
+    gap: 2px;
+}
+
+.lang-toggle__btn {
+    border: none;
+    background: transparent;
+    color: #c7cad2;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lang-toggle__btn.is-active {
+    background: #fff;
+    color: var(--ink);
+}
+
+.app-main {
+    flex: 1;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.75rem 1.75rem 3rem;
+}
+
+.app-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid var(--border);
+    background: var(--card);
+}
+
+/* ---------------- Page header / buttons ---------------- */
+
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.page-header h1 {
+    font-size: 1.6rem;
+}
+
+.page-header__subtitle {
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+    max-width: 56ch;
+    font-size: 0.92rem;
+}
+
+.btn {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.05rem;
+    cursor: pointer;
+    transition: transform 0.08s ease, background 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn--accent {
+    background: var(--accent);
+    color: #1a1206;
+}
+
+.btn--accent:hover {
+    background: var(--accent-dark);
+    color: #fff;
+}
+
+.btn--ghost {
+    background: var(--card);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.btn--ghost:hover {
+    border-color: var(--ink);
+}
+
+/* ---------------- Catalog card / table ---------------- */
+
+.catalog-card, .import-card, .results-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.35rem 1.5rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.catalog-card h2, .results-card h2 {
+    font-size: 1.05rem;
+    margin-bottom: 0.9rem;
+}
+
+.catalog-table__scroll {
+    overflow-x: auto;
+    max-height: 420px;
+    overflow-y: auto;
+    border-radius: 8px;
+}
+
+.catalog-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.87rem;
+}
+
+.catalog-table thead th {
+    position: sticky;
+    top: 0;
+    background: var(--canvas);
+    text-align: left;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    z-index: 1;
+}
+
+.catalog-table tbody td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.catalog-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.catalog-table__name {
+    display: block;
+    font-weight: 600;
+}
+
+.catalog-table__sku {
+    display: block;
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.qty-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.1rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: var(--good-soft);
+    color: var(--good);
+    font-weight: 700;
+    font-size: 0.82rem;
+}
+
+.qty-pill--low {
+    background: var(--warn-soft);
+    color: var(--warn);
+}
+
+.qty-pill--out {
+    background: var(--bad-soft);
+    color: var(--bad);
+}
+
+.badge {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.2rem 0.45rem;
+    border-radius: 5px;
+}
+
+.badge--low {
+    background: var(--warn-soft);
+    color: var(--warn);
+}
+
+.badge--out {
+    background: var(--bad-soft);
+    color: var(--bad);
+}
+
+/* ---------------- Flash animation - the "wow" moment ---------------- */
+
+@keyframes rowFlash {
+    0% {
+        background-color: var(--accent-soft);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.row-flash {
+    animation: rowFlash 0.9s ease-out;
+}
+
+@keyframes stockRowFlash {
+    0% {
+        background-color: var(--accent-soft);
+        box-shadow: inset 3px 0 0 var(--accent);
+    }
+    100% {
+        background-color: transparent;
+        box-shadow: inset 3px 0 0 transparent;
+    }
+}
+
+.stock-row--flash {
+    animation: stockRowFlash 0.9s ease-out;
+}
+
+/* ---------------- Channel grid / panels ---------------- */
+
+.channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.channel-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.15rem 1.15rem 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.channel-panel__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.channel-panel__header h3 {
+    font-size: 1rem;
+}
+
+.channel-panel__count {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.channel-panel__controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.channel-panel__select {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 0.45rem 0.5rem;
+    font-size: 0.8rem;
+    background: var(--canvas);
+    color: var(--text);
+}
+
+.channel-panel__feedback {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.45rem 0.6rem;
+    border-radius: 7px;
+    margin: 0;
+}
+
+.channel-panel__feedback.is-success {
+    background: var(--good-soft);
+    color: var(--good);
+}
+
+.channel-panel__feedback.is-error {
+    background: var(--bad-soft);
+    color: var(--bad);
+}
+
+.channel-panel__stock {
+    max-height: 220px;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.stock-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.78rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.stock-row:last-child {
+    border-bottom: none;
+}
+
+.stock-row__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text);
+}
+
+.stock-row__qty {
+    font-weight: 700;
+    color: var(--good);
+    flex-shrink: 0;
+}
+
+.stock-row__qty.is-low {
+    color: var(--warn);
+}
+
+.stock-row__qty.is-out {
+    color: var(--bad);
+}
+
+.channel-panel__activity h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.45rem;
+}
+
+.channel-panel__empty {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.activity-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.activity-list li {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+}
+
+.activity-list__time {
+    font-family: "Cascadia Code", "Consolas", monospace;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.activity-list__desc {
+    color: var(--text);
+}
+
+/* ---------------- Price list import page ---------------- */
+
+.import-card__suppliers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.1rem;
+}
+
+.supplier-chip {
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.supplier-chip.is-selected {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.supplier-chip label {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    cursor: pointer;
+}
+
+.supplier-chip__name {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.supplier-chip__format {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+}
+
+.supplier-chip__download {
+    font-size: 0.76rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.import-card__upload {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+}
+
+.upload-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.upload-hint {
+    font-size: 0.78rem;
+    color: var(--good);
+    font-weight: 600;
+}
+
+.import-card__error {
+    margin-top: 0.75rem;
+    background: var(--bad-soft);
+    color: var(--bad);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.55rem 0.75rem;
+    border-radius: 7px;
+}
+
+.results-card__empty {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+}
+
+.price-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.18rem 0.5rem;
+    border-radius: 6px;
+}
+
+.price-change--up {
+    background: var(--bad-soft);
+    color: var(--bad);
+}
+
+.price-change--down {
+    background: var(--good-soft);
+    color: var(--good);
+}
+
+.price-change--same {
+    background: var(--canvas);
+    color: var(--text-muted);
+}
+
+/* ---------------- Blazor loading / error UI ---------------- */
+
+.loading-progress {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8rem;
+    height: 8rem;
+}
+
+.loading-progress circle {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 0.6rem;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+}
+
+.loading-progress circle:last-child {
+    stroke: var(--accent);
+    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    transition: stroke-dasharray 0.3s ease;
+}
+
+.loading-progress-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.loading-progress-text::after {
+    content: "Loading Nordic Fashion House…";
+}
+
+#blazor-error-ui {
+    background: var(--bad-soft);
+    color: var(--bad);
+    bottom: 0;
+    box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    left: 0;
+    padding: 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    font-size: 0.85rem;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .app-header {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .app-main {
+        padding: 1.1rem 1rem 2.5rem;
+    }
+}

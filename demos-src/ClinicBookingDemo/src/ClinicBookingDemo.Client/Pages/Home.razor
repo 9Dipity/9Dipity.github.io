@@ -1,0 +1,92 @@
+@page "/"
+@inject ITranslationService Translator
+@inject IClinicDataStore Store
+@implements IDisposable
+
+<PageTitle>@Translator.T("common.clinicName")</PageTitle>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div>
+            <span class="hero-eyebrow">@Translator.T("common.tagline")</span>
+            <h1>@Translator.T("home.heroTitle")</h1>
+            <p class="hero-subtitle">@Translator.T("home.heroSubtitle")</p>
+            <a class="btn btn-primary" href="book">@Translator.T("home.cta")</a>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+            <div class="hero-visual-card">
+                <div class="t">Dr. Elīna Kalniņa</div>
+                <div class="s">09:00 · 09:45 · 11:00 · 14:30</div>
+            </div>
+            <div class="hero-visual-card">
+                <div class="t">Dr. Mārtiņš Ozols</div>
+                <div class="s">10:00 · 12:15 · 15:00</div>
+            </div>
+            <div class="hero-visual-card">
+                <div class="t">Dr. Zane Bērziņa</div>
+                <div class="s">08:00 · 08:45 · 09:30</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>@Translator.T("home.whyTitle")</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">⏰</div>
+                <h3>@Translator.T("home.why1Title")</h3>
+                <p>@Translator.T("home.why1Body")</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">📅</div>
+                <h3>@Translator.T("home.why2Title")</h3>
+                <p>@Translator.T("home.why2Body")</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">✓</div>
+                <h3>@Translator.T("home.why3Title")</h3>
+                <p>@Translator.T("home.why3Body")</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>@Translator.T("home.specialistsTitle")</h2>
+        <div class="specialist-grid">
+            @foreach (var specialist in Store.Specialists)
+            {
+                <a class="pick-card" href="book">
+                    <div class="avatar-ring" style="background:@specialist.Color">@Initials(specialist.Name)</div>
+                    <div class="pick-card-title">@specialist.Name</div>
+                    <div class="pick-card-sub">@Translator.T(specialist.TitleKey)</div>
+                    <p style="margin:0;font-size:0.88rem;">@Translator.T(specialist.BioKey)</p>
+                </a>
+            }
+        </div>
+    </div>
+</section>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnChanged;
+    }
+
+    private void OnChanged() => InvokeAsync(StateHasChanged);
+
+    private static string Initials(string name)
+    {
+        var parts = name.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var letters = parts.Where(p => p.Length > 0 && char.IsLetter(p[0])).Select(p => p[0]).ToArray();
+        return new string(letters.Length >= 2 ? letters[^2..] : letters);
+    }
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnChanged;
+    }
+}

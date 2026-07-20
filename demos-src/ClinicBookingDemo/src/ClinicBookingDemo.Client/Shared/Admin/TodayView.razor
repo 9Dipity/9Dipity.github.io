@@ -1,0 +1,100 @@
+@inject ITranslationService Translator
+@inject IClinicDataStore Store
+@implements IDisposable
+
+<h2>@Translator.T("admin.today.title") — @Today.ToString("yyyy-MM-dd")</h2>
+
+@if (!Store.Specialists.Any(HasAnyToday))
+{
+    <p class="empty-note">@Translator.T("admin.today.empty")</p>
+}
+else
+{
+    <div class="today-columns">
+        @foreach (var specialist in Store.Specialists)
+        {
+            <div>
+                <div class="today-col-header">
+                    <span class="color-dot" style="background:@specialist.Color"></span>
+                    @specialist.Name
+                </div>
+
+                @foreach (var item in TodayItems(specialist.Id))
+                {
+                    @if (item.Booking is not null)
+                    {
+                        var booking = item.Booking;
+                        var service = Store.Services.FirstOrDefault(s => s.Id == booking.ServiceId);
+                        <div class="today-slot">
+                            <div class="time">@booking.Start.ToString("HH:mm")–@booking.End.ToString("HH:mm")</div>
+                            <div class="patient">@booking.PatientName</div>
+                            <div class="service">@(service is not null ? Translator.T(service.NameKey) : "")</div>
+                            <div style="margin-top:0.4rem;display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
+                                <span class="status-badge status-@booking.Status">@Translator.T(StatusKey(booking.Status))</span>
+                                @if (booking.Status != BookingStatus.Cancelled)
+                                {
+                                    <button class="btn btn-ghost btn-sm" @onclick="() => Complete(booking.Id)">@Translator.T("admin.markCompleted")</button>
+                                    <button class="btn btn-ghost btn-sm" @onclick="() => NoShow(booking.Id)">@Translator.T("admin.markNoShow")</button>
+                                }
+                            </div>
+                        </div>
+                    }
+                    else if (item.Blocked is not null)
+                    {
+                        var blocked = item.Blocked;
+                        <div class="today-slot blocked">
+                            <div class="time">@blocked.Start.ToString("HH:mm")–@blocked.End.ToString("HH:mm")</div>
+                            <div class="service">@Translator.T(blocked.ReasonKey)</div>
+                        </div>
+                    }
+                }
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private DateOnly Today => DateOnly.FromDateTime(DateTime.Now);
+
+    private record ScheduleItem(DateTime Start, Booking? Booking, BlockedSlot? Blocked);
+
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnChanged;
+        Store.Changed += OnChanged;
+    }
+
+    private void OnChanged() => InvokeAsync(StateHasChanged);
+
+    private bool HasAnyToday(Specialist s) => TodayItems(s.Id).Any();
+
+    private List<ScheduleItem> TodayItems(Guid specialistId)
+    {
+        var bookings = Store.Bookings
+            .Where(b => b.SpecialistId == specialistId && DateOnly.FromDateTime(b.Start) == Today)
+            .Select(b => new ScheduleItem(b.Start, b, null));
+
+        var blocked = Store.BlockedSlots
+            .Where(b => b.SpecialistId == specialistId && DateOnly.FromDateTime(b.Start) == Today)
+            .Select(b => new ScheduleItem(b.Start, null, b));
+
+        return bookings.Concat(blocked).OrderBy(i => i.Start).ToList();
+    }
+
+    private void Complete(Guid id) => Store.UpdateBookingStatus(id, BookingStatus.Completed);
+    private void NoShow(Guid id) => Store.UpdateBookingStatus(id, BookingStatus.NoShow);
+
+    private static string StatusKey(BookingStatus status) => status switch
+    {
+        BookingStatus.Booked => "status.booked",
+        BookingStatus.Completed => "status.completed",
+        BookingStatus.NoShow => "status.noshow",
+        _ => "status.cancelled"
+    };
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnChanged;
+        Store.Changed -= OnChanged;
+    }
+}

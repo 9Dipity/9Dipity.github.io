@@ -1,0 +1,136 @@
+@inherits LocalizedComponentBase
+@inject IStockService StockService
+
+<section class="channel-panel">
+    <header class="channel-panel__header">
+        <h3>@Localizer.T($"channel.{Channel}")</h3>
+        <span class="channel-panel__count">@InStockCount / @StockService.Catalog.Count</span>
+    </header>
+
+    <div class="channel-panel__controls">
+        <select class="channel-panel__select" @bind="_selectedSku">
+            <option value="">@Localizer.T("channel.randomProduct")</option>
+            @foreach (var product in StockService.Catalog)
+            {
+                <option value="@product.Sku">@product.Name (@StockService.GetStock(product.Sku))</option>
+            }
+        </select>
+        <button type="button" class="btn btn--accent" @onclick="SimulateOrder">
+            @Localizer.T("channel.simulateOrder")
+        </button>
+    </div>
+
+    @if (_feedbackText is not null)
+    {
+        <p class="channel-panel__feedback @(_feedbackSuccess ? "is-success" : "is-error")">@_feedbackText</p>
+    }
+
+    <div class="channel-panel__stock">
+        @foreach (var product in StockService.Catalog)
+        {
+            var qty = StockService.GetStock(product.Sku);
+            var isLow = qty > 0 && qty <= product.LowStockThreshold;
+            var isOut = qty == 0;
+            <div class="stock-row @(product.Sku == _flashSku ? "stock-row--flash" : "")">
+                <span class="stock-row__name">@product.Name</span>
+                <span class="stock-row__qty @(isOut ? "is-out" : isLow ? "is-low" : "")">@qty</span>
+            </div>
+        }
+    </div>
+
+    <div class="channel-panel__activity">
+        <h4>@Localizer.T("channel.recentActivity")</h4>
+        @{
+            var sales = StockService.RecentSales.Where(s => s.Channel == Channel).Take(5).ToList();
+        }
+        @if (sales.Count == 0)
+        {
+            <p class="channel-panel__empty">@Localizer.T("channel.noActivity")</p>
+        }
+        else
+        {
+            <ul class="activity-list">
+                @foreach (var sale in sales)
+                {
+                    var product = StockService.Catalog.FirstOrDefault(p => p.Sku == sale.Sku);
+                    <li>
+                        <span class="activity-list__time">@sale.Timestamp.ToLocalTime().ToString("HH:mm:ss")</span>
+                        <span class="activity-list__desc">-@sale.Quantity &times; @(product?.Name ?? sale.Sku)</span>
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+</section>
+
+@code {
+    [Parameter] public Channel Channel { get; set; }
+
+    private static readonly Random Rng = new();
+
+    private string? _selectedSku;
+    private string? _flashSku;
+    private string? _feedbackText;
+    private bool _feedbackSuccess;
+
+    private int InStockCount => StockService.Catalog.Count(p => StockService.GetStock(p.Sku) > 0);
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        StockService.StockChanged += HandleStockChanged;
+    }
+
+    private void HandleStockChanged()
+    {
+        var sku = StockService.LastChangedSku;
+        _flashSku = sku;
+        InvokeAsync(StateHasChanged);
+        _ = ClearFlashAfterDelay(sku);
+    }
+
+    private async Task ClearFlashAfterDelay(string? sku)
+    {
+        await Task.Delay(900);
+        if (_flashSku == sku)
+        {
+            _flashSku = null;
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private void SimulateOrder()
+    {
+        var sku = _selectedSku;
+
+        if (string.IsNullOrEmpty(sku))
+        {
+            var inStock = StockService.Catalog
+                .Where(p => StockService.GetStock(p.Sku) > 0)
+                .ToList();
+
+            if (inStock.Count == 0)
+            {
+                _feedbackSuccess = false;
+                _feedbackText = Localizer.T("channel.insufficientStock");
+                return;
+            }
+
+            sku = inStock[Rng.Next(inStock.Count)].Sku;
+        }
+
+        var product = StockService.Catalog.First(p => p.Sku == sku);
+        var success = StockService.TrySell(sku, 1, Channel);
+
+        _feedbackSuccess = success;
+        _feedbackText = success
+            ? string.Format(Localizer.T("channel.soldOne"), product.Name)
+            : Localizer.T("channel.insufficientStock");
+    }
+
+    public override void Dispose()
+    {
+        StockService.StockChanged -= HandleStockChanged;
+        base.Dispose();
+    }
+}

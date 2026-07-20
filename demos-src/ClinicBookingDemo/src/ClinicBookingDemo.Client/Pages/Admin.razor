@@ -1,0 +1,77 @@
+@page "/admin"
+@inject ITranslationService Translator
+@inject IClinicDataStore Store
+@implements IDisposable
+
+<PageTitle>@Translator.T("admin.title")</PageTitle>
+
+<div class="admin-shell container">
+    <div class="admin-header">
+        <div>
+            <h1 style="margin-bottom:0.2rem;">@Translator.T("admin.title")</h1>
+            <p style="margin:0;">@Translator.T("admin.subtitle")</p>
+        </div>
+        <button class="btn btn-secondary" @onclick="DoReset">@Translator.T("common.resetDemoData")</button>
+    </div>
+
+    <div class="admin-legend">
+        <strong>@Translator.T("admin.legendTitle"):</strong>
+        @foreach (var specialist in Store.Specialists)
+        {
+            <span class="specialist-chip"><span class="color-dot" style="background:@specialist.Color"></span>@specialist.Name</span>
+        }
+    </div>
+
+    <div class="admin-tabs">
+        <button class="admin-tab @(_tab == AdminTab.Today ? "active" : "")" @onclick="() => _tab = AdminTab.Today">@Translator.T("admin.tab.today")</button>
+        <button class="admin-tab @(_tab == AdminTab.Upcoming ? "active" : "")" @onclick="() => _tab = AdminTab.Upcoming">@Translator.T("admin.tab.upcoming")</button>
+        <button class="admin-tab @(_tab == AdminTab.Blocked ? "active" : "")" @onclick="() => _tab = AdminTab.Blocked">@Translator.T("admin.tab.blocked")</button>
+    </div>
+
+    @if (_tab == AdminTab.Today)
+    {
+        <TodayView />
+    }
+    else if (_tab == AdminTab.Upcoming)
+    {
+        <UpcomingView />
+    }
+    else
+    {
+        <BlockedView />
+    }
+</div>
+
+@if (_showToast)
+{
+    <div class="toast">@Translator.T("admin.resetConfirmToast")</div>
+}
+
+@code {
+    private enum AdminTab { Today, Upcoming, Blocked }
+
+    private AdminTab _tab = AdminTab.Today;
+    private bool _showToast;
+
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnChanged;
+    }
+
+    private void OnChanged() => InvokeAsync(StateHasChanged);
+
+    private async Task DoReset()
+    {
+        Store.Reset();
+        _showToast = true;
+        StateHasChanged();
+        await Task.Delay(2200);
+        _showToast = false;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnChanged;
+    }
+}

@@ -1,0 +1,138 @@
+@inject ITranslationService Translator
+@inject IClinicDataStore Store
+@implements IDisposable
+
+<h2>@Translator.T("admin.blockSlot.title")</h2>
+
+<div class="card" style="margin-bottom:2rem;">
+    <div class="block-form">
+        <div class="form-row">
+            <label>@Translator.T("admin.blockSlot.specialist")</label>
+            <select @bind="_specialistId">
+                @foreach (var specialist in Store.Specialists)
+                {
+                    <option value="@specialist.Id">@specialist.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form-row">
+            <label>@Translator.T("admin.blockSlot.date")</label>
+            <input type="date" @bind="_date" />
+        </div>
+        <div class="form-row">
+            <label>@Translator.T("admin.blockSlot.start")</label>
+            <input type="time" @bind="_start" />
+        </div>
+        <div class="form-row">
+            <label>@Translator.T("admin.blockSlot.end")</label>
+            <input type="time" @bind="_end" />
+        </div>
+        <div class="form-row">
+            <label>@Translator.T("admin.blockSlot.reason")</label>
+            <input type="text" @bind="_reason" @bind:event="oninput" placeholder="@Translator.T("blocked.onLeave")" />
+        </div>
+        <div class="form-row">
+            <button class="btn btn-primary" disabled="@(!CanSubmit)" @onclick="Submit">@Translator.T("admin.blockSlot.submit")</button>
+        </div>
+    </div>
+    @if (_error is not null)
+    {
+        <p style="color:var(--color-danger);margin-top:0.5rem;">@_error</p>
+    }
+</div>
+
+<h3>@Translator.T("admin.blockSlot.list.title")</h3>
+@{
+    var blocks = Store.BlockedSlots.OrderBy(b => b.Start).ToList();
+}
+@if (blocks.Count == 0)
+{
+    <p class="empty-note">@Translator.T("admin.blockSlot.empty")</p>
+}
+else
+{
+    <div class="table-scroll">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>@Translator.T("admin.column.specialist")</th>
+                    <th>@Translator.T("admin.blockSlot.date")</th>
+                    <th>@Translator.T("admin.blockSlot.start")</th>
+                    <th>@Translator.T("admin.blockSlot.end")</th>
+                    <th>@Translator.T("admin.blockSlot.reason")</th>
+                    <th>@Translator.T("admin.column.actions")</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var block in blocks)
+                {
+                    var specialist = Store.Specialists.FirstOrDefault(s => s.Id == block.SpecialistId);
+                    <tr>
+                        <td>
+                            @if (specialist is not null)
+                            {
+                                <span class="specialist-chip"><span class="color-dot" style="background:@specialist.Color"></span>@specialist.Name</span>
+                            }
+                        </td>
+                        <td>@block.Start.ToString("yyyy-MM-dd")</td>
+                        <td>@block.Start.ToString("HH:mm")</td>
+                        <td>@block.End.ToString("HH:mm")</td>
+                        <td>@Translator.T(block.ReasonKey)</td>
+                        <td><button class="btn btn-danger-outline btn-sm" @onclick="() => Remove(block.Id)">@Translator.T("admin.blockSlot.remove")</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code {
+    private Guid _specialistId;
+    private DateOnly _date = DateOnly.FromDateTime(DateTime.Now);
+    private TimeOnly _start = new(9, 0);
+    private TimeOnly _end = new(10, 0);
+    private string _reason = string.Empty;
+    private string? _error;
+
+    private bool CanSubmit => _specialistId != Guid.Empty && _end > _start;
+
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnChanged;
+        Store.Changed += OnChanged;
+        if (Store.Specialists.Count > 0)
+        {
+            _specialistId = Store.Specialists[0].Id;
+        }
+    }
+
+    private void OnChanged() => InvokeAsync(StateHasChanged);
+
+    private void Submit()
+    {
+        _error = null;
+        if (_end <= _start)
+        {
+            _error = "End time must be after start time.";
+            return;
+        }
+
+        Store.AddBlockedSlot(new BlockedSlot
+        {
+            SpecialistId = _specialistId,
+            Start = _date.ToDateTime(_start),
+            End = _date.ToDateTime(_end),
+            ReasonKey = string.IsNullOrWhiteSpace(_reason) ? "blocked.onLeave" : _reason.Trim()
+        });
+
+        _reason = string.Empty;
+    }
+
+    private void Remove(Guid id) => Store.RemoveBlockedSlot(id);
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnChanged;
+        Store.Changed -= OnChanged;
+    }
+}

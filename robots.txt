@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /demo/klinikas-pieraksts/
+Disallow: /demo/noliktavas-sinhronizacija/

@@ -1,0 +1,29 @@
+@inject ITranslationService Translator
+@implements IDisposable
+
+<header class="site-header">
+    <div class="site-header-inner">
+        <a class="brand" href="">
+            <span class="brand-mark">RS</span>
+            <span>@Translator.T("common.clinicName")</span>
+        </a>
+        <div class="header-actions">
+            <LanguageToggle />
+            <a class="btn btn-primary btn-sm" href="book">@Translator.T("nav.book")</a>
+        </div>
+    </div>
+</header>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnLanguageChanged;
+    }
+
+    private void OnLanguageChanged() => InvokeAsync(StateHasChanged);
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnLanguageChanged;
+    }
+}

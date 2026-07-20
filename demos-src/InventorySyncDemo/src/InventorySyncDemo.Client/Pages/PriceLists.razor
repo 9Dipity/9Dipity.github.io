@@ -1,0 +1,156 @@
+@page "/price-lists"
+@inherits LocalizedComponentBase
+@inject IPriceListParserResolver ParserResolver
+@inject IPriceNormalizationService Normalizer
+
+<PageTitle>@Localizer.T("priceLists.title")</PageTitle>
+
+<div class="page-header">
+    <div>
+        <h1>@Localizer.T("priceLists.title")</h1>
+        <p class="page-header__subtitle">@Localizer.T("priceLists.subtitle")</p>
+    </div>
+</div>
+
+<section class="import-card">
+    <div class="import-card__suppliers">
+        @foreach (var parser in ParserResolver.AvailableParsers)
+        {
+            <div class="supplier-chip @(parser.SupplierName == _selectedSupplier ? "is-selected" : "")">
+                <label>
+                    <input type="radio" name="supplier" value="@parser.SupplierName"
+                           checked="@(parser.SupplierName == _selectedSupplier)"
+                           @onchange="() => SelectSupplier(parser.SupplierName)" />
+                    <span class="supplier-chip__name">@parser.SupplierName</span>
+                </label>
+                <span class="supplier-chip__format">@parser.FormatDescription</span>
+                <a class="supplier-chip__download" href="@SampleFileFor(parser.SupplierName)" download>
+                    @Localizer.T("priceLists.downloadSample")
+                </a>
+            </div>
+        }
+    </div>
+
+    <div class="import-card__upload">
+        <label class="upload-label" for="price-list-file">@Localizer.T("priceLists.uploadLabel")</label>
+        <InputFile id="price-list-file" OnChange="HandleFileSelected" accept=".csv,.txt" />
+        @if (_rowsParsed is not null)
+        {
+            <span class="upload-hint">@_rowsParsed @Localizer.T("priceLists.rowsParsed")</span>
+        }
+    </div>
+
+    @if (_errorMessage is not null)
+    {
+        <p class="import-card__error">@_errorMessage</p>
+    }
+</section>
+
+<section class="results-card">
+    <h2>@Localizer.T("priceLists.resultsHeading")</h2>
+
+    @if (_results is null || _results.Count == 0)
+    {
+        <p class="results-card__empty">@Localizer.T("priceLists.noFile")</p>
+    }
+    else
+    {
+        <div class="catalog-table__scroll">
+            <table class="catalog-table">
+                <thead>
+                    <tr>
+                        <th>@Localizer.T("priceLists.column.product")</th>
+                        <th>@Localizer.T("priceLists.column.supplier")</th>
+                        <th>@Localizer.T("priceLists.column.previousPrice")</th>
+                        <th>@Localizer.T("priceLists.column.newPrice")</th>
+                        <th>@Localizer.T("priceLists.column.change")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var change in _results)
+                    {
+                        <tr>
+                            <td>
+                                <span class="catalog-table__name">@change.ProductName</span>
+                                <span class="catalog-table__sku">@change.Sku</span>
+                            </td>
+                            <td>@change.Supplier</td>
+                            <td>&euro;@change.PreviousPrice.ToString("0.00")</td>
+                            <td>&euro;@change.NewPrice.ToString("0.00")</td>
+                            <td>
+                                @switch (change.Direction)
+                                {
+                                    case PriceDirection.Up:
+                                        <span class="price-change price-change--up">&uarr; @Localizer.T("priceLists.direction.up")</span>
+                                        break;
+                                    case PriceDirection.Down:
+                                        <span class="price-change price-change--down">&darr; @Localizer.T("priceLists.direction.down")</span>
+                                        break;
+                                    default:
+                                        <span class="price-change price-change--same">&mdash; @Localizer.T("priceLists.direction.same")</span>
+                                        break;
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</section>
+
+@code {
+    private string _selectedSupplier = "";
+    private string? _errorMessage;
+    private int? _rowsParsed;
+    private List<NormalizedPriceChange>? _results;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _selectedSupplier = ParserResolver.AvailableParsers.First().SupplierName;
+    }
+
+    private void SelectSupplier(string supplierName)
+    {
+        _selectedSupplier = supplierName;
+    }
+
+    private static string SampleFileFor(string supplierName) => supplierName switch
+    {
+        "Nordic Textiles" => "sample-data/nordic-textiles-pricelist.csv",
+        "Baltic Goods" => "sample-data/baltic-goods-pricelist.csv",
+        "Scandi Home" => "sample-data/scandi-home-pricelist.csv",
+        _ => "#"
+    };
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        _errorMessage = null;
+        _rowsParsed = null;
+        _results = null;
+
+        try
+        {
+            using var stream = e.File.OpenReadStream(maxAllowedSize: 2 * 1024 * 1024);
+            using var reader = new StreamReader(stream);
+            var content = await reader.ReadToEndAsync();
+
+            var parser = ParserResolver.Resolve(_selectedSupplier);
+            var entries = parser.Parse(content);
+
+            if (entries.Count == 0)
+            {
+                _errorMessage = Localizer.T("priceLists.parseError");
+                return;
+            }
+
+            _rowsParsed = entries.Count;
+            _results = Normalizer.Normalize(entries).ToList();
+        }
+        catch (Exception)
+        {
+            _errorMessage = Localizer.T("priceLists.parseError");
+        }
+    }
+}

@@ -1,2 +1,7 @@
 .vs/
 DataCraft_Client_Acquisition_Playbook.docx
+
+# .NET demo source build artifacts (published output under demo/ is committed intentionally)
+demos-src/**/bin/
+demos-src/**/obj/
+demos-src/**/publish/

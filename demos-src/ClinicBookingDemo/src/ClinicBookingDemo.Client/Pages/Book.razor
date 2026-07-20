@@ -1,0 +1,290 @@
+@page "/book"
+@inject ITranslationService Translator
+@inject IClinicDataStore Store
+@inject IAvailabilityService Availability
+@implements IDisposable
+
+<PageTitle>@Translator.T("booking.title")</PageTitle>
+
+<div class="wizard-shell container">
+    <h1>@Translator.T("booking.title")</h1>
+
+    <div class="wizard-steps">
+        <StepPill Index="1" CurrentIndex="@StepIndex" LabelKey="booking.step1.title" OnClick="@(() => TryJump(WizardStep.Service))" />
+        <StepPill Index="2" CurrentIndex="@StepIndex" LabelKey="booking.step2.title" OnClick="@(() => TryJump(WizardStep.Specialist))" />
+        <StepPill Index="3" CurrentIndex="@StepIndex" LabelKey="booking.step3.title" OnClick="@(() => TryJump(WizardStep.Slot))" />
+        <StepPill Index="4" CurrentIndex="@StepIndex" LabelKey="booking.step4.title" OnClick="@(() => TryJump(WizardStep.Patient))" />
+        <StepPill Index="5" CurrentIndex="@StepIndex" LabelKey="booking.step5.title" OnClick="@(() => {})" />
+    </div>
+
+    @if (_step == WizardStep.Service)
+    {
+        <h2>@Translator.T("booking.step1.title")</h2>
+        <div class="service-grid">
+            @foreach (var service in Store.Services)
+            {
+                <button type="button" class="pick-card @(service.Id == _selectedServiceId ? "selected" : "")" @onclick="() => SelectService(service.Id)">
+                    <div class="pick-card-title">@Translator.T(service.NameKey)</div>
+                    <div class="pick-card-meta">@service.DurationMinutes @Translator.T("common.minutesShort")</div>
+                    <p style="margin:0;font-size:0.88rem;">@Translator.T(service.DescriptionKey)</p>
+                </button>
+            }
+        </div>
+    }
+    else if (_step == WizardStep.Specialist)
+    {
+        <h2>@Translator.T("booking.step2.title")</h2>
+        <div class="specialist-grid">
+            @foreach (var specialist in Store.Specialists)
+            {
+                <button type="button" class="pick-card @(specialist.Id == _selectedSpecialistId ? "selected" : "")" @onclick="() => SelectSpecialist(specialist.Id)">
+                    <div class="avatar-ring" style="background:@specialist.Color">@Initials(specialist.Name)</div>
+                    <div class="pick-card-title">@specialist.Name</div>
+                    <div class="pick-card-sub">@Translator.T(specialist.TitleKey)</div>
+                    <p style="margin:0;font-size:0.85rem;">@Translator.T(specialist.BioKey)</p>
+                </button>
+            }
+        </div>
+        <div class="wizard-nav">
+            <button class="btn btn-secondary" @onclick="() => _step = WizardStep.Service">@Translator.T("common.back")</button>
+            <span></span>
+        </div>
+    }
+    else if (_step == WizardStep.Slot)
+    {
+        <h2>@Translator.T("booking.step3.title")</h2>
+        <p>@Translator.T("booking.selectDate")</p>
+
+        <div class="day-tabs">
+            @foreach (var date in _visibleDates)
+            {
+                var hasAny = DayHasAvailability(date);
+                <button type="button" class="day-tab @(date == _selectedDate ? "active" : "") @(hasAny ? "" : "has-none")" @onclick="() => SelectDate(date)">
+                    <span class="dow">@Translator.T(DayKey(date.DayOfWeek))</span>
+                    <span class="dom">@date.Day</span>
+                </button>
+            }
+        </div>
+
+        @if (CurrentDaySlots().Count == 0)
+        {
+            <p class="empty-note">@Translator.T("booking.noSlots")</p>
+        }
+        else
+        {
+            <div class="slot-grid">
+                @foreach (var slot in CurrentDaySlots())
+                {
+                    var isSelected = _selectedSlot is not null && _selectedSlot.Value.Start == slot.Start;
+                    <button type="button"
+                            class="slot-btn @(isSelected ? "selected" : "") @(slot.IsAvailable ? "" : "unavailable")"
+                            disabled="@(!slot.IsAvailable)"
+                            title="@(slot.IsAvailable ? Translator.T("booking.available") : Translator.T("booking.unavailable"))"
+                            @onclick="() => SelectSlot(slot)">
+                        @slot.Start.ToString("HH:mm")
+                    </button>
+                }
+            </div>
+        }
+
+        <div class="wizard-nav">
+            <button class="btn btn-secondary" @onclick="() => _step = WizardStep.Specialist">@Translator.T("common.back")</button>
+            <button class="btn btn-primary" disabled="@(_selectedSlot is null)" @onclick="() => _step = WizardStep.Patient">@Translator.T("common.next")</button>
+        </div>
+    }
+    else if (_step == WizardStep.Patient)
+    {
+        <h2>@Translator.T("booking.step4.title")</h2>
+
+        <div class="summary-box">
+            <div class="summary-row"><span class="k">@Translator.T("booking.summary.service")</span><span class="v">@(SelectedService is not null ? Translator.T(SelectedService.NameKey) : "")</span></div>
+            <div class="summary-row"><span class="k">@Translator.T("booking.summary.specialist")</span><span class="v">@(SelectedSpecialist?.Name)</span></div>
+            <div class="summary-row"><span class="k">@Translator.T("booking.summary.datetime")</span><span class="v">@(_selectedSlot?.Start.ToString("yyyy-MM-dd HH:mm"))</span></div>
+            <div class="summary-row"><span class="k">@Translator.T("booking.summary.duration")</span><span class="v">@(SelectedService?.DurationMinutes) @Translator.T("common.minutesShort")</span></div>
+        </div>
+
+        <div class="card" style="max-width:480px;">
+            <div class="form-row">
+                <label for="pname">@Translator.T("booking.form.name")</label>
+                <input id="pname" @bind="_patientName" @bind:event="oninput" />
+            </div>
+            <div class="form-row">
+                <label for="pphone">@Translator.T("booking.form.phone")</label>
+                <input id="pphone" @bind="_patientPhone" @bind:event="oninput" />
+            </div>
+            <div class="form-row">
+                <label for="pemail">@Translator.T("booking.form.email")</label>
+                <input id="pemail" type="email" @bind="_patientEmail" @bind:event="oninput" />
+            </div>
+            <button class="btn btn-primary" style="width:100%;" disabled="@(!CanSubmit)" @onclick="SubmitBooking">
+                @Translator.T("booking.form.submit")
+            </button>
+        </div>
+
+        <div class="wizard-nav">
+            <button class="btn btn-secondary" @onclick="() => _step = WizardStep.Slot">@Translator.T("common.back")</button>
+            <span></span>
+        </div>
+    }
+    else if (_step == WizardStep.Confirmation && _confirmedBooking is not null)
+    {
+        <ConfirmationView Booking="_confirmedBooking" Service="SelectedService" Specialist="SelectedSpecialist" OnBookAnother="ResetWizard" />
+    }
+</div>
+
+@code {
+    private enum WizardStep { Service, Specialist, Slot, Patient, Confirmation }
+
+    private WizardStep _step = WizardStep.Service;
+
+    private int StepIndex => (int)_step + 1;
+
+    private Guid? _selectedServiceId;
+    private Guid? _selectedSpecialistId;
+    private DateOnly _selectedDate = DateOnly.FromDateTime(DateTime.Now);
+    private TimeSlot? _selectedSlot;
+
+    private string _patientName = string.Empty;
+    private string _patientPhone = string.Empty;
+    private string _patientEmail = string.Empty;
+
+    private Booking? _confirmedBooking;
+
+    private List<DateOnly> _visibleDates = new();
+
+    private Service? SelectedService => _selectedServiceId is null ? null : Store.Services.FirstOrDefault(s => s.Id == _selectedServiceId);
+    private Specialist? SelectedSpecialist => _selectedSpecialistId is null ? null : Store.Specialists.FirstOrDefault(s => s.Id == _selectedSpecialistId);
+
+    private bool CanSubmit =>
+        !string.IsNullOrWhiteSpace(_patientName) &&
+        !string.IsNullOrWhiteSpace(_patientPhone) &&
+        !string.IsNullOrWhiteSpace(_patientEmail) &&
+        _selectedSlot is not null;
+
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnChanged;
+        Store.Changed += OnChanged;
+        BuildVisibleDates();
+    }
+
+    private void OnChanged() => InvokeAsync(StateHasChanged);
+
+    private void BuildVisibleDates()
+    {
+        var today = DateOnly.FromDateTime(DateTime.Now);
+        _visibleDates = Enumerable.Range(0, 14).Select(today.AddDays).ToList();
+        if (!_visibleDates.Contains(_selectedDate))
+        {
+            _selectedDate = today;
+        }
+    }
+
+    private void SelectService(Guid id)
+    {
+        _selectedServiceId = id;
+        _selectedSlot = null;
+        _step = WizardStep.Specialist;
+    }
+
+    private void SelectSpecialist(Guid id)
+    {
+        _selectedSpecialistId = id;
+        _selectedSlot = null;
+        BuildVisibleDates();
+        _step = WizardStep.Slot;
+    }
+
+    private void SelectDate(DateOnly date)
+    {
+        _selectedDate = date;
+        _selectedSlot = null;
+    }
+
+    private void SelectSlot(TimeSlot slot)
+    {
+        if (!slot.IsAvailable) return;
+        _selectedSlot = slot;
+    }
+
+    private List<TimeSlot> CurrentDaySlots()
+    {
+        if (_selectedSpecialistId is null || _selectedServiceId is null)
+        {
+            return new List<TimeSlot>();
+        }
+        return Availability.GetDaySlots(_selectedSpecialistId.Value, _selectedServiceId.Value, _selectedDate).ToList();
+    }
+
+    private bool DayHasAvailability(DateOnly date)
+    {
+        if (_selectedSpecialistId is null || _selectedServiceId is null) return false;
+        return Availability.GetAvailableSlots(_selectedSpecialistId.Value, _selectedServiceId.Value, date).Count > 0;
+    }
+
+    private void TryJump(WizardStep target)
+    {
+        // Only allow jumping back to a step that's already been completed.
+        if (target == WizardStep.Service) { _step = target; return; }
+        if (target == WizardStep.Specialist && _selectedServiceId is not null) { _step = target; return; }
+        if (target == WizardStep.Slot && _selectedSpecialistId is not null) { _step = target; return; }
+        if (target == WizardStep.Patient && _selectedSlot is not null) { _step = target; return; }
+    }
+
+    private void SubmitBooking()
+    {
+        if (!CanSubmit || SelectedService is null || SelectedSpecialist is null || _selectedSlot is null) return;
+
+        var booking = new Booking
+        {
+            SpecialistId = SelectedSpecialist.Id,
+            ServiceId = SelectedService.Id,
+            PatientName = _patientName.Trim(),
+            PatientPhone = _patientPhone.Trim(),
+            PatientEmail = _patientEmail.Trim(),
+            Start = _selectedSlot.Value.Start,
+            End = _selectedSlot.Value.End,
+            Status = BookingStatus.Booked
+        };
+
+        _confirmedBooking = Store.AddBooking(booking);
+        _step = WizardStep.Confirmation;
+    }
+
+    private void ResetWizard()
+    {
+        _selectedServiceId = null;
+        _selectedSpecialistId = null;
+        _selectedSlot = null;
+        _patientName = string.Empty;
+        _patientPhone = string.Empty;
+        _patientEmail = string.Empty;
+        _confirmedBooking = null;
+        BuildVisibleDates();
+        _step = WizardStep.Service;
+    }
+
+    private static string DayKey(DayOfWeek day) => day switch
+    {
+        DayOfWeek.Monday => "day.monday",
+        DayOfWeek.Tuesday => "day.tuesday",
+        DayOfWeek.Wednesday => "day.wednesday",
+        DayOfWeek.Thursday => "day.thursday",
+        DayOfWeek.Friday => "day.friday",
+        DayOfWeek.Saturday => "day.saturday",
+        _ => "day.sunday"
+    };
+
+    private static string Initials(string name)
+    {
+        var parts = name.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var letters = parts.Where(p => p.Length > 0 && char.IsLetter(p[0])).Select(p => p[0]).ToArray();
+        return new string(letters.Length >= 2 ? letters[^2..] : letters);
+    }
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnChanged;
+        Store.Changed -= OnChanged;
+    }
+}

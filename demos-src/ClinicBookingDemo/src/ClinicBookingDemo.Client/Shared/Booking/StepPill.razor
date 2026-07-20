@@ -1,0 +1,27 @@
+@inject ITranslationService Translator
+@implements IDisposable
+
+<button type="button" class="wizard-step-pill @(CssClass)" @onclick="OnClick">
+    @Translator.T(LabelKey)
+</button>
+
+@code {
+    [Parameter] public int Index { get; set; }
+    [Parameter] public int CurrentIndex { get; set; }
+    [Parameter] public string LabelKey { get; set; } = string.Empty;
+    [Parameter] public EventCallback OnClick { get; set; }
+
+    private string CssClass => Index == CurrentIndex ? "active" : Index < CurrentIndex ? "done" : "";
+
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnChanged;
+    }
+
+    private void OnChanged() => InvokeAsync(StateHasChanged);
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnChanged;
+    }
+}

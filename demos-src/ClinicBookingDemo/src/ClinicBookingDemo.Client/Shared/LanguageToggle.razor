@@ -1,0 +1,23 @@
+@inject ITranslationService Translator
+@implements IDisposable
+
+<div class="lang-toggle" role="group" aria-label="Language">
+    <button type="button" class="@(Translator.CurrentLanguage == Language.Lv ? "active" : "")" @onclick="() => SetLang(Language.Lv)">LV</button>
+    <button type="button" class="@(Translator.CurrentLanguage == Language.En ? "active" : "")" @onclick="() => SetLang(Language.En)">EN</button>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnLanguageChanged;
+    }
+
+    private void SetLang(Language lang) => Translator.SetLanguage(lang);
+
+    private void OnLanguageChanged() => InvokeAsync(StateHasChanged);
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnLanguageChanged;
+    }
+}

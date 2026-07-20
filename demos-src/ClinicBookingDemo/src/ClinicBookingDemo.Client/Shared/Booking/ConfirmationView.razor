@@ -1,0 +1,41 @@
+@inject ITranslationService Translator
+@implements IDisposable
+
+<div class="confirm-hero">
+    <div class="confirm-check">✓</div>
+    <h2>@Translator.T("confirm.title")</h2>
+    <p>@Translator.T("confirm.subtitle")</p>
+</div>
+
+@if (Booking is not null && Service is not null && Specialist is not null)
+{
+    <MockEmailPreview PatientName="@Booking.PatientName"
+                       ServiceName="@Translator.T(Service.NameKey)"
+                       SpecialistName="@Specialist.Name"
+                       Start="@Booking.Start"
+                       DurationMinutes="@Service.DurationMinutes" />
+}
+
+<div style="text-align:center;margin-top:2rem;display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+    <button class="btn btn-primary" @onclick="OnBookAnother">@Translator.T("confirm.bookAnother")</button>
+    <a class="btn btn-secondary" href="">@Translator.T("confirm.backHome")</a>
+</div>
+
+@code {
+    [Parameter] public Booking? Booking { get; set; }
+    [Parameter] public Service? Service { get; set; }
+    [Parameter] public Specialist? Specialist { get; set; }
+    [Parameter] public EventCallback OnBookAnother { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Translator.LanguageChanged += OnChanged;
+    }
+
+    private void OnChanged() => InvokeAsync(StateHasChanged);
+
+    public void Dispose()
+    {
+        Translator.LanguageChanged -= OnChanged;
+    }
+}

@@ -1,0 +1,105 @@
+@page "/"
+@inherits LocalizedComponentBase
+@inject IStockService StockService
+
+<PageTitle>@Localizer.T("dashboard.title")</PageTitle>
+
+<div class="page-header">
+    <div>
+        <h1>@Localizer.T("dashboard.title")</h1>
+        <p class="page-header__subtitle">@Localizer.T("dashboard.subtitle")</p>
+    </div>
+    <button type="button" class="btn btn--ghost" @onclick="HandleReset">
+        @Localizer.T("dashboard.resetButton")
+    </button>
+</div>
+
+<section class="catalog-card">
+    <h2>@Localizer.T("dashboard.catalogHeading")</h2>
+    <div class="catalog-table__scroll">
+        <table class="catalog-table">
+            <thead>
+                <tr>
+                    <th>@Localizer.T("dashboard.column.product")</th>
+                    <th>@Localizer.T("dashboard.column.category")</th>
+                    <th>@Localizer.T("dashboard.column.price")</th>
+                    <th>@Localizer.T("dashboard.column.stock")</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in StockService.Catalog)
+                {
+                    var qty = StockService.GetStock(product.Sku);
+                    var isLow = qty > 0 && qty <= product.LowStockThreshold;
+                    var isOut = qty == 0;
+                    <tr class="@(product.Sku == _flashSku ? "row-flash" : "")">
+                        <td>
+                            <span class="catalog-table__name">@product.Name</span>
+                            <span class="catalog-table__sku">@product.Sku</span>
+                        </td>
+                        <td>@product.Category</td>
+                        <td>&euro;@product.Price.ToString("0.00")</td>
+                        <td>
+                            <span class="qty-pill @(isOut ? "qty-pill--out" : isLow ? "qty-pill--low" : "")">
+                                @qty
+                            </span>
+                            @if (isOut)
+                            {
+                                <span class="badge badge--out">@Localizer.T("dashboard.outOfStock")</span>
+                            }
+                            else if (isLow)
+                            {
+                                <span class="badge badge--low">@Localizer.T("dashboard.lowStock")</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="channel-grid">
+    <ChannelPanel Channel="Channel.RetailStoreA" />
+    <ChannelPanel Channel="Channel.RetailStoreB" />
+    <ChannelPanel Channel="Channel.LivestreamOnline" />
+</section>
+
+@code {
+    private string? _flashSku;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        StockService.StockChanged += HandleStockChanged;
+    }
+
+    private void HandleStockChanged()
+    {
+        var sku = StockService.LastChangedSku;
+        _flashSku = sku;
+        InvokeAsync(StateHasChanged);
+        _ = ClearFlashAfterDelay(sku);
+    }
+
+    private async Task ClearFlashAfterDelay(string? sku)
+    {
+        await Task.Delay(900);
+        if (_flashSku == sku)
+        {
+            _flashSku = null;
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private void HandleReset()
+    {
+        StockService.Reset();
+    }
+
+    public override void Dispose()
+    {
+        StockService.StockChanged -= HandleStockChanged;
+        base.Dispose();
+    }
+}
