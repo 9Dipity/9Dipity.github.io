@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "ServiceBoardDemo.Client",
   "resources": {
-    "hash": "sha256-3ZsfjVwZN4fS0KNoyPWEz8uvnDqXzjgQthaFnV7OFJQ=",
+    "hash": "sha256-rnFU7EXF30TQFJnvuee6BwHJiMQ0jcyJEozvvJAzTgg=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-A16ka545FHaB+QXjyJ4exXh7XpBAAIFnX8YkC4xAng8="
     },
@@ -32,8 +32,8 @@
       "Microsoft.Extensions.Primitives.wasm": "sha256-Bi1hyBMWneH/ByWbqT/pNe0B7I/NQFklzD2g3Whdqlk=",
       "Microsoft.JSInterop.wasm": "sha256-yYSIGAZt44I/rafsJpvCIcJTMCNuL5/Ck7LHiUtNs70=",
       "Microsoft.JSInterop.WebAssembly.wasm": "sha256-UFB+2RHRiffv/kpP3onPVdxXxmwJA6oo3dI1M+LiZOU=",
-      "ServiceBoardDemo.Client.wasm": "sha256-MEJ90QOBVxh4M0p+A3LzY08d4yu4oN4k0W/Ff9q5xXM=",
-      "ServiceBoardDemo.Core.wasm": "sha256-27jmHLSXvc/hNQ+q7EmJCVX+Wv/NR+Wc+KIihiiXvBA=",
+      "ServiceBoardDemo.Client.wasm": "sha256-thefhYLs0dYaa/zxkB5B+8cVXKxfgNO85K9TzNS/pyQ=",
+      "ServiceBoardDemo.Core.wasm": "sha256-PpjfeFSaIGnCjtyP3FwzslEI5huSkAU0a9Esqw5h2ns=",
       "System.Collections.Concurrent.wasm": "sha256-3rx8Mm33pbGdg69wCw40aAw2CHllqBSBeN/eCCWpCg8=",
       "System.Collections.wasm": "sha256-aXQ+N2ZwF26OUeSFcVIGjDJK3oF+EHi88/QSmFFxQsI=",
       "System.ComponentModel.wasm": "sha256-F2qjYBXWxtewpm29FIk7CosIp5viFHegk54GkyQcEQ0=",

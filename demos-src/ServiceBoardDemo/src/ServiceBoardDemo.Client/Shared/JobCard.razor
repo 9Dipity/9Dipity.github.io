@@ -18,9 +18,17 @@
         <p class="job-card__blocked">@Localizer.T("job.blockedOnParts")</p>
     }
 
-    <button type="button" class="btn btn--accent job-card__advance" @onclick="() => OnAdvance.InvokeAsync(Job.Id)">
-        @(Job.Status == JobStatus.Ready ? Localizer.T("job.completeButton") : Localizer.T("job.advanceButton"))
-    </button>
+    <div class="job-card__actions">
+        @if (Job.Status != JobStatus.Intake)
+        {
+            <button type="button" class="btn btn--ghost btn--small job-card__revert" @onclick="() => OnRevert.InvokeAsync(Job.Id)">
+                @Localizer.T("job.revertButton")
+            </button>
+        }
+        <button type="button" class="btn btn--accent job-card__advance" @onclick="() => OnAdvance.InvokeAsync(Job.Id)">
+            @(Job.Status == JobStatus.Ready ? Localizer.T("job.completeButton") : Localizer.T("job.advanceButton"))
+        </button>
+    </div>
 </article>
 
 @code {
@@ -32,4 +40,7 @@
 
     [Parameter]
     public EventCallback<Guid> OnAdvance { get; set; }
+
+    [Parameter]
+    public EventCallback<Guid> OnRevert { get; set; }
 }

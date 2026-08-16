@@ -86,6 +86,33 @@ public sealed class JobBoardService : IJobBoardService
         JobsChanged?.Invoke();
     }
 
+    public void RevertStatus(Guid jobId)
+    {
+        lock (_lock)
+        {
+            var job = _jobs.FirstOrDefault(j => j.Id == jobId);
+            if (job is null) return;
+
+            var index = Array.IndexOf(Pipeline, job.Status);
+            var prevIndex = index - 1;
+
+            while (prevIndex >= 0 &&
+                   Pipeline[prevIndex] == JobStatus.AwaitingParts &&
+                   !job.Parts.Any(p => !p.InStock))
+            {
+                prevIndex--;
+            }
+
+            if (prevIndex < 0) return; // already at Intake, nothing earlier to revert to
+
+            job.Status = Pipeline[prevIndex];
+            job.StatusUpdatedAt = DateTimeOffset.UtcNow;
+            LastChangedJobId = jobId;
+        }
+
+        JobsChanged?.Invoke();
+    }
+
     public Guid AddJob(string customerName, string vehicleDescription, string issueDescription, IReadOnlyList<PartRequirement>? parts = null)
     {
         var job = new RepairJob

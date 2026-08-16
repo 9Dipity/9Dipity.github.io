@@ -473,9 +473,19 @@ button, input {
     border-radius: 6px;
 }
 
-.job-card__advance {
+.job-card__actions {
     margin-top: 0.4rem;
-    width: 100%;
+    display: flex;
+    gap: 0.4rem;
+}
+
+.job-card__advance {
+    flex: 1;
+    text-align: center;
+}
+
+.job-card__revert {
+    flex-shrink: 0;
     text-align: center;
 }
 

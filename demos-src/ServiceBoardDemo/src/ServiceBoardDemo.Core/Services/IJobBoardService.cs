@@ -21,6 +21,14 @@ public interface IJobBoardService
     /// </summary>
     void AdvanceStatus(Guid jobId);
 
+    /// <summary>
+    /// Moves a job back to the previous pipeline stage - covers "diagnosis found more
+    /// work," "parts turned out wrong," or any other real reason a job needs to un-move.
+    /// Applies the same AwaitingParts skip logic as AdvanceStatus, in reverse. A no-op if
+    /// the job is already at Intake.
+    /// </summary>
+    void RevertStatus(Guid jobId);
+
     Guid AddJob(string customerName, string vehicleDescription, string issueDescription, IReadOnlyList<PartRequirement>? parts = null);
 
     /// <summary>Sets a part in-stock shop-wide for every active job that needs it by name.</summary>

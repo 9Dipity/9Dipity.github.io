@@ -34,6 +34,12 @@ Two concrete pain points are dramatized:
    still clicks Advance manually — the tool surfaces the block, it doesn't decide the
    job is done). That's the pitch: shop-wide visibility instead of tribal knowledge.
 
+Every card except Intake also has a "← Back" button (`RevertStatus`), added after a
+prospect asked what happens if diagnosis reveals more work, or a job needs to un-move for
+any other real reason. It mirrors `AdvanceStatus`'s pipeline-skip logic in reverse: a job
+reverting past a fully-stocked `AwaitingParts` skips it, but a job that's still genuinely
+missing a part stops there. It's a no-op at Intake (nothing earlier to revert to).
+
 The UI has an EN/LV language toggle (defaults to Latvian) since the primary audience is
 Riga-area workshops.
 
@@ -65,7 +71,7 @@ Key files in Client:
 - `Pages/Parts.razor` (route `/parts`) — aggregated parts-demand table with a
   "Mark Received" action per part
 - `Shared/JobCard.razor` — one job's card: vehicle/customer/issue, technician, estimate,
-  blocked flag, and the Advance/Mark Picked Up button
+  blocked flag, and the Advance/Mark Picked Up + Back buttons
 - `Layout/MainLayout.razor` — header, nav, EN/LV toggle, footer disclaimer banner
 
 ## Running locally
@@ -95,6 +101,9 @@ involved):
 - `AdvanceStatus` stops at `AwaitingParts` when a job genuinely has an out-of-stock part
 - Advancing a job past `Ready` removes it from the active board and increments
   `CompletedTodayCount`
+- `RevertStatus` mirrors the skip logic backward: skips a fully-stocked `AwaitingParts`,
+  stops there when a part is still genuinely missing, and is a no-op at `Intake`
+- Advancing then reverting a job returns it to its original status
 - `MarkPartReceived` clears the blocked flag but does **not** auto-advance the job's
   status — the technician still has to click Advance
 - `MarkPartReceived` only affects jobs that need that exact part name, not every blocked
@@ -107,7 +116,7 @@ involved):
 - Seed data has at least one job in every pipeline status, and every seeded
   `AwaitingParts` job is genuinely blocked (not just cosmetically in that column)
 
-Last local run: **12/12 passed.**
+Last local run: **17/17 passed.**
 
 ## Resetting demo data
 
@@ -161,7 +170,9 @@ rewrites, so the deployed output relies on:
 Verified end-to-end in a real browser after publishing: advancing jobs through the
 pipeline, the auto-skip of Awaiting Parts on parts-free jobs, the cross-page unblock
 (Parts page → Mark Received → the same job's blocked flag clears on the board), the new
-job intake form, the EN/LV toggle, and Reset Demo Data. No console errors.
+job intake form, the EN/LV toggle, Reset Demo Data, and reverting a job with "← Back"
+(confirmed the card moves column and the button correctly disappears once it's back at
+Intake). No console errors.
 
 ## Deviations from the two earlier demos
 

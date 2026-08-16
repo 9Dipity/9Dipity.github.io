@@ -56,6 +56,7 @@ public sealed class DictionaryLocalizer : ILocalizer
         ["job.unassigned"] = New("Unassigned", "Nav piešķirts"),
         ["job.estimate"] = New("Estimate", "Aptuvenā izmaksa"),
         ["job.advanceButton"] = New("Advance →", "Virzīt tālāk →"),
+        ["job.revertButton"] = New("← Back", "← Atpakaļ"),
         ["job.completeButton"] = New("Mark Picked Up ✓", "Atzīmēt kā izsniegtu ✓"),
         ["job.blockedOnParts"] = New("Waiting on parts — see Parts page", "Gaida detaļas — skatīt sadaļu “Rezerves daļas”"),
 

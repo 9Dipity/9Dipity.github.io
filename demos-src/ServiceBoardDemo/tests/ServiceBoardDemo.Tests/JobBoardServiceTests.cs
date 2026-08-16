@@ -66,6 +66,82 @@ public class JobBoardServiceTests
     }
 
     [Fact]
+    public void RevertStatus_WithNoParts_SkipsAwaitingPartsGoingBackward()
+    {
+        var service = new JobBoardService();
+        var id = service.AddJob("Customer", "Vehicle", "Issue");
+        service.AdvanceStatus(id); // Intake -> Diagnosis
+        service.AdvanceStatus(id); // Diagnosis -> (AwaitingParts skipped) -> InProgress
+
+        service.RevertStatus(id); // InProgress -> (AwaitingParts skipped) -> Diagnosis
+
+        Assert.Equal(JobStatus.Diagnosis, service.Jobs.Single(j => j.Id == id).Status);
+    }
+
+    [Fact]
+    public void RevertStatus_WithStillBlockingParts_StopsAtAwaitingPartsGoingBackward()
+    {
+        var service = new JobBoardService();
+        var parts = new List<PartRequirement>
+        {
+            new() { PartName = "Brake pads", Quantity = 1, InStock = false }
+        };
+        var id = service.AddJob("Customer", "Vehicle", "Issue", parts);
+        service.AdvanceStatus(id); // Intake -> Diagnosis
+        service.AdvanceStatus(id); // Diagnosis -> AwaitingParts (blocked)
+        service.AdvanceStatus(id); // AwaitingParts -> InProgress (tech proceeded anyway; part still missing)
+
+        service.RevertStatus(id); // InProgress -> AwaitingParts (not skipped - part is still missing)
+
+        Assert.Equal(JobStatus.AwaitingParts, service.Jobs.Single(j => j.Id == id).Status);
+    }
+
+    [Fact]
+    public void RevertStatus_AfterPartReceived_SkipsAwaitingPartsGoingBackward()
+    {
+        var service = new JobBoardService();
+        var parts = new List<PartRequirement>
+        {
+            new() { PartName = "Brake pads", Quantity = 1, InStock = false }
+        };
+        var id = service.AddJob("Customer", "Vehicle", "Issue", parts);
+        service.AdvanceStatus(id); // Intake -> Diagnosis
+        service.AdvanceStatus(id); // Diagnosis -> AwaitingParts
+        service.MarkPartReceived("Brake pads");
+        service.AdvanceStatus(id); // AwaitingParts -> InProgress
+
+        service.RevertStatus(id); // InProgress -> (AwaitingParts skipped, part now in stock) -> Diagnosis
+
+        Assert.Equal(JobStatus.Diagnosis, service.Jobs.Single(j => j.Id == id).Status);
+    }
+
+    [Fact]
+    public void RevertStatus_AtIntake_IsNoOp()
+    {
+        var service = new JobBoardService();
+        var id = service.AddJob("Customer", "Vehicle", "Issue");
+        var fired = false;
+        service.JobsChanged += () => fired = true;
+
+        service.RevertStatus(id);
+
+        Assert.Equal(JobStatus.Intake, service.Jobs.Single(j => j.Id == id).Status);
+        Assert.False(fired);
+    }
+
+    [Fact]
+    public void AdvanceThenRevert_ReturnsJobToItsOriginalStatus()
+    {
+        var service = new JobBoardService();
+        var id = service.AddJob("Customer", "Vehicle", "Issue");
+
+        service.AdvanceStatus(id); // Intake -> Diagnosis
+        service.RevertStatus(id);  // Diagnosis -> Intake
+
+        Assert.Equal(JobStatus.Intake, service.Jobs.Single(j => j.Id == id).Status);
+    }
+
+    [Fact]
     public void AdvanceStatus_PastReady_CompletesJobAndIncrementsCounter()
     {
         var service = new JobBoardService();
