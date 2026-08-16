@@ -1,0 +1,35 @@
+@inherits LocalizedComponentBase
+
+<article class="job-card @(IsFlashing ? "job-card--flash" : "")">
+    <div class="job-card__header">
+        <span class="job-card__number">@Job.JobNumber</span>
+        @if (Job.EstimatedCost is decimal cost)
+        {
+            <span class="job-card__estimate">@Localizer.T("job.estimate"): &euro;@cost.ToString("0")</span>
+        }
+    </div>
+    <p class="job-card__vehicle">@Job.VehicleDescription</p>
+    <p class="job-card__customer">@Job.CustomerName</p>
+    <p class="job-card__issue">@Job.IssueDescription</p>
+    <p class="job-card__tech">@Localizer.T("job.technician"): @(Job.TechnicianName ?? Localizer.T("job.unassigned"))</p>
+
+    @if (Job.IsBlockedOnParts)
+    {
+        <p class="job-card__blocked">@Localizer.T("job.blockedOnParts")</p>
+    }
+
+    <button type="button" class="btn btn--accent job-card__advance" @onclick="() => OnAdvance.InvokeAsync(Job.Id)">
+        @(Job.Status == JobStatus.Ready ? Localizer.T("job.completeButton") : Localizer.T("job.advanceButton"))
+    </button>
+</article>
+
+@code {
+    [Parameter, EditorRequired]
+    public RepairJob Job { get; set; } = default!;
+
+    [Parameter]
+    public bool IsFlashing { get; set; }
+
+    [Parameter]
+    public EventCallback<Guid> OnAdvance { get; set; }
+}

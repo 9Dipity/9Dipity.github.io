@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, and distribution.">
+  <meta name="description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, distribution, and service workshops.">
   <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/case-studies.html" />
   <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/case-studies.html" />
   <link rel="canonical" href="https://datacraft.lv/en/case-studies.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DataCraft Consulting">
   <meta property="og:title" content="Case Studies — DataCraft Consulting">
-  <meta property="og:description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, and distribution.">
+  <meta property="og:description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, distribution, and service workshops.">
   <meta property="og:url" content="https://datacraft.lv/en/case-studies.html">
   <meta property="og:image" content="https://datacraft.lv/assets/og/og-en.png">
   <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
   <meta property="og:locale:alternate" content="lv_LV">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Case Studies — DataCraft Consulting">
-  <meta name="twitter:description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, and distribution.">
+  <meta name="twitter:description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, distribution, and service workshops.">
   <meta name="twitter:image" content="https://datacraft.lv/assets/og/og-en.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/style.css">
@@ -147,7 +147,7 @@
   <div class="container">
     <div class="section__header reveal">
       <h2 style="color:var(--calico)">Capability demonstrations for SMBs</h2>
-      <p>DataCraft is a new consultancy — these three are illustrative scenarios built from real, common SMB problems, worked through in full technical detail. They are <strong style="color:var(--yellow)">not yet completed client engagements</strong>. We'll replace them with real client stories as we deliver DataCraft's first projects.</p>
+      <p>DataCraft is a new consultancy — these four are illustrative scenarios built from real, common SMB problems, worked through in full technical detail. Three ship as live, click-through prototypes, not screenshots. They are <strong style="color:var(--yellow)">not yet completed client engagements</strong>. We'll replace them with real client stories as we deliver DataCraft's first projects.</p>
       <span class="synthetic-flag" style="margin-top:0.5rem;">
         <svg class="icon" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         Illustrative — not a real client
@@ -179,6 +179,7 @@
         <span class="tag">ASP.NET Core</span>
         <span class="tag">Dapper</span>
       </div>
+      <a href="/demo/noliktavas-sinhronizacija/" class="btn btn--secondary btn--small" target="_blank" rel="noopener" style="margin-top:1.25rem;">Try the Live Demo →</a>
     </article>
 
     <article class="case-study-card panel reveal" id="clinic">
@@ -206,6 +207,7 @@
         <span class="tag">Multi-location</span>
         <span class="tag">GDPR</span>
       </div>
+      <a href="/demo/klinikas-pieraksts/" class="btn btn--secondary btn--small" target="_blank" rel="noopener" style="margin-top:1.25rem;">Try the Live Demo →</a>
     </article>
 
     <article class="case-study-card panel reveal" id="distribution">
@@ -233,6 +235,34 @@
         <span class="tag">Data pipeline</span>
         <span class="tag">Dapper</span>
       </div>
+    </article>
+
+    <article class="case-study-card panel reveal" id="service">
+      <h3>Live job board for a Riga auto service center</h3>
+      <div class="case-study-card__meta">Illustrative · Workshops &amp; repair shops · Riga region</div>
+      <p>A repair shop tracked every job on a whiteboard in the back office — invisible from the front desk, invisible to a technician mid-job in another bay. Parts on order for one car were only discovered missing when the customer arrived to collect it. Nobody had a single view of what was actually blocking the floor.</p>
+
+      <div class="detail-block" style="margin-top:1.5rem;">
+        <h3>What we'd build</h3>
+        <p>A shared, browser-based job board every workstation can see, with a shop-wide view of exactly what's blocking active work.</p>
+        <ul>
+          <li>SQL Server database: jobs, customers, vehicles, technicians, parts requirements, job history</li>
+          <li>Live kanban board: Intake → Diagnosis → Awaiting Parts → In Progress → Ready for Pickup, updating instantly for everyone looking at it</li>
+          <li>Automatic routing: a job only enters "Awaiting Parts" if it actually needs a part that isn't in stock — no manual flagging</li>
+          <li>Shop-wide parts view: every part blocking any active job, aggregated in one place, with which jobs are waiting on it</li>
+          <li>New-job intake from any workstation — front desk, phone, or the bay itself</li>
+          <li>Runs in a browser on the machines the shop already has — no software installation, works on a tablet at the counter</li>
+        </ul>
+      </div>
+
+      <div class="tags">
+        <span class="tag">C# .NET</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">ASP.NET Core</span>
+        <span class="tag">Real-time UI</span>
+        <span class="tag">Blazor</span>
+      </div>
+      <a href="/demo/servisa-panelis/" class="btn btn--secondary btn--small" target="_blank" rel="noopener" style="margin-top:1.25rem;">Try the Live Demo →</a>
     </article>
   </div>
 </section>

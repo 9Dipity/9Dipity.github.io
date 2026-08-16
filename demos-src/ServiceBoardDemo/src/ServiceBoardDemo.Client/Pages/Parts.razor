@@ -1,0 +1,84 @@
+@page "/parts"
+@inherits LocalizedComponentBase
+@inject IJobBoardService JobBoardService
+
+<PageTitle>@Localizer.T("parts.title")</PageTitle>
+
+<div class="page-header">
+    <div>
+        <h1>@Localizer.T("parts.title")</h1>
+        <p class="page-header__subtitle">@Localizer.T("parts.subtitle")</p>
+    </div>
+</div>
+
+<section class="parts-card">
+    <p class="parts-card__hint">@Localizer.T("parts.receivedHint")</p>
+
+    @{
+        var demand = JobBoardService.GetPartsDemand();
+    }
+
+    @if (demand.Count == 0)
+    {
+        <p class="parts-card__empty">@Localizer.T("parts.empty")</p>
+    }
+    else
+    {
+        <div class="parts-table__scroll">
+            <table class="parts-table">
+                <thead>
+                    <tr>
+                        <th>@Localizer.T("parts.column.part")</th>
+                        <th>@Localizer.T("parts.column.qty")</th>
+                        <th>@Localizer.T("parts.column.jobs")</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in demand)
+                    {
+                        <tr>
+                            <td class="parts-table__name">@row.PartName</td>
+                            <td>@row.TotalQuantity</td>
+                            <td>
+                                @foreach (var jobNumber in row.BlockingJobNumbers)
+                                {
+                                    <span class="job-chip">@jobNumber</span>
+                                }
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn--accent btn--small" @onclick="() => HandleMarkReceived(row.PartName)">
+                                    @Localizer.T("parts.markReceived")
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</section>
+
+@code {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        JobBoardService.JobsChanged += HandleJobsChanged;
+    }
+
+    private void HandleJobsChanged()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    private void HandleMarkReceived(string partName)
+    {
+        JobBoardService.MarkPartReceived(partName);
+    }
+
+    public override void Dispose()
+    {
+        JobBoardService.JobsChanged -= HandleJobsChanged;
+        base.Dispose();
+    }
+}

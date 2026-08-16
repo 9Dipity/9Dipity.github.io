@@ -1,0 +1,151 @@
+@page "/"
+@inherits LocalizedComponentBase
+@inject IJobBoardService JobBoardService
+
+<PageTitle>@Localizer.T("board.title")</PageTitle>
+
+<div class="page-header">
+    <div>
+        <h1>@Localizer.T("board.title")</h1>
+        <p class="page-header__subtitle">@Localizer.T("board.subtitle")</p>
+    </div>
+    <div class="page-header__actions">
+        <span class="completed-pill">@Localizer.T("board.completedToday"): @JobBoardService.CompletedTodayCount</span>
+        <button type="button" class="btn btn--ghost" @onclick="ToggleNewJobForm">@Localizer.T("board.newJobButton")</button>
+        <button type="button" class="btn btn--ghost" @onclick="HandleReset">@Localizer.T("board.resetButton")</button>
+    </div>
+</div>
+
+@if (_showNewJobForm)
+{
+    <section class="new-job-card">
+        <h2>@Localizer.T("newJob.title")</h2>
+        <div class="new-job-card__fields">
+            <label>
+                @Localizer.T("newJob.customerLabel")
+                <input @bind="_newCustomer" @bind:event="oninput" />
+            </label>
+            <label>
+                @Localizer.T("newJob.vehicleLabel")
+                <input @bind="_newVehicle" @bind:event="oninput" />
+            </label>
+            <label class="new-job-card__issue">
+                @Localizer.T("newJob.issueLabel")
+                <input @bind="_newIssue" @bind:event="oninput" />
+            </label>
+        </div>
+        @if (_showValidationError)
+        {
+            <p class="new-job-card__error">@Localizer.T("newJob.validationError")</p>
+        }
+        <div class="new-job-card__actions">
+            <button type="button" class="btn btn--accent" @onclick="HandleAddJob">@Localizer.T("newJob.submitButton")</button>
+            <button type="button" class="btn btn--ghost" @onclick="ToggleNewJobForm">@Localizer.T("newJob.cancelButton")</button>
+        </div>
+    </section>
+}
+
+<div class="board-scroll">
+    <div class="board-columns">
+        @foreach (var status in _columns)
+        {
+            var jobsInColumn = JobBoardService.Jobs.Where(j => j.Status == status).ToList();
+            <section class="board-column">
+                <header class="board-column__header">
+                    <h2>@Localizer.T($"status.{status}")</h2>
+                    <span class="board-column__count">@jobsInColumn.Count</span>
+                </header>
+                <div class="board-column__list">
+                    @if (jobsInColumn.Count == 0)
+                    {
+                        <p class="board-column__empty">@Localizer.T("board.noJobsInColumn")</p>
+                    }
+                    @foreach (var job in jobsInColumn)
+                    {
+                        <JobCard Job="job" IsFlashing="@(job.Id == _flashJobId)" OnAdvance="HandleAdvance" />
+                    }
+                </div>
+            </section>
+        }
+    </div>
+</div>
+
+@code {
+    private static readonly JobStatus[] _columns =
+    {
+        JobStatus.Intake, JobStatus.Diagnosis, JobStatus.AwaitingParts, JobStatus.InProgress, JobStatus.Ready
+    };
+
+    private bool _showNewJobForm;
+    private bool _showValidationError;
+    private string _newCustomer = "";
+    private string _newVehicle = "";
+    private string _newIssue = "";
+    private Guid? _flashJobId;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        JobBoardService.JobsChanged += HandleJobsChanged;
+    }
+
+    private void HandleJobsChanged()
+    {
+        var id = JobBoardService.LastChangedJobId;
+        _flashJobId = id;
+        InvokeAsync(StateHasChanged);
+        _ = ClearFlashAfterDelay(id);
+    }
+
+    private async Task ClearFlashAfterDelay(Guid? id)
+    {
+        await Task.Delay(900);
+        if (_flashJobId == id)
+        {
+            _flashJobId = null;
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private void ToggleNewJobForm()
+    {
+        _showNewJobForm = !_showNewJobForm;
+        _showValidationError = false;
+        if (_showNewJobForm)
+        {
+            _newCustomer = "";
+            _newVehicle = "";
+            _newIssue = "";
+        }
+    }
+
+    private void HandleAddJob()
+    {
+        if (string.IsNullOrWhiteSpace(_newCustomer) || string.IsNullOrWhiteSpace(_newVehicle) || string.IsNullOrWhiteSpace(_newIssue))
+        {
+            _showValidationError = true;
+            return;
+        }
+
+        JobBoardService.AddJob(_newCustomer.Trim(), _newVehicle.Trim(), _newIssue.Trim());
+        _showNewJobForm = false;
+        _showValidationError = false;
+    }
+
+    private void HandleAdvance(Guid jobId)
+    {
+        JobBoardService.AdvanceStatus(jobId);
+    }
+
+    private void HandleReset()
+    {
+        JobBoardService.Reset();
+        _showNewJobForm = false;
+    }
+
+    public override void Dispose()
+    {
+        JobBoardService.JobsChanged -= HandleJobsChanged;
+        base.Dispose();
+    }
+}

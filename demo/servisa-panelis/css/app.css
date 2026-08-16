@@ -1,0 +1,642 @@
+/* ---------------------------------------------------------------------
+   Baltic Motor Works — Service Bay Console
+   A workshop-floor aesthetic: asphalt charcoal chrome, concrete-grey
+   canvas, one confident safety-amber accent. Built to be read at a
+   glance from across a service bay, not studied up close.
+--------------------------------------------------------------------- */
+
+:root {
+    --ink: #1a1d1f;
+    --ink-soft: #2f3336;
+    --canvas: #f2f1ec;
+    --card: #ffffff;
+    --border: #e2e0d8;
+    --text: #201f1c;
+    --text-muted: #6f6d66;
+    --accent: #ffb020;
+    --accent-dark: #d9911a;
+    --accent-soft: #fff1d4;
+    --good: #1f9d55;
+    --good-soft: #e3f7ea;
+    --warn: #c1590a;
+    --warn-soft: #fdead9;
+    --bad: #c22e26;
+    --bad-soft: #fbe4e2;
+    --radius: 10px;
+    --shadow: 0 1px 2px rgba(20, 22, 26, 0.07), 0 8px 24px rgba(20, 22, 26, 0.07);
+    font-family: "Segoe UI", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--canvas);
+    color: var(--text);
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: var(--accent-dark);
+}
+
+button, input {
+    font-family: inherit;
+}
+
+/* ---------------- Blazor built-in helper classes (kept for framework compat) ---------------- */
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid var(--good);
+}
+
+.invalid {
+    outline: 1px solid var(--bad);
+}
+
+.validation-message {
+    color: var(--bad);
+}
+
+.blazor-error-boundary {
+    background: var(--bad-soft);
+    padding: 1rem 1rem 1rem 1.25rem;
+    color: var(--bad);
+    border-radius: 8px;
+}
+
+.blazor-error-boundary::after {
+    content: "An error has occurred.";
+}
+
+/* ---------------- App shell ---------------- */
+
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    background: var(--ink);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.85rem 1.75rem;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+.app-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-right: auto;
+}
+
+.app-header__mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: var(--accent);
+    color: #211803;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+}
+
+.app-header__titles {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.app-header__name {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.app-header__subtitle {
+    font-size: 0.72rem;
+    color: #b8bcc6;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.app-header__nav {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.app-header__link {
+    color: #cdd0d8;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.app-header__link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.app-header__link.active {
+    background: var(--accent);
+    color: #211803;
+}
+
+.lang-toggle {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 3px;
+    gap: 2px;
+}
+
+.lang-toggle__btn {
+    border: none;
+    background: transparent;
+    color: #c7cad2;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lang-toggle__btn.is-active {
+    background: #fff;
+    color: var(--ink);
+}
+
+.app-main {
+    flex: 1;
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 1.75rem 1.75rem 3rem;
+}
+
+.app-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid var(--border);
+    background: var(--card);
+}
+
+/* ---------------- Page header / buttons ---------------- */
+
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.page-header h1 {
+    font-size: 1.6rem;
+}
+
+.page-header__subtitle {
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+    max-width: 58ch;
+    font-size: 0.92rem;
+}
+
+.page-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.completed-pill {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--good);
+    background: var(--good-soft);
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.btn {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.05rem;
+    cursor: pointer;
+    transition: transform 0.08s ease, background 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn--small {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.76rem;
+}
+
+.btn--accent {
+    background: var(--accent);
+    color: #211803;
+}
+
+.btn--accent:hover {
+    background: var(--accent-dark);
+    color: #fff;
+}
+
+.btn--ghost {
+    background: var(--card);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.btn--ghost:hover {
+    border-color: var(--ink);
+}
+
+/* ---------------- New job intake card ---------------- */
+
+.new-job-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.25rem 1.5rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.new-job-card h2 {
+    font-size: 1.02rem;
+    margin-bottom: 0.9rem;
+}
+
+.new-job-card__fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.9rem;
+}
+
+.new-job-card__issue {
+    grid-column: 1 / -1;
+}
+
+.new-job-card label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.new-job-card input {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.88rem;
+    color: var(--text);
+    background: var(--canvas);
+}
+
+.new-job-card__error {
+    margin-top: 0.75rem;
+    background: var(--bad-soft);
+    color: var(--bad);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.55rem 0.75rem;
+    border-radius: 7px;
+}
+
+.new-job-card__actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1.1rem;
+}
+
+/* ---------------- Board / columns / cards ---------------- */
+
+.board-scroll {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.board-columns {
+    display: flex;
+    gap: 1.1rem;
+    min-width: fit-content;
+}
+
+.board-column {
+    width: 270px;
+    flex: 0 0 270px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.85rem 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.board-column__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0 0.25rem;
+}
+
+.board-column__header h2 {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.board-column__count {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: var(--card);
+    border-radius: 999px;
+    padding: 0.1rem 0.5rem;
+}
+
+.board-column__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.board-column__empty {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    padding: 0.5rem 0.25rem;
+}
+
+.job-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    box-shadow: var(--shadow);
+    padding: 0.85rem 0.9rem 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.job-card__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.job-card__number {
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--ink);
+}
+
+.job-card__estimate {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.job-card__vehicle {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--ink);
+}
+
+.job-card__customer {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.job-card__issue {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.35;
+}
+
+.job-card__tech {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+}
+
+.job-card__blocked {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--warn);
+    background: var(--warn-soft);
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+}
+
+.job-card__advance {
+    margin-top: 0.4rem;
+    width: 100%;
+    text-align: center;
+}
+
+@keyframes jobCardFlash {
+    0% {
+        background-color: var(--accent-soft);
+        box-shadow: inset 3px 0 0 var(--accent);
+    }
+    100% {
+        background-color: var(--card);
+        box-shadow: inset 3px 0 0 transparent;
+    }
+}
+
+.job-card--flash {
+    animation: jobCardFlash 0.9s ease-out;
+}
+
+/* ---------------- Parts page ---------------- */
+
+.parts-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.35rem 1.5rem 1.5rem;
+}
+
+.parts-card__hint {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.parts-card__empty {
+    font-size: 0.9rem;
+    color: var(--good);
+    font-weight: 600;
+    background: var(--good-soft);
+    padding: 0.75rem 0.9rem;
+    border-radius: 8px;
+}
+
+.parts-table__scroll {
+    overflow-x: auto;
+}
+
+.parts-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.87rem;
+}
+
+.parts-table thead th {
+    text-align: left;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.parts-table tbody td {
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.parts-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.parts-table__name {
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.job-chip {
+    display: inline-block;
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text);
+    background: var(--canvas);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.12rem 0.5rem;
+    margin: 0.1rem 0.25rem 0.1rem 0;
+}
+
+/* ---------------- Blazor loading / error UI ---------------- */
+
+.loading-progress {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8rem;
+    height: 8rem;
+}
+
+.loading-progress circle {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 0.6rem;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+}
+
+.loading-progress circle:last-child {
+    stroke: var(--accent);
+    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    transition: stroke-dasharray 0.3s ease;
+}
+
+.loading-progress-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.loading-progress-text::after {
+    content: "Loading Baltic Motor Works…";
+}
+
+#blazor-error-ui {
+    background: var(--bad-soft);
+    color: var(--bad);
+    bottom: 0;
+    box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    left: 0;
+    padding: 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    font-size: 0.85rem;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .app-header {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .app-main {
+        padding: 1.1rem 1rem 2.5rem;
+    }
+
+    .page-header__actions {
+        width: 100%;
+    }
+}
