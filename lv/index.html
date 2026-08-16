@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DataCraft Consulting — datubāžu izstrāde, pielāgota programmatūra un tīmekļa vietnes maziem uzņēmumiem. Bankas kvalitātes inženierija MVU cenām. Rīga, Latvija.">
-  <meta name="keywords" content="datubāze, SQL Server, pielāgota programmatūra, tīmekļa dizains, mazais uzņēmums, IT konsultācijas, Rīga, Latvija">
+  <meta name="description" content="DataCraft Consulting — datubāžu diagnostika, pielāgota programmatūra un tīmekļa vietņu izstrāde maziem uzņēmumiem. Ziemeļvalstu bankas kvalitātes inženierija. Rīga, Latvija.">
+  <meta name="keywords" content="datubāzes konsultācijas, pielāgota programmatūra, tīmekļa dizains, SQL Server, mazā uzņēmuma IT, Latvija, Rīga">
   <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/" />
   <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/" />
   <link rel="alternate" hreflang="x-default" href="https://datacraft.lv/en/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/style.css">
   <title>DataCraft — Datubāze · Programmatūra · Tīmeklis</title>
 </head>
@@ -18,10 +19,12 @@
 <header class="header">
   <div class="container header__inner">
     <a href="index.html" class="header__logo">
-      <div class="header__logo-mark">DC</div>
+      <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
       <span class="header__logo-text">DataCraft</span>
     </a>
-    <button class="header__menu-btn" id="menuToggle" aria-label="Atvērt izvēlni">☰</button>
+    <button class="header__menu-btn" id="menuToggle" aria-label="Atvērt izvēlni">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <nav class="header__nav" id="navLinks">
       <button class="menu-close" id="menuClose" aria-label="Aizvērt izvēlni">×</button>
       <li><a href="index.html" class="active">Sākums</a></li>
@@ -31,7 +34,7 @@
       <li><a href="contact.html">Kontakti</a></li>
       <li class="header__lang">
         <a href="../en/index.html">EN</a>
-        <span style="color:var(--text-muted)">|</span>
+        <span style="color:var(--calico-line)">/</span>
         <a href="index.html" class="active">LV</a>
       </li>
     </nav>
@@ -40,225 +43,156 @@
 </header>
 
 <!-- ===== HERO ===== -->
-<section class="hero hero--split">
-  <div class="hero__grid-bg"></div>
-  <div class="hero__glow"></div>
+<section class="hero">
+  <div class="hero__weave"></div>
   <div class="container">
     <div class="hero__inner">
-
       <div class="hero__content">
         <div class="hero__badge">
           <span class="hero__badge-dot"></span>
           Pieejami jauniem projektiem
         </div>
-        <h1>Mēs veidojam sistēmas,<br>kas <em>tiešām strādā.</em></h1>
+        <h1>Sistēmas, kas<br>iztur <em>slodzi.</em></h1>
         <p class="hero__subtitle">
-          10+ gadi iekšpus vienas no Ziemeļvalstu lielākajām banku infrastruktūrām — apstrādājot miljonus darījumu stingrās regulatoriskās prasībās. Šo pašu disciplīnu piedāvājam uzņēmumiem, kas to ir pelnījuši.
+          10+ gadi vienā no lielākajām Ziemeļvalstu banku infrastruktūrām — miljoniem darījumu apstrāde stingros regulatoru termiņos. To pašu disciplīnu piedāvājam uzņēmumiem, kas to ir pelnījuši — un pasakām godīgi, kur tieši kaut kas iestrēgst.
         </p>
         <div class="hero__ctas">
-          <a href="services.html" class="btn btn--primary">Pakalpojumi</a>
+          <a href="services.html" class="btn btn--primary">Skatīt pakalpojumus</a>
           <a href="case-studies.html" class="btn btn--secondary">Mūsu darbi →</a>
         </div>
       </div>
 
-      <div class="hero__terminal">
-        <div class="terminal">
-          <div class="terminal__bar">
-            <div class="terminal__dots">
-              <span class="terminal__dot terminal__dot--r"></span>
-              <span class="terminal__dot terminal__dot--y"></span>
-              <span class="terminal__dot terminal__dot--g"></span>
-            </div>
-            <span class="terminal__fname">sftr_optimization.sql</span>
+      <div class="hero__course">
+        <div class="course">
+          <div class="course__bar">
+            <span class="course__bar-label">Diagnostikas piemērs — SQL Server</span>
+            <span class="course__bar-status"><span class="course__bar-status-dot"></span>Tiešraidē</span>
           </div>
-          <div class="terminal__body" id="terminalBody">
-            <span class="terminal__cursor" id="termCursor"></span>
-          </div>
+          <div class="course__seam"></div>
+          <div class="course__window" id="courseWindow" aria-hidden="true"></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ===== STATS ===== -->
-<div class="stat-band">
-  <div class="container">
-    <div class="stat-grid reveal-stagger" id="statGrid">
-      <div class="stat">
-        <span class="stat__value" data-target="10" data-suffix="+ gadi">0</span>
-        <span class="stat__label">Pieredze banku sistēmās</span>
-      </div>
-      <div class="stat">
-        <span class="stat__value" data-target="87" data-suffix="%">0</span>
-        <span class="stat__label">Vaicājuma ātrums uzlabots (SFTR)</span>
-      </div>
-      <div class="stat">
-        <span class="stat__value" data-target="881">0</span>
-        <span class="stat__label">Automatizēti testi uzrakstīti</span>
-      </div>
-      <div class="stat">
-        <span class="stat__value" data-target="0" data-prefix="Nulle">–</span>
-        <span class="stat__label">Atbilstības pārkāpumi</span>
-      </div>
+<!-- ===== READOUT ===== -->
+<section class="readout">
+  <div class="container readout__grid">
+    <div class="readout__item">
+      <span class="readout__code">Ref 01</span>
+      <p class="readout__fact"><strong>10+ gadi</strong> Ziemeļvalstu banku infrastruktūrā — nevis kursu sertifikāts.</p>
+    </div>
+    <div class="readout__item">
+      <span class="readout__code">Ref 02</span>
+      <p class="readout__fact">Vaicājumu laiks samazināts no <strong>15min uz &lt;2min</strong> reālos regulatoru pārskatos.</p>
+    </div>
+    <div class="readout__item">
+      <span class="readout__code">Ref 03</span>
+      <p class="readout__fact"><strong>SEC / SFTR</strong> ziņošanas sistēmas, veidotas no nulles, audita apstākļos.</p>
+    </div>
+    <div class="readout__item">
+      <span class="readout__code">Ref 04</span>
+      <p class="readout__fact"><strong>Nulle</strong> atbilstības testu kļūmju simtiem automatizēto testu vidū.</p>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ===== PAKALPOJUMI ===== -->
-<section class="section">
+<section class="section paper-strip">
   <div class="container">
     <div class="section__header reveal">
-      <span class="label">Ko mēs darām</span>
-      <h2>Trīs veidi, kā palīdzēt jūsu uzņēmumam</h2>
-      <p>Datubāze, programmatūra un tīmeklis — viss zem viena jumta, veidots, lai darbotos kopā.</p>
-    </div>
-    <div class="pillar-grid reveal-stagger">
-      <a href="services.html#database" class="pillar-card">
-        <div class="pillar-card__icon">🗄️</div>
-        <h3>Datubāze un dati</h3>
-        <p>SQL Server projektēšana, veiktspējas auditi, datu migrācija un arhitektūra. Dati kārtībā un ātri — no pirmās dienas, nevis "savā laikā".</p>
-        <div class="pillar-card__price">Auditi no €199</div>
-      </a>
-      <a href="services.html#software" class="pillar-card">
-        <div class="pillar-card__icon">⚙️</div>
-        <h3>Pielāgota programmatūra</h3>
-        <p>Inventāra sistēmas, rezervācijas, CRM paneļi, procesu automatizācija. Veidots C#/.NET — tieši tā, kā jūsu bizness darbojas, nevis kā veidne pieņem.</p>
-        <div class="pillar-card__price">Fiksēta cena pēc projekta apjoma</div>
-      </a>
-      <a href="services.html#web" class="pillar-card">
-        <div class="pillar-card__icon">🌐</div>
-        <h3>Tīmekļa dizains un izstrāde</h3>
-        <p>Profesionālas mājas lapas un e-komercija. Tīrs kods, ātra ielāde, mobilajām ierīcēm piemērots. Var savienoties ar jūsu datubāzi — ne tikai skaista brošūra.</p>
-        <div class="pillar-card__price">Uzņēmumu lapas no €599</div>
-      </a>
+      <h2>Ko mēs veidojam</h2>
+      <p>Trīs neatkarīgi pakalpojumi, kas skaidri apvienojas vienā projektā, kad problēma šķērso robežu starp tiem.</p>
     </div>
 
-    <div class="package-highlight reveal" style="margin-top: 2rem;">
-      <span class="package-highlight__badge">Pilnā sistēma</span>
-      <h2 style="max-width: 620px; margin-bottom: 1rem;">Datubāze + programmatūra + mājas lapa — projektētas kā vienota integrēta sistēma.</h2>
-      <p style="max-width: 660px; color: var(--text-secondary); margin-bottom: 0;">Vairums uzņēmumu beidzas ar mājas lapu no vienas aģentūras, datubāzi no brīvmākslinieka un programmatūru, kas nerunā ne ar vienu no tiem. Mēs projektējam visas trīs daļas kopā, lai inventārs, mājas lapa un iekšējie rīki darbotos kā vienota sistēma — nevis trīs atsevišķas problēmas ar trim atsevišķiem īpašniekiem.</p>
-      <div class="package-features-grid" style="margin-top: 1.75rem;">
-        <div class="package-feature">SQL Server datubāze jūsu procesiem</div>
-        <div class="package-feature">Tīmekļa pārvaldības programmatūra</div>
-        <div class="package-feature">Publiskā mājas lapa vai e-komercijas veikals</div>
-        <div class="package-feature">Pilna integrācija — viens patiesības avots</div>
-        <div class="package-feature">Darbinieku apmācība un dokumentācija</div>
-        <div class="package-feature">3 mēneši atbalsta pēc palaišanas</div>
+    <div class="course-list">
+      <a href="services.html#database" class="course-row reveal">
+        <span class="course-row__idx"><strong>DB</strong>Virziens 01</span>
+        <span class="course-row__body">
+          <h3>Datubāze un dati</h3>
+          <p>SQL Server veiktspējas auditi, arhitektūra, migrācija — un diagnoze, ko vairums konsultāciju izlaiž.</p>
+        </span>
+        <span class="course-row__arrow"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="services.html#software" class="course-row reveal">
+        <span class="course-row__idx"><strong>SW</strong>Virziens 02</span>
+        <span class="course-row__body">
+          <h3>Pielāgota programmatūra</h3>
+          <p>C#/.NET sistēmas, veidotas darba plūsmai, kāda tā ir jums — iekšējie rīki, integrācijas, automatizācija.</p>
+        </span>
+        <span class="course-row__arrow"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="services.html#web" class="course-row reveal">
+        <span class="course-row__idx"><strong>WEB</strong>Virziens 03</span>
+        <span class="course-row__body">
+          <h3>Tīmekļa dizains</h3>
+          <p>Vietnes un saskarnes, veidotas tāpat kā šī — bez veidnes, bez liekā, bez tā, kas tikai izskatās tehnisks.</p>
+        </span>
+        <span class="course-row__arrow"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEMO ===== -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section__header reveal">
+      <h2 style="color:var(--calico)">Nevis maketa attēls. Strādājoša sistēma.</h2>
+      <p>Klīnikas rezervāciju un kalendāra sistēma, veidota no A līdz Z un darbojas tiešraidē jūsu pārlūkā tieši tagad — tāda pati būve, kādu izveidotu jūsu reģistratūrai.</p>
+    </div>
+
+    <div class="demo-window reveal">
+      <div class="demo-window__bar">
+        <span class="demo-window__dots">
+          <span class="demo-window__dot"></span><span class="demo-window__dot"></span><span class="demo-window__dot"></span>
+        </span>
+        <span class="demo-window__url">datacraft.lv/demo/klinikas-pieraksts/</span>
       </div>
-      <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="contact.html" class="btn btn--primary">Uzsākt sarunu</a>
-        <a href="case-studies.html" class="btn btn--secondary">Skatīt pilnās sistēmas piemēru →</a>
+      <iframe class="demo-window__frame" src="/demo/klinikas-pieraksts/" loading="lazy" title="Klīnikas rezervāciju demo — tiešraides priekšskatījums"></iframe>
+      <div class="demo-window__caption">
+        <p>Blazor WebAssembly, darbojas pilnībā pārlūkā — pašlaik ar parauga datiem, ne reāla klienta ierakstiem.</p>
+        <a href="/demo/klinikas-pieraksts/" class="btn btn--secondary btn--small" target="_blank" rel="noopener">Atvērt pilnu demo →</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== CITĀTS ===== -->
-<div class="insight-band">
+<section class="section--lead insight-band reveal">
   <div class="container">
-    <blockquote>
-      "Lielākā daļa datubāžu un programmatūras problēmu nav grūti risināmas —<br>
-      <em>ja zini, kur meklēt.</em>"
-    </blockquote>
-    <cite>— Arturs Irbītis, dibinātājs · 10+ gadi, Ziemeļvalstu banku infrastruktūra</cite>
-  </div>
-</div>
-
-<!-- ===== AR KO MĒS STRĀDĀJAM ===== -->
-<section class="section section--alt">
-  <div class="container">
-    <div class="section__header section__header--center reveal">
-      <span class="label">Ar ko mēs strādājam</span>
-      <h2>Uzņēmumiem, kas nopietni domā par izaugsmi</h2>
-      <p>Bankas kvalitātes tehnoloģijas nav tikai bankām.</p>
-    </div>
-    <div class="industry-grid reveal-stagger">
-      <div class="industry-card"><span class="industry-card__icon">🛍️</span><h4>Mazumtirdzniecība un e-komercija</h4></div>
-      <div class="industry-card"><span class="industry-card__icon">🍽️</span><h4>Viesmīlība un ēdināšana</h4></div>
-      <div class="industry-card"><span class="industry-card__icon">🏥</span><h4>Veselības aprūpe un klīnikas</h4></div>
-      <div class="industry-card"><span class="industry-card__icon">⚖️</span><h4>Profesionālie pakalpojumi</h4></div>
-      <div class="industry-card"><span class="industry-card__icon">📦</span><h4>Imports un izplatīšana</h4></div>
-      <div class="industry-card"><span class="industry-card__icon">🏗️</span><h4>Būvniecība un amatniecība</h4></div>
-    </div>
-
-    <div class="reveal" style="max-width: 720px; margin: 2.5rem auto 0; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);">
-      <p style="margin:0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">
-        <strong style="color:var(--text-primary);">Tipiskais klients:</strong> Jūs vadāt īstu uzņēmumu — veikalu, klīniku vai pakalpojumu uzņēmumu, kas žonglo ar izklājlapām. Jūs esat izaudzis no Excel un salāpītiem rīkiem, bet neesat gatavs maksāt €40 000 par lieluzņēmumu programmatūru, kas lielākoties neder. Tieši šo plaisu mēs aizpildām.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PROJEKTU PIEMĒRI ===== -->
-<section class="section">
-  <div class="container">
-    <div class="section__header reveal">
-      <span class="label">Atsevišķi darbi</span>
-      <h2>Reāli rezultāti, reāli projekti</h2>
-      <p>No banku atbilstības sistēmām līdz mazumtirdzniecības inventāra pārvaldībai.</p>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;" class="reveal-stagger">
-
-      <a href="case-studies.html#retail" class="blog-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-card__date"><span class="case-study-card__category category--retail">Mazumtirdzniecība · Pilnā sistēma</span></div>
-        <h3>Inventāra sinhronizācija Rīgas modes boutique</h3>
-        <p>Excel bāzēta krājumu pārvaldība izraisīja pārdošanu bez krājumiem. Izveidojām SQL datubāzi, sinhronizācijas API un tīmekļa portālu.</p>
-        <div class="cs-metrics" style="margin-top: 1rem;">
-          <div class="cs-metric"><span class="cs-metric__value">0</span><span class="cs-metric__label">Pārdošana bez krājumiem</span></div>
-          <div class="cs-metric"><span class="cs-metric__value">23%</span><span class="cs-metric__label">Peļņas uzlabojums</span></div>
-        </div>
-      </a>
-
-      <a href="case-studies.html#clinic" class="blog-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-card__date"><span class="case-study-card__category category--health">Veselības aprūpe · Programmatūra</span></div>
-        <h3>Pacientu pārvaldība 3 nodaļu zobārstniecības klīnikai</h3>
-        <p>Papīra kartītes, Outlook kalendārs, Excel rēķini. Digitalizējām visas trīs nodaļas ar kopīgu datubāzi un rezervāciju sistēmu.</p>
-        <div class="cs-metrics" style="margin-top: 1rem;">
-          <div class="cs-metric"><span class="cs-metric__value">€40k</span><span class="cs-metric__label">Ietaupīts vs. gatavu risin.</span></div>
-          <div class="cs-metric"><span class="cs-metric__value">40%</span><span class="cs-metric__label">Mazāk administrācijas</span></div>
-        </div>
-      </a>
-
-      <a href="case-studies.html#sec" class="blog-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-card__date"><span class="case-study-card__category category--banking">Banku sektors · Atbilstība</span></div>
-        <h3>SEC vērtspapīru aizdošanas atskaitīšanās — 10 000 darījumu/dienā</h3>
-        <p>Izveidots no nulles: C# apstrādes dzinējs, 881 automatizēti testi, BZip2/SFTP pārsūtīšana. T+1 atbilstība apjomā.</p>
-        <div class="cs-metrics" style="margin-top: 1rem;">
-          <div class="cs-metric"><span class="cs-metric__value">~40 st.</span><span class="cs-metric__label">Manuālais darbs/ned. samazināts</span></div>
-          <div class="cs-metric"><span class="cs-metric__value">Nulle</span><span class="cs-metric__label">Pārkāpumi</span></div>
-        </div>
-      </a>
-
-    </div>
-
-    <div style="text-align:center; margin-top:2rem;" class="reveal">
-      <a href="case-studies.html" class="btn btn--secondary">Skatīt visus projektus →</a>
-    </div>
+    <blockquote>"Lielākā daļa datubāžu un programmatūras problēmu nav grūti risināmas — <em>ja zini, kur meklēt.</em> Tieši to DataCraft piedāvā."</blockquote>
+    <cite>Arturs Irbītis · Dibinātājs, DataCraft Consulting</cite>
   </div>
 </section>
 
 <!-- ===== PROCESS ===== -->
-<section class="section section--alt">
+<section class="section paper-strip">
   <div class="container">
     <div class="section__header reveal">
-      <span class="label">Kā tas strādā</span>
-      <h2>Vienkāršs process, bez pārsteigumiem</h2>
-      <p>Neatkarīgi no tā, vai vajadzīgs ātrs audits vai pilnīga sistēmas izveide — process ir vienāds.</p>
+      <h2>No pirmā zvana līdz gatavam risinājumam</h2>
     </div>
-    <div class="steps reveal-stagger">
-      <div class="step">
-        <h3>Pastāstiet, kas vajadzīgs</h3>
-        <p>30 minūšu zvans vai īss e-pasts. Sapratīsim jūsu situāciju un sniegsim godīgu vērtējumu — arī tad, ja mūsu palīdzība nav vajadzīga.</p>
+    <div class="process-steps reveal-stagger">
+      <div class="process-step">
+        <span class="process-step__tab">Solis 01 / 04</span>
+        <h3>Iepazīšanās saruna</h3>
+        <p>30–45 minūtes, bez pārdošanas. Noskaidrosim, vai vispār ir reāla problēma, ko risināt.</p>
       </div>
-      <div class="step">
-        <h3>Izstrādājam apjomu un cenu</h3>
-        <p>Fiksēta cena, skaidri rezultāti. Pirms darba uzsākšanas zināt tieši, ko saņemsiet. Nav stundu norēķinu pārsteigumu.</p>
+      <div class="process-step">
+        <span class="process-step__tab">Solis 02 / 04</span>
+        <h3>Diagnostika</h3>
+        <p>Tikai lasīšanas piekļuve, mūsu skripti darbojas, jūs saņemat ziņojumu vienkāršā valodā.</p>
       </div>
-      <div class="step">
-        <h3>Veidojam — pieder jums</h3>
-        <p>Strādājoša programmatūra ar pilnu dokumentāciju. Kods, datubāze — viss jums pieder. Nav piesaistes — jebkurā brīdī varat nodot citam izstrādātājam.</p>
+      <div class="process-step">
+        <span class="process-step__tab">Solis 03 / 04</span>
+        <h3>Rakstisks piedāvājums</h3>
+        <p>Fiksēts apjoms, fiksēta cena, rakstiski — nekad nenosaukta uzreiz zvana laikā.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step__tab">Solis 04 / 04</span>
+        <h3>Izstrāde un nodošana</h3>
+        <p>Viss, ko veidojam, pieder jums. Dokumentējam gaitā, nevis pēc jūsu lūguma.</p>
       </div>
     </div>
   </div>
@@ -267,10 +201,9 @@
 <!-- ===== CTA ===== -->
 <section class="cta-band">
   <div class="container">
-    <span class="label" style="justify-content:center; display:flex; margin-bottom:1rem;">Bezmaksas pirmā saruna</span>
-    <h2>Runāsim par jūsu projektu.</h2>
-    <p style="max-width:540px; margin-left:auto; margin-right:auto;">Vai tas ir ātrs audits, jauna datubāze vai pilnīga digitālā pārmaiņa — sazinieties un 24 stundu laikā sniegšu godīgu viedokli.</p>
-    <a href="contact.html" class="btn btn--primary">Sazināties →</a>
+    <h2>Kaut kas jūsu sistēmā<br>iestrēdzis?</h2>
+    <p style="max-width:480px;">Pastāstiet, kur sāp. Godīgi pateiksim, vai to vērts risināt — pirms jebkāda darba sākuma.</p>
+    <a href="contact.html" class="btn btn--primary">Pieteikt sarunu →</a>
   </div>
 </section>
 
@@ -279,10 +212,10 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <div class="header__logo" style="margin-bottom:1rem;">
-          <div class="header__logo-mark">DC</div>
-          <span class="header__logo-text">DataCraft</span>
+          <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
+          <span class="header__logo-text" style="color:var(--calico)">DataCraft</span>
         </div>
-        <p>Datubāžu izstrāde, pielāgota programmatūra un tīmekļa vietnes maziem un vidējiem uzņēmumiem. Bankas kvalitātes inženierija MVU. Rīga, Latvija.</p>
+        <p>Datubāzes, programmatūras un tīmekļa konsultācijas MVU. Rīga, Latvija.</p>
       </div>
       <div>
         <h4>Lapas</h4>
@@ -294,11 +227,11 @@
       <div>
         <h4>Kontakti</h4>
         <a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a>
-        <a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a>
-        <p style="margin-top:0.5rem; font-size:0.85rem;">Rīga, Latvija · Apkalpojam klientus starptautiski</p>
+        <a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" rel="noopener">LinkedIn →</a>
+        <p style="margin-top:0.5rem;font-size:0.9rem;color:var(--sage-dim);">Rīga, Latvija</p>
       </div>
     </div>
-    <div class="footer__bottom">© 2025 DataCraft Consulting. Visas tiesības aizsargātas.</div>
+    <div class="footer__bottom">© 2026 DataCraft Consulting. Visas tiesības aizsargātas.</div>
   </div>
 </footer>
 
@@ -309,88 +242,62 @@
     bar.style.transform = `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`;
   }, { passive: true });
 
-  const toggle = document.getElementById('menuToggle');
-  const close  = document.getElementById('menuClose');
-  const nav    = document.getElementById('navLinks');
-  const overlay = document.getElementById('menuOverlay');
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose');
+  const nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
   const open = () => { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
   const shut = () => { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow = ''; };
-  toggle && toggle.addEventListener('click', open);
-  close  && close.addEventListener('click', shut);
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut);
   overlay && overlay.addEventListener('click', shut);
   nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
 
-  const ro = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); ro.unobserve(e.target); } });
-  }, { threshold: 0.12 });
+  const ro = new IntersectionObserver((e) => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in-view'); ro.unobserve(x.target); } });
+  }, { threshold: 0.1 });
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => ro.observe(el));
 
-  const statGrid = document.getElementById('statGrid');
-  const counters = statGrid ? statGrid.querySelectorAll('.stat__value[data-target]') : [];
-  let counted = false;
-  const runCounters = () => {
-    if (counted) return; counted = true;
-    counters.forEach(el => {
-      const target = parseInt(el.dataset.target, 10);
-      const suffix = el.dataset.suffix || '';
-      const prefix = el.dataset.prefix || '';
-      if (prefix) { el.textContent = prefix; return; }
-      const steps = 50; const step = target / steps;
-      let current = 0;
-      const tick = setInterval(() => {
-        current = Math.min(current + step, target);
-        el.textContent = Math.round(current) + suffix;
-        if (current >= target) clearInterval(tick);
-      }, 1200 / steps);
-    });
-  };
-  const co = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) runCounters(); });
-  }, { threshold: 0.3 });
-  if (statGrid) co.observe(statGrid);
-
-  /* Terminal */
-  const body = document.getElementById('terminalBody');
-  const cursor = document.getElementById('termCursor');
-  if (!body) return;
-
-  const lines = [
-    { text: '-- ⚡ Īsts projekts: SFTR atskaišu konveijers', cls: 't-comment' },
-    { text: '-- Problēma: atskaite aizņem 14:32 min  ✗', cls: 't-err' },
-    { text: '', cls: '' },
-    { text: 'SELECT t.*, p.pos_size, r.rate', cls: 't-code' },
-    { text: 'FROM sftr_trades t', cls: 't-kw' },
-    { text: '  LEFT JOIN (SELECT * FROM positions) p', cls: 't-code' },
-    { text: '  LEFT JOIN (SELECT * FROM rates) r', cls: 't-code' },
-    { text: '-- ⚠  47 pilnas tabulas skenēšanas', cls: 't-warn' },
-    { text: '', cls: '' },
-    { text: '-- Optimizācija: indeksēti skati + filtrēti indeksi,', cls: 't-comment' },
-    { text: '--               inkrementāla apstrāde...', cls: 't-comment' },
-    { text: '', cls: '' },
-    { text: 'CREATE INDEX IX_trades_date_filtered', cls: 't-kw' },
-    { text: '  ON sftr_trades (trade_date, status)', cls: 't-code' },
-    { text: '  WHERE status = \'ACTIVE\';', cls: 't-code' },
-    { text: '', cls: '' },
-    { text: '-- ✓ Izpildes laiks: 1:47 min  (87% ātrāk)', cls: 't-ok' },
-    { text: '-- ✓ CPU slodze samazināta par 70%', cls: 't-ok' },
-    { text: '-- ✓ Bez dīkstāves produkcijā', cls: 't-ok' },
+  // ===== Course window — diagnostikas piemērs =====
+  const rows = [
+    { idx: 'PĀR. 01', text: 'Vaicājumu izpildes plāni', detail: '184 vaicājumi pārbaudīti', status: 'ok', label: 'Kārtībā' },
+    { idx: 'PĀR. 02', text: 'Indeksu pārklājums', detail: 'orders.customer_id — indekss nav atrasts', status: 'fault', label: 'Kļūme' },
+    { idx: 'PĀR. 03', text: 'Servera noklusējuma iestatījumi', detail: 'MAXDOP atstāts rūpnīcas noklusējumā', status: 'fault', label: 'Kļūme' },
+    { idx: 'PĀR. 04', text: 'Bloķēšana un rindas', detail: 'ilgstošas bloķēšanas nav konstatētas', status: 'ok', label: 'Kārtībā' },
+    { idx: 'PĀR. 05', text: 'Rezerves kopiju integritāte', detail: 'pēdējā pārbaudītā atjaunošana: pirms 2 g.', status: 'fault', label: 'Kļūme' },
+    { idx: 'GATAVS', text: 'Pārbaude pabeigta — 3 atradumi, ziņojums gatavs', detail: '', status: 'wait', label: 'Gatavs' }
   ];
 
-  let i = 0;
-  body.innerHTML = '';
-  body.appendChild(cursor);
+  const win = document.getElementById('courseWindow');
+  let i = 0, timer = null;
 
-  const showNext = () => {
-    if (i >= lines.length) { cursor.style.display = 'none'; return; }
-    const { text, cls } = lines[i++];
-    const el = document.createElement('span');
-    el.className = 't-line' + (cls ? ' ' + cls : '');
-    el.textContent = text || ' ';
-    body.insertBefore(el, cursor);
-    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('vis')));
-    setTimeout(showNext, text === '' ? 200 : 140 + Math.random() * 60);
-  };
-  setTimeout(showNext, 1000);
+  function step() {
+    if (!win) return;
+    if (i === 0) win.innerHTML = '';
+    const r = rows[i];
+    const row = document.createElement('div');
+    row.className = 'course__row' + (r.status === 'fault' ? ' course__row--fault' : '');
+    row.innerHTML = `
+      <span class="course__row-idx">${r.idx}</span>
+      <span>
+        <span class="course__row-text">${r.text}</span>
+        ${r.detail ? `<span class="course__row-detail">${r.detail}</span>` : ''}
+      </span>
+      <span class="course__row-status course__row-status--${r.status}">${r.label}</span>`;
+    win.appendChild(row);
+    i++;
+    if (i < rows.length) {
+      timer = setTimeout(step, i === 1 ? 550 : 700);
+    }
+    // Runs once, then rests — the ambient scan-line (CSS) carries the
+    // "still live" signal after this, instead of replaying the whole run.
+  }
+
+  if (win) {
+    const courseObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !timer) { step(); }
+      });
+    }, { threshold: 0.2 });
+    courseObserver.observe(win);
+  }
 })();
 </script>
 </body>

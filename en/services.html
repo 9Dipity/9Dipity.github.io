@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DataCraft Consulting services — SQL Server database design & audits, custom software development, web design. Fixed pricing, clear deliverables.">
+  <meta name="description" content="DataCraft Consulting services — SQL Server database design & audits, custom software development, web design. Fixed scope, honest diagnosis.">
   <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/services.html" />
   <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/services.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/style.css">
   <title>Services — DataCraft Consulting</title>
 </head>
@@ -15,8 +16,13 @@
 
 <header class="header">
   <div class="container header__inner">
-    <a href="index.html" class="header__logo"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></a>
-    <button class="header__menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+    <a href="index.html" class="header__logo">
+      <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
+      <span class="header__logo-text">DataCraft</span>
+    </a>
+    <button class="header__menu-btn" id="menuToggle" aria-label="Open menu">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <nav class="header__nav" id="navLinks">
       <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
       <li><a href="index.html">Home</a></li>
@@ -24,7 +30,11 @@
       <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li class="header__lang"><a href="services.html" class="active">EN</a><span style="color:var(--text-muted)">|</span><a href="../lv/services.html">LV</a></li>
+      <li class="header__lang">
+        <a href="services.html" class="active">EN</a>
+        <span style="color:var(--calico-line)">/</span>
+        <a href="../lv/services.html">LV</a>
+      </li>
     </nav>
     <div class="menu-overlay" id="menuOverlay"></div>
   </div>
@@ -32,89 +42,70 @@
 
 <section class="page-hero">
   <div class="container">
-    <span class="label">What We Do</span>
-    <h1>Services</h1>
-    <p>Three service areas built to work together — or independently, depending on what you need.</p>
+    <h1>Three courses, one roll.</h1>
+    <p>Independent services built to work together — or stand alone, depending on what's actually wrong.</p>
   </div>
 </section>
 
-<section class="section--sm">
+<section class="section--sm paper-strip">
   <div class="container">
     <nav class="anchor-nav">
-      <a href="#database">🗄️ Database & Data</a>
-      <a href="#software">⚙️ Custom Software</a>
-      <a href="#web">🌐 Web Design</a>
+      <a href="#database">Database & Data</a>
+      <a href="#software">Custom Software</a>
+      <a href="#web">Web Design</a>
     </nav>
   </div>
 </section>
 
 <!-- ===== DATABASE ===== -->
-<section class="section" id="database">
+<section class="section paper-strip" id="database">
   <div class="container">
     <div class="service-section-head reveal">
-      <div class="service-section-head__icon">🗄️</div>
+      <div class="service-section-head__icon">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 6c0-1.1 3.6-2 8-2s8 .9 8 2-3.6 2-8 2-8-.9-8-2Z"/><path d="M4 6v6c0 1.1 3.6 2 8 2s8-.9 8-2V6"/><path d="M4 12v6c0 1.1 3.6 2 8 2s8-.9 8-2v-6"/></svg>
+      </div>
       <div>
-        <span class="label" style="margin-bottom:0.25rem;">Database & Data</span>
         <h2>SQL Server — designed right, running fast.</h2>
         <p>Performance audits, database architecture, data migration, and ongoing optimisation.</p>
       </div>
     </div>
 
-    <p style="max-width:700px; color:var(--text-secondary); margin-bottom:3rem; font-size:1rem; line-height:1.8;" class="reveal">
+    <p style="max-width:700px; margin-bottom:3rem; font-size:1rem;" class="reveal">
       Most database problems aren't mysterious. They're queries built without looking at execution plans, indexes created once and never revisited, and configuration left at factory defaults. We've spent 10+ years diagnosing and fixing exactly these problems inside banking-grade environments. The same issues appear everywhere — and the fixes are usually faster than people expect.
     </p>
 
-    <!-- Performance Audits -->
-    <div class="section__header section__header--center reveal">
-      <span class="label">Performance Audits — fixed price, fixed timeline</span>
-      <h3 style="font-family:var(--font-body); font-weight:700; font-size:1.4rem;">Find out exactly why your database is slow.</h3>
-      <p>You share read-only access, we run our diagnostic scripts, you get a report. No disruption to your environment.</p>
+    <div class="section__header reveal">
+      <h3 style="text-transform:none; font-family:var(--font-black); font-weight:400; font-size:1.3rem;">Performance audits — find out exactly why it's slow</h3>
+      <p>You share read-only access, we run our diagnostic scripts, you get a plain-language report. No disruption to your environment, no number picked out of the air — we recommend a tier once we know what we're looking at.</p>
     </div>
 
-    <div class="pricing-grid reveal-stagger">
-      <div class="pricing-card">
-        <div class="pricing-card__name">Quick Check</div>
-        <div class="pricing-card__price">€199</div>
-        <p class="pricing-card__desc">Delivered in 2–3 business days</p>
-        <ul class="pricing-card__features">
-          <li>Top 5 performance issues identified</li>
-          <li>3-page report with severity ratings</li>
-          <li>Configuration red flags</li>
-          <li>High-level fix recommendations</li>
-        </ul>
-        <a href="contact.html" class="btn btn--secondary">Book Now</a>
+    <div class="course-list reveal">
+      <div class="course-row" style="cursor:default;">
+        <span class="course-row__idx"><strong>QC</strong>Quick Check</span>
+        <span class="course-row__body">
+          <h3>2–3 business days</h3>
+          <p>Top 5 performance issues identified, a 3-page report with severity ratings, configuration red flags, and high-level fix recommendations.</p>
+        </span>
       </div>
-      <div class="pricing-card pricing-card--featured">
-        <div class="pricing-card__name">Standard Audit</div>
-        <div class="pricing-card__price">€499</div>
-        <p class="pricing-card__desc">Delivered in 5 business days</p>
-        <ul class="pricing-card__features">
-          <li>Top 10 issues with detailed fix instructions</li>
-          <li>Full report with working SQL code</li>
-          <li>30-minute walkthrough call</li>
-          <li>Index analysis & recommendations</li>
-          <li>Wait statistics deep dive</li>
-          <li>Configuration optimisation plan</li>
-        </ul>
-        <a href="contact.html" class="btn btn--primary">Book Now</a>
+      <div class="course-row" style="cursor:default;">
+        <span class="course-row__idx"><strong>SA</strong>Standard Audit</span>
+        <span class="course-row__body">
+          <h3>5 business days</h3>
+          <p>Top 10 issues with detailed fix instructions and working SQL code, a 30-minute walkthrough call, index analysis, wait-statistics deep dive, and a configuration plan.</p>
+        </span>
       </div>
-      <div class="pricing-card">
-        <div class="pricing-card__name">Deep Dive</div>
-        <div class="pricing-card__price">€999+</div>
-        <p class="pricing-card__desc">Delivered in 7–10 business days</p>
-        <ul class="pricing-card__features">
-          <li>Everything in Standard Audit</li>
-          <li>60-minute consultation call</li>
-          <li>Working fixes, tested & validated</li>
-          <li>Before/after performance comparison</li>
-          <li>2-week follow-up support</li>
-        </ul>
-        <a href="contact.html" class="btn btn--secondary">Book Now</a>
+      <div class="course-row" style="cursor:default;">
+        <span class="course-row__idx"><strong>DD</strong>Deep Dive</span>
+        <span class="course-row__body">
+          <h3>7–10 business days</h3>
+          <p>Everything in Standard, plus a 60-minute consultation, working fixes tested and validated in place, a before/after performance comparison, and two weeks of follow-up support.</p>
+        </span>
       </div>
     </div>
 
-    <!-- What we do beyond audits -->
-    <div class="section-divider reveal"><span>Beyond Audits</span></div>
+    <div style="text-align:center; margin: 2.5rem 0;" class="reveal">
+      <a href="contact.html" class="btn btn--primary">Ask Which Tier Fits →</a>
+    </div>
 
     <div class="detail-block reveal">
       <h3>Database design, migration & architecture</h3>
@@ -139,44 +130,38 @@
         <li>Automated test suites for reporting logic</li>
       </ul>
     </div>
-
-    <div style="text-align:center; margin: 2rem 0;" class="reveal">
-      <a href="contact.html" class="btn btn--primary">Discuss Your Database →</a>
-    </div>
   </div>
 </section>
 
 <!-- ===== CUSTOM SOFTWARE ===== -->
-<section class="section section--alt" id="software">
+<section class="section section--dark" id="software">
   <div class="container">
     <div class="service-section-head reveal">
-      <div class="service-section-head__icon">⚙️</div>
+      <div class="service-section-head__icon" style="border-color:var(--calico);">
+        <svg class="icon" viewBox="0 0 24 24" style="color:var(--calico);"><rect x="3" y="4" width="18" height="16"/><path d="M3 8h18"/><path d="M9 13l-2 2 2 2"/><path d="M15 13l2 2-2 2"/></svg>
+      </div>
       <div>
-        <span class="label" style="margin-bottom:0.25rem;">Custom Software</span>
         <h2>Tools built for how your business actually works.</h2>
-        <p>Not how generic software assumes it works.</p>
+        <p>Generic software assumes a workflow that isn't yours.</p>
       </div>
     </div>
 
-    <p style="max-width:700px; color:var(--text-secondary); margin-bottom:3rem; font-size:1rem; line-height:1.8;" class="reveal">
+    <p style="max-width:700px; margin-bottom:3rem; font-size:1rem;" class="reveal">
       Off-the-shelf software is either too rigid, too expensive, or does 90% of what you need while missing the 10% that matters most. When you need something that fits your specific workflow — not a close approximation — custom software is the answer. Built on a proper database, it means your tools grow with the business rather than constraining it.
     </p>
 
-    <div class="detail-block reveal">
-      <h3>What we typically build</h3>
-      <ul>
-        <li><strong>Inventory & stock management</strong> — unified across physical and online stores, with real-time sync</li>
-        <li><strong>Booking & appointment systems</strong> — for clinics, service businesses, studios, and hospitality</li>
-        <li><strong>Customer databases (CRM-lite)</strong> — purchase history, loyalty programmes, communication logs</li>
-        <li><strong>Order management</strong> — from quote through fulfilment, with supplier tracking</li>
-        <li><strong>Pricing & margin tools</strong> — supplier price import automation, margin calculators, competitive tracking</li>
-        <li><strong>Internal reporting dashboards</strong> — live KPIs, sales by location/channel, staff performance</li>
-        <li><strong>Process automation</strong> — eliminating repetitive manual work from your operations</li>
-        <li><strong>Compliance & reporting engines</strong> — automated data processing with full audit trails</li>
-      </ul>
-    </div>
+    <ul class="feature-list reveal-stagger" style="margin-bottom:3rem;">
+      <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><strong style="color:var(--calico)">Inventory & stock management</strong>&nbsp;— unified across physical and online stores, with real-time sync</li>
+      <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><strong style="color:var(--calico)">Booking & appointment systems</strong>&nbsp;— for clinics, service businesses, studios, and hospitality</li>
+      <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><strong style="color:var(--calico)">Customer databases (CRM-lite)</strong>&nbsp;— purchase history, loyalty programmes, communication logs</li>
+      <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><strong style="color:var(--calico)">Order management</strong>&nbsp;— from quote through fulfilment, with supplier tracking</li>
+      <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><strong style="color:var(--calico)">Pricing & margin tools</strong>&nbsp;— supplier price import automation, margin calculators</li>
+      <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><strong style="color:var(--calico)">Reporting dashboards</strong>&nbsp;— live KPIs, sales by location or channel, staff performance</li>
+      <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><strong style="color:var(--calico)">Process automation</strong>&nbsp;— eliminating repetitive manual work from your operations</li>
+      <li><svg class="icon" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><strong style="color:var(--calico)">Compliance & reporting engines</strong>&nbsp;— automated processing with full audit trails</li>
+    </ul>
 
-    <div class="detail-block reveal">
+    <div class="panel detail-block reveal">
       <h3>Technology — solid, maintainable, yours</h3>
       <p>All custom software is built with C#/.NET, SQL Server, and a clean web front-end. Proper dependency injection, test coverage as part of the process — not as an afterthought. You get the source code. If you ever want to take it to another developer, you can.</p>
       <ul>
@@ -188,62 +173,70 @@
       </ul>
     </div>
 
-    <div class="detail-block reveal">
-      <h3>How it's priced</h3>
+    <div class="panel detail-block reveal">
+      <h3>How it's scoped</h3>
       <p>Custom software can't have a menu price. The right solution depends entirely on what your business does, how many users you have, what systems already exist, and where the complexity lies. A booking system for a one-person studio is a very different project from inventory software syncing three locations and an online store.</p>
-      <p style="margin-bottom:0;"><strong style="color:var(--text-primary);">What to expect:</strong> you describe your situation, we ask the right questions, and we come back with a clear scope document and a fixed price before any work starts. No hourly billing. No open-ended engagements. Most projects are quoted within 2–3 business days of first contact.</p>
+      <p style="margin-bottom:0;"><strong style="color:var(--ink);">What to expect:</strong> you describe your situation, we ask the right questions, and we come back with a clear scope document and a fixed price before any work starts — always in writing, never quoted live on a call.</p>
     </div>
 
-    <div style="text-align:center; margin: 2rem 0;" class="reveal">
+    <div style="text-align:center; margin: 2.5rem 0;" class="reveal">
       <a href="contact.html" class="btn btn--primary">Tell Us What You Need →</a>
     </div>
   </div>
 </section>
 
 <!-- ===== WEB DESIGN ===== -->
-<section class="section" id="web">
+<section class="section paper-strip" id="web">
   <div class="container">
     <div class="service-section-head reveal">
-      <div class="service-section-head__icon">🌐</div>
+      <div class="service-section-head__icon">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16"/><path d="M3 8h18"/><path d="M7 12h10M7 16h6"/></svg>
+      </div>
       <div>
-        <span class="label" style="margin-bottom:0.25rem;">Web Design & Development</span>
-        <h2>Professional websites that actually convert.</h2>
+        <h2>Websites that are also working software.</h2>
         <p>Clean, fast, mobile-first — and connected to your data when you need it to be.</p>
       </div>
     </div>
 
-    <p style="max-width:700px; color:var(--text-secondary); margin-bottom:3rem; font-size:1rem; line-height:1.8;" class="reveal">
-      Most small business websites are built on cheap templates, load slowly, and were last updated three years ago. The website you're looking at right now is an example of what we build — no page builders, no heavy WordPress themes, just clean code that loads fast and looks sharp.
+    <p style="max-width:700px; margin-bottom:3rem; font-size:1rem;" class="reveal">
+      Most small business websites are built on cheap templates, load slowly, and were last updated three years ago. The site you're looking at right now is an example of what we build — no page builders, no heavy WordPress themes, just deliberate code that loads fast and looks sharp.
     </p>
 
-    <!-- The difference -->
-    <div class="grid-2col reveal-stagger">
-      <div class="card">
-        <div class="card__icon">🎨</div>
-        <h3>Design-led sites</h3>
-        <p>Business websites (5–8 pages), portfolio sites, and landing pages. Clean, fast, bilingual (LV/EN) by default. Designed to represent your business well — not to win awards.</p>
+    <div class="value-list reveal-stagger">
+      <div class="value-row">
+        <span class="value-row__icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16"/><path d="M3 9h18"/><path d="M7 13h4M7 16h7"/></svg></span>
+        <div>
+          <h3>Design-led sites</h3>
+          <p>Business websites (5–8 pages), portfolio sites, and landing pages. Clean, fast, bilingual (LV/EN) by default. Designed to represent your business well — not to win awards.</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="card__icon">🛒</div>
-        <h3>E-commerce & dynamic sites</h3>
-        <p>Product catalogues, payment integration (Stripe), order management. Can connect directly to your inventory database so stock levels are always accurate in real time.</p>
+      <div class="value-row">
+        <span class="value-row__icon"><svg class="icon" viewBox="0 0 24 24"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.8h7.2a2 2 0 0 0 2-1.6L20 8H6"/><circle cx="9" cy="20" r="1.1" fill="currentColor" stroke="none"/><circle cx="17" cy="20" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+        <div>
+          <h3>E-commerce & dynamic sites</h3>
+          <p>Product catalogues, payment integration (Stripe), order management. Can connect directly to your inventory database so stock levels are always accurate in real time.</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="card__icon">🔗</div>
-        <h3>Database-connected sites</h3>
-        <p>This is where we stand out. Your website can pull live data — product inventory, appointment slots, pricing — directly from your SQL Server database. No manual updates needed.</p>
+      <div class="value-row">
+        <span class="value-row__icon"><svg class="icon" viewBox="0 0 24 24"><path d="M9 15l6-6"/><path d="M11 6l1-1a3.5 3.5 0 0 1 5 5l-1 1"/><path d="M13 18l-1 1a3.5 3.5 0 0 1-5-5l1-1"/></svg></span>
+        <div>
+          <h3>Database-connected sites</h3>
+          <p>This is where we stand out. Your website can pull live data — product inventory, appointment slots, pricing — directly from your SQL Server database, without anyone updating it by hand.</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="card__icon">🔄</div>
-        <h3>Redesigns & rebuilds</h3>
-        <p>Existing site slow, outdated, or broken on mobile? We rebuild it properly — keeping your content, discarding the bloat.</p>
+      <div class="value-row">
+        <span class="value-row__icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-14 5.3M4 20v-4h4"/></svg></span>
+        <div>
+          <h3>Redesigns & rebuilds</h3>
+          <p>Existing site slow, outdated, or broken on mobile? We rebuild it properly — keeping your content, discarding the bloat.</p>
+        </div>
       </div>
     </div>
 
     <div class="detail-block reveal">
-      <h3>Pricing</h3>
-      <p>A straightforward business website — 5–6 pages, contact form, bilingual — starts at <strong style="color:var(--text-primary); font-size:1.3rem;">€599</strong>. Beyond that, the price depends on number of pages, e-commerce requirements, database integration, and how much content you're providing vs. what we're writing.</p>
-      <p style="margin-bottom:0; color:var(--text-muted); font-size:0.9rem;">
+      <h3>How pricing works</h3>
+      <p>A straightforward business website is scoped the same way everything else here is: no published rate card. Price depends on number of pages, e-commerce requirements, database integration, and how much content you're providing versus what we're writing.</p>
+      <p style="margin-bottom:0; font-size:0.9rem;">
         If your website is part of a full system project (database + software + web), it's scoped and priced as a whole — not separately. Get in touch and we'll give you a fixed quote, usually within a day or two.
       </p>
     </div>
@@ -261,31 +254,33 @@
       </ul>
     </div>
 
-    <div style="text-align:center; margin: 2rem 0;" class="reveal">
+    <div style="text-align:center; margin: 2.5rem 0;" class="reveal">
       <a href="contact.html" class="btn btn--primary">Get a Quote →</a>
     </div>
   </div>
 </section>
 
 <!-- ===== HOW IT WORKS ===== -->
-<section class="section section--alt">
+<section class="section--lead">
   <div class="container">
     <div class="section__header section__header--center reveal">
-      <span class="label">The Process</span>
-      <h2>Fixed price. Clear scope. No surprises.</h2>
+      <h2>Fixed scope. No surprises.</h2>
     </div>
-    <div class="steps reveal-stagger">
-      <div class="step">
-        <h3>Describe your situation</h3>
-        <p>Email or call. Tell us what you're dealing with and what you need. We ask the right questions — and we'll tell you honestly if we're not the right fit.</p>
+    <div class="process-steps reveal-stagger" style="max-width:920px; margin:0 auto;">
+      <div class="process-step" style="border-color:var(--green-700);">
+        <span class="process-step__tab" style="background:var(--green-800); color:var(--yellow);">Step 01 / 03</span>
+        <h3 style="color:var(--calico);">Describe your situation</h3>
+        <p style="color:var(--sage);">Email or call. Tell us what you're dealing with. We ask the right questions — and we'll tell you honestly if we're not the right fit.</p>
       </div>
-      <div class="step">
-        <h3>We scope and quote</h3>
-        <p>A clear scope document with fixed price before any work starts. For audits: straightforward. For projects: we come back within 2–3 business days.</p>
+      <div class="process-step" style="border-color:var(--green-700);">
+        <span class="process-step__tab" style="background:var(--green-800); color:var(--yellow);">Step 02 / 03</span>
+        <h3 style="color:var(--calico);">We scope and quote</h3>
+        <p style="color:var(--sage);">A clear scope document with a fixed price before any work starts, in writing.</p>
       </div>
-      <div class="step">
-        <h3>We deliver, you own it</h3>
-        <p>Working software with documentation. Source code is yours. No lock-in, no ongoing licence fees unless you want ongoing support.</p>
+      <div class="process-step" style="border-color:var(--green-700);">
+        <span class="process-step__tab" style="background:var(--green-800); color:var(--yellow);">Step 03 / 03</span>
+        <h3 style="color:var(--calico);">We deliver, you own it</h3>
+        <p style="color:var(--sage);">Working software with documentation, and source code that's yours to keep — no lock-in, no licence fees unless you want ongoing support.</p>
       </div>
     </div>
   </div>
@@ -302,11 +297,17 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>Database design, custom software, and web development for small and medium businesses. Based in Riga, Latvia.</p></div>
+      <div class="footer__brand">
+        <div class="header__logo" style="margin-bottom:1rem;">
+          <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
+          <span class="header__logo-text" style="color:var(--calico)">DataCraft</span>
+        </div>
+        <p>Database design, custom software, and web development for small and medium businesses. Based in Riga, Latvia.</p>
+      </div>
       <div><h4>Pages</h4><a href="services.html">Services</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
-      <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.85rem;">Riga, Latvia</p></div>
+      <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" rel="noopener">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.9rem;color:var(--sage-dim);">Riga, Latvia</p></div>
     </div>
-    <div class="footer__bottom">© 2025 DataCraft Consulting. All rights reserved.</div>
+    <div class="footer__bottom">© 2026 DataCraft Consulting. All rights reserved.</div>
   </div>
 </footer>
 

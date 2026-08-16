@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DataCraft Consulting Insights — articles on SQL Server performance, C#/.NET development, and regulatory reporting automation.">
-    <link rel="stylesheet" href="/style.css">
-    <title>Insights — DataCraft Consulting</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DataCraft Consulting Insights — articles on SQL Server performance, C#/.NET development, and regulatory reporting automation.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <title>Insights — DataCraft Consulting</title>
 </head>
 <body>
 
+<div class="progress-bar" id="progressBar"></div>
+
 <header class="header">
   <div class="container header__inner">
-    <a href="index.html" class="header__logo"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></a>
-    <button class="header__menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+    <a href="index.html" class="header__logo">
+      <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
+      <span class="header__logo-text">DataCraft</span>
+    </a>
+    <button class="header__menu-btn" id="menuToggle" aria-label="Open menu">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <nav class="header__nav" id="navLinks">
       <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
       <li><a href="index.html">Home</a></li>
@@ -21,7 +29,11 @@
       <li><a href="about.html">About</a></li>
       <li><a href="blog.html" class="active">Insights</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li class="header__lang"><a href="blog.html" class="active">EN</a><span style="color:var(--text-muted)">|</span><a href="../lv/blog.html">LV</a></li>
+      <li class="header__lang">
+        <a href="blog.html" class="active">EN</a>
+        <span style="color:var(--calico-line)">/</span>
+        <a href="../lv/blog.html">LV</a>
+      </li>
     </nav>
     <div class="menu-overlay" id="menuOverlay"></div>
   </div>
@@ -29,13 +41,12 @@
 
 <section class="page-hero">
   <div class="container">
-    <span class="label">Blog</span>
     <h1>Insights & optimisations</h1>
     <p>Technical articles about SQL Server performance, C#/.NET development, and building reliable systems in financial services.</p>
   </div>
 </section>
 
-<section class="section">
+<section class="section paper-strip">
   <div class="container">
     <div class="blog-grid">
 
@@ -43,7 +54,7 @@
         <div class="blog-card__date">Coming February 2026</div>
         <h3>I cut a bank's report from 15 minutes to under 2 minutes. Here's exactly how.</h3>
         <p>The full technical breakdown of optimising an SFTR reporting pipeline — 47 table scans, 12 correlated subqueries, and the indexed views that fixed everything.</p>
-        <div class="tags" style="margin-top:1rem;">
+        <div class="tags">
           <span class="tag">SQL Server</span>
           <span class="tag">Performance</span>
           <span class="tag">SFTR</span>
@@ -54,7 +65,7 @@
         <div class="blog-card__date">Coming February 2026</div>
         <h3>5 SQL Server default settings that are silently killing your performance</h3>
         <p>Your SQL Server has been misconfigured since the day it was installed. MAXDOP, cost threshold, memory settings — these defaults cost you real money.</p>
-        <div class="tags" style="margin-top:1rem;">
+        <div class="tags">
           <span class="tag">SQL Server</span>
           <span class="tag">Configuration</span>
           <span class="tag">Quick Wins</span>
@@ -65,7 +76,7 @@
         <div class="blog-card__date">Coming March 2026</div>
         <h3>Stop adding indexes every time a query is slow. Here's why it makes things worse.</h3>
         <p>The index-for-everything approach creates write overhead, confuses the query optimiser, and hides the real problems in your workload.</p>
-        <div class="tags" style="margin-top:1rem;">
+        <div class="tags">
           <span class="tag">SQL Server</span>
           <span class="tag">Indexing</span>
           <span class="tag">Myths</span>
@@ -76,7 +87,7 @@
         <div class="blog-card__date">Coming March 2026</div>
         <h3>Building SEC compliance reporting from scratch in 90 days</h3>
         <p>10,000 daily transactions, zero errors, T+1 deadlines. How I built a complete FINRA reporting system — architecture decisions, testing strategy, and lessons learned.</p>
-        <div class="tags" style="margin-top:1rem;">
+        <div class="tags">
           <span class="tag">C# .NET</span>
           <span class="tag">SEC</span>
           <span class="tag">Architecture</span>
@@ -87,7 +98,7 @@
         <div class="blog-card__date">Coming March 2026</div>
         <h3>Your developers can't read execution plans. That's costing you real money.</h3>
         <p>A 5-minute crash course on reading SQL Server execution plans — the single most valuable debugging skill for any backend developer.</p>
-        <div class="tags" style="margin-top:1rem;">
+        <div class="tags">
           <span class="tag">SQL Server</span>
           <span class="tag">Tutorial</span>
           <span class="tag">Execution Plans</span>
@@ -98,7 +109,7 @@
         <div class="blog-card__date">Coming April 2026</div>
         <h3>Regulatory reporting is the silent database killer</h3>
         <p>What compliance teams don't understand about performance — and what DBAs don't understand about regulatory deadlines. Bridging the gap.</p>
-        <div class="tags" style="margin-top:1rem;">
+        <div class="tags">
           <span class="tag">SFTR</span>
           <span class="tag">MiFID II</span>
           <span class="tag">Performance</span>
@@ -107,11 +118,10 @@
 
     </div>
 
-    <div style="text-align:center; margin-top:4rem; padding:3rem; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg);">
-      <span class="label">Stay Updated</span>
-      <h3 style="margin-bottom:0.75rem;">New articles coming soon</h3>
-      <p style="max-width:480px; margin:0 auto 1.5rem;">Follow me on LinkedIn for weekly SQL Server tips and performance insights. Longer articles will appear here as they're published.</p>
-      <a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" class="btn btn--primary">Follow on LinkedIn</a>
+    <div class="detail-block reveal" style="text-align:center; margin-top:3rem; padding:3rem;">
+      <h3>New articles coming soon</h3>
+      <p style="max-width:480px; margin:0 auto 1.5rem;">Follow along on LinkedIn for weekly SQL Server tips and performance insights. Longer articles will appear here as they're published.</p>
+      <a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" rel="noopener" class="btn btn--primary">Follow on LinkedIn</a>
     </div>
   </div>
 </section>
@@ -119,16 +129,38 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>SQL Server & C# performance consulting. Based in Riga, Latvia.</p></div>
-      <div><h4>Pages</h4><a href="services.html">Services & Pricing</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div>
-      <div><h4>Contact</h4><a href="/cdn-cgi/l/email-protection#284c495c494b5a494e5c4b47465b5d445c49465c5b684f45494144064b4745"><span class="__cf_email__" data-cfemail="f5919481949687949381969a9b86809981949b8186b59298949c99db969a98">[email&#160;protected]</span></a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn</a><p style="margin-top:0.5rem;font-size:0.85rem;">Riga, Latvia</p></div>
+      <div class="footer__brand">
+        <div class="header__logo" style="margin-bottom:1rem;">
+          <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
+          <span class="header__logo-text" style="color:var(--calico)">DataCraft</span>
+        </div>
+        <p>SQL Server & C# performance consulting. Based in Riga, Latvia.</p>
+      </div>
+      <div><h4>Pages</h4><a href="services.html">Services</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a></div>
+      <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" rel="noopener">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.9rem;color:var(--sage-dim);">Riga, Latvia</p></div>
     </div>
-    <div class="footer__bottom">© 2025 DataCraft Consulting. All rights reserved.</div>
+    <div class="footer__bottom">© 2026 DataCraft Consulting. All rights reserved.</div>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-document.addEventListener('DOMContentLoaded', function() {
-  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose'), nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
-  function open() { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow='hidden'; }
-  function shut() { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow=
+<script>
+(function() {
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    bar.style.transform = `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`;
+  }, { passive: true });
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose');
+  const nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
+  const open = () => { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+  const shut = () => { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow = ''; };
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut);
+  overlay && overlay.addEventListener('click', shut);
+  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
+  const ro = new IntersectionObserver((e) => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in-view'); ro.unobserve(x.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => ro.observe(el));
+})();
+</script>
+</body>
+</html>

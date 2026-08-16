@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About DataCraft Consulting — a technology company built by engineers with 10+ years inside Nordic banking systems. Based in Riga, Latvia.">
+  <meta name="description" content="About DataCraft Consulting — a technology company built by an engineer with 10+ years inside Nordic banking systems. Based in Riga, Latvia.">
   <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/about.html" />
   <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/about.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/style.css">
   <title>About — DataCraft Consulting</title>
 </head>
@@ -15,8 +16,13 @@
 
 <header class="header">
   <div class="container header__inner">
-    <a href="index.html" class="header__logo"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></a>
-    <button class="header__menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+    <a href="index.html" class="header__logo">
+      <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
+      <span class="header__logo-text">DataCraft</span>
+    </a>
+    <button class="header__menu-btn" id="menuToggle" aria-label="Open menu">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <nav class="header__nav" id="navLinks">
       <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
       <li><a href="index.html">Home</a></li>
@@ -24,7 +30,11 @@
       <li><a href="case-studies.html">Case Studies</a></li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li class="header__lang"><a href="about.html" class="active">EN</a><span style="color:var(--text-muted)">|</span><a href="../lv/about.html">LV</a></li>
+      <li class="header__lang">
+        <a href="about.html" class="active">EN</a>
+        <span style="color:var(--calico-line)">/</span>
+        <a href="../lv/about.html">LV</a>
+      </li>
     </nav>
     <div class="menu-overlay" id="menuOverlay"></div>
   </div>
@@ -32,22 +42,19 @@
 
 <section class="page-hero">
   <div class="container">
-    <span class="label">About DataCraft</span>
-    <h1>Built by engineers.<br>Focused on results.</h1>
+    <h1>Built by an engineer.<br>Focused on results.</h1>
     <p>10+ years inside Nordic banking infrastructure. Now bringing that discipline to businesses that deserve it.</p>
   </div>
 </section>
 
 <!-- ===== FOUNDER ===== -->
-<section class="section">
+<section class="section paper-strip">
   <div class="container">
     <div class="founder-section reveal">
       <div>
         <img src="/arturs.jpg" alt="Arturs Irbitis — Founder, DataCraft Consulting" class="founder__photo">
-        <p style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin-top:0.75rem;">
-          Arturs Irbitis<br>
-          Founder · DataCraft Consulting<br>
-          Riga, Latvia
+        <p class="founder__caption">
+          Arturs Irbitis<br>Founder · DataCraft Consulting<br>Riga, Latvia
         </p>
       </div>
       <div class="founder__bio">
@@ -65,42 +72,56 @@
 </section>
 
 <!-- ===== VALUES ===== -->
-<section class="section section--alt">
+<section class="section section--dark">
   <div class="container">
     <div class="section__header reveal">
-      <span class="label">How We Work</span>
-      <h2>What DataCraft stands for</h2>
+      <h2 style="color:var(--calico)">What DataCraft stands for</h2>
     </div>
-    <div class="values-grid reveal-stagger">
-      <div class="value-card">
-        <div class="value-card__icon">🎯</div>
-        <h3>Results over theory</h3>
-        <p>We measure success in tangible outcomes: faster queries, fewer errors, reduced manual work. If we can't show measurable improvement, we'll tell you upfront before any work begins.</p>
+    <div class="value-list reveal-stagger">
+      <div class="value-row" style="border-color:var(--green-700);">
+        <span class="value-row__icon" style="border-color:var(--calico);">
+          <svg class="icon" viewBox="0 0 24 24" style="color:var(--calico);"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg>
+        </span>
+        <div>
+          <h3 style="color:var(--calico);">Results over theory</h3>
+          <p style="color:var(--sage);">We measure success in tangible outcomes: faster queries, fewer errors, reduced manual work. If we can't show measurable improvement, we'll tell you upfront before any work begins.</p>
+        </div>
       </div>
-      <div class="value-card">
-        <div class="value-card__icon">🔧</div>
-        <h3>Pragmatic engineering</h3>
-        <p>We favour proven solutions over trendy technologies. The best solution is the one that works reliably at 2 AM when nobody's watching — not the one that looks impressive in a pitch deck.</p>
+      <div class="value-row" style="border-color:var(--green-700);">
+        <span class="value-row__icon" style="border-color:var(--calico);">
+          <svg class="icon" viewBox="0 0 24 24" style="color:var(--calico);"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6Z"/></svg>
+        </span>
+        <div>
+          <h3 style="color:var(--calico);">Pragmatic engineering</h3>
+          <p style="color:var(--sage);">We favour proven solutions over trendy technologies. The best solution is the one that works reliably at 2 AM when nobody's watching — not the one that looks impressive in a pitch deck.</p>
+        </div>
       </div>
-      <div class="value-card">
-        <div class="value-card__icon">📝</div>
-        <h3>Honest communication</h3>
-        <p>If your problem doesn't need us, we'll say so. If we're not the right fit for a project, we'll point you in the right direction. No upselling, no scope creep by stealth.</p>
+      <div class="value-row" style="border-color:var(--green-700);">
+        <span class="value-row__icon" style="border-color:var(--calico);">
+          <svg class="icon" viewBox="0 0 24 24" style="color:var(--calico);"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9h8M8 12h5"/></svg>
+        </span>
+        <div>
+          <h3 style="color:var(--calico);">Honest communication</h3>
+          <p style="color:var(--sage);">If your problem doesn't need us, we'll say so. If we're not the right fit for a project, we'll point you in the right direction. No upselling, no scope creep by stealth.</p>
+        </div>
       </div>
-      <div class="value-card">
-        <div class="value-card__icon">📚</div>
-        <h3>Knowledge transfer</h3>
-        <p>We document everything and explain our reasoning. The goal is to make your team more capable, not to create a long-term dependency on DataCraft. You own everything we build.</p>
+      <div class="value-row" style="border-color:var(--green-700);">
+        <span class="value-row__icon" style="border-color:var(--calico);">
+          <svg class="icon" viewBox="0 0 24 24" style="color:var(--calico);"><path d="M4 5c2-1 5-1 7 0v14c-2-1-5-1-7 0V5Z"/><path d="M20 5c-2-1-5-1-7 0v14c2-1 5-1 7 0V5Z"/></svg>
+        </span>
+        <div>
+          <h3 style="color:var(--calico);">Knowledge transfer</h3>
+          <p style="color:var(--sage);">We document everything and explain our reasoning. The goal is to make your team more capable, not to create a long-term dependency on DataCraft. You own everything we build.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== TECH STACK ===== -->
-<section class="section">
+<section class="section paper-strip">
   <div class="container container--narrow">
     <div class="section__header reveal">
-      <span class="label">Technical Stack</span>
       <h2>What we work with daily</h2>
       <p>Hover over any tag to highlight it — these are the tools we use in production, not just on side projects.</p>
     </div>
@@ -133,14 +154,13 @@
 </section>
 
 <!-- ===== WHAT WE DON'T DO ===== -->
-<section class="section section--alt">
+<section class="section section--dark">
   <div class="container container--narrow">
     <div class="section__header reveal">
-      <span class="label">Transparency</span>
-      <h2>What we don't do</h2>
-      <p>We'd rather be clear about our scope than overpromise and underdeliver.</p>
+      <h2 style="color:var(--calico)">What we don't do</h2>
+      <p style="color:var(--sage);">We'd rather be clear about our scope than overpromise and underdeliver.</p>
     </div>
-    <div class="detail-block reveal">
+    <div class="panel detail-block reveal">
       <h3>Not the right fit for every project</h3>
       <ul>
         <li><strong>Mobile app development</strong> — native iOS/Android is outside our scope</li>
@@ -148,7 +168,7 @@
         <li><strong>Ongoing managed IT infrastructure</strong> — servers, networks, cloud ops are not our area</li>
         <li><strong>Technology for its own sake</strong> — if your problem doesn't need a database, we won't tell you it does</li>
       </ul>
-      <p style="margin:0; margin-top:1rem; color:var(--text-muted); font-size:0.9rem;">If your project falls outside our scope, we'll tell you honestly — and usually point you to someone better suited for it.</p>
+      <p style="margin:1rem 0 0; font-size:0.9rem;">If your project falls outside our scope, we'll tell you honestly — and usually point you to someone better suited for it.</p>
     </div>
   </div>
 </section>
@@ -164,11 +184,17 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>Database, software & web consulting for SMBs. Based in Riga, Latvia.</p></div>
+      <div class="footer__brand">
+        <div class="header__logo" style="margin-bottom:1rem;">
+          <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
+          <span class="header__logo-text" style="color:var(--calico)">DataCraft</span>
+        </div>
+        <p>Database, software & web consulting for SMBs. Based in Riga, Latvia.</p>
+      </div>
       <div><h4>Pages</h4><a href="services.html">Services</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
-      <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.85rem;">Riga, Latvia</p></div>
+      <div><h4>Contact</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" rel="noopener">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.9rem;color:var(--sage-dim);">Riga, Latvia</p></div>
     </div>
-    <div class="footer__bottom">© 2025 DataCraft Consulting. All rights reserved.</div>
+    <div class="footer__bottom">© 2026 DataCraft Consulting. All rights reserved.</div>
   </div>
 </footer>
 

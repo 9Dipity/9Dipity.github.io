@@ -3,25 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DataCraft Consulting — database design, custom software, and web development for small businesses. Banking-grade engineering, SMB-friendly. Riga, Latvia.">
+  <meta name="description" content="DataCraft Consulting — database diagnosis, custom software, and web development for small businesses. Nordic banking-grade engineering, SMB-friendly. Riga, Latvia.">
   <meta name="keywords" content="database consulting, custom software, web design, SQL Server, small business IT, Latvia, Riga">
   <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/" />
   <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/" />
   <link rel="alternate" hreflang="x-default" href="https://datacraft.lv/en/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/style.css">
   <title>DataCraft — Database · Software · Web</title>
 </head>
 <body>
+<!--
+THESIS: Trust isn't asserted, it's demonstrated by a system that shows its own faults instead of hiding them.
+OWN-WORLD: Bottle-green #0E3A2E ground, chrome-yellow #FFD200 signal legend, calico #F2EFE6 paper carries prose; Archivo Black/800 condensed caps for headlines, Archivo for body, JetBrains Mono for data; stitched-seam dividers, eyelet-tab index nav, snap-overshoot-settle course steps.
+STORY: A skeptical SMB owner distrustful of consultants sees a system that visibly proves its own precision — a diagnostic course stepping through real checks, stalling honestly on real findings — and books a discovery call.
+FIRST VIEWPORT: Full-bleed green lead panel; headline sets in chrome-yellow-on-calico caps; a live diagnostic course window steps through checks beside it, one stalling on a real fault; primary CTA pinned right.
+FORM: The Route Blind — challenger won its fuse-off against the assigned grounded direction (Watchmaker's Bench); seed key 546255b5.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+-->
 
 <div class="progress-bar" id="progressBar"></div>
 
 <header class="header">
   <div class="container header__inner">
     <a href="index.html" class="header__logo">
-      <div class="header__logo-mark">DC</div>
+      <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
       <span class="header__logo-text">DataCraft</span>
     </a>
-    <button class="header__menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+    <button class="header__menu-btn" id="menuToggle" aria-label="Open menu">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <nav class="header__nav" id="navLinks">
       <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
       <li><a href="index.html" class="active">Home</a></li>
@@ -31,7 +42,7 @@
       <li><a href="contact.html">Contact</a></li>
       <li class="header__lang">
         <a href="index.html" class="active">EN</a>
-        <span style="color:var(--text-muted)">|</span>
+        <span style="color:var(--calico-line)">/</span>
         <a href="../lv/index.html">LV</a>
       </li>
     </nav>
@@ -39,21 +50,19 @@
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section class="hero hero--split">
-  <div class="hero__grid-bg"></div>
-  <div class="hero__glow"></div>
+<!-- ===== HERO — the lead panel ===== -->
+<section class="hero">
+  <div class="hero__weave"></div>
   <div class="container">
     <div class="hero__inner">
-
       <div class="hero__content">
         <div class="hero__badge">
           <span class="hero__badge-dot"></span>
           Available for new projects
         </div>
-        <h1>We build systems<br>that <em>actually work.</em></h1>
+        <h1>Systems that<br>hold under <em>load.</em></h1>
         <p class="hero__subtitle">
-          10+ years inside one of the Nordics' largest banking infrastructures — processing millions of transactions under strict regulatory deadlines. We bring that same discipline to businesses that deserve proper technology.
+          10+ years inside one of the Nordics' largest banking infrastructures — processing millions of transactions under strict regulatory deadlines. We bring that same discipline to businesses that deserve proper technology, and we tell you exactly where things stall.
         </p>
         <div class="hero__ctas">
           <a href="services.html" class="btn btn--primary">Explore Services</a>
@@ -61,216 +70,148 @@
         </div>
       </div>
 
-      <div class="hero__terminal">
-        <div class="terminal">
-          <div class="terminal__bar">
-            <div class="terminal__dots">
-              <span class="terminal__dot terminal__dot--r"></span>
-              <span class="terminal__dot terminal__dot--y"></span>
-              <span class="terminal__dot terminal__dot--g"></span>
-            </div>
-            <span class="terminal__fname">sftr_optimization.sql</span>
+      <div class="hero__course">
+        <div class="course">
+          <div class="course__bar">
+            <span class="course__bar-label">Sample Diagnostic Run — SQL Server</span>
+            <span class="course__bar-status"><span class="course__bar-status-dot"></span>Live</span>
           </div>
-          <div class="terminal__body" id="terminalBody">
-            <span class="terminal__cursor" id="termCursor"></span>
-          </div>
+          <div class="course__seam"></div>
+          <div class="course__window" id="courseWindow" aria-hidden="true"></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ===== STATS ===== -->
-<div class="stat-band">
-  <div class="container">
-    <div class="stat-grid reveal-stagger" id="statGrid">
-      <div class="stat">
-        <span class="stat__value" data-target="10" data-suffix="+ yrs">0</span>
-        <span class="stat__label">Banking systems experience</span>
-      </div>
-      <div class="stat">
-        <span class="stat__value" data-target="87" data-suffix="%">0</span>
-        <span class="stat__label">Query time reduced (SFTR)</span>
-      </div>
-      <div class="stat">
-        <span class="stat__value" data-target="881">0</span>
-        <span class="stat__label">Automated tests written</span>
-      </div>
-      <div class="stat">
-        <span class="stat__value" data-target="0" data-prefix="Zero">–</span>
-        <span class="stat__label">Compliance violations</span>
-      </div>
+<!-- ===== READOUT — proof facts ===== -->
+<section class="readout">
+  <div class="container readout__grid">
+    <div class="readout__item">
+      <span class="readout__code">Ref 01</span>
+      <p class="readout__fact"><strong>10+ years</strong> inside Nordic banking infrastructure — not a bootcamp certificate.</p>
+    </div>
+    <div class="readout__item">
+      <span class="readout__code">Ref 02</span>
+      <p class="readout__fact">Query times cut <strong>15min → &lt;2min</strong> on real regulatory reporting jobs.</p>
+    </div>
+    <div class="readout__item">
+      <span class="readout__code">Ref 03</span>
+      <p class="readout__fact"><strong>SEC / SFTR</strong> reporting systems built from scratch, under audit.</p>
+    </div>
+    <div class="readout__item">
+      <span class="readout__code">Ref 04</span>
+      <p class="readout__fact"><strong>Zero</strong> compliance test failures across hundreds of automated tests.</p>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ===== SERVICES ===== -->
-<section class="section">
+<!-- ===== SERVICES — course rows ===== -->
+<section class="section paper-strip">
   <div class="container">
     <div class="section__header reveal">
-      <span class="label">What We Do</span>
-      <h2>Three ways we help your business</h2>
-      <p>Database, software, and web — all under one roof, all designed to work together.</p>
-    </div>
-    <div class="pillar-grid reveal-stagger">
-      <a href="services.html#database" class="pillar-card">
-        <div class="pillar-card__icon">🗄️</div>
-        <h3>Database & Data</h3>
-        <p>SQL Server design, performance audits, data migration, and architecture. Your data structured and fast — from day one, not eventually.</p>
-        <div class="pillar-card__price">Audits from €199</div>
-      </a>
-      <a href="services.html#software" class="pillar-card">
-        <div class="pillar-card__icon">⚙️</div>
-        <h3>Custom Software</h3>
-        <p>Inventory systems, booking tools, CRM dashboards, process automation. Built in C#/.NET to do exactly what your business needs — not what a template assumes.</p>
-        <div class="pillar-card__price">Scoped & fixed-price per project</div>
-      </a>
-      <a href="services.html#web" class="pillar-card">
-        <div class="pillar-card__icon">🌐</div>
-        <h3>Web Design & Dev</h3>
-        <p>Professional websites and e-commerce. Clean code, fast performance, mobile-first. Can connect directly to your database — not just a pretty brochure.</p>
-        <div class="pillar-card__price">Business sites from €599</div>
-      </a>
+      <h2>What we build</h2>
+      <p>Three independent courses that combine cleanly into one engagement when your problem crosses the line between them.</p>
     </div>
 
-    <div class="package-highlight reveal" style="margin-top: 2rem;">
-      <span class="package-highlight__badge">The Full System</span>
-      <h2 style="max-width: 620px; margin-bottom: 1rem;">Database + software + website — designed as one integrated system.</h2>
-      <p style="max-width: 660px; color: var(--text-secondary); margin-bottom: 0;">Most businesses end up with a website from one agency, a database from a freelancer, and software that doesn't talk to either. We design all three together so your inventory, website, and internal tools work as one — not three separate problems with three separate owners.</p>
-      <div class="package-features-grid" style="margin-top: 1.75rem;">
-        <div class="package-feature">SQL Server database for your processes</div>
-        <div class="package-feature">Web-based management software</div>
-        <div class="package-feature">Public website or e-commerce store</div>
-        <div class="package-feature">Full integration — one source of truth</div>
-        <div class="package-feature">Staff training & documentation</div>
-        <div class="package-feature">3 months post-launch support</div>
+    <div class="course-list">
+      <a href="services.html#database" class="course-row reveal">
+        <span class="course-row__idx"><strong>DB</strong>Course 01</span>
+        <span class="course-row__body">
+          <h3>Database & Data</h3>
+          <p>SQL Server performance audits, architecture, migration, and the diagnosis most consultancies skip straight past.</p>
+        </span>
+        <span class="course-row__arrow"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="services.html#software" class="course-row reveal">
+        <span class="course-row__idx"><strong>SW</strong>Course 02</span>
+        <span class="course-row__body">
+          <h3>Custom Software</h3>
+          <p>C#/.NET systems built for the workflow you actually have — internal tools, integrations, automation.</p>
+        </span>
+        <span class="course-row__arrow"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a href="services.html#web" class="course-row reveal">
+        <span class="course-row__idx"><strong>WEB</strong>Course 03</span>
+        <span class="course-row__body">
+          <h3>Web Design</h3>
+          <p>Sites and interfaces built the way this one was — no template, no filler, nothing that just looks technical.</p>
+        </span>
+        <span class="course-row__arrow"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LIVE DEMO ===== -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section__header reveal">
+      <h2>Not a mockup. A working system.</h2>
+      <p>A clinic booking and calendar system, built end-to-end and running live in your browser right now — the same kind of build we'd ship for your front desk.</p>
+    </div>
+
+    <div class="demo-window reveal">
+      <div class="demo-window__bar">
+        <span class="demo-window__dots">
+          <span class="demo-window__dot"></span><span class="demo-window__dot"></span><span class="demo-window__dot"></span>
+        </span>
+        <span class="demo-window__url">datacraft.lv/demo/klinikas-pieraksts/</span>
       </div>
-      <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="contact.html" class="btn btn--primary">Start the Conversation</a>
-        <a href="case-studies.html" class="btn btn--secondary">See a Full System Example →</a>
+      <iframe class="demo-window__frame" src="/demo/klinikas-pieraksts/" loading="lazy" title="Clinic booking demo — live preview"></iframe>
+      <div class="demo-window__caption">
+        <p>Blazor WebAssembly, running entirely in-browser — currently seeded with sample data, not a live client's records.</p>
+        <a href="/demo/klinikas-pieraksts/" class="btn btn--secondary btn--small" target="_blank" rel="noopener">Open Full Demo →</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== INSIGHT BAND ===== -->
-<div class="insight-band">
+<section class="section--lead insight-band reveal">
   <div class="container">
-    <blockquote>
-      "Most database and software problems aren't hard to fix —<br>
-      <em>if you know where to look.</em>"
-    </blockquote>
-    <cite>— Arturs Irbitis, Founder · 10+ years, Nordic banking infrastructure</cite>
-  </div>
-</div>
-
-<!-- ===== WHO WE WORK WITH ===== -->
-<section class="section section--alt">
-  <div class="container">
-    <div class="section__header section__header--center reveal">
-      <span class="label">Who We Work With</span>
-      <h2>For businesses serious about growing</h2>
-      <p>You don't need to be a bank to deserve proper technology.</p>
-    </div>
-    <div class="industry-grid reveal-stagger">
-      <div class="industry-card"><span class="industry-card__icon">🛍️</span><h4>Retail &amp; E-commerce</h4></div>
-      <div class="industry-card"><span class="industry-card__icon">🍽️</span><h4>Hospitality &amp; Food</h4></div>
-      <div class="industry-card"><span class="industry-card__icon">🏥</span><h4>Healthcare &amp; Clinics</h4></div>
-      <div class="industry-card"><span class="industry-card__icon">⚖️</span><h4>Professional Services</h4></div>
-      <div class="industry-card"><span class="industry-card__icon">📦</span><h4>Import &amp; Distribution</h4></div>
-      <div class="industry-card"><span class="industry-card__icon">🏗️</span><h4>Construction &amp; Trades</h4></div>
-    </div>
-
-    <div class="reveal" style="max-width: 720px; margin: 2.5rem auto 0; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);">
-      <p style="margin:0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">
-        <strong style="color:var(--text-primary);">The typical client:</strong> You run a real business — a shop, a clinic, a service company juggling spreadsheets. You've outgrown Excel and cobbled-together tools, but you're not ready to pay €40k for enterprise software that mostly doesn't fit anyway. That's exactly the gap we fill.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CASE STUDIES ===== -->
-<section class="section">
-  <div class="container">
-    <div class="section__header reveal">
-      <span class="label">Selected Work</span>
-      <h2>Real results, real projects</h2>
-      <p>From banking compliance to retail inventory management.</p>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;" class="reveal-stagger">
-
-      <a href="case-studies.html#retail" class="blog-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-card__date"><span class="case-study-card__category category--retail">Retail · Full System</span></div>
-        <h3>Inventory sync for a Riga fashion boutique</h3>
-        <p>Excel-based stock management causing online oversells. Built a unified SQL database, sync API, and web management portal.</p>
-        <div class="cs-metrics" style="margin-top: 1rem;">
-          <div class="cs-metric"><span class="cs-metric__value">0</span><span class="cs-metric__label">Oversells/month</span></div>
-          <div class="cs-metric"><span class="cs-metric__value">23%</span><span class="cs-metric__label">Margin improvement</span></div>
-        </div>
-      </a>
-
-      <a href="case-studies.html#clinic" class="blog-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-card__date"><span class="case-study-card__category category--health">Healthcare · Custom Software</span></div>
-        <h3>Patient management for a 3-location dental clinic</h3>
-        <p>Paper records, Outlook bookings, Excel billing. Digitalised all three locations with shared patient DB and booking system.</p>
-        <div class="cs-metrics" style="margin-top: 1rem;">
-          <div class="cs-metric"><span class="cs-metric__value">€40k</span><span class="cs-metric__label">Enterprise cost avoided</span></div>
-          <div class="cs-metric"><span class="cs-metric__value">40%</span><span class="cs-metric__label">Less admin time</span></div>
-        </div>
-      </a>
-
-      <a href="case-studies.html#sec" class="blog-card" style="text-decoration:none; color:inherit;">
-        <div class="blog-card__date"><span class="case-study-card__category category--banking">Banking · Compliance</span></div>
-        <h3>SEC securities lending reporting — 10,000 tx/day</h3>
-        <p>Built from scratch: C# processing engine, 881 automated tests, BZip2/SFTP transmission. T+1 compliance at scale.</p>
-        <div class="cs-metrics" style="margin-top: 1rem;">
-          <div class="cs-metric"><span class="cs-metric__value">~40 hrs</span><span class="cs-metric__label">Manual work cut</span></div>
-          <div class="cs-metric"><span class="cs-metric__value">Zero</span><span class="cs-metric__label">Violations</span></div>
-        </div>
-      </a>
-
-    </div>
-
-    <div style="text-align:center; margin-top:2rem;" class="reveal">
-      <a href="case-studies.html" class="btn btn--secondary">View All Case Studies →</a>
-    </div>
+    <blockquote>"Most database and software problems aren't hard to fix — <em>if you know where to look.</em> That's what DataCraft brings to the table."</blockquote>
+    <cite>Arturs Irbitis · Founder, DataCraft Consulting</cite>
   </div>
 </section>
 
 <!-- ===== PROCESS ===== -->
-<section class="section section--alt">
+<section class="section paper-strip">
   <div class="container">
     <div class="section__header reveal">
-      <span class="label">How It Works</span>
-      <h2>Simple process, no surprises</h2>
-      <p>Whether you need a quick audit or a complete system build — the process is the same.</p>
+      <h2>From first call to shipped fix</h2>
     </div>
-    <div class="steps reveal-stagger">
-      <div class="step">
-        <h3>Tell us what you need</h3>
-        <p>A 30-minute call or a short email. We'll understand your situation and give you an honest assessment — including if you don't actually need us.</p>
+    <div class="process-steps reveal-stagger">
+      <div class="process-step">
+        <span class="process-step__tab">Step 01 / 04</span>
+        <h3>Discovery call</h3>
+        <p>30–45 minutes, no pitch. We figure out if there's a real problem worth solving.</p>
       </div>
-      <div class="step">
-        <h3>We scope it and price it</h3>
-        <p>Fixed price, clear deliverables. You know exactly what you're getting before any work starts. No hourly billing surprises, no open-ended engagements.</p>
+      <div class="process-step">
+        <span class="process-step__tab">Step 02 / 04</span>
+        <h3>Diagnosis</h3>
+        <p>Read-only access, our scripts run, you get a plain-language report of exactly what's wrong.</p>
       </div>
-      <div class="step">
-        <h3>We build it, you own it</h3>
-        <p>Working software with full documentation. You own the code, the database, everything. No lock-in — take it to another developer any time.</p>
+      <div class="process-step">
+        <span class="process-step__tab">Step 03 / 04</span>
+        <h3>Written proposal</h3>
+        <p>Fixed scope, fixed price, in writing — never quoted live on a call.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-step__tab">Step 04 / 04</span>
+        <h3>Build & handoff</h3>
+        <p>You own everything we build. We document as we go, not after you ask.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
+<!-- ===== CTA BAND ===== -->
 <section class="cta-band">
   <div class="container">
-    <span class="label" style="justify-content:center; display:flex; margin-bottom:1rem;">Free first conversation</span>
-    <h2>Let's talk about your project.</h2>
-    <p style="max-width:540px; margin-left:auto; margin-right:auto;">Whether it's a quick audit, a new database, or a complete digital overhaul — reach out and we'll give you an honest take within 24 hours.</p>
-    <a href="contact.html" class="btn btn--primary">Get in Touch →</a>
+    <h2>Something stalling<br>somewhere in your system?</h2>
+    <p style="max-width:480px;">Tell us where it hurts. We'll tell you honestly whether it's worth fixing — before any work begins.</p>
+    <a href="contact.html" class="btn btn--primary">Book a Discovery Call →</a>
   </div>
 </section>
 
@@ -279,10 +220,10 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <div class="header__logo" style="margin-bottom:1rem;">
-          <div class="header__logo-mark">DC</div>
-          <span class="header__logo-text">DataCraft</span>
+          <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
+          <span class="header__logo-text" style="color:var(--calico)">DataCraft</span>
         </div>
-        <p>Database design, custom software, and web development for small and medium businesses. Enterprise-grade engineering, SMB-friendly approach. Based in Riga, Latvia.</p>
+        <p>Database, software & web consulting for SMBs. Based in Riga, Latvia.</p>
       </div>
       <div>
         <h4>Pages</h4>
@@ -294,119 +235,77 @@
       <div>
         <h4>Contact</h4>
         <a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a>
-        <a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a>
-        <p style="margin-top:0.5rem; font-size:0.85rem;">Riga, Latvia · Serving clients internationally</p>
+        <a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" rel="noopener">LinkedIn →</a>
+        <p style="margin-top:0.5rem;font-size:0.9rem;color:var(--sage-dim);">Riga, Latvia</p>
       </div>
     </div>
-    <div class="footer__bottom">
-      © 2025 DataCraft Consulting. All rights reserved.
-    </div>
+    <div class="footer__bottom">© 2026 DataCraft Consulting. All rights reserved.</div>
   </div>
 </footer>
 
 <script>
 (function() {
-  /* ---- Progress bar ---- */
   const bar = document.getElementById('progressBar');
   window.addEventListener('scroll', () => {
-    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    bar.style.transform = `scaleX(${pct})`;
+    bar.style.transform = `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`;
   }, { passive: true });
 
-  /* ---- Mobile nav ---- */
-  const toggle = document.getElementById('menuToggle');
-  const close  = document.getElementById('menuClose');
-  const nav    = document.getElementById('navLinks');
-  const overlay = document.getElementById('menuOverlay');
+  const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose');
+  const nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
   const open = () => { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
   const shut = () => { nav.classList.remove('active'); overlay && overlay.classList.remove('active'); document.body.style.overflow = ''; };
-  toggle && toggle.addEventListener('click', open);
-  close  && close.addEventListener('click', shut);
+  toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut);
   overlay && overlay.addEventListener('click', shut);
   nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
 
-  /* ---- Scroll reveal ---- */
-  const ro = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); ro.unobserve(e.target); } });
-  }, { threshold: 0.12 });
+  const ro = new IntersectionObserver((e) => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in-view'); ro.unobserve(x.target); } });
+  }, { threshold: 0.1 });
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => ro.observe(el));
 
-  /* ---- Counter animation ---- */
-  const statGrid = document.getElementById('statGrid');
-  const counters = statGrid ? statGrid.querySelectorAll('.stat__value[data-target]') : [];
-  let counted = false;
-
-  const runCounters = () => {
-    if (counted) return;
-    counted = true;
-    counters.forEach(el => {
-      const target = parseInt(el.dataset.target, 10);
-      const suffix = el.dataset.suffix || '';
-      const prefix = el.dataset.prefix || '';
-      if (prefix) { el.textContent = prefix; return; }
-      const duration = 1200;
-      const steps = 50;
-      const step = target / steps;
-      let current = 0;
-      const tick = setInterval(() => {
-        current = Math.min(current + step, target);
-        el.textContent = Math.round(current) + suffix;
-        if (current >= target) clearInterval(tick);
-      }, duration / steps);
-    });
-  };
-
-  const co = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) runCounters(); });
-  }, { threshold: 0.3 });
-  if (statGrid) co.observe(statGrid);
-
-  /* ---- Terminal animation ---- */
-  const body = document.getElementById('terminalBody');
-  const cursor = document.getElementById('termCursor');
-  if (!body) return;
-
-  const lines = [
-    { text: '-- ⚡ Real project: SFTR reporting pipeline', cls: 't-comment' },
-    { text: '-- Problem: report taking 14:32 min  ✗', cls: 't-err' },
-    { text: '', cls: '' },
-    { text: 'SELECT t.*, p.pos_size, r.rate', cls: 't-code' },
-    { text: 'FROM sftr_trades t', cls: 't-kw' },
-    { text: '  LEFT JOIN (SELECT * FROM positions) p', cls: 't-code' },
-    { text: '  LEFT JOIN (SELECT * FROM rates) r', cls: 't-code' },
-    { text: '-- ⚠  47 full table scans detected', cls: 't-warn' },
-    { text: '', cls: '' },
-    { text: '-- Applying: indexed views, filtered indexes,', cls: 't-comment' },
-    { text: '--            incremental processing...', cls: 't-comment' },
-    { text: '', cls: '' },
-    { text: 'CREATE INDEX IX_trades_date_filtered', cls: 't-kw' },
-    { text: '  ON sftr_trades (trade_date, status)', cls: 't-code' },
-    { text: '  WHERE status = \'ACTIVE\';', cls: 't-code' },
-    { text: '', cls: '' },
-    { text: '-- ✓ Execution time: 1:47 min  (87% faster)', cls: 't-ok' },
-    { text: '-- ✓ CPU usage down 70%', cls: 't-ok' },
-    { text: '-- ✓ Zero production disruption', cls: 't-ok' },
+  // ===== Course window — sample diagnostic run =====
+  const rows = [
+    { idx: 'CHK 01', text: 'Query execution plans', detail: '184 queries scanned', status: 'ok', label: 'Clean' },
+    { idx: 'CHK 02', text: 'Index coverage', detail: 'orders.customer_id — no index found', status: 'fault', label: 'Fault' },
+    { idx: 'CHK 03', text: 'Server config defaults', detail: 'MAXDOP left at factory default', status: 'fault', label: 'Fault' },
+    { idx: 'CHK 04', text: 'Locking & blocking', detail: 'no long-held locks detected', status: 'ok', label: 'Clean' },
+    { idx: 'CHK 05', text: 'Backup integrity', detail: 'last verified restore: 2 yrs ago', status: 'fault', label: 'Fault' },
+    { idx: 'DONE', text: 'Run complete — 3 findings, report ready', detail: '', status: 'wait', label: 'Ready' }
   ];
 
-  let i = 0;
-  body.innerHTML = '';
-  body.appendChild(cursor);
+  const win = document.getElementById('courseWindow');
+  let i = 0, timer = null;
 
-  const showNext = () => {
-    if (i >= lines.length) {
-      cursor.style.display = 'none';
-      return;
+  function step() {
+    if (!win) return;
+    if (i === 0) win.innerHTML = '';
+    const r = rows[i];
+    const row = document.createElement('div');
+    row.className = 'course__row' + (r.status === 'fault' ? ' course__row--fault' : '');
+    row.innerHTML = `
+      <span class="course__row-idx">${r.idx}</span>
+      <span>
+        <span class="course__row-text">${r.text}</span>
+        ${r.detail ? `<span class="course__row-detail">${r.detail}</span>` : ''}
+      </span>
+      <span class="course__row-status course__row-status--${r.status}">${r.label}</span>`;
+    win.appendChild(row);
+    i++;
+    if (i < rows.length) {
+      timer = setTimeout(step, i === 1 ? 550 : 700);
     }
-    const { text, cls } = lines[i++];
-    const el = document.createElement('span');
-    el.className = 't-line' + (cls ? ' ' + cls : '');
-    el.textContent = text || ' ';
-    body.insertBefore(el, cursor);
-    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('vis')));
-    setTimeout(showNext, text === '' ? 200 : 140 + Math.random() * 60);
-  };
+    // Runs once, then rests — the ambient scan-line (CSS) carries the
+    // "still live" signal after this, instead of replaying the whole run.
+  }
 
-  setTimeout(showNext, 1000);
+  if (win) {
+    const courseObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !timer) { step(); }
+      });
+    }, { threshold: 0.2 });
+    courseObserver.observe(win);
+  }
 })();
 </script>
 </body>

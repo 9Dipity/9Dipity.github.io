@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sazināties ar DataCraft Consulting — pasūtīt datubāzes auditu vai uzsākt projekta sarunu. E-pasts: datacraftconsultants@gmail.com">
+  <meta name="description" content="Sazinieties ar DataCraft Consulting — sāciet projekta sarunu. E-pasts: datacraftconsultants@gmail.com">
   <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/contact.html" />
   <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/contact.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/style.css">
   <title>Kontakti — DataCraft Consulting</title>
 </head>
@@ -15,8 +16,13 @@
 
 <header class="header">
   <div class="container header__inner">
-    <a href="index.html" class="header__logo"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></a>
-    <button class="header__menu-btn" id="menuToggle" aria-label="Atvērt izvēlni">☰</button>
+    <a href="index.html" class="header__logo">
+      <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
+      <span class="header__logo-text">DataCraft</span>
+    </a>
+    <button class="header__menu-btn" id="menuToggle" aria-label="Atvērt izvēlni">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
     <nav class="header__nav" id="navLinks">
       <button class="menu-close" id="menuClose" aria-label="Aizvērt izvēlni">×</button>
       <li><a href="index.html">Sākums</a></li>
@@ -24,7 +30,11 @@
       <li><a href="case-studies.html">Pieredze</a></li>
       <li><a href="about.html">Par mums</a></li>
       <li><a href="contact.html" class="active">Kontakti</a></li>
-      <li class="header__lang"><a href="../en/contact.html">EN</a><span style="color:var(--text-muted)">|</span><a href="contact.html" class="active">LV</a></li>
+      <li class="header__lang">
+        <a href="../en/contact.html">EN</a>
+        <span style="color:var(--calico-line)">/</span>
+        <a href="contact.html" class="active">LV</a>
+      </li>
     </nav>
     <div class="menu-overlay" id="menuOverlay"></div>
   </div>
@@ -32,19 +42,18 @@
 
 <section class="page-hero">
   <div class="container">
-    <span class="label">Runāsim</span>
-    <h1>Sazinieties.</h1>
-    <p>Vai esat gatavs pasūtīt auditu, uzsākt projektu vai vienkārši uzdot jautājumu — atbildam 24 stundu laikā darba dienās.</p>
+    <h1>Sazinieties ar mums.</h1>
+    <p>Vai esat gatavi sākt projektu, vai vienkārši ir jautājums — atbildam 24 stundu laikā darba dienās.</p>
   </div>
 </section>
 
-<section class="section">
+<section class="section paper-strip">
   <div class="container">
     <div class="contact-grid">
 
+      <!-- Kontaktforma -->
       <div class="contact-card contact-card--cta">
-        <span class="label">Nosūtiet ziņu</span>
-        <h2 style="margin-bottom: 1.5rem;">Pastāstiet par projektu</h2>
+        <h2 style="margin-bottom: 1.5rem;">Pastāstiet par savu projektu</h2>
         <form class="contact-form" id="contactForm">
           <div class="form-row">
             <div class="form-field">
@@ -52,106 +61,119 @@
               <input type="text" id="name" name="name" placeholder="Jānis Bērziņš" required>
             </div>
             <div class="form-field">
-              <label for="company">Uzņēmums (neobligāti)</label>
+              <label for="company">Uzņēmums (nav obligāti)</label>
               <input type="text" id="company" name="company" placeholder="SIA Piemērs">
             </div>
           </div>
           <div class="form-field">
             <label for="email">E-pasta adrese</label>
-            <input type="email" id="email" name="email" placeholder="jusu@epasts.lv" required>
+            <input type="email" id="email" name="email" placeholder="jus@example.com" required>
           </div>
           <div class="form-field">
-            <label for="service">Ko jūs meklējat?</label>
+            <label for="service">Kas jūs interesē?</label>
             <select id="service" name="service">
               <option value="">— Izvēlieties pakalpojumu —</option>
-              <option value="audits">Datubāzes veiktspējas audits</option>
-              <option value="datubaze">Datubāzes projektēšana / arhitektūra</option>
-              <option value="programmatūra">Pielāgota programmatūra</option>
-              <option value="timeklis">Tīmekļa dizains un izstrāde</option>
-              <option value="pilna-sistema">Pilnā sistēma (datubāze + programmatūra + tīmeklis)</option>
-              <option value="nezinu">Vēl neesmu pārliecināts</option>
+              <option value="audit">Datubāzes veiktspējas audits</option>
+              <option value="database">Datubāzes dizains / arhitektūra</option>
+              <option value="software">Pielāgota programmatūra</option>
+              <option value="web">Tīmekļa dizains un izstrāde</option>
+              <option value="fullsystem">Pilna sistēma (datubāze + programmatūra + tīmeklis)</option>
+              <option value="other">Vēl neesmu pārliecināts</option>
             </select>
           </div>
           <div class="form-field">
             <label for="message">Īss apraksts</label>
-            <textarea id="message" name="message" placeholder="Pastāstiet, ar ko saskaraties. Jo vairāk konteksta, jo ātrāk varēsim sniegt noderīgu atbildi." required></textarea>
+            <textarea id="message" name="message" placeholder="Pastāstiet, ar ko saskaraties. Jo vairāk konteksta, jo ātrāk varam sniegt noderīgu atbildi." required></textarea>
           </div>
           <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center;">
-            Nosūtīt ziņu →
+            Sūtīt ziņu →
           </button>
-          <p style="font-size:0.78rem; color:var(--text-muted); text-align:center; margin:0;">
-            Nav pārdošanas spiediena. Tikai godīga tehniska saruna.
+          <p style="font-size:0.8rem; color:var(--ink-soft); text-align:center; margin:0;">
+            Bez pārdošanas spiediena. Tikai godīga tehniska saruna.
           </p>
         </form>
-        <div id="formSuccess" style="display:none; padding:2rem; text-align:center; background:var(--accent-dim); border:1px solid var(--border-accent); border-radius:var(--radius-lg); margin-top:1rem;">
-          <p style="font-size:1.1rem; color:var(--accent); font-weight:600; margin:0 0 0.5rem;">Ziņa nosūtīta ✓</p>
-          <p style="margin:0; color:var(--text-secondary); font-size:0.9rem;">Atbildēsim 24 stundu laikā darba dienās.</p>
+        <div id="formSuccess" style="display:none; padding:2rem; background:var(--calico); border:1px solid var(--green-800); border-radius:var(--radius-lg); margin-top:1rem;">
+          <p style="font-size:1.1rem; color:var(--green-800); font-weight:700; margin:0 0 0.75rem;">Jūsu e-pasta lietotne tūlīt atvērsies.</p>
+          <p style="margin:0 0 1rem; color:var(--ink-soft); font-size:0.9rem;">Ja nekas nenotika — dažiem pārlūkiem nav iestatīta noklusējuma e-pasta lietotne — jūsu ziņa ir nokopēta starpliktuvē. Ielīmējiet to e-pastā, adresējot:</p>
+          <p style="margin:0 0 1rem;">
+            <a href="mailto:datacraftconsultants@gmail.com" id="formFallbackLink" style="font-weight:700; word-break:break-all;">datacraftconsultants@gmail.com</a>
+          </p>
+          <button type="button" id="formCopyBtn" class="btn btn--secondary btn--small">Kopēt ziņu vēlreiz</button>
+          <p id="formCopyStatus" style="margin:0.75rem 0 0; font-size:0.8rem; color:var(--ink-soft);"></p>
         </div>
       </div>
 
+      <!-- Kontaktinformācija -->
       <div class="contact-card">
-        <span class="label">Kontaktinformācija</span>
-        <h2 style="margin-bottom: 2rem;">Citi saziņas veidi</h2>
+        <h2 style="margin-bottom: 2rem;">Citi veidi, kā sazināties</h2>
 
         <div class="contact-item">
-          <h3>E-pasts</h3>
-          <p><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a></p>
-          <p>Parasti atbildam 24 stundu laikā darba dienās.</p>
+          <span class="contact-item__icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 6l9 7 9-7"/></svg></span>
+          <div>
+            <h3>E-pasts</h3>
+            <p><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><br>Parasti 24 stundu laikā darba dienās.</p>
+          </div>
         </div>
 
         <div class="contact-item">
-          <h3>LinkedIn</h3>
-          <p><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank" rel="noopener">DataCraft Consulting →</a></p>
-          <p>Sekojiet SQL Server padomiem, piemēriem un jaunumiem.</p>
+          <span class="contact-item__icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="9" width="4" height="11"/><circle cx="5" cy="4" r="2"/><path d="M10 20v-8h4v2c1-1.5 2.5-2.3 4-2.3 2.5 0 4 1.7 4 4.6V20h-4v-6.5c0-1-0.6-1.7-1.6-1.7S15 12.5 15 13.5V20h-5Z"/></svg></span>
+          <div>
+            <h3>LinkedIn</h3>
+            <p><a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" rel="noopener">DataCraft Consulting →</a><br>Jaunumi un tehniskas piezīmes.</p>
+          </div>
         </div>
 
         <div class="contact-item">
-          <h3>Atrašanās vieta</h3>
-          <p style="color:var(--text-secondary);">Rīga, Latvija</p>
-          <p>Apkalpojam klientus Baltijā, Ziemeļvalstīs un starptautiski. Visi projekti tiek īstenoti attālināti.</p>
+          <span class="contact-item__icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg></span>
+          <div>
+            <h3>Atrašanās vieta</h3>
+            <p>Rīga, Latvija<br>Apkalpojam klientus visā Baltijā. Viss projekta darbs notiek attālināti.</p>
+          </div>
         </div>
 
         <div class="contact-item">
-          <h3>Valodas</h3>
-          <p style="color:var(--text-secondary);">Latviešu un angļu</p>
-          <a href="../en/contact.html">View in English →</a>
+          <span class="contact-item__icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/></svg></span>
+          <div>
+            <h3>Valodas</h3>
+            <p>Angļu un latviešu<br><a href="../en/contact.html">View in English →</a></p>
+          </div>
         </div>
 
-        <div style="padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border); margin-top: 0.5rem;">
-          <h3 style="font-family:var(--font-body); font-weight:700; font-size:0.95rem; margin-bottom:0.5rem;">Vēlaties rakstīt tieši?</h3>
-          <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Iekļaujiet: savu organizāciju, problēmu, ar ko saskaraties, pašreizējās tehnoloģijas un termiņu. Atgriezīsimies ar godīgu novērtējumu 24 stundu laikā.</p>
+        <div class="detail-block" style="margin-top:0.5rem;">
+          <h3 style="font-size:0.9rem;">Vēlaties rakstīt tieši uz e-pastu?</h3>
+          <p style="font-size:0.9rem; margin:0;">Iekļaujiet: savu organizāciju, problēmu, ar ko saskaraties, pašreizējās tehnoloģijas un termiņu. Atgriezīsimies ar godīgu novērtējumu 24 stundu laikā.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section--alt">
+<!-- ===== PROCESS ===== -->
+<section class="section--lead">
   <div class="container">
     <div class="section__header section__header--center reveal">
-      <span class="label">Process</span>
       <h2>Kā sākas sadarbība</h2>
     </div>
     <div class="process-steps reveal-stagger">
-      <div class="process-step">
-        <div class="process-step__num">1</div>
-        <h3>Sazinieties</h3>
-        <p>Nosūtiet ziņu vai e-pastu. Atbildēsim 24 stundu laikā ar ieteikumu vai papildu jautājumiem.</p>
+      <div class="process-step" style="border-color:var(--green-700);">
+        <span class="process-step__tab" style="background:var(--green-800); color:var(--yellow);">Solis 01 / 04</span>
+        <h3 style="color:var(--calico);">Sazinieties</h3>
+        <p style="color:var(--sage);">Nosūtiet ziņu vai e-pastu. Atbildēsim 24 stundu laikā ar ieteikumu vai papildu jautājumiem.</p>
       </div>
-      <div class="process-step">
-        <div class="process-step__num">2</div>
-        <h3>Apjoma noteikšana</h3>
-        <p>Auditiem: jūs palaidīsiet mūsu skriptus. Projektiem: īss zvans, lai pareizi izprastu situāciju.</p>
+      <div class="process-step" style="border-color:var(--green-700);">
+        <span class="process-step__tab" style="background:var(--green-800); color:var(--yellow);">Solis 02 / 04</span>
+        <h3 style="color:var(--calico);">Novērtēšana</h3>
+        <p style="color:var(--sage);">Auditiem: palaižat mūsu skriptus. Projektiem: īss zvans, lai pareizi izprastu jūsu situāciju.</p>
       </div>
-      <div class="process-step">
-        <div class="process-step__num">3</div>
-        <h3>Fiksēta cena</h3>
-        <p>Skaidrs apjoms, fiksēta cena, saskaņots termiņš pirms darba sākšanas. Nav pārsteigumu beigās.</p>
+      <div class="process-step" style="border-color:var(--green-700);">
+        <span class="process-step__tab" style="background:var(--green-800); color:var(--yellow);">Solis 03 / 04</span>
+        <h3 style="color:var(--calico);">Fiksēta cena</h3>
+        <p style="color:var(--sage);">Skaidrs apjoms, fiksēta cena, saskaņots termiņš, pirms sākas darbs. Bez pārsteigumiem beigās.</p>
       </div>
-      <div class="process-step">
-        <div class="process-step__num">4</div>
-        <h3>Piegāde</h3>
-        <p>Saņemsiet strādājošu programmatūru vai detalizētu atskaiti, ar zvanu, lai pārrunātu atklājumus un nākamos soļus.</p>
+      <div class="process-step" style="border-color:var(--green-700);">
+        <span class="process-step__tab" style="background:var(--green-800); color:var(--yellow);">Solis 04 / 04</span>
+        <h3 style="color:var(--calico);">Nodošana</h3>
+        <p style="color:var(--sage);">Saņemat strādājošu programmatūru vai detalizētu ziņojumu, ar zvanu, lai pārrunātu atradumus un nākamos soļus.</p>
       </div>
     </div>
   </div>
@@ -160,18 +182,27 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div class="footer__brand"><div class="header__logo" style="margin-bottom:1rem;"><div class="header__logo-mark">DC</div><span class="header__logo-text">DataCraft</span></div><p>Datubāžu izstrāde, pielāgota programmatūra un tīmekļa vietnes maziem un vidējiem uzņēmumiem. Rīga, Latvija.</p></div>
+      <div class="footer__brand">
+        <div class="header__logo" style="margin-bottom:1rem;">
+          <span class="header__logo-mark"><img src="/assets/logo-mark.svg" alt=""></span>
+          <span class="header__logo-text" style="color:var(--calico)">DataCraft</span>
+        </div>
+        <p>Datubāzes, programmatūras un tīmekļa konsultācijas MVU. Rīga, Latvija.</p>
+      </div>
       <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mums</a><a href="contact.html">Kontakti</a></div>
-      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/datacraft-consulting-lv/" target="_blank">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.85rem;">Rīga, Latvija</p></div>
+      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" rel="noopener">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.9rem;color:var(--sage-dim);">Rīga, Latvija</p></div>
     </div>
-    <div class="footer__bottom">© 2025 DataCraft Consulting. Visas tiesības aizsargātas.</div>
+    <div class="footer__bottom">© 2026 DataCraft Consulting. Visas tiesības aizsargātas.</div>
   </div>
 </footer>
 
 <script>
 (function() {
   const bar = document.getElementById('progressBar');
-  window.addEventListener('scroll', () => { bar.style.transform = `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`; }, { passive: true });
+  window.addEventListener('scroll', () => {
+    bar.style.transform = `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`;
+  }, { passive: true });
+
   const toggle = document.getElementById('menuToggle'), close = document.getElementById('menuClose');
   const nav = document.getElementById('navLinks'), overlay = document.getElementById('menuOverlay');
   const open = () => { nav.classList.add('active'); overlay && overlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
@@ -179,33 +210,58 @@
   toggle && toggle.addEventListener('click', open); close && close.addEventListener('click', shut);
   overlay && overlay.addEventListener('click', shut);
   nav.querySelectorAll('a').forEach(l => l.addEventListener('click', shut));
+
   const ro = new IntersectionObserver((e) => {
     e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in-view'); ro.unobserve(x.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => ro.observe(el));
 
+  /* ---- Kontaktforma — mailto, ar reālu rezerves risinājumu, jo nav
+     iespējams noteikt, vai mailto klikšķis patiešām atvēra e-pasta lietotni. ---- */
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
+  const fallbackLink = document.getElementById('formFallbackLink');
+  const copyBtn = document.getElementById('formCopyBtn');
+  const copyStatus = document.getElementById('formCopyStatus');
+  let plainMessage = '';
+
+  async function copyMessage() {
+    try {
+      await navigator.clipboard.writeText(plainMessage);
+      copyStatus.textContent = 'Nokopēts starpliktuvē.';
+    } catch (err) {
+      copyStatus.textContent = 'Neizdevās nokopēt automātiski — lūdzu, iezīmējiet un nokopējiet ziņu manuāli.';
+    }
+  }
+
   if (form) {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
       const name    = form.querySelector('#name').value;
       const company = form.querySelector('#company').value;
       const email   = form.querySelector('#email').value;
       const service = form.querySelector('#service').value;
       const message = form.querySelector('#message').value;
-      const subject = encodeURIComponent('DataCraft Pieprasījums' + (service ? ' — ' + service : ''));
-      const body = encodeURIComponent(
+
+      const subjectRaw = 'DataCraft pieprasījums' + (service ? ' — ' + service : '');
+      const bodyRaw =
         'Vārds: ' + name + (company ? '\nUzņēmums: ' + company : '') +
         '\nE-pasts: ' + email +
         '\nPakalpojums: ' + (service || 'Nav norādīts') +
-        '\n\nZiņa:\n' + message
-      );
-      window.location.href = 'mailto:datacraftconsultants@gmail.com?subject=' + subject + '&body=' + body;
+        '\n\nZiņa:\n' + message;
+
+      plainMessage = bodyRaw;
+      const mailtoHref = 'mailto:datacraftconsultants@gmail.com?subject=' + encodeURIComponent(subjectRaw) + '&body=' + encodeURIComponent(bodyRaw);
+      fallbackLink.href = mailtoHref;
+
+      await copyMessage();
+      window.location.href = mailtoHref;
+
       form.style.display = 'none';
       success.style.display = 'block';
     });
   }
+  copyBtn && copyBtn.addEventListener('click', copyMessage);
 })();
 </script>
 </body>
