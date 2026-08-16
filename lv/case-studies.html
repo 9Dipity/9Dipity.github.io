@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DataCraft Consulting pieredze — reāls regulatoru inženierijas darbs un ilustratīvi spēju piemēri mazumtirdzniecībai, veselības aprūpei, izplatīšanai un servisa darbnīcām.">
+  <meta name="description" content="DataCraft Consulting pieredze — reāls regulatoru inženierijas darbs un ilustratīvi spēju piemēri mazumtirdzniecībai, veselības aprūpei, izplatīšanai, servisa darbnīcām un dzīvu SQL diagnostikas priekšskatījumu.">
   <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/case-studies.html" />
   <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/case-studies.html" />
   <link rel="canonical" href="https://datacraft.lv/lv/case-studies.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DataCraft Consulting">
   <meta property="og:title" content="Pieredze — DataCraft Consulting">
-  <meta property="og:description" content="DataCraft Consulting pieredze — reāls regulatoru inženierijas darbs un ilustratīvi spēju piemēri mazumtirdzniecībai, veselības aprūpei, izplatīšanai un servisa darbnīcām.">
+  <meta property="og:description" content="DataCraft Consulting pieredze — reāls regulatoru inženierijas darbs un ilustratīvi spēju piemēri mazumtirdzniecībai, veselības aprūpei, izplatīšanai, servisa darbnīcām un dzīvu SQL diagnostikas priekšskatījumu.">
   <meta property="og:url" content="https://datacraft.lv/lv/case-studies.html">
   <meta property="og:image" content="https://datacraft.lv/assets/og/og-lv.png">
   <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Pieredze — DataCraft Consulting">
-  <meta name="twitter:description" content="DataCraft Consulting pieredze — reāls regulatoru inženierijas darbs un ilustratīvi spēju piemēri mazumtirdzniecībai, veselības aprūpei, izplatīšanai un servisa darbnīcām.">
+  <meta name="twitter:description" content="DataCraft Consulting pieredze — reāls regulatoru inženierijas darbs un ilustratīvi spēju piemēri mazumtirdzniecībai, veselības aprūpei, izplatīšanai, servisa darbnīcām un dzīvu SQL diagnostikas priekšskatījumu.">
   <meta name="twitter:image" content="https://datacraft.lv/assets/og/og-lv.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/style.css">
@@ -147,7 +147,7 @@
   <div class="container">
     <div class="section__header reveal">
       <h2 style="color:var(--calico)">Spēju piemēri MVU</h2>
-      <p>DataCraft ir jauna konsultāciju sabiedrība — šie četri ir ilustratīvi scenāriji, veidoti no reālām, izplatītām MVU problēmām, izstrādāti pilnā tehniskā detalizācijā. Trīs no tiem ir pieejami kā dzīvas, klikšķināmas prototipa versijas, nevis tikai ekrānuzņēmumi. Tie <strong style="color:var(--yellow)">vēl nav pabeigti klientu projekti</strong>. Aizstāsim tos ar reāliem klientu stāstiem, tiklīdz izpildīsim DataCraft pirmos projektus.</p>
+      <p>DataCraft ir jauna konsultāciju sabiedrība — šie pieci ir ilustratīvi scenāriji, veidoti no reālām, izplatītām MVU problēmām, izstrādāti pilnā tehniskā detalizācijā. Četri no tiem ir pieejami kā dzīvas, klikšķināmas prototipa versijas, nevis tikai ekrānuzņēmumi. Tie <strong style="color:var(--yellow)">vēl nav pabeigti klientu projekti</strong>. Aizstāsim tos ar reāliem klientu stāstiem, tiklīdz izpildīsim DataCraft pirmos projektus.</p>
       <span class="synthetic-flag" style="margin-top:0.5rem;">
         <svg class="icon" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         Ilustratīvs — nav reāls klients
@@ -263,6 +263,34 @@
         <span class="tag">Blazor</span>
       </div>
       <a href="/demo/servisa-panelis/" class="btn btn--secondary btn--small" target="_blank" rel="noopener" style="margin-top:1.25rem;">Skatīt dzīvo demo →</a>
+    </article>
+
+    <article class="case-study-card panel reveal" id="diagnostic">
+      <h3>Ko Quick Check atklāj piecus gadus vecā pasūtījumu apstrādes datubāzē</h3>
+      <div class="case-study-card__meta">Ilustratīvs · Diagnostikas priekšskatījums · Jebkura SQL Server sistēma</div>
+      <p>Atšķirībā no pārējiem šīs lapas scenārijiem, šis nav programmatūra, ko izveidotu klientam — tas ir paša audita priekšskatījums. Nosauktie līmeņi mūsu <a href="services.html">pakalpojumu lapā</a> (Quick Check / Standard Audit / Deep Dive) citādi ir tikai nosaukumi, kamēr neesi to izgājis. Šis tos padara konkrētus.</p>
+
+      <div class="detail-block" style="margin-top:1.5rem;">
+        <h3>Kā tas strādā</h3>
+        <p>Izvēlies parauga datubāzes profilu, palaid pārbaudi un vēro, kā seši reāli noteikumi to novērtē — nevis skriptēta animācija. Divus skaitļus vari mainīt pats; konstatējumi pārrēķinās uzreiz, lai redzētu, ka dzinējs tiešām reaģē, nevis vienkārši atkārto fiksētu rezultātu.</p>
+        <ul>
+          <li>Trūkstoša vai nepietiekama indeksācija visnoslogotākajai tabulai, novērtēta pēc tās reālā rindu skaita</li>
+          <li>Indeksu fragmentācija, izmantojot tos pašus 10%/30% reorganizācijas/pārbūves sliekšņus, ko dokumentē Microsoft</li>
+          <li>Dublēšanas nodrošinājums — automātisks pret manuālu, un cik klusi novecojis "veiksmīgs" uzdevums</li>
+          <li>Lēni pārskati un vaicājumi, ar reālo izpildes laiku, kas kādam katru dienu maksā laiku</li>
+          <li>Shēmas novecošana — gadi kopš pilnas pārskatīšanas, nevis tikai pakāpeniski labojumi</li>
+          <li>Vienlaicīgas slodzes risks no tabulas skenēšanas uzkrāšanās reālas vienlaicīgas lietošanas apstākļos</li>
+          <li>Vienkāršā valodā skaidrots "kā veidojas šis vērtējums" panelis, kas rāda izmantotos sliekšņus</li>
+        </ul>
+      </div>
+
+      <div class="tags">
+        <span class="tag">C# .NET</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">Diagnostikas noteikumu dzinējs</span>
+        <span class="tag">Blazor</span>
+      </div>
+      <a href="/demo/datubazes-audits/" class="btn btn--secondary btn--small" target="_blank" rel="noopener" style="margin-top:1.25rem;">Skatīt dzīvo demo →</a>
     </article>
   </div>
 </section>

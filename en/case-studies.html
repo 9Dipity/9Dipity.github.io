@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, distribution, and service workshops.">
+  <meta name="description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, distribution, service workshops, and a live SQL diagnostic preview.">
   <link rel="alternate" hreflang="en" href="https://datacraft.lv/en/case-studies.html" />
   <link rel="alternate" hreflang="lv" href="https://datacraft.lv/lv/case-studies.html" />
   <link rel="canonical" href="https://datacraft.lv/en/case-studies.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DataCraft Consulting">
   <meta property="og:title" content="Case Studies — DataCraft Consulting">
-  <meta property="og:description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, distribution, and service workshops.">
+  <meta property="og:description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, distribution, service workshops, and a live SQL diagnostic preview.">
   <meta property="og:url" content="https://datacraft.lv/en/case-studies.html">
   <meta property="og:image" content="https://datacraft.lv/assets/og/og-en.png">
   <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
   <meta property="og:locale:alternate" content="lv_LV">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Case Studies — DataCraft Consulting">
-  <meta name="twitter:description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, distribution, and service workshops.">
+  <meta name="twitter:description" content="DataCraft Consulting case studies — real regulatory engineering work, and illustrative capability demonstrations for retail, healthcare, distribution, service workshops, and a live SQL diagnostic preview.">
   <meta name="twitter:image" content="https://datacraft.lv/assets/og/og-en.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/style.css">
@@ -147,7 +147,7 @@
   <div class="container">
     <div class="section__header reveal">
       <h2 style="color:var(--calico)">Capability demonstrations for SMBs</h2>
-      <p>DataCraft is a new consultancy — these four are illustrative scenarios built from real, common SMB problems, worked through in full technical detail. Three ship as live, click-through prototypes, not screenshots. They are <strong style="color:var(--yellow)">not yet completed client engagements</strong>. We'll replace them with real client stories as we deliver DataCraft's first projects.</p>
+      <p>DataCraft is a new consultancy — these five are illustrative scenarios built from real, common SMB problems, worked through in full technical detail. Four ship as live, click-through prototypes, not screenshots. They are <strong style="color:var(--yellow)">not yet completed client engagements</strong>. We'll replace them with real client stories as we deliver DataCraft's first projects.</p>
       <span class="synthetic-flag" style="margin-top:0.5rem;">
         <svg class="icon" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
         Illustrative — not a real client
@@ -263,6 +263,34 @@
         <span class="tag">Blazor</span>
       </div>
       <a href="/demo/servisa-panelis/" class="btn btn--secondary btn--small" target="_blank" rel="noopener" style="margin-top:1.25rem;">Try the Live Demo →</a>
+    </article>
+
+    <article class="case-study-card panel reveal" id="diagnostic">
+      <h3>What a Quick Check finds on a five-year-old order-processing database</h3>
+      <div class="case-study-card__meta">Illustrative · Diagnostic preview · Any SQL Server-backed system</div>
+      <p>Unlike the other scenarios on this page, this isn't software we'd build for a client — it's a preview of the audit itself. The named tiers on our <a href="services.html">services page</a> (Quick Check / Standard Audit / Deep Dive) are otherwise just labels until you've been through one. This makes them concrete.</p>
+
+      <div class="detail-block" style="margin-top:1.5rem;">
+        <h3>How it works</h3>
+        <p>Pick a sample database profile, run the check, and watch six real rules evaluate it — not a scripted animation. Two of the numbers are yours to adjust; findings recompute live so you can see the engine actually respond, not just replay a fixed result.</p>
+        <ul>
+          <li>Missing/inadequate indexing on the busiest table, scored against its actual row count</li>
+          <li>Index fragmentation, using the same 10%/30% reorganize/rebuild bands Microsoft documents</li>
+          <li>Backup coverage — automated vs. manual, and how stale a "successful" job has quietly gone</li>
+          <li>Slow reports and queries, with the actual runtime that's costing someone time daily</li>
+          <li>Schema staleness — years since a real end-to-end review, not just incremental patching</li>
+          <li>Concurrency risk from table scans piling up under real simultaneous usage</li>
+          <li>A plain-English "how this scoring works" panel showing the exact thresholds used</li>
+        </ul>
+      </div>
+
+      <div class="tags">
+        <span class="tag">C# .NET</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">Diagnostic rules engine</span>
+        <span class="tag">Blazor</span>
+      </div>
+      <a href="/demo/datubazes-audits/" class="btn btn--secondary btn--small" target="_blank" rel="noopener" style="margin-top:1.25rem;">Try the Live Demo →</a>
     </article>
   </div>
 </section>

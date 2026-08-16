@@ -1,0 +1,553 @@
+/* ---------------------------------------------------------------------
+   Database Health Check — DataCraft Consulting diagnostic preview
+   A clinical/technical aesthetic distinct from the other two demos:
+   deep slate-navy chrome, cool paper canvas, one confident teal accent.
+   Reads like a monitoring console, not a storefront.
+--------------------------------------------------------------------- */
+
+:root {
+    --ink: #12181f;
+    --ink-soft: #1f2933;
+    --canvas: #f3f5f6;
+    --card: #ffffff;
+    --border: #dde3e6;
+    --text: #182228;
+    --text-muted: #66757d;
+    --accent: #0e9594;
+    --accent-dark: #0b7a79;
+    --accent-soft: #d9f2f1;
+    --good: #1f9d55;
+    --good-soft: #e3f7ea;
+    --info: #2563a8;
+    --info-soft: #dfeaf7;
+    --warn: #c1720a;
+    --warn-soft: #fdecd9;
+    --bad: #c22e26;
+    --bad-soft: #fbe4e2;
+    --radius: 10px;
+    --shadow: 0 1px 2px rgba(18, 24, 31, 0.07), 0 8px 24px rgba(18, 24, 31, 0.07);
+    font-family: "Segoe UI", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--canvas);
+    color: var(--text);
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+p {
+    margin: 0;
+}
+
+button, select {
+    font-family: inherit;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------- Blazor built-in helper classes (kept for framework compat) ---------------- */
+
+.blazor-error-boundary {
+    background: var(--bad-soft);
+    padding: 1rem 1rem 1rem 1.25rem;
+    color: var(--bad);
+    border-radius: 8px;
+}
+
+.blazor-error-boundary::after {
+    content: "An error has occurred.";
+}
+
+/* ---------------- App shell ---------------- */
+
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    background: var(--ink);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.85rem 1.75rem;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+.app-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-right: auto;
+}
+
+.app-header__mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: var(--accent);
+    color: #06201f;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+}
+
+.app-header__titles {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.app-header__name {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.app-header__subtitle {
+    font-size: 0.72rem;
+    color: #b8c4c8;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.lang-toggle {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 3px;
+    gap: 2px;
+}
+
+.lang-toggle__btn {
+    border: none;
+    background: transparent;
+    color: #c7d0d2;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lang-toggle__btn.is-active {
+    background: #fff;
+    color: var(--ink);
+}
+
+.app-main {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.75rem 1.75rem 3rem;
+}
+
+.app-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid var(--border);
+    background: var(--card);
+}
+
+/* ---------------- Page header / buttons ---------------- */
+
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.page-header h1 {
+    font-size: 1.55rem;
+}
+
+.page-header__subtitle {
+    color: var(--text-muted);
+    margin-top: 0.35rem;
+    max-width: 58ch;
+    font-size: 0.92rem;
+}
+
+.btn {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.05rem;
+    cursor: pointer;
+    transition: transform 0.08s ease, background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+    white-space: nowrap;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn:disabled {
+    opacity: 0.55;
+    cursor: default;
+    transform: none;
+}
+
+.btn--accent {
+    background: var(--accent);
+    color: #06201f;
+}
+
+.btn--accent:hover:not(:disabled) {
+    background: var(--accent-dark);
+    color: #fff;
+}
+
+.btn--ghost {
+    background: var(--card);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.btn--ghost:hover {
+    border-color: var(--ink);
+}
+
+/* ---------------- Scenario picker ---------------- */
+
+.scenario-card, .adjust-card, .results-card, .methodology-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.35rem 1.5rem 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.scenario-card h2, .adjust-card h2, .results-card h2 {
+    font-size: 1.02rem;
+    margin-bottom: 0.9rem;
+}
+
+.scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.85rem;
+}
+
+.scenario-tile {
+    text-align: left;
+    background: var(--canvas);
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.scenario-tile:hover {
+    border-color: var(--accent);
+}
+
+.scenario-tile.is-selected {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.scenario-tile__name {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--ink);
+}
+
+.scenario-tile__blurb {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* ---------------- Adjust card ---------------- */
+
+.adjust-card__subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.1rem;
+}
+
+.adjust-card__fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.adjust-card label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.adjust-card select {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.88rem;
+    color: var(--text);
+    background: var(--canvas);
+}
+
+.adjust-card__toggle-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.adjust-card__toggle-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.adjust-card__toggle-group .lang-toggle {
+    background: var(--canvas);
+    border: 1px solid var(--border);
+    align-self: flex-start;
+}
+
+.adjust-card__toggle-group .lang-toggle__btn {
+    color: var(--text-muted);
+}
+
+.adjust-card__toggle-group .lang-toggle__btn.is-active {
+    background: var(--accent);
+    color: #06201f;
+}
+
+/* ---------------- Results ---------------- */
+
+.results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.finding-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    background: var(--canvas);
+}
+
+.finding-card--enter {
+    animation: findingEnter 0.35s ease-out;
+}
+
+@keyframes findingEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.finding-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.finding-card__header h3 {
+    font-size: 0.95rem;
+}
+
+.finding-card__badge {
+    font-size: 0.66rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+.finding-card__badge--ok { background: var(--good-soft); color: var(--good); }
+.finding-card__badge--info { background: var(--info-soft); color: var(--info); }
+.finding-card__badge--warning { background: var(--warn-soft); color: var(--warn); }
+.finding-card__badge--critical { background: var(--bad-soft); color: var(--bad); }
+
+.finding-card__detail {
+    font-size: 0.85rem;
+    color: var(--text);
+    line-height: 1.45;
+    margin-bottom: 0.35rem;
+}
+
+.finding-card__impact {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    font-style: italic;
+}
+
+.tier-banner {
+    margin-top: 1.1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.tier-banner--ok { background: var(--good-soft); color: var(--good); }
+.tier-banner--info { background: var(--info-soft); color: var(--info); }
+.tier-banner--warning { background: var(--warn-soft); color: var(--warn); }
+.tier-banner--critical { background: var(--bad-soft); color: var(--bad); }
+
+/* ---------------- Methodology ---------------- */
+
+.methodology-card {
+    padding: 1rem 1.25rem;
+}
+
+.methodology-card__toggle {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.methodology-card__list {
+    list-style: none;
+    margin-top: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.methodology-card__list li {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.methodology-card__list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* ---------------- Blazor loading / error UI ---------------- */
+
+.loading-progress {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8rem;
+    height: 8rem;
+}
+
+.loading-progress circle {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 0.6rem;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+}
+
+.loading-progress circle:last-child {
+    stroke: var(--accent);
+    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    transition: stroke-dasharray 0.3s ease;
+}
+
+.loading-progress-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.loading-progress-text::after {
+    content: "Loading Database Health Check…";
+}
+
+#blazor-error-ui {
+    background: var(--bad-soft);
+    color: var(--bad);
+    bottom: 0;
+    box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    left: 0;
+    padding: 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    font-size: 0.85rem;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .app-header {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .app-main {
+        padding: 1.1rem 1rem 2.5rem;
+    }
+}

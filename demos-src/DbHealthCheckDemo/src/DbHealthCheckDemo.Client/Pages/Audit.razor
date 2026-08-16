@@ -1,0 +1,184 @@
+@page "/"
+@inherits LocalizedComponentBase
+@inject IDiagnosticEngine Engine
+
+<PageTitle>@Localizer.T("page.title")</PageTitle>
+
+<div class="page-header">
+    <div>
+        <h1>@Localizer.T("page.title")</h1>
+        <p class="page-header__subtitle">@Localizer.T("page.subtitle")</p>
+    </div>
+    <button type="button" class="btn btn--ghost" @onclick="HandleReset">@Localizer.T("resetButton")</button>
+</div>
+
+<section class="scenario-card">
+    <h2>@Localizer.T("scenario.pickLabel")</h2>
+    <div class="scenario-grid">
+        @foreach (var profile in SampleProfiles.All)
+        {
+            <button type="button"
+                    class="scenario-tile @(_selectedProfile?.Id == profile.Id ? "is-selected" : "")"
+                    @onclick="() => SelectScenario(profile.Id)">
+                <span class="scenario-tile__name">@Localizer.T($"scenario.{profile.Id}.name")</span>
+                <span class="scenario-tile__blurb">@Localizer.T($"scenario.{profile.Id}.blurb")</span>
+            </button>
+        }
+    </div>
+</section>
+
+@if (_workingProfile is not null)
+{
+    <section class="adjust-card">
+        <h2>@Localizer.T("adjust.title")</h2>
+        <p class="adjust-card__subtitle">@Localizer.T("adjust.subtitle")</p>
+
+        <div class="adjust-card__fields">
+            <label>
+                @Localizer.T("adjust.rowCountLabel")
+                <select @bind="_rowCountOption">
+                    <option value="100000">100,000</option>
+                    <option value="500000">500,000</option>
+                    <option value="2000000">2,000,000</option>
+                    <option value="10000000">10,000,000</option>
+                </select>
+            </label>
+
+            <div class="adjust-card__toggle-group">
+                <span class="adjust-card__toggle-label">@Localizer.T("adjust.backupAutomatedLabel")</span>
+                <div class="lang-toggle" role="group">
+                    <button type="button" class="lang-toggle__btn @(_backupAutomated ? "is-active" : "")" @onclick="() => _backupAutomated = true">
+                        @Localizer.T("adjust.backupYes")
+                    </button>
+                    <button type="button" class="lang-toggle__btn @(!_backupAutomated ? "is-active" : "")" @onclick="() => _backupAutomated = false">
+                        @Localizer.T("adjust.backupNo")
+                    </button>
+                </div>
+            </div>
+
+            @if (_backupAutomated)
+            {
+                <label>
+                    @Localizer.T("adjust.daysSinceBackupLabel")
+                    <select @bind="_daysSinceBackup">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="3">3</option>
+                        <option value="7">7</option>
+                        <option value="10">10</option>
+                        <option value="14">14</option>
+                        <option value="30">30</option>
+                    </select>
+                </label>
+            }
+        </div>
+
+        <button type="button" class="btn btn--accent" disabled="@_isRunning" @onclick="RunCheck">
+            @(_hasRunOnce ? Localizer.T("rerunButton") : Localizer.T("runButton"))
+        </button>
+    </section>
+
+    @if (_visibleFindings.Count > 0)
+    {
+        <section class="results-card">
+            <h2>@Localizer.T("results.heading")</h2>
+            <div class="results-list">
+                @foreach (var finding in _visibleFindings)
+                {
+                    <FindingCard Finding="finding" />
+                }
+            </div>
+
+            @if (_result is not null)
+            {
+                <div class="tier-banner tier-banner--@_result.OverallSeverity.ToString().ToLowerInvariant()">
+                    @Localizer.T($"tier.{_result.RecommendedTier}.banner")
+                </div>
+            }
+        </section>
+    }
+
+    <section class="methodology-card">
+        <button type="button" class="methodology-card__toggle" @onclick="() => _showMethodology = !_showMethodology">
+            @Localizer.T("methodology.toggle") @(_showMethodology ? "▲" : "▼")
+        </button>
+        @if (_showMethodology)
+        {
+            <ul class="methodology-card__list">
+                <li>@Localizer.T("methodology.missingIndex")</li>
+                <li>@Localizer.T("methodology.fragmentation")</li>
+                <li>@Localizer.T("methodology.backupRecency")</li>
+                <li>@Localizer.T("methodology.slowQuery")</li>
+                <li>@Localizer.T("methodology.schemaStaleness")</li>
+                <li>@Localizer.T("methodology.concurrencyRisk")</li>
+            </ul>
+        }
+    </section>
+}
+
+@code {
+    private DatabaseProfile? _selectedProfile;
+    private DatabaseProfile? _workingProfile;
+    private List<Finding> _visibleFindings = new();
+    private AuditResult? _result;
+    private bool _isRunning;
+    private bool _hasRunOnce;
+    private bool _showMethodology;
+
+    private long _rowCountOption;
+    private bool _backupAutomated;
+    private int _daysSinceBackup;
+
+    private void SelectScenario(string profileId)
+    {
+        _selectedProfile = SampleProfiles.All.First(p => p.Id == profileId);
+        _workingProfile = _selectedProfile.Clone();
+        _rowCountOption = _workingProfile.LargestTableRowCount;
+        _backupAutomated = _workingProfile.HasAutomatedBackupJob;
+        _daysSinceBackup = _workingProfile.DaysSinceLastFullBackup;
+        _visibleFindings = new List<Finding>();
+        _result = null;
+        _hasRunOnce = false;
+        _showMethodology = false;
+    }
+
+    private async Task RunCheck()
+    {
+        if (_workingProfile is null || _isRunning) return;
+
+        _workingProfile.LargestTableRowCount = _rowCountOption;
+        _workingProfile.HasAutomatedBackupJob = _backupAutomated;
+        _workingProfile.DaysSinceLastFullBackup = _backupAutomated ? _daysSinceBackup : 0;
+
+        _isRunning = true;
+        _hasRunOnce = true;
+        _visibleFindings = new List<Finding>();
+        _result = null;
+        StateHasChanged();
+
+        var fullResult = Engine.Run(_workingProfile);
+
+        foreach (var finding in fullResult.Findings)
+        {
+            await Task.Delay(380);
+            _visibleFindings.Add(finding);
+            StateHasChanged();
+        }
+
+        await Task.Delay(250);
+        _result = fullResult;
+        _isRunning = false;
+        StateHasChanged();
+    }
+
+    private void HandleReset()
+    {
+        _selectedProfile = null;
+        _workingProfile = null;
+        _visibleFindings = new List<Finding>();
+        _result = null;
+        _isRunning = false;
+        _hasRunOnce = false;
+        _showMethodology = false;
+    }
+}

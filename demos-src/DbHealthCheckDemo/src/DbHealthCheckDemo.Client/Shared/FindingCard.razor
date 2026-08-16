@@ -1,0 +1,37 @@
+@inherits LocalizedComponentBase
+
+<article class="finding-card finding-card--@SeverityClass finding-card--enter">
+    <div class="finding-card__header">
+        <span class="finding-card__badge finding-card__badge--@SeverityClass">@Localizer.T($"severity.{Finding.Severity}")</span>
+        <h3>@Localizer.T($"{TemplateKey}.title")</h3>
+    </div>
+    <p class="finding-card__detail">@FormattedDetail</p>
+    <p class="finding-card__impact">@FormattedImpact</p>
+</article>
+
+@code {
+    [Parameter, EditorRequired]
+    public Finding Finding { get; set; } = default!;
+
+    private string TemplateKey => string.IsNullOrEmpty(Finding.Variant)
+        ? $"finding.{Finding.RuleId}"
+        : $"finding.{Finding.RuleId}.{Finding.Variant}";
+
+    private string SeverityClass => Finding.Severity.ToString().ToLowerInvariant();
+
+    private string FormattedDetail => SafeFormat(Localizer.T($"{TemplateKey}.detail"));
+
+    private string FormattedImpact => SafeFormat(Localizer.T($"{TemplateKey}.impact"));
+
+    private string SafeFormat(string template)
+    {
+        try
+        {
+            return string.Format(template, Finding.Args.ToArray());
+        }
+        catch (FormatException)
+        {
+            return template;
+        }
+    }
+}
