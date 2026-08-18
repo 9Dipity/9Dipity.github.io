@@ -111,7 +111,7 @@
           <p style="font-size:1.1rem; color:var(--green-800); font-weight:700; margin:0 0 0.75rem;">Jūsu e-pasta lietotne tūlīt atvērsies.</p>
           <p style="margin:0 0 1rem; color:var(--ink-soft); font-size:0.9rem;">Ja nekas nenotika — dažiem pārlūkiem nav iestatīta noklusējuma e-pasta lietotne — jūsu ziņa ir nokopēta starpliktuvē. Ielīmējiet to e-pastā, adresējot:</p>
           <p style="margin:0 0 1rem;">
-            <a href="mailto:datacraftconsultants@gmail.com" id="formFallbackLink" style="font-weight:700; word-break:break-all;">datacraftconsultants@gmail.com</a>
+            <a href="mailto:datacraftconsultants@gmail.com" id="formFallbackLink" style="font-weight:700; word-break:break-all;" data-umami-event="Email Click">datacraftconsultants@gmail.com</a>
           </p>
           <button type="button" id="formCopyBtn" class="btn btn--secondary btn--small">Kopēt ziņu vēlreiz</button>
           <p id="formCopyStatus" style="margin:0.75rem 0 0; font-size:0.8rem; color:var(--ink-soft);"></p>
@@ -126,7 +126,7 @@
           <span class="contact-item__icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 6l9 7 9-7"/></svg></span>
           <div>
             <h3>E-pasts</h3>
-            <p><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><br>Parasti 24 stundu laikā darba dienās.</p>
+            <p><a href="mailto:datacraftconsultants@gmail.com" data-umami-event="Email Click">datacraftconsultants@gmail.com</a><br>Parasti 24 stundu laikā darba dienās.</p>
           </div>
         </div>
 
@@ -205,7 +205,7 @@
         <p>Datubāzes, programmatūras un tīmekļa konsultācijas MVU. Rīga, Latvija.</p>
       </div>
       <div><h4>Lapas</h4><a href="services.html">Pakalpojumi</a><a href="case-studies.html">Pieredze</a><a href="about.html">Par mums</a><a href="contact.html">Kontakti</a></div>
-      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" rel="noopener">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.9rem;color:var(--sage-dim);">Rīga, Latvija</p></div>
+      <div><h4>Kontakti</h4><a href="mailto:datacraftconsultants@gmail.com" data-umami-event="Email Click">datacraftconsultants@gmail.com</a><a href="https://www.linkedin.com/company/consulting-datacraft/" target="_blank" rel="noopener">LinkedIn →</a><p style="margin-top:0.5rem;font-size:0.9rem;color:var(--sage-dim);">Rīga, Latvija</p></div>
     </div>
     <div class="footer__bottom">© 2026 DataCraft Consulting. Visas tiesības aizsargātas.</div>
   </div>
@@ -269,6 +269,8 @@
       const mailtoHref = 'mailto:datacraftconsultants@gmail.com?subject=' + encodeURIComponent(subjectRaw) + '&body=' + encodeURIComponent(bodyRaw);
       fallbackLink.href = mailtoHref;
 
+      if (window.umami) umami.track('Contact Form Submit', { service: service || 'not specified' });
+
       await copyMessage();
       window.location.href = mailtoHref;
 
@@ -280,5 +282,6 @@
 })();
 </script>
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "85fa658dd15d4cb592667b7ee08a96aa"}'></script><!-- End Cloudflare Web Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="b44badc8-2c2e-4fc3-ad6d-8005dbf5158b"></script>
 </body>
 </html>
