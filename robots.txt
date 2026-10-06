@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /demo/
+Disallow: /preview/
 
 Sitemap: https://datacraft.lv/sitemap.xml

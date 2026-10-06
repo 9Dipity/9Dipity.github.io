@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ugunsvija — priekšskatījums</title>
+<meta name="description" content="Ugunsvija — tēmu krogs Briāna ielā ar Latvijas amatnieku alu, medalu un ziemeļu mitoloģiju.">
+<link rel="stylesheet" href="../_fonts/fonts.css">
+<style>
+:root {
+  --bg: #121110; --fg: #efe6d8; --muted: #a89b88; --surface: #1c1a17;
+  --accent: #ff7a29; --accent-ink: #170d05; --line: #34302a;
+  --display: 'Cinzel', Georgia, 'Times New Roman', serif; --body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --radius: 2px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 var(--body);
+  -webkit-font-smoothing: antialiased; padding-bottom: 92px; }
+a { color: inherit; }
+html:not([data-lang="en"]) .t-en, html[data-lang="en"] .t-lv { display: none !important; }
+.wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom: 1px solid var(--line); }
+.nav { display: flex; align-items: center; gap: 20px; height: 64px; }
+.brand { font: 700 1.35rem/1 var(--display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; text-decoration: none; letter-spacing: 0.12em;
+  text-transform: uppercase; margin-right: auto; }
+.links { display: none; gap: 22px; font-size: .95rem; }
+.links a { text-decoration: none; color: var(--muted); }
+.links a:hover { color: var(--fg); }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.lang button { background: none; border: 0; color: var(--muted); font: 600 .78rem/1 var(--body);
+  padding: 8px 11px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px;
+  background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none;
+  border: 1px solid var(--accent); transition: transform .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn.ghost { background: transparent; color: var(--fg); border-color: var(--line); }
+.nav .btn { padding: 9px 16px; font-size: .9rem; display: none; }
+.lang { flex: none; }
+
+.hero { position: relative; overflow: hidden; padding: clamp(56px, 11vw, 132px) 0 clamp(48px, 8vw, 96px); }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(55% 70% at 50% 115%, rgba(255,122,41,.45), rgba(255,122,41,.08) 55%, transparent 70%), radial-gradient(30% 40% at 50% 100%, rgba(255,200,90,.25), transparent 70%), #121110; }
+.eyebrow { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.hero h1 { font: 800 clamp(2.9rem, 9.5vw, 6.6rem)/.95 var(--display); margin: 14px 0 22px;
+  letter-spacing: 0.02em; text-transform: none; max-width: 14ch; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero p.lead { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--muted); max-width: 54ch; margin: 0 0 30px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.status { display: inline-flex; align-items: center; gap: 9px; margin-top: 28px; font-size: .92rem; color: var(--muted); }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: #9ca3af; }
+.status.open .dot { background: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,.18); }
+
+section { padding: clamp(56px, 9vw, 104px) 0; border-top: 1px solid var(--line); }
+h2 { font: 700 clamp(2rem, 5vw, 3.2rem)/1.05 var(--display); margin: 0 0 18px; letter-spacing: -0.01em;
+  text-transform: none; }
+.about p { max-width: 62ch; font-size: 1.08rem; }
+.cards { display: grid; gap: 16px; margin-top: 36px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+.card h3 { font: 700 1.3rem/1.2 var(--display); margin: 0 0 8px; }
+.card p { margin: 0; color: var(--muted); }
+
+.menu-list { margin-top: 28px; display: grid; gap: 0 48px; }
+.dish { display: flex; justify-content: space-between; gap: 18px; padding: 16px 0; border-bottom: 1px dashed var(--line); }
+.dish-name { font-weight: 600; }
+.dish-name small { display: block; font-weight: 400; color: var(--muted); font-size: .9rem; margin-top: 2px; }
+.dish-price { font: 700 1.05rem/1.4 var(--display); color: var(--accent); white-space: nowrap; }
+.menu-note { margin-top: 28px; padding: 22px 24px; border: 1.5px dashed var(--accent); border-radius: var(--radius);
+  color: var(--muted); }
+.menu-note p { margin: 0; }
+
+.split { display: grid; gap: 40px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 11px 0; border-bottom: 1px solid var(--line); font-weight: 400; }
+td { text-align: right; font-variant-numeric: tabular-nums; }
+tr.today th, tr.today td { color: var(--accent); font-weight: 600; }
+address { font-style: normal; font-size: 1.15rem; margin-bottom: 18px; }
+.contact-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 8px; }
+.contact-list a { text-decoration: none; border-bottom: 1px solid var(--line); }
+
+footer { padding: 36px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+
+.preview-bar { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50; display: flex; gap: 14px;
+  align-items: center; padding: 12px 14px 12px 18px; border-radius: 16px; background: #111; color: #f5f5f5;
+  font: 500 .84rem/1.4 system-ui, sans-serif; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+.preview-bar p { margin: 0; flex: 1; }
+.preview-bar a { background: #ffd23f; color: #111; padding: 9px 14px; border-radius: 10px; font-weight: 700;
+  text-decoration: none; white-space: nowrap; }
+.preview-bar .bar-long { display: none; }
+.preview-bar button { background: none; border: 0; color: #aaa; font-size: 1.3rem; cursor: pointer; padding: 4px; }
+
+@media (min-width: 560px) {
+  .nav .btn { display: inline-flex; }
+  .preview-bar .bar-long { display: block; }
+  .preview-bar .bar-short { display: none; }
+}
+@media (min-width: 760px) {
+  .links { display: flex; }
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .menu-list { grid-template-columns: 1fr 1fr; }
+  .split { grid-template-columns: 1fr 1fr; gap: 72px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">Ugunsvija</a>
+    <nav class="links">
+      <a href="#about"><span class="t-lv" lang="lv">Par mums</span><span class="t-en" lang="en">About</span></a><a href="#menu"><span class="t-lv" lang="lv">Ēdienkarte</span><span class="t-en" lang="en">Menu</span></a>
+      <a href="#hours"><span class="t-lv" lang="lv">Darba laiks</span><span class="t-en" lang="en">Opening hours</span></a><a href="#contact"><span class="t-lv" lang="lv">Kontakti</span><span class="t-en" lang="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set-lang="lv" aria-pressed="true">LV</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+    
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="t-lv eyebrow" lang="lv">Krogs · Medalus · Briāna iela</div><div class="t-en eyebrow" lang="en">Pub · Mead · Briāna street</div>
+      <h1 class="t-lv" lang="lv">Alus, medalus un <em>senās teikas</em>.</h1><h1 class="t-en" lang="en">Ale, mead and <em>old legends</em>.</h1>
+      <p class="t-lv lead" lang="lv">Apkaimes krogs ar ziemeļu mitoloģijas un senču ieroču noskaņu — krāna alus, Latvijas amatnieku alus, medalus un novuss.</p><p class="t-en lead" lang="en">A neighbourhood pub steeped in Nordic mythology and ancient weaponry — tap beer, Latvian craft ale, mead and novuss.</p>
+      <div class="ctas">
+        
+        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Ugunsvija%2C%20Aristida%20Bri%C4%81na%20iela%2010%2C%20R%C4%ABga%2C%20LV-1001" rel="noopener"><span class="t-lv" lang="lv">Kā nokļūt</span><span class="t-en" lang="en">Directions</span> →</a>
+      </div>
+      <div class="status" id="status"><span class="dot"></span><span id="status-text"></span></div>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <h2><span class="t-lv" lang="lv">Par mums</span><span class="t-en" lang="en">About</span></h2>
+      <div class="t-lv" lang="lv"><p>Ugunsvija atvērās 2025. gadā Aristida Briāna ielā. Iekšā — ziemeļu mitoloģija, senču ieroči un silta krāsns ziemā; glāzēs — krāna alus, Latvijas amatnieku alus un medalus. Saimnieki rīko arī stāstījumus par vietējo vēsturi, dzelzs laikmetu, ieročiem un tērpiem.</p></div><div class="t-en" lang="en"><p>Ugunsvija opened in 2025 on Aristida Briāna street. Inside: Nordic mythology, ancient weapons and a warm stove in winter; in the glass: tap beer, Latvian craft ale and mead. The owners also host talks on local history, the Iron Age, weaponry and clothing.</p></div>
+      <div class="cards"><article class="card"><h3><span class="t-lv" lang="lv">Medalus</span><span class="t-en" lang="en">Mead</span></h3><p><span class="t-lv" lang="lv">Senču dzēriens — tieši tāds, kā pienākas šādā vietā.</span><span class="t-en" lang="en">The ancestors' drink — exactly right for a place like this.</span></p></article><article class="card"><h3><span class="t-lv" lang="lv">Latvijas amatnieku alus</span><span class="t-en" lang="en">Latvian craft beer</span></h3><p><span class="t-lv" lang="lv">Krāna alus un ledusskapis ar vietējo amatnieku alu.</span><span class="t-en" lang="en">Taps plus a fridge of local craft ales.</span></p></article><article class="card"><h3><span class="t-lv" lang="lv">Vēstures vakari</span><span class="t-en" lang="en">History nights</span></h3><p><span class="t-lv" lang="lv">Stāstījumi par dzelzs laikmetu, ieročiem un tērpiem.</span><span class="t-en" lang="en">Talks on the Iron Age, weaponry and clothing.</span></p></article></div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <h2><span class="t-lv" lang="lv">Dzērieni un vakari</span><span class="t-en" lang="en">Drinks & nights</span></h2>
+      
+      <div class="menu-note"><p class="t-lv" lang="lv"><strong>Šeit būs jūsu dzērienu karte un pasākumu kalendārs</strong> — nākamie stāstījumi par dzelzs laikmetu, novusa vakari un tas, kas šobrīd krānos. Ar iespēju pieteikties pasākumiem.</p><p class="t-en" lang="en"><strong>Your drinks list and events calendar go here</strong> — the next Iron Age talk, novuss nights and what's on tap right now. With sign-up for events.</p></div>
+    </div>
+  </section>
+
+  <section id="hours">
+    <div class="wrap split">
+      <div>
+        <h2><span class="t-lv" lang="lv">Darba laiks</span><span class="t-en" lang="en">Opening hours</span></h2>
+        <table><tr data-day="0"><th><span class="t-lv" lang="lv">Pirmdiena</span><span class="t-en" lang="en">Monday</span></th><td><span class="t-lv" lang="lv">Slēgts</span><span class="t-en" lang="en">Closed</span></td></tr><tr data-day="1"><th><span class="t-lv" lang="lv">Otrdiena</span><span class="t-en" lang="en">Tuesday</span></th><td>17:00–00:00</td></tr><tr data-day="2"><th><span class="t-lv" lang="lv">Trešdiena</span><span class="t-en" lang="en">Wednesday</span></th><td>17:00–00:00</td></tr><tr data-day="3"><th><span class="t-lv" lang="lv">Ceturtdiena</span><span class="t-en" lang="en">Thursday</span></th><td>17:00–00:00</td></tr><tr data-day="4"><th><span class="t-lv" lang="lv">Piektdiena</span><span class="t-en" lang="en">Friday</span></th><td>17:00–03:00</td></tr><tr data-day="5"><th><span class="t-lv" lang="lv">Sestdiena</span><span class="t-en" lang="en">Saturday</span></th><td>17:00–03:00</td></tr><tr data-day="6"><th><span class="t-lv" lang="lv">Svētdiena</span><span class="t-en" lang="en">Sunday</span></th><td><span class="t-lv" lang="lv">Slēgts</span><span class="t-en" lang="en">Closed</span></td></tr></table>
+      </div>
+      <div id="contact">
+        <h2><span class="t-lv" lang="lv">Kontakti</span><span class="t-en" lang="en">Contact</span></h2>
+        <address>Aristida Briāna iela 10, Rīga, LV-1001</address>
+        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Ugunsvija%2C%20Aristida%20Bri%C4%81na%20iela%2010%2C%20R%C4%ABga%2C%20LV-1001" rel="noopener"><span class="t-lv" lang="lv">Atvērt kartē</span><span class="t-en" lang="en">Open in maps</span> →</a>
+        <ul class="contact-list">
+          
+          <li><a href="mailto:ugunsvija@gmail.com">ugunsvija@gmail.com</a></li>
+          <li><a href="https://www.facebook.com/ugunsvija" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Ugunsvija</div></footer>
+
+<div class="preview-bar" id="preview-bar" role="note">
+  <p class="bar-long"><span class="t-lv" lang="lv">Priekšskatījums. Šo lapas paraugu uzņēmumam Ugunsvija sagatavoja DataCraft no publiski pieejamas informācijas — tā nav Ugunsvija oficiālā mājaslapa.</span><span class="t-en" lang="en">Preview. This sample page for Ugunsvija was prepared by DataCraft from public information — it is not Ugunsvija&#x27;s official website.</span></p>
+  <p class="bar-short"><span class="t-lv" lang="lv">DataCraft priekšskatījums — nav Ugunsvija oficiālā lapa.</span><span class="t-en" lang="en">DataCraft preview — not Ugunsvija&#x27;s official site.</span></p>
+  <a href="mailto:arturs@datacraft.lv?subject=M%C4%81jaslapa%3A%20Ugunsvija"><span class="t-lv" lang="lv">Gribu šādu lapu</span><span class="t-en" lang="en">I want this site</span></a>
+  <button type="button" aria-label="Aizvērt" onclick="this.parentElement.remove()">×</button>
+</div>
+
+<script>
+(() => {
+  const hours = [null, "17:00\u201300:00", "17:00\u201300:00", "17:00\u201300:00", "17:00\u201303:00", "17:00\u201303:00", null];
+  const ui = {"lv": {"open": "Šobrīd atvērts", "closed": "Šobrīd slēgts"}, "en": {"open": "Open now", "closed": "Closed now"}};
+  const root = document.documentElement;
+  function setLang(lang) {
+    root.dataset.lang = lang; root.lang = lang;
+    document.querySelectorAll('[data-set-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.setLang === lang));
+    renderStatus();
+  }
+  function minutes(hhmm) { const [h, m] = hhmm.split(':').map(Number); return h * 60 + m; }
+  function isOpen(now) {
+    // Riga local time; ranges like "14:00–23:00" or "17:00–03:00" (past midnight)
+    const day = (now.getDay() + 6) % 7, t = now.getHours() * 60 + now.getMinutes();
+    const check = (d, past) => {
+      const h = hours[d]; if (!h) return false;
+      return h.split(',').some(r => {
+        const [a, b] = r.trim().split(/[–-]/).map(minutes);
+        if (b > a) return !past && t >= a && t < b;
+        return past ? t < b : t >= a;
+      });
+    };
+    return check(day, false) || check((day + 6) % 7, true);
+  }
+  function renderStatus() {
+    const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Riga' }));
+    const open = isOpen(now), lang = root.dataset.lang || 'lv';
+    document.getElementById('status').classList.toggle('open', open);
+    document.getElementById('status-text').textContent = open ? ui[lang].open : ui[lang].closed;
+    const today = (now.getDay() + 6) % 7;
+    document.querySelectorAll('tr[data-day]').forEach(r => r.classList.toggle('today', +r.dataset.day === today));
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.setLang)));
+  setLang('lv');
+})();
+</script>
+</body>
+</html>
