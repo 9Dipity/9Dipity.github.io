@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Coffee STOP — priekšskatījums</title>
+<meta name="description" content="Coffee STOP — kafejnīca Lielirbes iela 29, Rīga.">
+<link rel="stylesheet" href="../_fonts/fonts.css">
+<style>
+:root {
+  --bg: #fbf6ef; --fg: #2a211b; --muted: #6f6259; --surface: #ffffff;
+  --accent: #c2552d; --accent-ink: #ffffff; --line: #eadfd2;
+  --display: 'Fraunces', Georgia, 'Times New Roman', serif; --body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --radius: 18px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 var(--body);
+  -webkit-font-smoothing: antialiased; padding-bottom: 92px; }
+a { color: inherit; }
+html:not([data-lang="en"]) .t-en, html[data-lang="en"] .t-lv { display: none !important; }
+.wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--bg) 82%, transparent); border-bottom: 1px solid var(--line); }
+.nav { display: flex; align-items: center; gap: 20px; height: 64px; }
+.brand { font: 700 1.35rem/1 var(--display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; text-decoration: none; letter-spacing: 0;
+  text-transform: none; margin-right: auto; }
+.links { display: none; gap: 22px; font-size: .95rem; }
+.links a { text-decoration: none; color: var(--muted); }
+.links a:hover { color: var(--fg); }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.lang button { background: none; border: 0; color: var(--muted); font: 600 .78rem/1 var(--body);
+  padding: 8px 11px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px;
+  background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none;
+  border: 1px solid var(--accent); transition: transform .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn.ghost { background: transparent; color: var(--fg); border-color: var(--line); }
+.nav .btn { padding: 9px 16px; font-size: .9rem; display: none; }
+.lang { flex: none; }
+
+.hero { position: relative; overflow: hidden; padding: clamp(56px, 11vw, 132px) 0 clamp(48px, 8vw, 96px); }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(55% 70% at 90% 10%, #f6d9c4 0 55%, transparent 56%), #fbf6ef; }
+.eyebrow { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.hero h1 { font: 700 clamp(2.9rem, 9.5vw, 6.6rem)/.95 var(--display); margin: 14px 0 22px;
+  letter-spacing: -0.02em; text-transform: none; max-width: 14ch; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero p.lead { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--muted); max-width: 54ch; margin: 0 0 30px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.status { display: inline-flex; align-items: center; gap: 9px; margin-top: 28px; font-size: .92rem; color: var(--muted); }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: #9ca3af; }
+.status.open .dot { background: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,.18); }
+
+section { padding: clamp(56px, 9vw, 104px) 0; border-top: 1px solid var(--line); }
+h2 { font: 700 clamp(2rem, 5vw, 3.2rem)/1.05 var(--display); margin: 0 0 18px; letter-spacing: -0.01em;
+  text-transform: none; }
+.about p { max-width: 62ch; font-size: 1.08rem; }
+.cards { display: grid; gap: 16px; margin-top: 36px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+.card h3 { font: 700 1.3rem/1.2 var(--display); margin: 0 0 8px; }
+.card p { margin: 0; color: var(--muted); }
+
+.menu-list { margin-top: 28px; display: grid; gap: 0 48px; }
+.dish { display: flex; justify-content: space-between; gap: 18px; padding: 16px 0; border-bottom: 1px dashed var(--line); }
+.dish-name { font-weight: 600; }
+.dish-name small { display: block; font-weight: 400; color: var(--muted); font-size: .9rem; margin-top: 2px; }
+.dish-price { font: 700 1.05rem/1.4 var(--display); color: var(--accent); white-space: nowrap; }
+.menu-note { margin-top: 28px; padding: 22px 24px; border: 1.5px dashed var(--accent); border-radius: var(--radius);
+  color: var(--muted); }
+.menu-note p { margin: 0; }
+
+.split { display: grid; gap: 40px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 11px 0; border-bottom: 1px solid var(--line); font-weight: 400; }
+td { text-align: right; font-variant-numeric: tabular-nums; }
+tr.today th, tr.today td { color: var(--accent); font-weight: 600; }
+address { font-style: normal; font-size: 1.15rem; margin-bottom: 18px; }
+.contact-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 8px; }
+.contact-list a { text-decoration: none; border-bottom: 1px solid var(--line); }
+
+footer { padding: 36px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+
+.preview-bar { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50; display: flex; gap: 14px;
+  align-items: center; padding: 12px 14px 12px 18px; border-radius: 16px; background: #111; color: #f5f5f5;
+  font: 500 .84rem/1.4 system-ui, sans-serif; box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+.preview-bar p { margin: 0; flex: 1; }
+.preview-bar a { background: #ffd23f; color: #111; padding: 9px 14px; border-radius: 10px; font-weight: 700;
+  text-decoration: none; white-space: nowrap; }
+.preview-bar .bar-long { display: none; }
+.preview-bar button { background: none; border: 0; color: #aaa; font-size: 1.3rem; cursor: pointer; padding: 4px; }
+
+@media (min-width: 560px) {
+  .nav .btn { display: inline-flex; }
+  .preview-bar .bar-long { display: block; }
+  .preview-bar .bar-short { display: none; }
+}
+@media (min-width: 760px) {
+  .links { display: flex; }
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .menu-list { grid-template-columns: 1fr 1fr; }
+  .split { grid-template-columns: 1fr 1fr; gap: 72px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">Coffee STOP</a>
+    <nav class="links">
+      <a href="#about"><span class="t-lv" lang="lv">Par mums</span><span class="t-en" lang="en">About</span></a><a href="#menu"><span class="t-lv" lang="lv">Ēdienkarte</span><span class="t-en" lang="en">Menu</span></a>
+      <a href="#hours"><span class="t-lv" lang="lv">Darba laiks</span><span class="t-en" lang="en">Opening hours</span></a><a href="#contact"><span class="t-lv" lang="lv">Kontakti</span><span class="t-en" lang="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set-lang="lv" aria-pressed="true">LV</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn" href="tel:+37126542949"><span class="t-lv" lang="lv">Zvanīt</span><span class="t-en" lang="en">Call</span></a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="t-lv eyebrow" lang="lv">Kafejnīca · Kafija · Lielirbes iela 29</div><div class="t-en eyebrow" lang="en">Café · Coffee · Lielirbes iela 29</div>
+      <h1 class="t-lv" lang="lv">Coffee <em>STOP</em></h1><h1 class="t-en" lang="en">Coffee <em>STOP</em></h1>
+      <p class="t-lv lead" lang="lv">Kafejnīca — kafija Lielirbes iela 29, Rīga. Darba laiks, adrese un kontakti — vienuviet un ērti telefonā.</p><p class="t-en lead" lang="en">Café — coffee in Rīga. Opening hours, address and contacts — in one place, easy on your phone.</p>
+      <div class="ctas">
+        <a class="btn" href="tel:+37126542949"><span class="t-lv" lang="lv">Zvanīt</span><span class="t-en" lang="en">Call</span> +371 26542949</a>
+        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Coffee%20STOP%2C%20Lielirbes%20iela%2029%2C%20R%C4%ABga%2C%20LV-1046" rel="noopener"><span class="t-lv" lang="lv">Kā nokļūt</span><span class="t-en" lang="en">Directions</span> →</a>
+      </div>
+      <div class="status" id="status"><span class="dot"></span><span id="status-text"></span></div>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <h2><span class="t-lv" lang="lv">Par mums</span><span class="t-en" lang="en">About</span></h2>
+      <div class="t-lv" lang="lv"><p>Coffee STOP — kafejnīca (kafija), Lielirbes iela 29, Rīga.</p></div><div class="t-en" lang="en"><p>Coffee STOP — café (coffee), Lielirbes iela 29, Rīga.</p></div>
+      <div class="cards"><article class="card"><h3><span class="t-lv" lang="lv">Darba laiks vienmēr aktuāls</span><span class="t-en" lang="en">Hours always current</span></h3><p><span class="t-lv" lang="lv">Atvērts vai slēgts — redzams uzreiz.</span><span class="t-en" lang="en">Open or closed — at a glance.</span></p></article><article class="card"><h3><span class="t-lv" lang="lv">Viegli atrast</span><span class="t-en" lang="en">Easy to find</span></h3><p><span class="t-lv" lang="lv">Adrese, karte un zvana poga vienā vietā.</span><span class="t-en" lang="en">Address, map and call button in one place.</span></p></article><article class="card"><h3><span class="t-lv" lang="lv">Latviski un angliski</span><span class="t-en" lang="en">Latvian & English</span></h3><p><span class="t-lv" lang="lv">Saprotams arī pilsētas viesiem.</span><span class="t-en" lang="en">Clear for visitors too.</span></p></article></div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <h2><span class="t-lv" lang="lv">Ēdienkarte</span><span class="t-en" lang="en">Menu</span></h2>
+      
+      <div class="menu-note"><p class="t-lv" lang="lv"><strong>Šeit būs jūsu ēdienkarte</strong> — ar cenām un fotogrāfijām, kā īsta lapa, kas ērti lasāma telefonā un atrodama Google. Var pievienot arī galdiņu rezervāciju vai pasūtīšanu līdzņemšanai bez platformu komisijas.</p><p class="t-en" lang="en"><strong>Your menu goes here</strong> — with prices and photos, as a real page that reads well on phones and shows up in Google. Table booking or pickup ordering without platform commission can be added too.</p></div>
+    </div>
+  </section>
+
+  <section id="hours">
+    <div class="wrap split">
+      <div>
+        <h2><span class="t-lv" lang="lv">Darba laiks</span><span class="t-en" lang="en">Opening hours</span></h2>
+        <table><tr data-day="0"><th><span class="t-lv" lang="lv">Pirmdiena</span><span class="t-en" lang="en">Monday</span></th><td>08:00–19:00</td></tr><tr data-day="1"><th><span class="t-lv" lang="lv">Otrdiena</span><span class="t-en" lang="en">Tuesday</span></th><td>08:00–19:00</td></tr><tr data-day="2"><th><span class="t-lv" lang="lv">Trešdiena</span><span class="t-en" lang="en">Wednesday</span></th><td>08:00–19:00</td></tr><tr data-day="3"><th><span class="t-lv" lang="lv">Ceturtdiena</span><span class="t-en" lang="en">Thursday</span></th><td>08:00–19:00</td></tr><tr data-day="4"><th><span class="t-lv" lang="lv">Piektdiena</span><span class="t-en" lang="en">Friday</span></th><td>08:00–19:00</td></tr><tr data-day="5"><th><span class="t-lv" lang="lv">Sestdiena</span><span class="t-en" lang="en">Saturday</span></th><td>09:00–19:00</td></tr><tr data-day="6"><th><span class="t-lv" lang="lv">Svētdiena</span><span class="t-en" lang="en">Sunday</span></th><td>09:00–19:00</td></tr></table>
+      </div>
+      <div id="contact">
+        <h2><span class="t-lv" lang="lv">Kontakti</span><span class="t-en" lang="en">Contact</span></h2>
+        <address>Lielirbes iela 29, Rīga, LV-1046</address>
+        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Coffee%20STOP%2C%20Lielirbes%20iela%2029%2C%20R%C4%ABga%2C%20LV-1046" rel="noopener"><span class="t-lv" lang="lv">Atvērt kartē</span><span class="t-en" lang="en">Open in maps</span> →</a>
+        <ul class="contact-list">
+          <li><a href="tel:+37126542949">+371 26542949</a></li>
+          
+          <li><a href="https://www.facebook.com/CoffeeStopMarupe" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Coffee STOP</div></footer>
+
+<div class="preview-bar" id="preview-bar" role="note">
+  <p class="bar-long"><span class="t-lv" lang="lv">Priekšskatījums. Šo lapas paraugu uzņēmumam Coffee STOP sagatavoja DataCraft no publiski pieejamas informācijas — tā nav Coffee STOP oficiālā mājaslapa.</span><span class="t-en" lang="en">Preview. This sample page for Coffee STOP was prepared by DataCraft from public information — it is not Coffee STOP&#x27;s official website.</span></p>
+  <p class="bar-short"><span class="t-lv" lang="lv">DataCraft priekšskatījums — nav Coffee STOP oficiālā lapa.</span><span class="t-en" lang="en">DataCraft preview — not Coffee STOP&#x27;s official site.</span></p>
+  <a href="mailto:arturs@datacraft.lv?subject=M%C4%81jaslapa%3A%20Coffee%20STOP"><span class="t-lv" lang="lv">Gribu šādu lapu</span><span class="t-en" lang="en">I want this site</span></a>
+  <button type="button" aria-label="Aizvērt" onclick="this.parentElement.remove()">×</button>
+</div>
+
+<script>
+(() => {
+  const hours = ["08:00\u201319:00", "08:00\u201319:00", "08:00\u201319:00", "08:00\u201319:00", "08:00\u201319:00", "09:00\u201319:00", "09:00\u201319:00"];
+  const ui = {"lv": {"open": "Šobrīd atvērts", "closed": "Šobrīd slēgts"}, "en": {"open": "Open now", "closed": "Closed now"}};
+  const root = document.documentElement;
+  function setLang(lang) {
+    root.dataset.lang = lang; root.lang = lang;
+    document.querySelectorAll('[data-set-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.setLang === lang));
+    renderStatus();
+  }
+  function minutes(hhmm) { const [h, m] = hhmm.split(':').map(Number); return h * 60 + m; }
+  function isOpen(now) {
+    // Riga local time; ranges like "14:00–23:00" or "17:00–03:00" (past midnight)
+    const day = (now.getDay() + 6) % 7, t = now.getHours() * 60 + now.getMinutes();
+    const check = (d, past) => {
+      const h = hours[d]; if (!h) return false;
+      return h.split(',').some(r => {
+        const [a, b] = r.trim().split(/[–-]/).map(minutes);
+        if (b > a) return !past && t >= a && t < b;
+        return past ? t < b : t >= a;
+      });
+    };
+    return check(day, false) || check((day + 6) % 7, true);
+  }
+  function renderStatus() {
+    if (!hours) return;
+    const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Riga' }));
+    const open = isOpen(now), lang = root.dataset.lang || 'lv';
+    document.getElementById('status').classList.toggle('open', open);
+    document.getElementById('status-text').textContent = open ? ui[lang].open : ui[lang].closed;
+    const today = (now.getDay() + 6) % 7;
+    document.querySelectorAll('tr[data-day]').forEach(r => r.classList.toggle('today', +r.dataset.day === today));
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.setLang)));
+  setLang('lv');
+})();
+</script>
+</body>
+</html>
